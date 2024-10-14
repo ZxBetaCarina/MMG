@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
 public class UIManagement : MonoBehaviour
@@ -12,12 +11,9 @@ public class UIManagement : MonoBehaviour
     [SerializeField] Transform _screens_parent_transform;
     [SerializeField] List<Sprite> _off_on_sprite;
 
-    [Header("Splash")]
-    [SerializeField] Image _splash_image;
-    [SerializeField] float _fade_duration, _splash_duration;
 
     [Header("Dock")]
-    [SerializeField] DockManager dockManager;  // Reference to the DockManager
+      // Reference to the DockManager
     // [SerializeField] Image _dock_bg;
     // [SerializeField] List<Sprite> _dock_bg_sprite_list;
     // [SerializeField] List<Image> _dock_active_button_list;
@@ -27,10 +23,10 @@ public class UIManagement : MonoBehaviour
     [Header("QR TEMP")]
     [SerializeField] GameObject _qr_overlay_object;
     [SerializeField] GameObject _qr_overlay_popup_object;
-
+    
     [Header("OTP")]
     [SerializeField] List<TMP_InputField> _otp_input_field_list;
-
+    
     [Header("User")]
     [SerializeField] List<Sprite> _radio_button_off_on_sprite_list;
     [SerializeField] List<Image> _radio_button_image_list;
@@ -40,70 +36,58 @@ public class UIManagement : MonoBehaviour
     string _last_input = "";
     bool _is_formatting;
 
-    IEnumerator Start()
-    {
-        _qr_overlay_colour = _qr_overlay_object.GetComponent<Image>().color;
-        _splash_image.color = new Color(_splash_image.color.r, _splash_image.color.g, _splash_image.color.b, 0);
-        yield return new WaitForSeconds(_splash_duration);
-        AppearanceManager._AM.Fade_game_object_in(_splash_image.gameObject, _splash_duration, AnimationDirection.Up, () =>
-        {
-            StartCoroutine(Cor_splash_out());
-        });
-    }
+    // IEnumerator Start()
+    // {
+    //     _qr_overlay_colour = _qr_overlay_object.GetComponent<Image>().color;
+    //     _splash_image.color = new Color(_splash_image.color.r, _splash_image.color.g, _splash_image.color.b, 0);
+    //     yield return new WaitForSeconds(_splash_duration);
+    //     AppearanceManager._AM.Fade_game_object_in(_splash_image.gameObject, _splash_duration, AnimationDirection.Up, () =>
+    //     {
+    //         StartCoroutine(Cor_splash_out());
+    //     });
+    // }
     
-
-    public void Button_Activate_Dock_Button_And_Screen(int p_index)
-    {
-        dockManager.ActivateDockButtonAndScreen(p_index);
-    }
-
-    IEnumerator Cor_splash_out()
-    {
-        yield return new WaitForSeconds(_fade_duration);
-        AppearanceManager._AM.Fade_game_object_out(_splash_image.gameObject, _splash_duration, AnimationDirection.Up, () => Button_Activate_Screen(1));
-    }
-
-    public void Button_Activate_Screen(int p_index)
-    {
-        if (p_index == 1)
-        {
-            _last_dock = 0;
-        }
-
-        if (p_index == 4)
-        {
-            float t_fade_duration = _fade_duration;
-            _fade_duration = 0.0001f;
-            Button_Activate_Dock_Button_And_Screen(_last_dock);
-            _fade_duration = t_fade_duration;
-        }
-
-        //  fade out existing screen first
-        for (int i = 0; i < _screens_parent_transform.childCount; i++)
-        {
-            if (i == p_index)
-            {
-                continue;
-            }
-            else if (_screens_parent_transform.GetChild(i).gameObject.activeInHierarchy)
-            {
-                AppearanceManager._AM.Fade_game_object_out(_screens_parent_transform.GetChild(i).gameObject, _fade_duration, AnimationDirection.Down, () =>
-                {
-                    _screens_parent_transform.GetChild(i).gameObject.SetActive(false);
-                    StartCoroutine(Cor_activate_screen(p_index));
-                });
-                break;
-            }
-        }
-    }
-
-    IEnumerator Cor_activate_screen(int p_index)
-    {
-        yield return new WaitForSeconds(_fade_duration);
-        GameObject t_selected_screen_object = _screens_parent_transform.GetChild(p_index).gameObject;
-        t_selected_screen_object.SetActive(true);
-        AppearanceManager._AM.Fade_game_object_in(t_selected_screen_object, _fade_duration, AnimationDirection.Up);
-    }
+    // public void Button_Activate_Screen(int p_index)
+    // {
+    //     if (p_index == 1)
+    //     {
+    //         _last_dock = 0;
+    //     }
+    //
+    //     if (p_index == 4)
+    //     {
+    //         float t_fade_duration = _fade_duration;
+    //         _fade_duration = 0.0001f;
+    //         Button_Activate_Dock_Button_And_Screen(_last_dock);
+    //         _fade_duration = t_fade_duration;
+    //     }
+    //
+    //     //  fade out existing screen first
+    //     for (int i = 0; i < _screens_parent_transform.childCount; i++)
+    //     {
+    //         if (i == p_index)
+    //         {
+    //             continue;
+    //         }
+    //         else if (_screens_parent_transform.GetChild(i).gameObject.activeInHierarchy)
+    //         {
+    //             AppearanceManager._AM.Fade_game_object_out(_screens_parent_transform.GetChild(i).gameObject, _fade_duration, AnimationDirection.Down, () =>
+    //             {
+    //                 _screens_parent_transform.GetChild(i).gameObject.SetActive(false);
+    //                 StartCoroutine(Cor_activate_screen(p_index));
+    //             });
+    //             break;
+    //         }
+    //     }
+    // }
+    //
+    // IEnumerator Cor_activate_screen(int p_index)
+    // {
+    //     yield return new WaitForSeconds(_fade_duration);
+    //     GameObject t_selected_screen_object = _screens_parent_transform.GetChild(p_index).gameObject;
+    //     t_selected_screen_object.SetActive(true);
+    //     AppearanceManager._AM.Fade_game_object_in(t_selected_screen_object, _fade_duration, AnimationDirection.Up);
+    // }
 
     // public void Button_Activate_Dock_Button_And_Screen(int p_index)
     // {
@@ -156,7 +140,7 @@ public class UIManagement : MonoBehaviour
     //     }
     //     StartCoroutine(Cor_activate_dock_button_and_screen(p_index));
     // }
-
+    //
     // IEnumerator Cor_activate_dock_button_and_screen(int p_index)
     // {
     //     yield return new WaitForSeconds(_fade_duration);
@@ -165,17 +149,17 @@ public class UIManagement : MonoBehaviour
     //     AppearanceManager._AM.Fade_game_object_in(t_selected_screen_object, _fade_duration, AnimationDirection.Up);
     // }
 
-    public void Button_QR_Overlay()
-    {
-        _qr_overlay_object.GetComponent<Image>().color = _qr_overlay_colour;
-        _qr_overlay_object.SetActive(true);
-        AppearanceManager._AM.Fade_game_object_in(_qr_overlay_popup_object, _fade_duration, AnimationDirection.Left);
-    }
-
-    public void Button_Reset_QR()
-    {
-        _qr_overlay_object.SetActive(false);
-    }
+    // public void Button_QR_Overlay()
+    // {
+    //     _qr_overlay_object.GetComponent<Image>().color = _qr_overlay_colour;
+    //     _qr_overlay_object.SetActive(true);
+    //     AppearanceManager._AM.Fade_game_object_in(_qr_overlay_popup_object, _fade_duration, AnimationDirection.Left);
+    // }
+    
+    // public void Button_Reset_QR()
+    // {
+    //     _qr_overlay_object.SetActive(false);
+    // }
 
     public void Button_ON_OFF()
     {
@@ -190,23 +174,23 @@ public class UIManagement : MonoBehaviour
         }
     }
 
-    public void Button_OTP_Input_Field_Change(int p_index)
-    {
-        if (p_index < _otp_input_field_list.Count - 1)
-        {
-            _otp_input_field_list[p_index + 1].ActivateInputField();
-        }
-        else
-        {
-            _otp_input_field_list[p_index].DeactivateInputField();
-        }
-    }
-
-    public void Button_User_Details_Radio_Buttons(int p_index)
-    {
-        _radio_button_image_list.ForEach(button => button.sprite = _radio_button_off_on_sprite_list[0]);
-        _radio_button_image_list[p_index].sprite = _radio_button_off_on_sprite_list[1];
-    }
+    // public void Button_OTP_Input_Field_Change(int p_index)
+    // {
+    //     if (p_index < _otp_input_field_list.Count - 1)
+    //     {
+    //         _otp_input_field_list[p_index + 1].ActivateInputField();
+    //     }
+    //     else
+    //     {
+    //         _otp_input_field_list[p_index].DeactivateInputField();
+    //     }
+    // }
+    //
+    // public void Button_User_Details_Radio_Buttons(int p_index)
+    // {
+    //     _radio_button_image_list.ForEach(button => button.sprite = _radio_button_off_on_sprite_list[0]);
+    //     _radio_button_image_list[p_index].sprite = _radio_button_off_on_sprite_list[1];
+    // }
 
     public void Button_Format_DOB_Input(string input)
     {

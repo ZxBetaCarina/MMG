@@ -14,24 +14,23 @@ public enum AnimationDirection
 
 public class AppearanceManager : MonoBehaviour
 {
-    public static AppearanceManager _AM;
+    public static AppearanceManager Singleton;
 
     Dictionary<int, Vector3> _original_poisition_dictionary = new();
 
     void Awake()
     {
-        if (_AM == null)
+        if (Singleton == null)
         {
-            _AM = this;
+            Singleton = this;
         }
         else
         {
             Destroy(this);
-            return;
         }
     }
 
-    internal void Fade_game_object_in(GameObject p_object, float p_fade_duration, AnimationDirection p_direction, Action p_post_complete_action = null)
+    internal void FadeIn(GameObject p_object, float p_fade_duration, AnimationDirection p_direction, Action p_post_complete_action = null)
     {
         Vector3 moveVector = Get_move_vector(p_direction, 50f);
 
@@ -54,7 +53,7 @@ public class AppearanceManager : MonoBehaviour
         sequence.Play();
     }
 
-    internal void Fade_game_object_out(GameObject p_object, float p_fade_duration, AnimationDirection p_direction, Action p_post_complete_action = null)
+    internal void FadeOut(GameObject p_object, float p_fade_duration, AnimationDirection p_direction, Action p_post_complete_action = null)
     {
         Vector3 moveVector = Get_move_vector(p_direction, 50f);
 
@@ -78,8 +77,6 @@ public class AppearanceManager : MonoBehaviour
         // Play the sequence
         sequence.Play();
     }
-
-
 
     Vector3 Get_move_vector(AnimationDirection p_direction, float p_distance)
     {

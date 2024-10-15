@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderValue: 0
-  animationDuration: 0.5
+  animationDuration: 0.1
   slideEase:
     serializedVersion: 2
     m_Curve:

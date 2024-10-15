@@ -3,7 +3,23 @@ using UnityEngine.UI;
 
 public class AppSettings : MonoBehaviour
 {
-    [SerializeField] private Toggle music;
-    [SerializeField] private Toggle effect;
-    [SerializeField] private Toggle vibrations;
+    [SerializeField] private Slider music;
+    [SerializeField] private Slider effect;
+    [SerializeField] private Slider vibrations;
+    [SerializeField] private Button back;
+
+    private void OnEnable()
+    {
+        back.onClick.AddListener(OnBack);
+    }
+
+    private void OnDisable()
+    {
+        back.onClick.RemoveListener(OnBack);
+    }
+
+    private void OnBack()
+    {
+        UIManager.LoadScreenAnimated(UIScreen.Home);
+    }
 }

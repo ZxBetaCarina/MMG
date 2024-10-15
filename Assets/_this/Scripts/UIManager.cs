@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private UIScreen startScreen;
     [SerializeField] private DockManager dockManager;
     [SerializeField] private Loading loading;
     [SerializeField] private PopUp popUp;
     [SerializeField] private List<UIElement> uiElements;
 
     private static List<UIElement> _uiElementsStatic;
-    private static float fadeDuration = 0.5f;
+    private static float fadeDuration = 0.1f;
     private static DockManager _dock;
     private static Loading _loading;
     private static PopUp _popUp;
@@ -36,7 +37,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        LoadScreen(UIScreen.Splash);
+        LoadScreen(startScreen);
     }
 
     public static void LoadScreen(UIScreen screen)
@@ -68,7 +69,7 @@ public class UIManager : MonoBehaviour
         DeactivateAllScreensAnimated(); // First deactivate all screens
         _instance.StartCoroutine(ScreenLoader(screen));
     }
-    
+
     private static IEnumerator ScreenLoader(UIScreen screen)
     {
         yield return new WaitForSeconds(fadeDuration);
@@ -107,6 +108,11 @@ public class UIManager : MonoBehaviour
         _popUp.LoadPopUp(head, body);
     }
 
+    public static void ShowPopUpAction(string head, string body, Action action)
+    {
+        _popUp.LoadPopUp(head,body,action);
+    }
+
     public static void Button_Activate_Dock_Button_And_Screen(int p_index)
     {
         _dock.ActivateDockButtonAndScreen(p_index);
@@ -135,7 +141,9 @@ public enum UIScreen
     Support,
     ExchangeCoins,
     RatePopUp,
-    InsufficientCoinsPopUp, // add new screens according to needs
+    InsufficientCoinsPopUp,
+    Withdraw,
+    Deposit // add new screens according to needs
 }
 
 [Serializable]

@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class DockManager : MonoBehaviour
 {
+    [SerializeField] private Button home;
+    [SerializeField] private Button refer;
+    [SerializeField] private Button game;
+    [SerializeField] private Button account;
     [SerializeField] Image _dock_bg;
     [SerializeField] List<Sprite> _dock_bg_sprite_list;
     [SerializeField] List<Image> _dock_active_button_list;
@@ -13,6 +17,22 @@ public class DockManager : MonoBehaviour
     [SerializeField] float _fade_duration;
 
     private int _last_dock;
+
+    private void OnEnable()
+    {
+        home.onClick.AddListener(() => ActivateDockButtonAndScreen(0));
+        refer.onClick.AddListener(() => ActivateDockButtonAndScreen(1));
+        game.onClick.AddListener(() => ActivateDockButtonAndScreen(2));
+        account.onClick.AddListener(() => ActivateDockButtonAndScreen(3));
+    }
+    
+    private void OnDisable()
+    {
+        home.onClick.RemoveListener(() => ActivateDockButtonAndScreen(0));
+        refer.onClick.RemoveListener(() => ActivateDockButtonAndScreen(1));
+        game.onClick.RemoveListener(() => ActivateDockButtonAndScreen(2));
+        account.onClick.RemoveListener(() => ActivateDockButtonAndScreen(3));
+    }
 
     public void ActivateDockButtonAndScreen(int p_index)
     {

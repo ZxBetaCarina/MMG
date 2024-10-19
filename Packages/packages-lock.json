@@ -159,6 +159,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.zx.logsystem": {
+      "version": "https://github.com/ZxDelt/ZxLogSystem.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "7077a56576ff55b9cf79216d170c952c255e58f8"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

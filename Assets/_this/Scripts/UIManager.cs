@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         LoadScreen(startScreen);
+        ApiManager.Initialize(this);
     }
 
     public static void LoadScreen(UIScreen screen)

@@ -38,6 +38,11 @@ public class Otp : MonoBehaviour
 
     private void OnVerify()
     {
+        
+    }
+
+    private static void NextScreen()
+    {
         OnOtpVerified.Invoke();
         UIManager.LoadScreenAnimated(UIScreen.Home);
     }
@@ -62,12 +67,6 @@ public class Otp : MonoBehaviour
         {
             otpFields[index - 1].ActivateInputField(); // Keeps the keyboard open when backspacing
         }
-
-        // if (otpFields[index].isFocused && otpFields[index].text == "")
-        // {
-        //     ResetAllFields();
-        //     otpFields[0].ActivateInputField();
-        // }
     }
 
     void ResetAllFields()

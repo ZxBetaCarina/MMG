@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
 
-public class Api : MonoBehaviour
+public class ApiManager : MonoBehaviour
 {
     private static MonoBehaviour _coroutineRunner;
     

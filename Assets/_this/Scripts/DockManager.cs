@@ -9,12 +9,12 @@ public class DockManager : MonoBehaviour
     [SerializeField] private Button refer;
     [SerializeField] private Button game;
     [SerializeField] private Button account;
-    [SerializeField] Image _dock_bg;
-    [SerializeField] List<Sprite> _dock_bg_sprite_list;
-    [SerializeField] List<Image> _dock_active_button_list;
-    [SerializeField] List<Button> _dock_inactive_button_list;
-    [SerializeField] Transform _dock_screens_parent;
-    [SerializeField] float _fade_duration;
+    [SerializeField] private Image dockBg;
+    [SerializeField] private List<Sprite> dockBgSpriteList;
+    [SerializeField] private List<Image> dockActiveButtonList;
+    [SerializeField] private List<Button> dockInactiveButtonList;
+    [SerializeField] private Transform dockScreensParent;
+    [SerializeField] private float fadeDuration;
 
     private int _last_dock;
 
@@ -25,7 +25,7 @@ public class DockManager : MonoBehaviour
         game.onClick.AddListener(() => ActivateDockButtonAndScreen(2));
         account.onClick.AddListener(() => ActivateDockButtonAndScreen(3));
     }
-    
+
     private void OnDisable()
     {
         home.onClick.RemoveListener(() => ActivateDockButtonAndScreen(0));
@@ -39,46 +39,49 @@ public class DockManager : MonoBehaviour
         _last_dock = p_index;
 
         // Active buttons
-        for (int i = 0; i < _dock_active_button_list.Count; i++)
+        for (int i = 0; i < dockActiveButtonList.Count; i++)
         {
             int t_index = i;
             if (i != p_index)
             {
-                AppearanceManager.Singleton.FadeOut(_dock_active_button_list[i].gameObject, _fade_duration, AnimationDirection.Down, () => _dock_active_button_list[t_index].enabled = false);
+                AppearanceManager.Singleton.FadeOut(dockActiveButtonList[i].gameObject, fadeDuration,
+                    AnimationDirection.Down, () => dockActiveButtonList[t_index].enabled = false);
             }
         }
 
-        _dock_active_button_list[p_index].enabled = true;
-        AppearanceManager.Singleton.FadeIn(_dock_active_button_list[p_index].gameObject, _fade_duration, AnimationDirection.Up);
+        dockActiveButtonList[p_index].enabled = true;
+        AppearanceManager.Singleton.FadeIn(dockActiveButtonList[p_index].gameObject, fadeDuration,
+            AnimationDirection.Up);
 
         // Dock background
-        _dock_bg.sprite = _dock_bg_sprite_list[p_index];
+        dockBg.sprite = dockBgSpriteList[p_index];
 
         // Inactive buttons
-        for (int i = 0; i < _dock_inactive_button_list.Count; i++)
+        for (int i = 0; i < dockInactiveButtonList.Count; i++)
         {
             int t_index = i;
-            if (i != p_index && !_dock_inactive_button_list[t_index].interactable)
+            if (i != p_index && !dockInactiveButtonList[t_index].interactable)
             {
-                _dock_inactive_button_list[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
-                AppearanceManager.Singleton.FadeIn(_dock_inactive_button_list[i].transform.GetChild(0).gameObject, _fade_duration, AnimationDirection.Up, () =>
-                {
-                    _dock_inactive_button_list[t_index].interactable = true;
-                });
+                dockInactiveButtonList[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
+                AppearanceManager.Singleton.FadeIn(dockInactiveButtonList[i].transform.GetChild(0).gameObject,
+                    fadeDuration, AnimationDirection.Up,
+                    () => { dockInactiveButtonList[t_index].interactable = true; });
             }
         }
 
-        _dock_inactive_button_list[p_index].transform.GetChild(0).GetComponent<Image>().enabled = false;
-        _dock_inactive_button_list[p_index].interactable = false;
-        AppearanceManager.Singleton.FadeOut(_dock_inactive_button_list[p_index].gameObject, _fade_duration, AnimationDirection.Down, null);
+        dockInactiveButtonList[p_index].transform.GetChild(0).GetComponent<Image>().enabled = false;
+        dockInactiveButtonList[p_index].interactable = false;
+        AppearanceManager.Singleton.FadeOut(dockInactiveButtonList[p_index].gameObject, fadeDuration,
+            AnimationDirection.Down, null);
 
         // Dock screens
-        for (int i = 0; i < _dock_screens_parent.childCount; i++)
+        for (int i = 0; i < dockScreensParent.childCount; i++)
         {
-            GameObject t_selected_screen_object = _dock_screens_parent.GetChild(i).gameObject;
+            GameObject t_selected_screen_object = dockScreensParent.GetChild(i).gameObject;
             if (i != p_index)
             {
-                AppearanceManager.Singleton.FadeOut(t_selected_screen_object, _fade_duration, AnimationDirection.Down, () => t_selected_screen_object.SetActive(false));
+                AppearanceManager.Singleton.FadeOut(t_selected_screen_object, fadeDuration, AnimationDirection.Down,
+                    () => t_selected_screen_object.SetActive(false));
             }
         }
 
@@ -87,9 +90,9 @@ public class DockManager : MonoBehaviour
 
     private IEnumerator Cor_ActivateDockButtonAndScreen(int p_index)
     {
-        yield return new WaitForSeconds(_fade_duration);
-        GameObject t_selected_screen_object = _dock_screens_parent.GetChild(p_index).gameObject;
+        yield return new WaitForSeconds(fadeDuration);
+        GameObject t_selected_screen_object = dockScreensParent.GetChild(p_index).gameObject;
         t_selected_screen_object.SetActive(true);
-        AppearanceManager.Singleton.FadeIn(t_selected_screen_object, _fade_duration, AnimationDirection.Up);
+        AppearanceManager.Singleton.FadeIn(t_selected_screen_object, fadeDuration, AnimationDirection.Up);
     }
 }

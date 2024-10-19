@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class SignIn : MonoBehaviour
     [SerializeField] private Button terms;
     [SerializeField] private Button policy;
     [SerializeField] private Toggle tncToggle;
-    
+
     private void OnEnable()
     {
         accept.onClick.AddListener(OnAccept);
@@ -18,7 +19,7 @@ public class SignIn : MonoBehaviour
         policy.onClick.AddListener(OnPolicy);
         signUp.onClick.AddListener(OnSignUp);
     }
-    
+
     private void OnDisable()
     {
         accept.onClick.RemoveListener(OnAccept);
@@ -35,7 +36,8 @@ public class SignIn : MonoBehaviour
         }
         else
         {
-            //shake
+            var parent = tncToggle.transform.parent;
+            parent.DOShakePosition(2f, new Vector3(500f, 0, 0), 1, 90, true, false);
         }
     }
 

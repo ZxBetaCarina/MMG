@@ -29254,24 +29254,12 @@ MonoBehaviour:
   refer: {fileID: 736992658}
   game: {fileID: 1106847630}
   account: {fileID: 305044817}
-  _dock_bg: {fileID: 111380217}
-  _dock_bg_sprite_list:
-  - {fileID: 21300000, guid: 5bbd4eafaf6c67045a0d8313eb2d66b9, type: 3}
-  - {fileID: 21300000, guid: bf700cec231b7424aa00ef02ed07f77f, type: 3}
-  - {fileID: 21300000, guid: 0ef3b4fea93efbf43b27cc9ef2abab52, type: 3}
-  - {fileID: 21300000, guid: 22bc8a9e583df6f4b853b251b73a0ca6, type: 3}
-  _dock_active_button_list:
-  - {fileID: 1991251716}
-  - {fileID: 1712669035}
-  - {fileID: 21004355}
-  - {fileID: 1174824164}
-  _dock_inactive_button_list:
-  - {fileID: 686418807}
-  - {fileID: 736992658}
-  - {fileID: 1106847630}
-  - {fileID: 305044817}
-  _dock_screens_parent: {fileID: 1080851697}
-  _fade_duration: 0.1
+  dockBg: {fileID: 0}
+  dockBgSpriteList: []
+  dockActiveButtonList: []
+  dockInactiveButtonList: []
+  dockScreensParent: {fileID: 0}
+  fadeDuration: 0
 --- !u!114 &1190903602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51907,7 +51895,7 @@ MonoBehaviour:
   isPost: 1
   requestData:
   - key: email
-    value: ajad.patel@gmail.com
+    value: jayantcarina@gmail.com
 --- !u!1 &2098913161
 GameObject:
   m_ObjectHideFlags: 0

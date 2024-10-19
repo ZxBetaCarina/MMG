@@ -39,8 +39,7 @@ public class SignIn : MonoBehaviour
             }
             else
             {
-                ApiManager.Post<SignInRequestData, SignInResponseData>(ServiceURLs.Login, new SignInRequestData(email
-                    .text), OnSuccessSignIn, OnErrorSignIn);
+                SignInUser();
             }
         }
         else
@@ -49,11 +48,18 @@ public class SignIn : MonoBehaviour
         }
     }
 
+    private void SignInUser()
+    {
+        ApiManager.Post<SignInRequestData, SignInResponseData>(ServiceURLs.Login, new SignInRequestData(email
+            .text), OnSuccessSignIn, OnErrorSignIn);
+    }
+
     private void OnSuccessSignIn(SignInResponseData obj)
     {
         if (obj.status)
         {
             CustomLog.SuccessLog(obj.status.ToString() + obj.message);
+            UserData.SetData(UserDataSet.Email, email.text);
             UIManager.LoadScreenAnimated(UIScreen.Otp);
         }
     }

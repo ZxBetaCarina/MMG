@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using ZxLog;
 
 public class UserData : MonoBehaviour
@@ -48,7 +47,7 @@ public class UserData : MonoBehaviour
             case UserDataSet.Dob:
                 return UserData._instance.data.dob;
             case UserDataSet.Gender:
-                return UserData._instance.data.gender.ToString();
+                return UserData._instance.data.gender;
             case UserDataSet.Otp:
                 return UserData._instance.data.otp;
             case UserDataSet.Id:

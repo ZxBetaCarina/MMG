@@ -18,6 +18,7 @@ public class Wallet : MonoBehaviour
         deposit.onClick.AddListener(OnDeposit);
         withdraw.onClick.AddListener(OnWithdraw);
         buyTicket.onClick.AddListener(OnBuyTicket);
+        GetWalletApi.GetPoints += OnGetPoints;
     }
 
     private void OnDisable()
@@ -26,6 +27,13 @@ public class Wallet : MonoBehaviour
         deposit.onClick.RemoveListener(OnDeposit);
         withdraw.onClick.RemoveListener(OnWithdraw);
         buyTicket.onClick.RemoveListener(OnBuyTicket);
+        GetWalletApi.GetPoints -= OnGetPoints;
+    }
+
+    private void OnGetPoints(int earnedPoints, int gamingPoints)
+    {
+        this.earnedPoints.text = earnedPoints.ToString();
+        this.gamingPoints.text = gamingPoints.ToString();
     }
 
     private void OnBack()

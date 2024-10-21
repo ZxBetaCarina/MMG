@@ -80,6 +80,7 @@ public class Otp : MonoBehaviour
                 CustomLog.ErrorLog("Token Missing from userdata");
                 return;
             }
+
             NextScreen();
         }
         else
@@ -91,6 +92,7 @@ public class Otp : MonoBehaviour
     private void OnErrorVerifyOtp(string obj)
     {
         CustomLog.ErrorLog(obj);
+        invalidText.SetActive(true);
     }
 
     private static void NextScreen()
@@ -107,6 +109,7 @@ public class Otp : MonoBehaviour
 
     void Start()
     {
+        TouchScreenKeyboard.Android.consumesOutsideTouches = false;
         for (int i = 0; i < otpFields.Length; i++)
         {
             int index = i;
@@ -118,11 +121,13 @@ public class Otp : MonoBehaviour
     {
         if (otpFields[index].text.Length == 1 && index < otpFields.Length - 1)
         {
+            //otpFields[index + 1].Select();
             otpFields[index + 1].ActivateInputField();
         }
 
         if (otpFields[index].text == "" && index > 0)
         {
+            //otpFields[index - 1].Select();
             otpFields[index - 1].ActivateInputField();
         }
     }
@@ -160,45 +165,48 @@ public class OtpRequestData
     }
 }
 
+[Serializable]
 public class ProfileResponseData
 {
-    public bool status { get; set; }
-    public string message { get; set; }
-    public Data data { get; set; }
+    public bool status;
+    public string message;
+    public Data data;
 }
 
 [Serializable]
 public class Data
 {
-    public Settings settings { get; set; }
-    public string _id { get; set; }
-    public string firstName { get; set; }
-    public string lastName { get; set; }
-    public string email { get; set; }
-    public string otp { get; set; }
-    public bool otpVerified { get; set; }
-    public string whatsappNumber { get; set; }
-    public string dob { get; set; }
-    public string referNumber { get; set; }
-    public string location { get; set; }
-    public string gender { get; set; }
-    public string profileImage { get; set; }
-    public string qrCode { get; set; }
-    public bool active { get; set; }
-    public bool isProfileComplete { get; set; }
-    public string fcmToken { get; set; }
-    public string deviceId { get; set; }
-    public string sellerId { get; set; }
-    public DateTime createdAt { get; set; }
-    public DateTime updatedAt { get; set; }
-    public int __v { get; set; }
-    public string token { get; set; }
+    public Settings settings;
+    public string _id;
+    public string firstName;
+    public string lastName;
+    public string email;
+    public string otp;
+    public bool otpVerified;
+    public string whatsappNumber;
+    public string dob;
+    public string referNumber;
+    public string location;
+    public string gender;
+    public string profileImage;
+    public string qrCode;
+    public bool active;
+    public bool isProfileComplete;
+    public string fcmToken;
+    public string deviceId;
+
+    public string sellerId;
+
+    //public DateTime createdAt ;
+    //public DateTime updatedAt ;
+    public int __v;
+    public string token;
 }
 
 [Serializable]
 public class Settings
 {
-    public bool music { get; set; }
-    public bool soundEffect { get; set; }
-    public bool vibration { get; set; }
+    public bool music;
+    public bool soundEffect;
+    public bool vibration;
 }

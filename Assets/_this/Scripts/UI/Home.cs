@@ -78,7 +78,9 @@ public class Home : MonoBehaviour
     {
         if (obj.status)
         {
+            var token = UserData.GetData(UserDataSet.Token);
             UserData.SetTotalData(obj.data);
+            UserData.SetData(UserDataSet.Token, token);
             CustomLog.SuccessLog("UserData Updated");
         }
         else

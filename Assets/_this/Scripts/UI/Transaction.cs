@@ -14,6 +14,10 @@ public class Transaction : MonoBehaviour
     [SerializeField] private GameObject slider;
     [SerializeField] private Vector2 positions;
 
+    [Header("Api References")]
+    [SerializeField] private GameObject parent1;
+    [SerializeField] private GameObject parent2;
+
     private void Start()
     {
         earnedPoint.Select();

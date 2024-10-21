@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Home : MonoBehaviour
@@ -10,6 +11,11 @@ public class Home : MonoBehaviour
     [SerializeField] private Button currency;
     [SerializeField] private Button chess;
     [SerializeField] private Button joinBtt;
+
+    private void Start()
+    {
+        GetProfile();
+    }
 
     private void OnEnable()
     {
@@ -61,5 +67,28 @@ public class Home : MonoBehaviour
     private void OnJoinBttClick()
     {
         UIManager.LoadScreenAnimated(UIScreen.JoinGiveaway);
+    }
+
+    private void GetProfile()
+    {
+        ApiManager.Get<ProfileResponseData>(ServiceURLs.GetProfile, OnSuccessGetProfile, OnErrorGetProfile);
+    }
+
+    private void OnSuccessGetProfile(ProfileResponseData obj)
+    {
+        if (obj.status)
+        {
+            UserData.SetTotalData(obj.data);
+            CustomLog.SuccessLog("UserData Updated");
+        }
+        else
+        {
+            CustomLog.ErrorLog(obj.message);
+        }
+    }
+
+    private void OnErrorGetProfile(string obj)
+    {
+        CustomLog.ErrorLog(obj);
     }
 }

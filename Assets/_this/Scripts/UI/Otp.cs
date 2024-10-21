@@ -61,12 +61,48 @@ public class Otp : MonoBehaviour
 
     private void OnVerify()
     {
+        ApiManager.Post<OtpRequestData, ProfileResponseData>(ServiceURLs.VerifyOtp, new OtpRequestData(UserData.GetData
+            (UserDataSet.Email), GetOtpFieldsData().ToString()), OnSuccessVerifyOtp, OnErrorVerifyOtp);
+    }
+
+    private void OnSuccessVerifyOtp(ProfileResponseData obj)
+    {
+        if (obj.status)
+        {
+            UserData.SetTotalData(obj.data);
+            OnOtpVerified?.Invoke();
+            if (UserData.GetData(UserDataSet.Token) != String.Empty)
+            {
+                ApiManager.SetAuthToken(UserData.GetData(UserDataSet.Token));
+            }
+            else
+            {
+                CustomLog.ErrorLog("Token Missing from userdata");
+                return;
+            }
+            NextScreen();
+        }
+        else
+        {
+            CustomLog.ErrorLog(obj.message + obj.status);
+        }
+    }
+
+    private void OnErrorVerifyOtp(string obj)
+    {
+        CustomLog.ErrorLog(obj);
     }
 
     private static void NextScreen()
     {
-        OnOtpVerified.Invoke();
-        UIManager.LoadScreenAnimated(UIScreen.Home);
+        if (UserData.GetTotalData().isProfileComplete)
+        {
+            UIManager.LoadScreenAnimated(UIScreen.Home);
+        }
+        else
+        {
+            UIManager.LoadScreenAnimated(UIScreen.UserDetails);
+        }
     }
 
     void Start()
@@ -82,12 +118,12 @@ public class Otp : MonoBehaviour
     {
         if (otpFields[index].text.Length == 1 && index < otpFields.Length - 1)
         {
-            otpFields[index + 1].ActivateInputField(); // Keeps the keyboard open while moving focus
+            otpFields[index + 1].ActivateInputField();
         }
 
         if (otpFields[index].text == "" && index > 0)
         {
-            otpFields[index - 1].ActivateInputField(); // Keeps the keyboard open when backspacing
+            otpFields[index - 1].ActivateInputField();
         }
     }
 
@@ -124,7 +160,7 @@ public class OtpRequestData
     }
 }
 
-public class OtpResponseData
+public class ProfileResponseData
 {
     public bool status { get; set; }
     public string message { get; set; }

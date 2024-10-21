@@ -17,6 +17,17 @@ public class UserProfile : MonoBehaviour
     {
         back.onClick.AddListener(OnBack);
         edit.onClick.AddListener(OnEdit);
+        GetAllUserData();
+    }
+
+    private void GetAllUserData()
+    {
+        firstName.text = UserData.GetData(UserDataSet.FirstName);
+        lastName.text = UserData.GetData(UserDataSet.LastName);
+        number.text = UserData.GetData(UserDataSet.Number);
+        dob.text = UserData.GetData(UserDataSet.Dob);
+        location.text = UserData.GetData(UserDataSet.Location);
+        gender.text = UserData.GetData(UserDataSet.Gender);
     }
 
     private void OnDisable()

@@ -1,10 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using ZxLog;
 
 public class UserData : MonoBehaviour
 {
-    [SerializeField] private Data data;
+    [SerializeField] private Data data = new();
     private static UserData _instance;
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     public static bool IsUserLoggedIn { get; private set; }
 
     private void OnEnable()
@@ -124,9 +138,24 @@ public class UserData : MonoBehaviour
         _instance.data = data;
     }
 
+    public static Data GetTotalData()
+    {
+        return _instance.data;
+    }
+
     private void SetLogIn(bool value)
     {
         IsUserLoggedIn = value;
+    }
+
+    public static void SetSettings(Settings settings)
+    {
+        _instance.data.settings = settings;
+    }
+    
+    public static Settings GetSettings()
+    {
+        return _instance.data.settings;
     }
 }
 

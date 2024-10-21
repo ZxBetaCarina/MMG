@@ -58,7 +58,7 @@ public class SignIn : MonoBehaviour
     {
         if (obj.status)
         {
-            CustomLog.SuccessLog(obj.status.ToString() + obj.message);
+            CustomLog.SuccessLog(obj.status + obj.message);
             UserData.SetData(UserDataSet.Email, email.text);
             UIManager.LoadScreenAnimated(UIScreen.Otp);
         }

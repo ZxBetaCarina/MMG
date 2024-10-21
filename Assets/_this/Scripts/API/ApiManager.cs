@@ -9,18 +9,20 @@ using Newtonsoft.Json;
 public class ApiManager : MonoBehaviour
 {
     private static MonoBehaviour _coroutineRunner;
-    
+    private static string _authToken;
+
     #region ApiTester
-    
+
     [Header("API Tester Settings")]
     [SerializeField] private string url; // URL input
+
     [SerializeField] private bool isPost; // Toggle between GET and POST
     [SerializeField] private List<RequestData> requestData = new List<RequestData>(); // Request data list
 
     [Serializable]
     public class RequestData
     {
-        public string key;   // Data key (parameter name)
+        public string key; // Data key (parameter name)
         public string value; // Data value (parameter value)
     }
 
@@ -37,7 +39,7 @@ public class ApiManager : MonoBehaviour
             {
                 dataDict.Add(data.key, data.value);
             }
-            
+
             Post(url, dataDict);
         }
         else
@@ -68,13 +70,19 @@ public class ApiManager : MonoBehaviour
     {
         Debug.LogError("Error: " + error);
     }
-    
+
     #endregion
 
-    // Method to initialize the coroutine runner (needs to be called once in the game)
+    #region PublicMethods
+
     public static void Initialize(MonoBehaviour runner)
     {
         _coroutineRunner = runner;
+    }
+
+    public static void SetAuthToken(string token)
+    {
+        _authToken = token;
     }
 
     public static void Get<T>(string url, Action<T> onSuccess, Action<string> onError)
@@ -97,101 +105,122 @@ public class ApiManager : MonoBehaviour
         _coroutineRunner.StartCoroutine(GetImageRequest(url, onSuccess, onError));
     }
 
+    #endregion
+
+    #region Coroutines
+
     private static IEnumerator GetRequest<T>(string url, Action<T> onSuccess, Action<string> onError)
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(url))
-        {
-            yield return request.SendWebRequest();
+        UIManager.ShowLoading(true);
+        using UnityWebRequest request = UnityWebRequest.Get(url);
+        AuthSetter(request);
+        yield return request.SendWebRequest();
 
-            if (request.result == UnityWebRequest.Result.Success)
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            try
             {
-                try
-                {
-                    T result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
-                    onSuccess?.Invoke(result);
-                }
-                catch (Exception e)
-                {
-                    onError?.Invoke($"JSON parsing error: {e.Message}");
-                }
+                T result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
+                onSuccess?.Invoke(result);
+                UIManager.ShowLoading(false);
             }
-            else
+            catch (Exception e)
             {
-                onError?.Invoke(request.error);
+                onError?.Invoke($"JSON parsing error: {e.Message}");
+                UIManager.ShowLoading(false);
             }
+        }
+        else
+        {
+            onError?.Invoke(request.error);
+            UIManager.ShowLoading(false);
         }
     }
 
-    private static IEnumerator PostRequest<Req, Res>(string url, Req requestData, Action<Res> onSuccess, Action<string> onError)
+    private static IEnumerator PostRequest<Req, Res>(string url, Req requestData, Action<Res> onSuccess,
+        Action<string> onError)
     {
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        UIManager.ShowLoading(true);
+        using UnityWebRequest request = new UnityWebRequest(url, "POST");
+        AuthSetter(request);
+        string jsonToSend = JsonConvert.SerializeObject(requestData);
+        byte[] jsonToSendBytes = new System.Text.UTF8Encoding().GetBytes(jsonToSend);
+        request.uploadHandler = new UploadHandlerRaw(jsonToSendBytes);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            string jsonToSend = JsonConvert.SerializeObject(requestData);
-            byte[] jsonToSendBytes = new System.Text.UTF8Encoding().GetBytes(jsonToSend);
-            request.uploadHandler = new UploadHandlerRaw(jsonToSendBytes);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-
-            yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
+            try
             {
-                try
-                {
-                    Res result = JsonConvert.DeserializeObject<Res>(request.downloadHandler.text);
-                    onSuccess?.Invoke(result);
-                }
-                catch (Exception e)
-                {
-                    onError?.Invoke($"JSON parsing error: {e.Message}");
-                }
+                Res result = JsonConvert.DeserializeObject<Res>(request.downloadHandler.text);
+                onSuccess?.Invoke(result);
+                UIManager.ShowLoading(false);
             }
-            else
+            catch (Exception e)
             {
-                onError?.Invoke(request.error);
+                onError?.Invoke($"JSON parsing error: {e.Message}");
+                UIManager.ShowLoading(false);
             }
+        }
+        else
+        {
+            onError?.Invoke(request.error);
+            UIManager.ShowLoading(false);
         }
     }
 
     private static IEnumerator PostFormRequest<T>(string url, WWWForm form, Action<T> onSuccess, Action<string> onError)
     {
-        using (UnityWebRequest request = UnityWebRequest.Post(url, form))
+        UIManager.ShowLoading(true);
+        using UnityWebRequest request = UnityWebRequest.Post(url, form);
+        AuthSetter(request);
+        yield return request.SendWebRequest();
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
+            try
             {
-                try
-                {
-                    T result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
-                    onSuccess?.Invoke(result);
-                }
-                catch (Exception e)
-                {
-                    onError?.Invoke($"JSON parsing error: {e.Message}");
-                }
+                T result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
+                onSuccess?.Invoke(result);
+                UIManager.ShowLoading(false);
             }
-            else
+            catch (Exception e)
             {
-                onError?.Invoke(request.error);
+                onError?.Invoke($"JSON parsing error: {e.Message}");
+                UIManager.ShowLoading(false);
             }
+        }
+        else
+        {
+            onError?.Invoke(request.error);
+            UIManager.ShowLoading(false);
         }
     }
 
     private static IEnumerator GetImageRequest(string url, Action<Texture2D> onSuccess, Action<string> onError)
     {
-        using (UnityWebRequest request = UnityWebRequestTexture.GetTexture(url))
+        using UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
+        AuthSetter(request);
+        yield return request.SendWebRequest();
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            yield return request.SendWebRequest();
+            onSuccess?.Invoke(DownloadHandlerTexture.GetContent(request));
+        }
+        else
+        {
+            onError?.Invoke(request.error);
+        }
+    }
 
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                onSuccess?.Invoke(DownloadHandlerTexture.GetContent(request));
-            }
-            else
-            {
-                onError?.Invoke(request.error);
-            }
+    #endregion
+
+    private static void AuthSetter(UnityWebRequest request)
+    {
+        if (!string.IsNullOrEmpty(_authToken))
+        {
+            request.SetRequestHeader("Authorization", $"Bearer {_authToken}");
         }
     }
 }

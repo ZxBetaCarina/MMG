@@ -14,4 +14,5 @@
     public static readonly string GetAllGiveawayPrizes = BaseUrl + "/admin/getAllGiveawayPrizes";
     public static readonly string GetSettings = BaseUrl + "/gameUser/getSettings";
     public static readonly string UpdateSettings = BaseUrl + "/gameUser/updateSettings";
+    public static readonly string Image = "http://82.180.132.164:3900/Uploads/";
 }

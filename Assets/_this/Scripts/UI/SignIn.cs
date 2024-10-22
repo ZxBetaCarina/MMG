@@ -59,6 +59,7 @@ public class SignIn : MonoBehaviour
         if (obj.status)
         {
             CustomLog.SuccessLog(obj.status + obj.message);
+            Print.BigWhiteLog("OTP = " + obj.data);
             UserData.SetData(UserDataSet.Email, email.text);
             UIManager.LoadScreenAnimated(UIScreen.Otp);
         }
@@ -111,4 +112,5 @@ public class SignInResponseData
 {
     public bool status;
     public string message;
+    public string data;
 }

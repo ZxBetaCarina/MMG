@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using ZxLog;
 
 public class EditUserProfile : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class EditUserProfile : MonoBehaviour
 
     private void OnEnable()
     {
+        pic.sprite = UserData.GetImage();
         done.onClick.AddListener(OnDone);
         editPic.onClick.AddListener(OnEditPic);
         backBtt.onClick.AddListener(OnBack);
@@ -41,37 +44,30 @@ public class EditUserProfile : MonoBehaviour
 
     private void OnDone()
     {
-        //check for all fields are filled
         if (firstName.text == String.Empty || lastName.text == String.Empty || number.text == String.Empty ||
             dob.text == String.Empty || location.text == String.Empty ||
             !gender.AnyTogglesOn())
         {
             UIManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
-            return;
         }
         else
         {
-            var formData = CreateForm();
-            ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, formData, OnSuccessUpdateUserData,
+            var form = new WWWForm();
+            form.AddField("firstName", firstName.text);
+            form.AddField("lastName", lastName.text);
+            form.AddField("whatsappNumber", number.text);
+            form.AddField("dob", dob.text);
+            form.AddField("referNumber", "5");
+            form.AddField("location", location.text);
+            form.AddField("gender", gender.GetFirstActiveToggle().name);
+            if (!string.IsNullOrEmpty(_selectedImagePath))
+            {
+                byte[] imageBytes = System.IO.File.ReadAllBytes(_selectedImagePath);
+                form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+            }
+            ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
-    }
-
-    private WWWForm CreateForm()
-    {
-        var form = new WWWForm();
-        form.AddField("firstName", firstName.text);
-        form.AddField("lastName", lastName.text);
-        form.AddField("whatsappNumber", number.text);
-        form.AddField("dob", dob.text);
-        form.AddField("referNumber", "");
-        form.AddField("location", location.text);
-        form.AddField("gender", gender.GetFirstActiveToggle().name);
-        if (_selectedImagePath != string.Empty)
-        {
-            form.AddField("profileImage", _selectedImagePath);
-        }
-        return form;
     }
 
 
@@ -82,6 +78,7 @@ public class EditUserProfile : MonoBehaviour
             UIManager.ShowPopUp("Message", "Profile Data Changed Successfully");
             UIManager.LoadScreenAnimated(UIScreen.UserProfile);
             CustomLog.SuccessLog(obj.message);
+            Profile.GetProfile();
         }
     }
 

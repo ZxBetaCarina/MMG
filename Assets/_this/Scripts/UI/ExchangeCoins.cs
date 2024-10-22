@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +13,19 @@ public class ExchangeCoins : MonoBehaviour
     {
         back.onClick.AddListener(OnBack);
         submit.onClick.AddListener(OnSubmit);
+        GetWalletApi.GetPoints += OnGetPoints;
     }
-
+    
     private void OnDisable()
     {
         back.onClick.RemoveListener(OnBack);
         submit.onClick.RemoveListener(OnSubmit);
+        GetWalletApi.GetPoints -= OnGetPoints;
+    }
+
+    private void OnGetPoints(int earnedPoints, int gamingPoints)
+    {
+        this.earnedPoints.text = $"You Have {earnedPoints} Earned Points";
     }
 
     private void OnBack()

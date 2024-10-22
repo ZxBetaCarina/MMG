@@ -4,6 +4,7 @@ using ZxLog;
 public class UserData : MonoBehaviour
 {
     [SerializeField] private Data data = new();
+    [SerializeField] private Sprite pic;
     private static UserData _instance;
 
     private void Awake()
@@ -155,6 +156,16 @@ public class UserData : MonoBehaviour
     public static Settings GetSettings()
     {
         return _instance.data.settings;
+    }
+
+    public static Sprite GetImage()
+    {
+        return _instance.pic;
+    }
+
+    public static void SetImage(Sprite image)
+    {
+        _instance.pic = image;
     }
 }
 

@@ -19,7 +19,7 @@ public class UserProfile : MonoBehaviour
     {
         back.onClick.AddListener(OnBack);
         edit.onClick.AddListener(OnEdit);
-        GetAllUserData();
+        Profile.OnProfileLoaded += GetAllUserData;
     }
 
     private void GetAllUserData()
@@ -31,42 +31,19 @@ public class UserProfile : MonoBehaviour
         dob.text = UserData.GetData(UserDataSet.Dob);
         location.text = UserData.GetData(UserDataSet.Location);
         gender.text = UserData.GetData(UserDataSet.Gender);
-        GetSetPic();
+        SetPic();
     }
 
-    private void GetSetPic()
+    private void SetPic()
     {
-        if (UserData.GetData(UserDataSet.ProfileImage) != null)
-        {
-            ApiManager.GetImage(UserData.GetData(UserDataSet.ProfileImage), OnGetPicSuccess, OnGetPicError);
-        }
-        else
-        {
-            CustomLog.ErrorLog("Image url is null");
-        }
-    }
-
-    private void OnGetPicSuccess(Texture2D obj)
-    {
-        if (obj != null)
-        {
-            pic.sprite = Sprite.Create(obj, new Rect(0, 0, obj.width, obj.height), new Vector2(0.5f, 0.5f));
-        }
-        else
-        {
-            CustomLog.ErrorLog("Image is Null");
-        }
-    }
-
-    private void OnGetPicError(string obj)
-    {
-        CustomLog.ErrorLog(obj);
+        pic.sprite = UserData.GetImage();
     }
 
     private void OnDisable()
     {
         back.onClick.RemoveListener(OnBack);
         edit.onClick.RemoveListener(OnEdit);
+        Profile.OnProfileLoaded -= GetAllUserData;
     }
 
     private void OnBack()

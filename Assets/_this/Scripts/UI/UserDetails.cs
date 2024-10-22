@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using ZxLog;
 
 public class UserDetails : MonoBehaviour
 {
@@ -31,32 +32,18 @@ public class UserDetails : MonoBehaviour
     {
         //check for all fields are filled
         if (firstName.text == String.Empty || lastName.text == String.Empty || number.text == String.Empty ||
-            dob.text == String.Empty || refer.text == String.Empty || location.text == String.Empty ||
+            dob.text == String.Empty || location.text == String.Empty ||
             !gender.AnyTogglesOn())
         {
             UIManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
-            return;
         }
         else
         {
-            var formData = CreateForm();
-            ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, formData, OnSuccessUpdateUserData,
+            var data = new UserDataRequest(firstName.text, lastName.text, number.text, dob.text, refer.text,
+                location.text, gender.GetFirstActiveToggle().name, "");
+            ApiManager.Post<UserDataRequest, UserDataResponse>(ServiceURLs.UpdateProfile, data, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
-    }
-
-    private WWWForm CreateForm()
-    {
-        var form = new WWWForm();
-        form.AddField("firstName", firstName.text);
-        form.AddField("lastName", lastName.text);
-        form.AddField("whatsappNumber", number.text);
-        form.AddField("dob", dob.text);
-        form.AddField("referNumber", refer.text);
-        form.AddField("location", location.text);
-        form.AddField("gender", gender.GetFirstActiveToggle().name);
-        form.AddField("profileImage", "");
-        return form;
     }
 
 
@@ -67,6 +54,11 @@ public class UserDetails : MonoBehaviour
             UIManager.ShowPopUp("Message", "Welcome To Millionaire Mind Games");
             UIManager.LoadScreenAnimated(UIScreen.Home);
             CustomLog.SuccessLog(obj.message);
+            Profile.GetProfile();
+
+            Print.Separator(LogColor.Yellow);
+            Print.CustomLog(obj.data.firstName, LogColor.Yellow);
+            Print.Separator(LogColor.Yellow);
         }
     }
 
@@ -86,4 +78,29 @@ public class UserDataResponse
     public bool status { get; set; }
     public string message { get; set; }
     public Data data { get; set; }
+}
+
+public class UserDataRequest
+{
+    public UserDataRequest(string firstName, string lastName, string whatsappNumber, string dob, string referNumber,
+        string location, string gender, string profileImage)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.whatsappNumber = whatsappNumber;
+        this.dob = dob;
+        this.referNumber = referNumber;
+        this.location = location;
+        this.gender = gender;
+        this.profileImage = profileImage;
+    }
+
+    public string firstName { get; set; }
+    public string lastName { get; set; }
+    public string whatsappNumber { get; set; }
+    public string dob { get; set; }
+    public string referNumber { get; set; }
+    public string location { get; set; }
+    public string gender { get; set; }
+    public string profileImage { get; set; }
 }

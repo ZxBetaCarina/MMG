@@ -46,6 +46,7 @@ public class Otp : MonoBehaviour
         {
             ResetAllFields();
             UIManager.ShowPopUp("Message", "OTP Resent successfully");
+            Print.BigWhiteLog("OTP = " + obj.data);
         }
         else
         {
@@ -109,7 +110,6 @@ public class Otp : MonoBehaviour
 
     void Start()
     {
-        TouchScreenKeyboard.Android.consumesOutsideTouches = false;
         for (int i = 0; i < otpFields.Length; i++)
         {
             int index = i;
@@ -119,18 +119,24 @@ public class Otp : MonoBehaviour
 
     void OnFieldValueChanged(int index)
     {
+        // If the current field has 1 character and there is a next field, move the caret
         if (otpFields[index].text.Length == 1 && index < otpFields.Length - 1)
         {
-            //otpFields[index + 1].Select();
-            otpFields[index + 1].ActivateInputField();
+            // Move to the next field without clearing it to avoid re-selecting the field
+            otpFields[index + 1].ActivateInputField();  // This only activates the next field without changing its value
+            otpFields[index + 1].MoveTextEnd(false);    // Move caret to the end of the field
         }
-
-        if (otpFields[index].text == "" && index > 0)
+        // If the current field is empty and there is a previous field, move the caret back
+        else if (otpFields[index].text.Length == 0 && index > 0)
         {
-            //otpFields[index - 1].Select();
+            // Move to the previous field without clearing it to avoid re-selecting the field
             otpFields[index - 1].ActivateInputField();
+            otpFields[index - 1].MoveTextEnd(false);    // Move caret to the end of the field
         }
     }
+
+
+
 
     void ResetAllFields()
     {
@@ -197,8 +203,8 @@ public class Data
 
     public string sellerId;
 
-    //public DateTime createdAt ;
-    //public DateTime updatedAt ;
+    public DateTime createdAt ;
+    public DateTime updatedAt ;
     public int __v;
     public string token;
 }

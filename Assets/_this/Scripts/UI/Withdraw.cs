@@ -13,19 +13,28 @@ public class Withdraw : MonoBehaviour
     {
         back.onClick.AddListener(OnBack);
         submit.onClick.AddListener(OnSubmit);
-        GetWalletApi.GetPoints += OnGetPoints;
+        OnGetPoints();
     }
 
     private void OnDisable()
     {
         back.onClick.RemoveListener(OnBack);
         submit.onClick.RemoveListener(OnSubmit);
-        GetWalletApi.GetPoints -= OnGetPoints;
     }
 
-    private void OnGetPoints(int earnedPoints, int gamingPoints)
+    private void OnGetPoints()
     {
-        this.earnedPoints.text = $"You Have {earnedPoints} Earned Points";
+        GetWalletApi.GetWalletAmount(OnSuccess, OnError);
+    }
+
+    private void OnSuccess((string, string) obj)
+    {
+        earnedPoints.text = $"You Have {obj.Item1} Earned Points";
+    }
+
+    private void OnError(string obj)
+    {
+        CustomLog.ErrorLog(obj);
     }
 
     private void OnBack()

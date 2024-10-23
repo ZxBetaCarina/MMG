@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +17,7 @@ public class Wallet : MonoBehaviour
         deposit.onClick.AddListener(OnDeposit);
         withdraw.onClick.AddListener(OnWithdraw);
         buyTicket.onClick.AddListener(OnBuyTicket);
-        GetWalletApi.GetPoints += OnGetPoints;
+        OnGetPoints();
     }
 
     private void OnDisable()
@@ -27,13 +26,22 @@ public class Wallet : MonoBehaviour
         deposit.onClick.RemoveListener(OnDeposit);
         withdraw.onClick.RemoveListener(OnWithdraw);
         buyTicket.onClick.RemoveListener(OnBuyTicket);
-        GetWalletApi.GetPoints -= OnGetPoints;
     }
 
-    private void OnGetPoints(int earnedPoints, int gamingPoints)
+    private void OnGetPoints()
     {
-        this.earnedPoints.text = earnedPoints.ToString();
-        this.gamingPoints.text = gamingPoints.ToString();
+        GetWalletApi.GetWalletAmount(OnSuccess,OnError);
+    }
+
+    private void OnSuccess((string, string) obj)
+    {
+        earnedPoints.text = obj.Item1;
+        gamingPoints.text = obj.Item2;
+    }
+
+    private void OnError(string obj)
+    {
+        CustomLog.ErrorLog(obj);
     }
 
     private void OnBack()

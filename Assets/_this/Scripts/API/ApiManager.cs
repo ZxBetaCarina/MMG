@@ -94,6 +94,11 @@ public class ApiManager : MonoBehaviour
     {
         _coroutineRunner.StartCoroutine(PostRequest(url, requestData, onSuccess, onError));
     }
+    
+    public static void Post<Res>(string url, Action<Res> onSuccess, Action<string> onError)
+    {
+        _coroutineRunner.StartCoroutine(PostRequest(url, onSuccess, onError));
+    }
 
     public static void PostForm<T>(string url, WWWForm form, Action<T> onSuccess, Action<string> onError)
     {
@@ -146,6 +151,38 @@ public class ApiManager : MonoBehaviour
         string jsonToSend = JsonConvert.SerializeObject(requestData);
         byte[] jsonToSendBytes = new System.Text.UTF8Encoding().GetBytes(jsonToSend);
         request.uploadHandler = new UploadHandlerRaw(jsonToSendBytes);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            try
+            {
+                Res result = JsonConvert.DeserializeObject<Res>(request.downloadHandler.text);
+                onSuccess?.Invoke(result);
+                UIManager.ShowLoading(false);
+            }
+            catch (Exception e)
+            {
+                onError?.Invoke($"JSON parsing error: {e.Message}");
+                UIManager.ShowLoading(false);
+            }
+        }
+        else
+        {
+            onError?.Invoke(request.error);
+            UIManager.ShowLoading(false);
+        }
+    }
+    
+    private static IEnumerator PostRequest<Res>(string url, Action<Res> onSuccess,
+        Action<string> onError)
+    {
+        UIManager.ShowLoading(true);
+        using UnityWebRequest request = new UnityWebRequest(url, "POST");
+        AuthSetter(request);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
 

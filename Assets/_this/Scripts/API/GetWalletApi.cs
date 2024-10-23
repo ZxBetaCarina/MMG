@@ -1,12 +1,21 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class GetWalletApi
 {
-    public static event Action<int, int> GetPoints;
-    public static void GetWallet()
+    private static int _earnedPoints;
+    private static int _gamingPoints;
+
+    private static void GetWallet(Action<(string, string)> onSuccess, Action<string> onError)
     {
-        ApiManager.Get<GetWalletResponseData>(ServiceURLs.GetWallet, OnSuccessGetWallet, OnErrorGetWallet);
+        ApiManager.Get<GetWalletResponseData>(ServiceURLs.GetWallet,
+            (GetWalletResponseData obj) =>
+            {
+                OnSuccessGetWallet(obj);
+                onSuccess?.Invoke((_earnedPoints.ToString(), _gamingPoints.ToString()));
+            },
+            onError);
     }
 
     private static void OnSuccessGetWallet(GetWalletResponseData obj)
@@ -14,13 +23,26 @@ public class GetWalletApi
         if (obj.status)
         {
             CustomLog.SuccessLog(obj.message);
-            GetPoints?.Invoke(obj.data.earnedPoints, obj.data.gamingPoints);
+            _earnedPoints = obj.data.earnedPoints;
+            _gamingPoints = obj.data.gamingPoints;
         }
     }
 
     private static void OnErrorGetWallet(string obj)
     {
         CustomLog.ErrorLog(obj);
+    }
+
+    /// <summary>
+    /// Get Wallet Amount From Server Directly with a callback.
+    /// </summary>
+    /// <returns>
+    /// item1 = Earned Points,
+    /// item2 = Gaming Points
+    /// </returns>
+    public static void GetWalletAmount(Action<(string, string)> onSuccess, Action<string> onError)
+    {
+        GetWallet(onSuccess, onError);
     }
 }
 

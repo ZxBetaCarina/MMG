@@ -6,6 +6,7 @@ public class UserData : MonoBehaviour
 {
     [SerializeField] private Data data = new();
     [SerializeField] private Sprite pic;
+    [SerializeField] private Sprite qRcode;
     [SerializeField] private AppSettings appSettings;
     private static UserData _instance;
     private string key = "token";
@@ -202,9 +203,20 @@ public class UserData : MonoBehaviour
         return _instance.pic;
     }
 
+
     public static void SetImage(Sprite image)
     {
         _instance.pic = image;
+    }
+
+    public static Sprite GetQrCode()
+    {
+        return _instance.qRcode;
+    }
+    
+    public static void SetQrImage(Sprite image)
+    {
+        _instance.qRcode = image;
     }
 }
 

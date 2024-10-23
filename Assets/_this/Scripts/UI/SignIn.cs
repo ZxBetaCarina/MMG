@@ -76,6 +76,7 @@ public class SignIn : MonoBehaviour
         {
             CustomLog.SuccessLog(obj.status + obj.message);
             Print.BigWhiteLog("OTP = " + obj.data);
+            Debug.Log("OTP = " + obj.data);
             UserData.SetData(UserDataSet.Email, email.text);
             UIManager.LoadScreenAnimated(UIScreen.Otp);
         }

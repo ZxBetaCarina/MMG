@@ -17,6 +17,7 @@ public class UserProfile : MonoBehaviour
 
     private void OnEnable()
     {
+        GetAllUserData();
         back.onClick.AddListener(OnBack);
         edit.onClick.AddListener(OnEdit);
         Profile.OnProfileLoaded += GetAllUserData;

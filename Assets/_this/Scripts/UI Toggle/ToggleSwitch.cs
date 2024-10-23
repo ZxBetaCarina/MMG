@@ -32,6 +32,13 @@ namespace Christina.UI
         
         protected Action transitionEffect;
         
+        private static MonoBehaviour _coroutineRunner;
+        
+        public static void InitializeToggle(MonoBehaviour runner)
+        {
+            _coroutineRunner = runner;
+        }
+        
         protected virtual void OnValidate()
         {
             SetupToggleComponents();
@@ -81,7 +88,7 @@ namespace Christina.UI
         }
 
         
-        private void Toggle()
+        public void Toggle()
         {
             if (_toggleSwitchGroupManager != null)
                 _toggleSwitchGroupManager.ToggleGroup(this);
@@ -111,7 +118,7 @@ namespace Christina.UI
             if (_animateSliderCoroutine != null)
                 StopCoroutine(_animateSliderCoroutine);
 
-            _animateSliderCoroutine = StartCoroutine(AnimateSlider());
+            _animateSliderCoroutine = _coroutineRunner.StartCoroutine(AnimateSlider());
         }
 
 

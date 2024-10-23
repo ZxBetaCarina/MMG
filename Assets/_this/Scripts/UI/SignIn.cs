@@ -14,6 +14,11 @@ public class SignIn : MonoBehaviour
     [SerializeField] private Toggle tncToggle;
     [SerializeField] private VerticalLayoutGroup layoutGroup;
 
+    private void Start()
+    {
+        AutoLogin();
+    }
+
     private void OnEnable()
     {
         accept.onClick.AddListener(OnAccept);
@@ -26,6 +31,17 @@ public class SignIn : MonoBehaviour
         accept.onClick.RemoveListener(OnAccept);
         terms.onClick.RemoveListener(OnTerms);
         policy.onClick.RemoveListener(OnPolicy);
+    }
+
+    private void AutoLogin()
+    {
+        if (PlayerPrefs.HasKey(UserData.GetKey()))
+        {
+            UserData.SetData(UserDataSet.Token, PlayerPrefs.GetString(UserData.GetKey()));
+            ApiManager.SetAuthToken(PlayerPrefs.GetString(UserData.GetKey()));
+            Profile.GetProfile();
+            UIManager.LoadScreenAnimated(UIScreen.Home);
+        }
     }
 
     private void OnAccept()
@@ -78,8 +94,7 @@ public class SignIn : MonoBehaviour
         LeanTween.cancel(tncToggle.transform.parent.gameObject); // Cancel any previous tweens
 
         LeanTween.value(tncToggle.transform.parent.gameObject, -7f, 7f, 0.2f)
-            .setOnUpdate((float val) =>
-            {
+            .setOnUpdate((float val) => {
                 tncToggle.transform.parent.localPosition = new Vector3(val,
                     tncToggle.transform.parent.localPosition.y, tncToggle.transform.parent.localPosition.z);
             })

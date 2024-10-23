@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Christina.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,6 +40,7 @@ public class UIManager : MonoBehaviour
     {
         LoadScreen(startScreen);
         ApiManager.Initialize(this);
+        ToggleSwitch.InitializeToggle(this);
     }
 
     public static void LoadScreen(UIScreen screen)

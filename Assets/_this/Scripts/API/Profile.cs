@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Events;
+using ZxLog;
 
 public class Profile
 {
@@ -33,8 +33,10 @@ public class Profile
 
     private static void GetSetPic()
     {
+        Print.Separator(LogColor.Red);
         if (UserData.GetData(UserDataSet.ProfileImage) != null)
         {
+            Print.Separator(LogColor.Red);
             ApiManager.GetImage(ServiceURLs.Image + UserData.GetData(UserDataSet.ProfileImage), OnGetPicSuccess,
                 OnGetPicError);
         }

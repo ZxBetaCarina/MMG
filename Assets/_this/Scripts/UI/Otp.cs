@@ -7,6 +7,7 @@ using ZxLog;
 public class Otp : MonoBehaviour
 {
     [SerializeField] private TMP_InputField[] otpFields;
+    [SerializeField] private TMP_InputField otpField;
     [SerializeField] private GameObject invalidText;
     [SerializeField] private Button verify;
     [SerializeField] private Button resend;
@@ -19,6 +20,7 @@ public class Otp : MonoBehaviour
         back.onClick.AddListener(OnBack);
         resend.onClick.AddListener(OnResend);
         verify.onClick.AddListener(OnVerify);
+        otpField.onValueChanged.AddListener(ValueChangeCheck);
     }
 
     private void OnDisable()
@@ -26,6 +28,22 @@ public class Otp : MonoBehaviour
         back.onClick.RemoveListener(OnBack);
         resend.onClick.RemoveListener(OnResend);
         verify.onClick.RemoveListener(OnVerify);
+        otpField.onValueChanged.RemoveListener(ValueChangeCheck);
+    }
+    
+    private void ValueChangeCheck(string text)
+    {
+        for (var i = 0; i < otpFields.Length; i++)
+        {
+            otpFields[i].text = string.Empty;
+        }
+
+        var otp = text.ToCharArray();
+        for (var i = 0; i < otp.Length; i++)
+        {
+            otpFields[i].text = otp[i].ToString();
+            if (i == 3) return;
+        }
     }
 
     private void OnBack()
@@ -107,37 +125,7 @@ public class Otp : MonoBehaviour
             UIManager.LoadScreenAnimated(UIScreen.UserDetails);
         }
     }
-
-    void Start()
-    {
-        for (int i = 0; i < otpFields.Length; i++)
-        {
-            int index = i;
-            otpFields[i].onValueChanged.AddListener(delegate { OnFieldValueChanged(index); });
-        }
-    }
-
-    void OnFieldValueChanged(int index)
-    {
-        // If the current field has 1 character and there is a next field, move the caret
-        if (otpFields[index].text.Length == 1 && index < otpFields.Length - 1)
-        {
-            // Move to the next field without clearing it to avoid re-selecting the field
-            otpFields[index + 1].ActivateInputField();  // This only activates the next field without changing its value
-            otpFields[index + 1].MoveTextEnd(false);    // Move caret to the end of the field
-        }
-        // If the current field is empty and there is a previous field, move the caret back
-        else if (otpFields[index].text.Length == 0 && index > 0)
-        {
-            // Move to the previous field without clearing it to avoid re-selecting the field
-            otpFields[index - 1].ActivateInputField();
-            otpFields[index - 1].MoveTextEnd(false);    // Move caret to the end of the field
-        }
-    }
-
-
-
-
+    
     void ResetAllFields()
     {
         foreach (TMP_InputField field in otpFields)
@@ -203,8 +191,8 @@ public class Data
 
     public string sellerId;
 
-    public DateTime createdAt ;
-    public DateTime updatedAt ;
+    public DateTime createdAt;
+    public DateTime updatedAt;
     public int __v;
     public string token;
 }
@@ -215,4 +203,10 @@ public class Settings
     public bool music;
     public bool soundEffect;
     public bool vibration;
+    public Settings(bool music, bool soundEffect, bool vibration)
+    {
+        this.music = music;
+        this.soundEffect = soundEffect;
+        this.vibration = vibration;
+    }
 }

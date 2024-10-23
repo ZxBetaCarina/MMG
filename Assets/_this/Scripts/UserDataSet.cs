@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using ZxLog;
 
 public class UserData : MonoBehaviour
 {
     [SerializeField] private Data data = new();
     [SerializeField] private Sprite pic;
+    [SerializeField] private AppSettings appSettings;
     private static UserData _instance;
+    private string key = "token";
 
     private void Awake()
     {
@@ -21,16 +24,43 @@ public class UserData : MonoBehaviour
 
     public static bool IsUserLoggedIn { get; private set; }
 
+    private void OnValidate()
+    {
+        if (appSettings == null)
+        {
+            appSettings = FindObjectOfType<AppSettings>(true);
+        }
+    }
+
     private void OnEnable()
     {
         Otp.OnOtpVerified += () => SetLogIn(true);
         Account.OnSignOutAction += () => SetLogIn(false);
+        Otp.OnOtpVerified += SaveDataOnSystem;
     }
 
     private void OnDisable()
     {
         Otp.OnOtpVerified -= () => SetLogIn(true);
         Account.OnSignOutAction -= () => SetLogIn(false);
+        Otp.OnOtpVerified -= SaveDataOnSystem;
+    }
+    private void SaveDataOnSystem()
+    {
+        if (data.token != null)
+        {
+            PlayerPrefs.SetString(key, data.token);
+            Print.CustomLog("Token is saved for autologin save", LogColor.Cyan);
+        }
+        else
+        {
+            Print.CustomLog("Token is null for autologin save", LogColor.Cyan);
+        }
+    }
+
+    public static string GetKey()
+    {
+        return _instance.key;
     }
 
     public static string GetData(UserDataSet dataType)
@@ -131,6 +161,7 @@ public class UserData : MonoBehaviour
                 Print.CustomLog("Invalid data type in SetData", LogColor.Red);
                 break;
         }
+        _instance.appSettings.GetSettingsFromUserData();
     }
 
     public static void SetTotalData(Data data)
@@ -146,13 +177,21 @@ public class UserData : MonoBehaviour
     private void SetLogIn(bool value)
     {
         IsUserLoggedIn = value;
+        SignOut(value);
+    }
+    private void SignOut(bool value)
+    {
+        if (!value)
+        {
+            PlayerPrefs.DeleteKey(key);
+        }
     }
 
     public static void SetSettings(Settings settings)
     {
         _instance.data.settings = settings;
     }
-    
+
     public static Settings GetSettings()
     {
         return _instance.data.settings;

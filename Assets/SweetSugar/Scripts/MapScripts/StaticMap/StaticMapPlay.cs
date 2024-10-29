@@ -17,7 +17,7 @@ namespace SweetSugar.Scripts.MapScripts
             text.text = LocalizationManager.GetText(89, "Level") + " " + level;
         }
 
-        public void Start()
+        public void Play()
         {
             InitScript.OpenMenuPlay(level);
         }

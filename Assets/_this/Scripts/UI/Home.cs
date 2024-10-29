@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Home : MonoBehaviour
@@ -52,6 +53,7 @@ public class Home : MonoBehaviour
 
     private void OnCurrencyClick()
     {
+        SceneManager.LoadScene(1);
     }
 
     private void OnChessClick()

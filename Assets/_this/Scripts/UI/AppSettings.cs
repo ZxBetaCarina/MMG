@@ -11,6 +11,9 @@ public class AppSettings : MonoBehaviour
     [SerializeField] private ToggleSwitch vibration;
     [SerializeField] private Button back;
 
+    private bool defaultMusic = true;
+    private bool defaultSfx = true;
+    private bool defaultVibration = true;
 
     private void ToggleThing(ToggleSwitch type, bool value)
     {
@@ -59,11 +62,12 @@ public class AppSettings : MonoBehaviour
     private void OnEnable()
     {
         back.onClick.AddListener(OnBack);
-        GetSettingsData();
+        //GetSettingsData();
+
     }
     public void GetSettingsFromUserData()
     {
-        var settingsUser = UserData.GetSettings();
+        var settingsUser = UserData.GetSettings(); 
         var data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (data != settingsUser)
         {
@@ -76,12 +80,12 @@ public class AppSettings : MonoBehaviour
     private void OnDisable()
     {
         back.onClick.RemoveListener(OnBack);
+        SaveSettings();
     }
 
     private void OnBack()
     {
         UIManager.LoadScreenAnimated(UIScreen.Home);
-        SaveSettings();
     }
 
     private void GetSettingsData()
@@ -89,6 +93,7 @@ public class AppSettings : MonoBehaviour
         Settings data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (UserData.GetSettings() != data)
         {
+            UserData.SetSettings(data);
             ApiManager.Get<SettingResponseData>(ServiceURLs.GetSettings, OnSuccess, OnError);
         }
     }

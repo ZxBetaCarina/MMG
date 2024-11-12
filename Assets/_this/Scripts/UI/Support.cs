@@ -28,7 +28,7 @@ public class Support : MonoBehaviour
 
     private void OnSubmit()
     {
-        submit.interactable = false;
+        submit.interactable = true;
         if (message.text != string.Empty)
         {
             ApiManager.Post<SupportRequest, SupportResponseData>(ServiceURLs.Support, new SupportRequest(message

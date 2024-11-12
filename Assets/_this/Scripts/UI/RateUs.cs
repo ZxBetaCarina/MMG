@@ -20,6 +20,7 @@ public class RateUs : MonoBehaviour
             int index = i; // Capture the index
             startBttArray[i].onClick.AddListener(() => OnStarClick(index));
         }
+        
     }
 
     private void OnDisable()
@@ -32,6 +33,8 @@ public class RateUs : MonoBehaviour
         {
             startBttArray[i].onClick.RemoveListener(() => OnStarClick(i));
         }
+
+        Reset();
     }
 
     private void OnBack()
@@ -52,5 +55,12 @@ public class RateUs : MonoBehaviour
             GameObject star = startBttArray[i].transform.GetChild(0).gameObject; // Assuming the star is the first child
             star.SetActive(i <= index); // Turn on/off star based on the clicked index
         }
+    }
+    public void Reset()
+    {
+        
+
+        // Clear the feedback input field
+        feedback.text = string.Empty; // Clear the text of the feedback field
     }
 }

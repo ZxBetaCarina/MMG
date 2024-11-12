@@ -27,15 +27,15 @@ namespace SweetSugar.Scripts.Integrations.Network
 
         public NetworkDataManager()
         {
-#if PLAYFAB
-		dataManager = new PlayFabDataManager ();
-#elif GAMESPARKS
-            dataManager = new GamesparksDataManager();
-#endif
-            NetworkManager.OnLoginEvent += GetPlayerLevel;
-            LevelManager.OnEnterGame += GetPlayerScore;
-            NetworkManager.OnLogoutEvent += Logout;
-            NetworkManager.OnLoginEvent += GetBoosterData;
+// #if PLAYFAB
+// 		dataManager = new PlayFabDataManager ();
+// #elif GAMESPARKS
+//             dataManager = new GamesparksDataManager();
+// #endif
+//             NetworkManager.OnLoginEvent += GetPlayerLevel;
+//             LevelManager.OnEnterGame += GetPlayerScore;
+//             NetworkManager.OnLogoutEvent += Logout;
+//             NetworkManager.OnLoginEvent += GetBoosterData;
         }
 
         public void Logout()
@@ -51,11 +51,11 @@ namespace SweetSugar.Scripts.Integrations.Network
 
         public void SetPlayerScoreTotal()
         {//2.1.6
-            int latestLevel = LevelsMap._instance.GetLastestReachedLevel();
-            for (int i = 1; i <= latestLevel; i++)
-            {
-                SetPlayerScore(i, PlayerPrefs.GetInt("Score" + i, 0));
-            }
+            // int latestLevel = LevelsMap._instance.GetLastestReachedLevel();
+            // for (int i = 1; i <= latestLevel; i++)
+            // {
+            //     SetPlayerScore(i, PlayerPrefs.GetInt("Score" + i, 0));
+            // }
         }
 
         public void SetPlayerScore(int level, int score)
@@ -127,13 +127,13 @@ namespace SweetSugar.Scripts.Integrations.Network
             if (!NetworkManager.THIS.IsLoggedIn)
                 return;
 
-            Debug.Log(LevelsMap._instance.GetLastestReachedLevel() + " " + LatestReachedLevel);
-            if (LevelsMap._instance.GetLastestReachedLevel() > LatestReachedLevel)
-            {
-                Debug.Log("reached higher level than synced");
-                SyncAllData();
-                return;
-            }
+            // Debug.Log(LevelsMap._instance.GetLastestReachedLevel() + " " + LatestReachedLevel);
+            // if (LevelsMap._instance.GetLastestReachedLevel() > LatestReachedLevel)
+            // {
+            //     Debug.Log("reached higher level than synced");
+            //     SyncAllData();
+            //     return;
+            // }
 
             dataManager.GetStars(dic =>
             {
@@ -193,7 +193,7 @@ namespace SweetSugar.Scripts.Integrations.Network
         public void SyncAllData()
         {
             SetTotalStars();
-            SetPlayerLevel(LevelsMap._instance.GetLastestReachedLevel());
+            // SetPlayerLevel(LevelsMap._instance.GetLastestReachedLevel());
             SetBoosterData();//2.1.5 sync boosters
             SetPlayerScoreTotal();//2.1.6 sync levels
             NetworkManager.currencyManager.SetBalance(PlayerPrefs.GetInt("Gems"));//2.1.5 sync currency

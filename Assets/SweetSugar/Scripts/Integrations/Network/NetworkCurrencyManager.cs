@@ -23,7 +23,7 @@ namespace SweetSugar.Scripts.Integrations.Network
 			NetworkManager.OnLoginEvent += GetBalance;
 			NetworkManager.OnLogoutEvent += Logout;
 #if PLAYFAB
-		currencyMananager = new PlayFabCurrencyManager ();
+		//currencyMananager = new PlayFabCurrencyManager ();
 #elif GAMESPARKS 
 			currencyMananager = new GamesparksCurrencyManager ();
 #endif

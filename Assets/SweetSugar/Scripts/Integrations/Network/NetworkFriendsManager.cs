@@ -24,17 +24,17 @@ namespace SweetSugar.Scripts.Integrations.Network
 
         public NetworkFriendsManager()
         {
-#if PLAYFAB
-		friendsManager = new PlayFabFriendsManager ();
-#elif GAMESPARKS
-            friendsManager = new GameSparksFriendsManager();
-
-#endif
-            NetworkManager.OnLoginEvent += GetFriends;
-            LevelManager.OnMapState += PlaceFriendsPositionsOnMap;
-            LevelManager.OnMenuPlay += GetLeadboardOnLevel;
-            LevelManager.OnMenuComplete += GetLeadboardOnLevel;
-            NetworkManager.OnLogoutEvent += Logout;//1.3.3
+// #if PLAYFAB
+// 		friendsManager = new PlayFabFriendsManager ();
+// #elif GAMESPARKS
+//             friendsManager = new GameSparksFriendsManager();
+//
+// #endif
+//             NetworkManager.OnLoginEvent += GetFriends;
+//             LevelManager.OnMapState += PlaceFriendsPositionsOnMap;
+//             LevelManager.OnMenuPlay += GetLeadboardOnLevel;
+//             LevelManager.OnMenuComplete += GetLeadboardOnLevel;
+//             NetworkManager.OnLogoutEvent += Logout;//1.3.3
         }
 
         public void Logout()
@@ -75,7 +75,7 @@ namespace SweetSugar.Scripts.Integrations.Network
                         FacebookManager.THIS.AddFriend(friend);//2.1.2
                         //					Debug.Log ("    " + item.Key + " == " + item.Value);
                     }
-                    FacebookManager.THIS.GetFriendsPicture();
+                //    FacebookManager.THIS.GetFriendsPicture();
                     PlaceFriendsPositionsOnMap();
 
                 });

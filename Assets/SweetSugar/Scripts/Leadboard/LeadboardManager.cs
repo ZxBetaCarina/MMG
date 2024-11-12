@@ -29,7 +29,7 @@ namespace SweetSugar.Scripts.Leadboard
             NetworkManager.friendsManager.GetLeadboardOnLevel();
 
             NetworkManager.leadboardList.Clear();
-            StartCoroutine(WaitForLeadboard());
+            //StartCoroutine(WaitForLeadboard());
 #endif
         }
 
@@ -55,17 +55,17 @@ namespace SweetSugar.Scripts.Leadboard
         }
 
 #if PLAYFAB || GAMESPARKS
-        IEnumerator WaitForLeadboard()
-        {
-            yield return new WaitForSeconds(0.5f);
-            yield return new WaitUntil(() => NetworkManager.leadboardList.Count > 0);
-            //		print (NetworkManager.leadboardList.Count);
-            if (FB.IsLoggedIn)
-            {
-                GetComponent<Image>().enabled = true;
-                ShowLeadboard();
-            }
-        }
+        // IEnumerator WaitForLeadboard()
+        // {
+        //     /*yield return new WaitForSeconds(0.5f);
+        //     yield return new WaitUntil(() => NetworkManager.leadboardList.Count > 0);
+        //     //		print (NetworkManager.leadboardList.Count);
+        //     if (FB.IsLoggedIn)
+        //     {
+        //         GetComponent<Image>().enabled = true;
+        //         ShowLeadboard();
+        //     }*/
+        // }
 
         void ShowLeadboard()
         {

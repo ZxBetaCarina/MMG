@@ -69,7 +69,7 @@ this.gameObject.AddComponent<WebGLPlatform>();
 #endif
 #if PLAYFAB
 		PlayFabSettings.TitleId = titleId;
-		loginManger = new PlayFabManager ();
+		//loginManger = new PlayFabManager ();
 #elif GAMESPARKS
 			//		new GamesparksConfiguration (this);
 			loginManger = new GamesparksLogin();

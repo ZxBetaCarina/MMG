@@ -25,11 +25,11 @@ namespace SweetSugar.Scripts.GUI.Avatar
 		}
 
 		void CheckFriendsList () {
-			var Friends = FacebookManager.Friends;
-
-			for (var i = 0; i < Friends.Count; i++) {
-				CreateAvatar (Friends [i]);
-			}
+			// var Friends = FacebookManager.Friends;
+			//
+			// for (var i = 0; i < Friends.Count; i++) {
+			// 	CreateAvatar (Friends [i]);
+			// }
 		}
 
 		/// <summary>

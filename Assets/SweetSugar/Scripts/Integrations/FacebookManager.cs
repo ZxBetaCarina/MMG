@@ -42,7 +42,7 @@ namespace SweetSugar.Scripts.Integrations
 		void OnEnable()
 		{
 #if PLAYFAB
-		NetworkManager.OnLoginEvent += GetUserName;
+		//NetworkManager.OnLoginEvent += GetUserName;
 
 #endif
 		}
@@ -51,7 +51,7 @@ namespace SweetSugar.Scripts.Integrations
 		void OnDisable()
 		{
 #if PLAYFAB
-		NetworkManager.OnLoginEvent -= GetUserName;
+		//NetworkManager.OnLoginEvent -= GetUserName;
 
 #endif
 		}

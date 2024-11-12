@@ -39,8 +39,8 @@ namespace SweetSugar.Scripts.Leadboard
 			yield return new WaitUntil (() => PlayerData != null);
 			yield return new WaitUntil (() => PlayerData.friendData != null);
 			if (PlayerData.friendData.picture == null) {
-				FacebookManager.THIS.LoggedSuccefull ();
-				FacebookManager.THIS.GetFriendsPicture ();
+				//FacebookManager.THIS.LoggedSuccefull ();
+			//	FacebookManager.THIS.GetFriendsPicture ();
 			}
 			yield return new WaitUntil (() => PlayerData.friendData.picture != null);
 			PlayerData.picture = PlayerData.friendData.picture;

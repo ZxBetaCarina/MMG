@@ -58,7 +58,12 @@ public class RateUs : MonoBehaviour
     }
     public void Reset()
     {
-        
+        // Reset all stars
+        /*foreach (Button starButton in startBttArray)
+        {
+            GameObject star = starButton.transform.GetChild(0).gameObject; // Assuming the star is the first child
+            star.SetActive(true); // De-highlight all stars
+        }*/
 
         // Clear the feedback input field
         feedback.text = string.Empty; // Clear the text of the feedback field

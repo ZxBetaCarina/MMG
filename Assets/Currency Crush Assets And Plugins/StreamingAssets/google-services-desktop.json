@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "869828551200",
+    "project_id": "bear-crush",
+    "storage_bucket": "bear-crush.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869828551200:android:e2b2e4ad172fc9f1d69245",
+        "android_client_info": {
+          "package_name": "com.techymaugames.bearcrush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869828551200-i8du6hbot0jval8gt22p85rl4u3ej126.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.techymaugames.bearcrush",
+            "certificate_hash": "c3b7a4a28c1bcea81b75acde9a88fb9a1c635bc6"
+          }
+        },
+        {
+          "client_id": "869828551200-0olnc3tsqb1fmlkjikqq76h6thgr8vn8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW0ZcW5t6UKJXc5mT9-dRjbEegwU_NaKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869828551200-0olnc3tsqb1fmlkjikqq76h6thgr8vn8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

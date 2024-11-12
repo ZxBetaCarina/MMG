@@ -116,7 +116,7 @@ public class ApiManager : MonoBehaviour
 
     private static IEnumerator GetRequest<T>(string url, Action<T> onSuccess, Action<string> onError)
     {
-        UIManager.ShowLoading(true);
+        PopUpManager.ShowLoading(true);
         using UnityWebRequest request = UnityWebRequest.Get(url);
         AuthSetter(request);
         yield return request.SendWebRequest();
@@ -127,25 +127,25 @@ public class ApiManager : MonoBehaviour
             {
                 T result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
                 onSuccess?.Invoke(result);
-                UIManager.ShowLoading(false);
+                PopUpManager.ShowLoading(false);
             }
             catch (Exception e)
             {
                 onError?.Invoke($"JSON parsing error: {e.Message}");
-                UIManager.ShowLoading(false);
+                PopUpManager.ShowLoading(false);
             }
         }
         else
         {
             onError?.Invoke(request.error);
-            UIManager.ShowLoading(false);
+            PopUpManager.ShowLoading(false);
         }
     }
 
     private static IEnumerator PostRequest<Req, Res>(string url, Req requestData, Action<Res> onSuccess,
         Action<string> onError)
     {
-        UIManager.ShowLoading(true);
+        PopUpManager.ShowLoading(true);
         using UnityWebRequest request = new UnityWebRequest(url, "POST");
         AuthSetter(request);
         string jsonToSend = JsonConvert.SerializeObject(requestData);
@@ -162,25 +162,25 @@ public class ApiManager : MonoBehaviour
             {
                 Res result = JsonConvert.DeserializeObject<Res>(request.downloadHandler.text);
                 onSuccess?.Invoke(result);
-                UIManager.ShowLoading(false);
+                PopUpManager.ShowLoading(false);
             }
             catch (Exception e)
             {
                 onError?.Invoke($"JSON parsing error: {e.Message}");
-                UIManager.ShowLoading(false);
+                PopUpManager.ShowLoading(false);
             }
         }
         else
         {
             onError?.Invoke(request.error);
-            UIManager.ShowLoading(false);
+            PopUpManager.ShowLoading(false);
         }
     }
     
     private static IEnumerator PostRequest<Res>(string url, Action<Res> onSuccess,
         Action<string> onError)
     {
-        UIManager.ShowLoading(true);
+        PopUpManager.ShowLoading(true);
         using UnityWebRequest request = new UnityWebRequest(url, "POST");
         AuthSetter(request);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -194,24 +194,24 @@ public class ApiManager : MonoBehaviour
             {
                 Res result = JsonConvert.DeserializeObject<Res>(request.downloadHandler.text);
                 onSuccess?.Invoke(result);
-                UIManager.ShowLoading(false);
+                PopUpManager.ShowLoading(false);
             }
             catch (Exception e)
             {
                 onError?.Invoke($"JSON parsing error: {e.Message}");
-                UIManager.ShowLoading(false);
+                PopUpManager.ShowLoading(false);
             }
         }
         else
         {
             onError?.Invoke(request.error);
-            UIManager.ShowLoading(false);
+            PopUpManager.ShowLoading(false);
         }
     }
 
     private static IEnumerator PostFormRequest<T>(string url, WWWForm form, Action<T> onSuccess, Action<string> onError)
     {
-        UIManager.ShowLoading(true);
+        PopUpManager.ShowLoading(true);
         using UnityWebRequest request = UnityWebRequest.Post(url, form);
         AuthSetter(request);
         yield return request.SendWebRequest();
@@ -221,18 +221,18 @@ public class ApiManager : MonoBehaviour
             {
                 T result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
                 onSuccess?.Invoke(result);
-                UIManager.ShowLoading(false);
+                PopUpManager.ShowLoading(false);
             }
             catch (Exception e)
             {
                 onError?.Invoke($"JSON parsing error: {e.Message}");
-                UIManager.ShowLoading(false);
+                PopUpManager.ShowLoading(false);
             }
         }
         else
         {
             onError?.Invoke(request.error);
-            UIManager.ShowLoading(false);
+            PopUpManager.ShowLoading(false);
         }
     }
 

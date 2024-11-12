@@ -447,7 +447,7 @@ namespace SweetSugar.Scripts.Core
             currentLevel = PlayerPrefs.GetInt("OpenLevel");
             if (currentLevel == 0)
                 currentLevel = 1;
-            LoadLevel(1);
+            LoadLevel(currentLevel);
         }
         //enable map
         public void EnableMap(bool enable)

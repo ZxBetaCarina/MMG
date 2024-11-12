@@ -178,8 +178,16 @@ public class UserData : MonoBehaviour
     private void SetLogIn(bool value)
     {
         IsUserLoggedIn = value;
+        PlayerPrefs.SetInt("IsUserLoggedIn", IsUserLoggedIn ? 1 : 0);
         SignOut(value);
     }
+
+    private void OnApplicationQuit()
+    {
+        IsUserLoggedIn = false;
+        PlayerPrefs.SetInt("IsUserLoggedIn", IsUserLoggedIn ? 1 : 0);
+    }
+
     private void SignOut(bool value)
     {
         if (!value)

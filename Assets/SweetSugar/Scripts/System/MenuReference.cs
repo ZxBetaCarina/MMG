@@ -25,6 +25,7 @@ namespace SweetSugar.Scripts.System
         {
             THIS = this;
             THIS.HideAll();
+
         }
 
         private void Start()

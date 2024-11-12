@@ -47,7 +47,7 @@ public class JoinGiveaway : MonoBehaviour
         }
         else
         {
-            UIManager.ShowPopUpAction("Message", "Must enter a quantity", AfterOk);
+            PopUpManager.ShowPopUpAction("Message", "Must enter a quantity", AfterOk);
         }
     }
 

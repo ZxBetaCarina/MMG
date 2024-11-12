@@ -53,6 +53,7 @@ public class Home : MonoBehaviour
 
     private void OnCurrencyClick()
     {
+        PlayerPrefs.SetInt("InGame", 1);
         SceneManager.LoadScene(1);
     }
 

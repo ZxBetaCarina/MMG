@@ -28,7 +28,7 @@ namespace SweetSugar.Scripts.GUI.Boost
         {
             Lock = transform.Find("Lock")?.gameObject;
             Indicator = transform.Find("Indicator")?.gameObject;
-            BoostShop = MenuReference.THIS.BoostShop.gameObject.GetComponent<BoostShop>();
+            BoostShop = MenuReference.THIS.BoostShop.gameObject.GetComponent<BoostShop>();  
             //		if (check != null) return;
             //		check = Instantiate(Resources.Load("Prefabs/Check")) as GameObject;
             //		check.transform.SetParent(transform.Find("Indicator"));

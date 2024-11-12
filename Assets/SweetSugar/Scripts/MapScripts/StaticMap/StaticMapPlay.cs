@@ -1,4 +1,3 @@
-using System;
 using SweetSugar.Scripts.Core;
 using SweetSugar.Scripts.Localization;
 using TMPro;

@@ -3,28 +3,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ZxLog;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private UIScreen startScreen;
     [SerializeField] private DockManager dockManager;
-    [SerializeField] private Loading loading;
-    [SerializeField] private PopUp popUp;
+
     [SerializeField] private List<UIElement> uiElements;
 
     private static List<UIElement> _uiElementsStatic;
     private static float fadeDuration = 0.1f;
     private static DockManager _dock;
-    private static Loading _loading;
-    private static PopUp _popUp;
     private static UIManager _instance;
 
     private void Awake()
     {
         _uiElementsStatic = uiElements;
         _dock = dockManager;
-        _loading = loading;
-        _popUp = popUp;
+
 
         if (_instance == null)
         {
@@ -38,12 +35,21 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        LoadScreen(startScreen);
+        if (PlayerPrefs.GetInt("InGame") == 1)
+        {
+            LoadScreenAnimated(UIScreen.Home);
+            PlayerPrefs.SetInt("InGame", 0);
+        }
+        else
+        {
+            Print.Separator(LogColor.Red);
+            LoadScreen(startScreen);
+        }
         ApiManager.Initialize(this);
         ToggleSwitch.InitializeToggle(this);
     }
 
-    public static void LoadScreen(UIScreen screen)
+    private static void LoadScreen(UIScreen screen)
     {
         DeactivateAllScreens();
 
@@ -99,21 +105,6 @@ public class UIManager : MonoBehaviour
                 });
             }
         }
-    }
-
-    public static void ShowLoading(bool value)
-    {
-        _loading.gameObject.SetActive(value);
-    }
-
-    public static void ShowPopUp(string head, string body)
-    {
-        _popUp.LoadPopUp(head, body);
-    }
-
-    public static void ShowPopUpAction(string head, string body, Action action)
-    {
-        _popUp.LoadPopUp(head,body,action);
     }
 
     public static void Button_Activate_Dock_Button_And_Screen(int p_index)

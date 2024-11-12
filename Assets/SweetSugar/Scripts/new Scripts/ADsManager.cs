@@ -19,7 +19,7 @@ public class ADsManager : MonoBehaviour
 
 	private void Start()
 	{
-		//Advertisement.Initialize("4677377", true);
+		Advertisement.Initialize("4677377", true);
 		//Advertisement.AddListener(this);
 
 	}
@@ -74,16 +74,16 @@ public class ADsManager : MonoBehaviour
 		//return false;
 	//}
 
-	// public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
-	// {
-	//
-	// 	AnimationEventManager.Instance.CloseMenu();
-	//
-	// 	if (placementId == "Rewarded_Android" && showResult == ShowResult.Finished)
-	// 	{
-	// 		InitScript.Instance.ShowReward();
-	// 	}
-	//
-	// }
+	public void OnUnityAdsDidFinish(string placementId, ShowResult showResult)
+	{
+
+		AnimationEventManager.Instance.CloseMenu();
+
+		if (placementId == "Rewarded_Android" && showResult == ShowResult.Finished)
+		{
+			InitScript.Instance.ShowReward();
+		}
+
+	}
 
 }

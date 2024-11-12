@@ -35,7 +35,7 @@ public class QrCode : MonoBehaviour
     {
         if (obj.status)
         {
-            UIManager.ShowPopUp("Request sent successfully",
+            PopUpManager.ShowPopUp("Request sent successfully",
                 " Thank you for requesting a treasure ticket. Our sales executive will contact you shortly. \n\n Thanks for your cooperation.");
         }
     }

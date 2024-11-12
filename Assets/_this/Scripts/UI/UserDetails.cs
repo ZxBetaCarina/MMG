@@ -35,7 +35,7 @@ public class UserDetails : MonoBehaviour
             dob.text == String.Empty || location.text == String.Empty ||
             !gender.AnyTogglesOn())
         {
-            UIManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
+            PopUpManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
         }
         else
         {
@@ -51,7 +51,7 @@ public class UserDetails : MonoBehaviour
     {
         if (obj.status)
         {
-            UIManager.ShowPopUp("Message", "Welcome To Millionaire Mind Games");
+            PopUpManager.ShowPopUp("Message", "Welcome To Millionaire Mind Games");
             UIManager.LoadScreenAnimated(UIScreen.Home);
             CustomLog.SuccessLog(obj.message);
             Profile.GetProfile();

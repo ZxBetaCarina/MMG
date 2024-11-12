@@ -48,7 +48,7 @@ public class EditUserProfile : MonoBehaviour
             dob.text == String.Empty || location.text == String.Empty ||
             !gender.AnyTogglesOn())
         {
-            UIManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
+            PopUpManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
         }
         else
         {
@@ -75,7 +75,7 @@ public class EditUserProfile : MonoBehaviour
     {
         if (obj.status)
         {
-            UIManager.ShowPopUp("Message", "Profile Data Changed Successfully");
+            PopUpManager.ShowPopUp("Message", "Profile Data Changed Successfully");
             UIManager.LoadScreenAnimated(UIScreen.UserProfile);
             CustomLog.SuccessLog(obj.message);
             Profile.GetProfile();

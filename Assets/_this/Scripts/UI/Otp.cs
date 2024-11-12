@@ -63,7 +63,7 @@ public class Otp : MonoBehaviour
         if (obj.status)
         {
             ResetAllFields();
-            UIManager.ShowPopUp("Message", "OTP Resent successfully");
+            PopUpManager.ShowPopUp("Message", "OTP Resent successfully");
             Print.BigWhiteLog("OTP = " + obj.data);
         }
         else

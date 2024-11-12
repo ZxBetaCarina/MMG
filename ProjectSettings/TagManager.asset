@@ -4,18 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - SPIRAL
+  - Item
+  - FxTemporaire
+  - HORIZONTAL_STRIPED
+  - VERTICAL_STRIPED
   - MARMALADE
   - PACKAGE
-  - VERTICAL_STRIPED
-  - HORIZONTAL_STRIPED
-  - Multicolor_firework
-  - INGREDIENT
   - MULTICOLOR
-  - Item
+  - INGREDIENT
+  - SPIRAL
   - MarmaladeAnimation
+  - Multicolor_firework
   - Simple_firework
-  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -54,11 +54,11 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Arrow
-    uniqueID: 1792183327
+    uniqueID: 2226258467
     locked: 0
   - name: Item mask
-    uniqueID: 919667843
+    uniqueID: 1397149363
     locked: 0
   - name: UI
-    uniqueID: 2976580697
+    uniqueID: 58496801
     locked: 0

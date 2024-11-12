@@ -23,7 +23,7 @@ public class PopUp : MonoBehaviour
     private void OnOk()
     {
         gameObject.SetActive(false);
-        onOkAction?.Invoke(); // Invoke the method passed if it's not null
+        //onOkAction?.Invoke(); // Invoke the method passed if it's not null
     }
 
     public void LoadPopUp(string head, string message)

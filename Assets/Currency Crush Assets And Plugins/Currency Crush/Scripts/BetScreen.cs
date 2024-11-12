@@ -11,6 +11,7 @@ public class BetScreen : MonoBehaviour
     [SerializeField] private StaticMapPlay staticMapPlay;
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private int _count = 0;
+    [SerializeField] private int _countmultiplyer = 10;
 
     private void OnEnable()
     {
@@ -32,14 +33,14 @@ public class BetScreen : MonoBehaviour
     }
     private void OnPlusClick()
     {
-        _count++;
+        _count += +_countmultiplyer;
         UpdateTextField();
     }
     private void OnMinusClick()
     {
         if (_count > 0)
         {
-            _count--;
+            _count += -_countmultiplyer;
         }
         UpdateTextField();
     }

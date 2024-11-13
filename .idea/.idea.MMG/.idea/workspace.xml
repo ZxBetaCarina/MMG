@@ -6,16 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Font/Montserrat-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Font/Montserrat-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cadillacpersona/Candillas Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cadillacpersona/Candillas Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cocola/Cocola SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cocola/Cocola SDF 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cute_dolphin/Cute Dolphin 2BG.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cute_dolphin/Cute Dolphin 2BG.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cute_dolphin/Cute Dolphin SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cute_dolphin/Cute Dolphin SDF 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cute_dolphin/Cute Dolphin SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cute_dolphin/Cute Dolphin SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cute_dolphin/Cute Dolphin White.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Fonts/cute_dolphin/Cute Dolphin White.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/CountdownTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/CountdownTimer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +93,7 @@
       <updated>1731472598361</updated>
       <workItem from="1731472600433" duration="43000" />
       <workItem from="1731472654158" duration="464000" />
-      <workItem from="1731474925258" duration="2864000" />
+      <workItem from="1731474925258" duration="4000000" />
     </task>
     <servers />
   </component>

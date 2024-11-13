@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/PopUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/PopUp.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

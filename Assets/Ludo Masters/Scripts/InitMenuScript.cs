@@ -18,13 +18,13 @@ using AssemblyCSharp;
 public class InitMenuScript : MonoBehaviour
 {
     public GameObject rateWindow;
-    public GameObject FacebookLinkReward;
+   // public GameObject FacebookLinkReward;
     public GameObject rewardDialogText;
-    public GameObject FacebookLinkButton;
+   // public GameObject FacebookLinkButton;
     public GameObject playerName;
-    public GameObject videoRewardText;
+    //public GameObject videoRewardText;
     public GameObject playerAvatar;
-    public GameObject fbFriendsMenu;
+    //public GameObject fbFriendsMenu;
     public GameObject matchPlayer;
     public GameObject backButtonMatchPlayers;
     public GameObject MatchPlayersCanvas;
@@ -44,7 +44,7 @@ public class InitMenuScript : MonoBehaviour
     public GameObject GameConfigurationScreen;
     public GameObject FourPlayerMenuButton;
 
-    public GameObject FacebookInviteReward;
+    //public GameObject FacebookInviteReward;
     public GameObject FacebookInviteFriendsButton;
     public GameObject videoRewardTextMenu;
     void Start()
@@ -77,7 +77,7 @@ public class InitMenuScript : MonoBehaviour
         }
 
 
-        FacebookLinkReward.GetComponent<Text>().text = "+ " + StaticStrings.CoinsForLinkToFacebook;
+//        FacebookLinkReward.GetComponent<Text>().text = "+ " + StaticStrings.CoinsForLinkToFacebook;
 
         if (!StaticStrings.isFourPlayerModeEnabled)
         {
@@ -85,26 +85,26 @@ public class InitMenuScript : MonoBehaviour
         }
 
         GameManager.Instance.FacebookInviteFriendsButton = FacebookInviteFriendsButton;
-        GameManager.Instance.FacebookLinkButton = FacebookLinkButton;
+      //  GameManager.Instance.FacebookLinkButton = FacebookLinkButton;
 
         GameManager.Instance.dialog = dialog;
-        videoRewardText.GetComponent<Text>().text = "+" + StaticStrings.rewardForVideoAd;
-        videoRewardTextMenu.GetComponent<Text>().text = "+" + StaticStrings.rewardForVideoAd;
+//        videoRewardText.GetComponent<Text>().text = "+" + StaticStrings.rewardForVideoAd;
+//        videoRewardTextMenu.GetComponent<Text>().text = "+" + StaticStrings.rewardForVideoAd;
         GameManager.Instance.tablesCanvas = tablesCanvas;
-        GameManager.Instance.facebookFriendsMenu = fbFriendsMenu.GetComponent<FacebookFriendsMenu>(); ;
+//        GameManager.Instance.facebookFriendsMenu = fbFriendsMenu.GetComponent<FacebookFriendsMenu>(); ;
 
         GameManager.Instance.matchPlayerObject = matchPlayer;
         GameManager.Instance.backButtonMatchPlayers = backButtonMatchPlayers;
-        playerName.GetComponent<Text>().text = GameManager.Instance.nameMy;
+//        playerName.GetComponent<Text>().text = GameManager.Instance.nameMy;
         GameManager.Instance.MatchPlayersCanvas = MatchPlayersCanvas;
 
         if (PlayerPrefs.GetString("LoggedType").Equals("Facebook"))
         {
-            FacebookLinkButton.SetActive(false);
+         //   FacebookLinkButton.SetActive(false);
             //FacebookInviteFriendsButton.SetActive(true);
         }
 
-        FacebookInviteReward.GetComponent<Text>().text = "" + StaticStrings.rewardCoinsForFriendInvite;
+       // FacebookInviteReward.GetComponent<Text>().text = "" + StaticStrings.rewardCoinsForFriendInvite;
 
         if (GameManager.Instance.avatarMy != null)
             playerAvatar.GetComponent<Image>().sprite = GameManager.Instance.avatarMy;
@@ -125,7 +125,7 @@ public class InitMenuScript : MonoBehaviour
         coinsTab.SetActive(false);
 #endif
 
-        rewardDialogText.GetComponent<Text>().text = "1 Video = " + StaticStrings.rewardForVideoAd + " Coins";
+//        rewardDialogText.GetComponent<Text>().text = "1 Video = " + StaticStrings.rewardForVideoAd + " Coins";
         //coinsText.GetComponent<Text>().text = GameManager.Instance.myPlayerData.GetCoins() + "";
 
 
@@ -195,9 +195,11 @@ public class InitMenuScript : MonoBehaviour
                 break;
             case 2:
                 GameManager.Instance.type = MyGameType.Private;
+                GameConfigurationScreen.SetActive(true);
                 break;
         }
-        GameConfigurationScreen.SetActive(true);
+      //  GameConfigurationScreen.SetActive(true);
+      
         // AdsManager.Instance.adsScript.ShowAd(AdLocation.GamePropertiesWindow);
     }
 

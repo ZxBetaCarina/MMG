@@ -10,9 +10,9 @@ public class ConnectionLostController : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
         GameManager.Instance.connectionLost = this;
 
-        if (Application.internetReachability == NetworkReachability.NotReachable) {
-            showDialog();
-        }
+        // if (Application.internetReachability == NetworkReachability.NotReachable) {
+        //     showDialog();
+        // }
     }
 
     // Update is called once per frame

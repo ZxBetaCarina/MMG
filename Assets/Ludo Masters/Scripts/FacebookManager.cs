@@ -93,8 +93,8 @@ public class FacebookManager : MonoBehaviour
         //		menuCanvas.SetActive (false);
         //		gameTitle.SetActive (false);
 
-        GameManager.Instance.matchPlayerObject.GetComponent<SetMyData>().MatchPlayer();
-        GameManager.Instance.matchPlayerObject.GetComponent<SetMyData>().setBackButton(true);
+       GameManager.Instance.matchPlayerObject.GetComponent<SetMyData>().MatchPlayer();
+       GameManager.Instance.matchPlayerObject.GetComponent<SetMyData>().setBackButton(true);
         //		matchPlayersCanvas.GetComponent <SetMyData> ().MatchPlayer ();
         //		matchPlayersCanvas.GetComponent <SetMyData> ().setBackButton (true);
         playFabManager.JoinRoomAndStartGame();

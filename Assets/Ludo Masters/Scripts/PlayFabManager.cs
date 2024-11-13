@@ -30,7 +30,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     private bool alreadyGotFriends = false;
     public GameObject menuCanvas;
     public GameObject MatchPlayersCanvas;
-    public GameObject splashCanvas;
+  //  public GameObject splashCanvas;
     public bool opponentReady = false;
     public bool imReady = false;
     public GameObject playerAvatar;
@@ -59,7 +59,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     void Awake()
     {
 
-        splashCanvas.SetActive(true);
+        //splashCanvas.SetActive(true);
         Debug.Log("Playfab awake");
         //PlayerPrefs.DeleteAll();
         PhotonNetwork.PhotonServerSettings.HostType = ServerSettings.HostingOption.PhotonCloud;
@@ -408,7 +408,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         if (isInMaster && isInLobby)
         {
           //  SceneManager.LoadScene("MenuScene");
-          splashCanvas.SetActive(false);
+          //splashCanvas.SetActive(false);
         }
         else
         {
@@ -540,7 +540,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             GameManager.Instance.myNameGameObject.GetComponent<Text>().text = GameManager.Instance.nameMy;
             GameManager.Instance.myPlayerData.UpdateUserData(data);
 
-            GameManager.Instance.FacebookLinkButton.SetActive(false);
+        //    GameManager.Instance.FacebookLinkButton.SetActive(false);
             GameManager.Instance.FacebookInviteFriendsButton.SetActive(true);
         },
         (error) =>
@@ -1222,7 +1222,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         if (GameManager.Instance.avatarMy != null)
             playerAvatar.GetComponent<Image>().sprite = GameManager.Instance.avatarMy;
 
-        splashCanvas.SetActive(false);
+        //splashCanvas.SetActive(false);
     }
 
     public void OnSubscribed(string[] channels, bool[] results)
@@ -1376,7 +1376,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
          };
 
         StartCoroutine(TryToJoinRandomRoom(expectedCustomRoomProperties));
-
+Debug.Log("trying to join in a random room");
         //PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
     }
 

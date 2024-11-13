@@ -62,7 +62,7 @@ public class GameManager
     public GameObject whiteBall;
     public bool testValue;
     public bool hasCueInHand = false;
-    public GameObject FacebookLinkButton;
+  //  public GameObject FacebookLinkButton;
     public int shotPower;
     public bool ballsStriked = false;
     public List<String> ballTouchBeforeStrike = new List<String>();

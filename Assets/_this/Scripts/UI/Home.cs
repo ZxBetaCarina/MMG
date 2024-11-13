@@ -11,6 +11,7 @@ public class Home : MonoBehaviour
     [SerializeField] private Button currency;
     [SerializeField] private Button chess;
     [SerializeField] private Button joinBtt;
+    [SerializeField] private Button timerBtn;
 
     private void OnEnable()
     {
@@ -21,6 +22,7 @@ public class Home : MonoBehaviour
         currency.onClick.AddListener(OnCurrencyClick);
         chess.onClick.AddListener(OnChessClick);
         joinBtt.onClick.AddListener(OnJoinBttClick);
+        timerBtn.onClick.AddListener(OnJoinBttClick);
     }
 
     private void OnDisable()
@@ -32,6 +34,7 @@ public class Home : MonoBehaviour
         currency.onClick.RemoveListener(OnCurrencyClick);
         chess.onClick.RemoveListener(OnChessClick);
         joinBtt.onClick.RemoveListener(OnJoinBttClick);
+        timerBtn.onClick.RemoveListener(OnJoinBttClick);
     }
 
     private void OnNotificationClick()
@@ -65,4 +68,5 @@ public class Home : MonoBehaviour
     {
         UIManager.LoadScreenAnimated(UIScreen.JoinGiveaway);
     }
+    
 }

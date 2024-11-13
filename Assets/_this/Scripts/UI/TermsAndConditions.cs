@@ -17,13 +17,6 @@ public class TermsAndConditions : MonoBehaviour
 
     private void OnBack()
     {
-        if (UserData.IsUserLoggedIn)
-        {
-            UIManager.LoadScreenAnimated(UIScreen.Home);
-        }
-        else
-        {
-            UIManager.LoadScreenAnimated(UIScreen.SignIn);
-        }
+        UIManager.LoadScreenAnimated(UIScreen.Home);
     }
 }

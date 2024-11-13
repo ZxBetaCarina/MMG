@@ -61,6 +61,6 @@ public class Wallet : MonoBehaviour
 
     private void OnBuyTicket()
     {
-        UIManager.LoadScreenAnimated(UIScreen.ExchangeCoins);
+        UIManager.LoadScreenAnimated(UIScreen.JoinGiveaway);
     }
 }

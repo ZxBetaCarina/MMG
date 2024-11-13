@@ -39,7 +39,7 @@ public class InitMenuScript : MonoBehaviour
     public GameObject coinsTab;
     public GameObject TheMillButton;
     public GameObject dialog;
-    public GameObject CookiesDialog;
+  //  public GameObject CookiesDialog;
     // Use this for initialization
     public GameObject GameConfigurationScreen;
     public GameObject FourPlayerMenuButton;
@@ -60,7 +60,7 @@ public class InitMenuScript : MonoBehaviour
 
         if (PlayerPrefs.GetInt("CookiesDialog", 0) == 0)
         {
-            CookiesDialog.SetActive(true);
+//          CookiesDialog.SetActive(true);
             PlayerPrefs.SetInt("CookiesDialog", 1);
         }
 

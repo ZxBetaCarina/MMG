@@ -17,25 +17,33 @@ public class DockManager : MonoBehaviour
     [SerializeField] private float fadeDuration;
 
     private int _last_dock;
+    private bool isAnimating; // Flag to prevent overlapping animations
 
     private void OnEnable()
     {
-        home.onClick.AddListener(() => ActivateDockButtonAndScreen(0));
-        refer.onClick.AddListener(() => ActivateDockButtonAndScreen(1));
-        game.onClick.AddListener(() => ActivateDockButtonAndScreen(2));
-        account.onClick.AddListener(() => ActivateDockButtonAndScreen(3));
+        home.onClick.AddListener(() => AttemptActivateDockButtonAndScreen(0));
+        refer.onClick.AddListener(() => AttemptActivateDockButtonAndScreen(1));
+        game.onClick.AddListener(() => AttemptActivateDockButtonAndScreen(2));
+        account.onClick.AddListener(() => AttemptActivateDockButtonAndScreen(3));
     }
 
     private void OnDisable()
     {
-        home.onClick.RemoveListener(() => ActivateDockButtonAndScreen(0));
-        refer.onClick.RemoveListener(() => ActivateDockButtonAndScreen(1));
-        game.onClick.RemoveListener(() => ActivateDockButtonAndScreen(2));
-        account.onClick.RemoveListener(() => ActivateDockButtonAndScreen(3));
+        home.onClick.RemoveListener(() => AttemptActivateDockButtonAndScreen(0));
+        refer.onClick.RemoveListener(() => AttemptActivateDockButtonAndScreen(1));
+        game.onClick.RemoveListener(() => AttemptActivateDockButtonAndScreen(2));
+        account.onClick.RemoveListener(() => AttemptActivateDockButtonAndScreen(3));
     }
 
-    public void ActivateDockButtonAndScreen(int p_index)
+    private void AttemptActivateDockButtonAndScreen(int p_index)
     {
+        if (isAnimating) return; // Prevent multiple calls if already animating
+        StartCoroutine(ActivateDockButtonAndScreen(p_index));
+    }
+
+    public IEnumerator ActivateDockButtonAndScreen(int p_index)
+    {
+        isAnimating = true; // Set flag to true at the start of the animation
         _last_dock = p_index;
 
         // Active buttons
@@ -77,22 +85,21 @@ public class DockManager : MonoBehaviour
         // Dock screens
         for (int i = 0; i < dockScreensParent.childCount; i++)
         {
-            GameObject t_selected_screen_object = dockScreensParent.GetChild(i).gameObject;
+            GameObject screenObject = dockScreensParent.GetChild(i).gameObject;
             if (i != p_index)
             {
-                AppearanceManager.Singleton.FadeOut(t_selected_screen_object, fadeDuration, AnimationDirection.Down,
-                    () => t_selected_screen_object.SetActive(false));
+                AppearanceManager.Singleton.FadeOut(screenObject, fadeDuration, AnimationDirection.Down,
+                    () => screenObject.SetActive(false));
             }
         }
 
-        StartCoroutine(Cor_ActivateDockButtonAndScreen(p_index));
-    }
+        yield return new WaitForSeconds(fadeDuration); // Wait for the fade duration
+        GameObject selectedScreenObject = dockScreensParent.GetChild(p_index).gameObject;
+        selectedScreenObject.SetActive(true);
+        AppearanceManager.Singleton.FadeIn(selectedScreenObject, fadeDuration, AnimationDirection.Up);
 
-    private IEnumerator Cor_ActivateDockButtonAndScreen(int p_index)
-    {
-        yield return new WaitForSeconds(fadeDuration);
-        GameObject t_selected_screen_object = dockScreensParent.GetChild(p_index).gameObject;
-        t_selected_screen_object.SetActive(true);
-        AppearanceManager.Singleton.FadeIn(t_selected_screen_object, fadeDuration, AnimationDirection.Up);
+        // Reset the animation flag after finishing
+        yield return new WaitForSeconds(fadeDuration); // Wait for the fade-in to complete
+        isAnimating = false;
     }
 }

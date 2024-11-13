@@ -1,6 +1,6 @@
 ﻿public class ServiceURLs
 {
-    public static readonly string BaseUrl = "http://82.180.132.164:3900/api";
+    public static readonly string BaseUrl = "https://admin.aimaxonmarketing.com/api/";
     public static readonly string Login = BaseUrl + "/gameUser/auth/login";
     public static readonly string VerifyOtp = BaseUrl + "/gameUser/auth/verifyOtp";
     public static readonly string UpdateProfile = BaseUrl + "/gameUser/auth/updateProfile";
@@ -15,5 +15,5 @@
     public static readonly string GetSettings = BaseUrl + "/gameUser/getSettings";
     public static readonly string UpdateSettings = BaseUrl + "/gameUser/updateSettings";
     public static readonly string SendRequest = BaseUrl + "/gameUser/sendRequest";
-    public static readonly string Image = "http://82.180.132.164:3900/Uploads/";
+    public static readonly string Image = "https://admin.aimaxonmarketing.com/api/Uploads/";
 }

@@ -1185,7 +1185,6 @@ public class GameGUIController : PunBehaviour
         {
             PlayerPrefs.SetInt("GamesPlayed", PlayerPrefs.GetInt("GamesPlayed", 1) + 1);
             PlayerPrefs.SetInt("InGame", 1);
-            SceneManager.LoadScene("Game");
             PhotonNetwork.BackgroundTimeout = StaticStrings.photonDisconnectTimeoutLong;
 
             //GameManager.Instance.cueController.removeOnEventCall();
@@ -1194,6 +1193,8 @@ public class GameGUIController : PunBehaviour
             GameManager.Instance.playfabManager.roomOwner = false;
             GameManager.Instance.roomOwner = false;
             GameManager.Instance.resetAllData();
+            SceneManager.LoadScene("Game");
+            
 
         }
         else

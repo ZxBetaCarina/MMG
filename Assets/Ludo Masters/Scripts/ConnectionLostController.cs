@@ -5,9 +5,19 @@ public class ConnectionLostController : MonoBehaviour {
 
     // Use this for initialization
     public GameObject canvas;
+    private static ConnectionLostController _instance;
 
     void Start() {
-        DontDestroyOnLoad(transform.gameObject);
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+     
         GameManager.Instance.connectionLost = this;
 
         // if (Application.internetReachability == NetworkReachability.NotReachable) {

@@ -9,6 +9,7 @@ using AssemblyCSharp;
 
 public class FacebookManager : MonoBehaviour
 {
+    public static FacebookManager _instance;
     public GameObject facebookLoginButton;
     public GameObject guestLoginButton;
     private PlayFabManager playFabManager;
@@ -57,9 +58,17 @@ public class FacebookManager : MonoBehaviour
     // Awake function from Unity's MonoBehavior
     void Awake()
     {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         Debug.Log("FBManager awake");
         GameManager.Instance.facebookManager = this;
-        DontDestroyOnLoad(transform.gameObject);
         playFabManager = GameObject.Find("PlayFabManager").GetComponent<PlayFabManager>();
         if (!GameManager.Instance.logged)
         {

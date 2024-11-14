@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StaticGameVariablesController : MonoBehaviour
 {
-
     public Sprite[] avatars;
 
     public Sprite[] emoji;
@@ -12,11 +11,20 @@ public class StaticGameVariablesController : MonoBehaviour
     public int emojiPerPack = 12;
     public int packsCount = 6;
 
+    private static StaticGameVariablesController _instance;
+
     // Use this for initialization
     void Start()
     {
-        DontDestroyOnLoad(transform.gameObject);
-
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame

@@ -68,8 +68,6 @@ public class PlayFabAddFriend : MonoBehaviour
         // if (StaticStrings.showAdWhenLeaveGame)
         //     AdsManager.Instance.adsScript.ShowAd();
         PlayerPrefs.SetInt("InGame", 1);
-        SceneManager.LoadScene("Game");
-     //   GameManager.Instance.playfabManager.splashCanvas.SetActive(false);
         PhotonNetwork.BackgroundTimeout = StaticStrings.photonDisconnectTimeoutLong; ;
         Debug.Log("Timeout 3");
         //GameManager.Instance.cueController.removeOnEventCall();
@@ -78,6 +76,9 @@ public class PlayFabAddFriend : MonoBehaviour
         GameManager.Instance.playfabManager.roomOwner = false;
         GameManager.Instance.roomOwner = false;
         GameManager.Instance.resetAllData();
+        SceneManager.LoadScene("Game");
+     //   GameManager.Instance.playfabManager.splashCanvas.SetActive(false);
+       
 
     }
 }

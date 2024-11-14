@@ -6,15 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ControlAvatars.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ControlAvatars.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookFriendsMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookFriendsMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ConnectionLostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ConnectionLostController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameGUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameGUIController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabAddFriend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabAddFriend.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/StaticGameVariablesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/StaticGameVariablesController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/new Scripts/DecideLogin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/new Scripts/DecideLogin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +39,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;do_not_show_Android_plugin_suggestion&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Midhun-&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Midhun2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -110,6 +108,7 @@
       <workItem from="1731559867027" duration="594000" />
       <workItem from="1731562395437" duration="1187000" />
       <workItem from="1731563747676" duration="16678000" />
+      <workItem from="1731589726802" duration="1230000" />
     </task>
     <servers />
   </component>

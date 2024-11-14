@@ -56,6 +56,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     public bool isInLobby = false;
     public bool isInMaster = false;
+    private static PlayFabManager _instance;
 
     void Awake()
     {
@@ -77,7 +78,16 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         PlayFabSettings.TitleId = StaticStrings.PlayFabTitleID;
 
         PhotonNetwork.OnEventCall += this.OnEvent;
-        DontDestroyOnLoad(transform.gameObject);
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+       
     }
 
     void OnDestroy()
@@ -1088,7 +1098,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     public override void OnPhotonCustomRoomPropertiesChanged(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-        Debug.Log("Custom properties changed: " + DateTime.Now.ToString());
+            Debug.Log("Custom properties changed: " + DateTime.Now.ToString());
     }
 
 
@@ -1216,7 +1226,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         GameManager.Instance.avatarMy = null;
         GameManager.Instance.logged = false;
         GameManager.Instance.resetAllData();
-        SceneManager.LoadScene("LoginSplash");
+        SceneManager.LoadScene("Game");
     }
 
     public void OnDisconnected()
@@ -1449,7 +1459,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     public void OnLeftLobby()
     {
-        Debug.Log("left room");
+        Debug.Log("left Lobby");
         isInLobby = false;
         isInMaster = false;
     }

@@ -174,4 +174,11 @@ public class GameConfigrationController : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+public bool StayinLobby=false;
+    public void StopSerchingforRoom()
+    {
+        HideThisScreen();
+       FindObjectOfType<PlayFabManager>().cancelSerching();
+        
+    }
 }

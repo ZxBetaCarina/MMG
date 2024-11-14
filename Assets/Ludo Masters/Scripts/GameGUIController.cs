@@ -1184,7 +1184,8 @@ public class GameGUIController : PunBehaviour
         if (!iFinished || finishWindow)
         {
             PlayerPrefs.SetInt("GamesPlayed", PlayerPrefs.GetInt("GamesPlayed", 1) + 1);
-            SceneManager.LoadScene("MenuScene");
+            PlayerPrefs.SetInt("InGame", 1);
+            SceneManager.LoadScene("Game");
             PhotonNetwork.BackgroundTimeout = StaticStrings.photonDisconnectTimeoutLong;
 
             //GameManager.Instance.cueController.removeOnEventCall();

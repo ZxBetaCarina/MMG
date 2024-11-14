@@ -7,12 +7,12 @@ public class DecideLogin : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("LoginType"))
 		{
-            SceneManager.LoadScene("main");
+            SceneManager.LoadScene("Game");
         }
 
 		else
 		{
-            SceneManager.LoadScene("Login_Page");
+          //  SceneManager.LoadScene("Login_Page");
 		}
         
     }

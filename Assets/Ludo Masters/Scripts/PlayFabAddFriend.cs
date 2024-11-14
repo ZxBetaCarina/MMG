@@ -67,7 +67,8 @@ public class PlayFabAddFriend : MonoBehaviour
     {
         // if (StaticStrings.showAdWhenLeaveGame)
         //     AdsManager.Instance.adsScript.ShowAd();
-        SceneManager.LoadScene("MenuScene");
+        PlayerPrefs.SetInt("InGame", 1);
+        SceneManager.LoadScene("Game");
      //   GameManager.Instance.playfabManager.splashCanvas.SetActive(false);
         PhotonNetwork.BackgroundTimeout = StaticStrings.photonDisconnectTimeoutLong; ;
         Debug.Log("Timeout 3");

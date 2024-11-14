@@ -6,306 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Animations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Animations/ButtonAnimator.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Animations/ButtonAnimator.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Animations/CoinsDeltaAnimation.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Animations/CoinsDeltaAnimation.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Animations/CoinsDeltaAnimator.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Animations/CoinsDeltaAnimator.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Animations/JellyButtonAnimation.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Animations/JellyButtonAnimation.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Fonts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Fonts/Dimbo Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Fonts/Dimbo Regular.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Images.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Images/Arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Images/Arrow.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Images/CircleBorder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Images/CircleBorder.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Images/Sectors.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Images/Sectors.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Prefabs/FortuneWheel Window.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Prefabs/FortuneWheel Window.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Scripts/FortuneWheelManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FortuneWheel/Scripts/FortuneWheelManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/GDPR_Controller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/GDPR_Controller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/GDPR_Dialog 1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/GDPR_Dialog 1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/GDPR_Strings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/GDPR_Strings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/gdpr_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/gdpr_background.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/gdpr_button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GDPR_Dialog/gdpr_button.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ConnectionLostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ConnectionLostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/InitMenuScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/InitMenuScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ControlAvatars.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ControlAvatars.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookFriendsMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookFriendsMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameGUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameGUIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabAddFriend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabAddFriend.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/ChatMessageButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/ChatMessageButton.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/avatarMask.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/avatarMask.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/message_bubble.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/message_bubble.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/progress_circle.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/progress_circle.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/status_indicator.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/DontEdit/status_indicator.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/ButtonGrey.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/ButtonGrey.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/CheckBoxChecked.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/CheckBoxChecked.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/Coin.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/Coin.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/DecreaseBidButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/DecreaseBidButton.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/DialogWindow.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/DialogWindow.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/IncreaseBidButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/IncreaseBidButton.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/LostConnectionIcon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/LostConnectionIcon.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MainButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MainButton.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/Menu1vs1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/Menu1vs1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/Menu4P.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/Menu4P.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuButton.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuButtonTopImage.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuButtonTopImage.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuLinkFacebook.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuLinkFacebook.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuPrivate.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuPrivate.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuStore.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuStore.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuSwitchAccount.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/MenuSwitchAccount.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/RateButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/RateButton.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/SettingsIcon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/SettingsIcon.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/WatchVideoIcon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/WatchVideoIcon.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/WindowTitle.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/WindowTitle.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/avatarBorder.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/avatarBorder.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/avatarBorderGame.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/avatarBorderGame.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/avatars.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/avatars.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/background.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/checkBox.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/checkBox.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/crown.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/crown.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/dailyBonusIndicator.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/dailyBonusIndicator.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/editButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/editButton.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/emoji.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/emoji.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/emoji_icons.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/emoji_icons.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/facebook_login.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/facebook_login.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/game_title.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/game_title.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/guest_login.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/guest_login.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/infoButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/infoButton.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/invitable_friend_border.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/invitable_friend_border.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/inviteToJoinButton.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/inviteToJoinButton.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/invite_button_blue.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/invite_button_blue.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/invite_button_green.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/invite_button_green.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/menu_button.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/menu_button.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/positions.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/positions.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/shareIcon.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/shareIcon.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/star.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/star.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/trash.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/trash.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/arrow.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/arrow.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceBackground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceBackground.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceInit.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceInit.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceRoll.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceRoll.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceValues.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceValues.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/ludoLockHome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/ludoLockHome.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/ludoPawn.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/ludoPawn.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/ludoboard.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/ludoboard.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/pawnIndicator.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/pawnIndicator.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/pawnIndicator2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/pawnIndicator2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/AccountService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/AccountService.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/CullAreaEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/CullAreaEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonConverter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonConverter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonEditorUtils.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonEditorUtils.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonGUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonGUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonViewHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonViewHandler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonViewInspector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PhotonViewInspector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PunSceneSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PunSceneSettings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PunSceneSettingsFile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/PunSceneSettingsFile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/ReorderableListResources.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/ReorderableListResources.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/ServerSettingsInspector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/ServerSettingsInspector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/Views.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/Views/PhotonAnimatorViewEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/Views/PhotonAnimatorViewEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/Views/PhotonRigidbody2DViewEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/Views/PhotonRigidbody2DViewEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/Views/PhotonRigidbodyViewEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/Views/PhotonRigidbodyViewEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/Views/PhotonTransformViewEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Editor/PhotonNetwork/Views/PhotonTransformViewEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/CustomTypes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/CustomTypes.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Enums.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Enums.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Extensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Extensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/FriendInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/FriendInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/GizmoType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/GizmoType.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/LoadbalancingPeer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/LoadbalancingPeer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonClasses.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonClasses.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonHandler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonLagSimulationGui.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonLagSimulationGui.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonPing.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonPing.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonPlayer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonPlayer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonStatsGui.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonStatsGui.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonStreamQueue.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonStreamQueue.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PingCloudRegions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PingCloudRegions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/RPC.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/RPC.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Room.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Room.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/RoomInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/RoomInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/ServerSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/ServerSettings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/SocketUdp.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/SocketUdp.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonAnimatorView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonAnimatorView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonRigidbody2DView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonRigidbody2DView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonRigidbodyView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonRigidbodyView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformView.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewPositionControl.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewPositionControl.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewPositionModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewPositionModel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewRotationControl.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewRotationControl.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewRotationModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewRotationModel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewScaleControl.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewScaleControl.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewScaleModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Plugins/PhotonNetwork/Views/PhotonTransformViewScaleModel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/Resources/PhotonServerSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ConnectAndJoinRandom.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ConnectAndJoinRandom.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/CullArea.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/CullArea.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/InRoomChat.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/InRoomChat.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/InputToEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/InputToEvent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ManualPhotonViewAllocator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ManualPhotonViewAllocator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/MoveByKeys.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/MoveByKeys.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/NetworkCullingHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/NetworkCullingHandler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/OnClickDestroy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/OnClickDestroy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/OnClickInstantiate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/OnClickInstantiate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/OnJoinedInstantiate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/OnJoinedInstantiate.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/OnStartDelete.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/OnStartDelete.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PhotonPlayer.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PhotonPlayer/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PhotonPlayer/Editor/PlayerRoomIndexingInspector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PhotonPlayer/Editor/PlayerRoomIndexingInspector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PhotonPlayer/Editor/PunTeamsInspector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PhotonPlayer/Editor/PunTeamsInspector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PhotonPlayer/PlayerRoomIndexing.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PhotonPlayer/PlayerRoomIndexing.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PickupItem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PickupItem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PickupItemSimple.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PickupItemSimple.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PickupItemSyncer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PickupItemSyncer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PointedAtGameObjectInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PointedAtGameObjectInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PunPlayerScores.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PunPlayerScores.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PunTeams.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PunTeams.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PunTurnManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/PunTurnManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/QuitOnEscapeOrBack.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/QuitOnEscapeOrBack.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ShowStatusWhenConnecting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/ShowStatusWhenConnecting.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/SmoothSyncMovement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/SmoothSyncMovement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/SupportLogger.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/SupportLogger.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/TimeKeeper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/TimeKeeper.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/UI/ButtonInsideScrollList.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/UI/ButtonInsideScrollList.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/UI/TextButtonTransition.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/UI/TextButtonTransition.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/UI/TextToggleIsOnTransition.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon Unity Networking/UtilityScripts/UI/TextToggleIsOnTransition.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChannelCreationOptions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChannelCreationOptions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChannelWellKnownProperties.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChannelWellKnownProperties.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatChannel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatChannel.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatClient.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatClient.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatDisconnectCause.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatDisconnectCause.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatEventCode.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatEventCode.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatOperationCode.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatOperationCode.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatParameterCode.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatParameterCode.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatPeer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatPeer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatUserStatus.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/ChatUserStatus.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/IChatClientListener.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhotonChatApi/IChatClientListener.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Menus.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Menus/menu_effects.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sprites/Menus/menu_effects.png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/new Scripts/DecideLogin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/new Scripts/DecideLogin.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +26,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b78209fd00d4f419f30dd210cbab239176600/78/7f085444/Resources.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b78209fd00d4f419f30dd210cbab239176600/c2/60f79589/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49672e4ae726478890a05abfd8d26dd0cc00/ed/2bb96df4/BuildConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/58/cc9a9413/Void.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2okST1TUe1JBmBloyqUBxEvUBea" />
   <component name="ProjectViewState">
@@ -330,7 +41,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;do_not_show_Android_plugin_suggestion&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Midhun&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Midhun-&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -396,6 +107,9 @@
       <workItem from="1731416213812" duration="731000" />
       <workItem from="1731469282003" duration="2546000" />
       <workItem from="1731472768141" duration="6706000" />
+      <workItem from="1731559867027" duration="594000" />
+      <workItem from="1731562395437" duration="1187000" />
+      <workItem from="1731563747676" duration="16678000" />
     </task>
     <servers />
   </component>
@@ -413,40 +127,19 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Ludo/Ludo Masters/Scripts/SetMyData.cs</url>
           <line>22</line>
-          <properties documentPath="F:\Jayant Projects\Unity Projects\MMG Github\Assets\Ludo\Ludo Masters\Scripts\SetMyData.cs" initialLine="22" containingFunctionPresentation="Method 'MatchPlayer'">
-            <startOffsets>
-              <option value="465" />
-            </startOffsets>
-            <endOffsets>
-              <option value="507" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="F:\Jayant Projects\Unity Projects\MMG Github\Assets\Ludo\Ludo Masters\Scripts\SetMyData.cs" initialLine="22" containingFunctionPresentation="Method 'MatchPlayer'" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Ludo/Ludo Masters/Scripts/SetMyData.cs</url>
           <line>23</line>
-          <properties documentPath="F:\Jayant Projects\Unity Projects\MMG Github\Assets\Ludo\Ludo Masters\Scripts\SetMyData.cs" initialLine="23" containingFunctionPresentation="Method 'MatchPlayer'">
-            <startOffsets>
-              <option value="520" />
-            </startOffsets>
-            <endOffsets>
-              <option value="588" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="F:\Jayant Projects\Unity Projects\MMG Github\Assets\Ludo\Ludo Masters\Scripts\SetMyData.cs" initialLine="23" containingFunctionPresentation="Method 'MatchPlayer'" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Ludo/Ludo Masters/Scripts/SetMyData.cs</url>
           <line>26</line>
-          <properties documentPath="F:\Jayant Projects\Unity Projects\MMG Github\Assets\Ludo\Ludo Masters\Scripts\SetMyData.cs" initialLine="26" containingFunctionPresentation="Method 'MatchPlayer'">
-            <startOffsets>
-              <option value="599" />
-            </startOffsets>
-            <endOffsets>
-              <option value="653" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="F:\Jayant Projects\Unity Projects\MMG Github\Assets\Ludo\Ludo Masters\Scripts\SetMyData.cs" initialLine="26" containingFunctionPresentation="Method 'MatchPlayer'" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

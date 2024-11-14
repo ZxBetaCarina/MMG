@@ -16,7 +16,6 @@ using System.Globalization;
 
 public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 {
-
     private Sprite[] avatarSprites;
 
     public string PlayFabId;
@@ -29,8 +28,10 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     public ChatClient chatClient;
     private bool alreadyGotFriends = false;
     public GameObject menuCanvas;
+
     public GameObject MatchPlayersCanvas;
-  //  public GameObject splashCanvas;
+
+    //  public GameObject splashCanvas;
     public bool opponentReady = false;
     public bool imReady = false;
     public GameObject playerAvatar;
@@ -58,7 +59,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     void Awake()
     {
-
         //splashCanvas.SetActive(true);
         Debug.Log("Playfab awake");
         //PlayerPrefs.DeleteAll();
@@ -94,27 +94,29 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     // Use this for initialization
     void Start()
     {
-       
         Debug.Log("Playfab start");
-        PhotonNetwork.BackgroundTimeout = StaticStrings.photonDisconnectTimeoutLong; ;
+        PhotonNetwork.BackgroundTimeout = StaticStrings.photonDisconnectTimeoutLong;
+        ;
         GameManager.Instance.playfabManager = this;
         fbManager = GameObject.Find("FacebookManager").GetComponent<FacebookManager>();
         facebookFriendsMenu = GameManager.Instance.facebookFriendsMenu;
 
-        avatarSprites = GameObject.Find("StaticGameVariablesContainer").GetComponent<StaticGameVariablesController>().avatars;
+        avatarSprites = GameObject.Find("StaticGameVariablesContainer").GetComponent<StaticGameVariablesController>()
+            .avatars;
     }
 
     void Update()
     {
-        if (chatClient != null) { chatClient.Service(); }
+        if (chatClient != null)
+        {
+            chatClient.Service();
+        }
     }
-
 
 
     // handle events:
     private void OnEvent(byte eventcode, object content, int senderid)
     {
-
         Debug.Log("Received event: " + (int)eventcode + " Sender ID: " + senderid);
 
         if (eventcode == (int)EnumPhoton.BeginPrivateGame)
@@ -137,7 +139,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             GameManager.Instance.readyPlayersCount++;
             //LoadGameScene();
         }
-
     }
 
     public void LoadGameWithDelay()
@@ -160,9 +161,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
                 WaitForNewPlayer();
             }
         }
-
     }
-
 
 
     public void StartGame()
@@ -186,10 +185,12 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         // {
         //     yield return 0;
         // }
-        while (GameManager.Instance.readyPlayers < GameManager.Instance.requiredPlayers - 1 || !imReady /*|| (!GameManager.Instance.roomOwner && !GameManager.Instance.receivedInitPositions)*/)
+        while (GameManager.Instance.readyPlayers < GameManager.Instance.requiredPlayers - 1 ||
+               !imReady /*|| (!GameManager.Instance.roomOwner && !GameManager.Instance.receivedInitPositions)*/)
         {
             yield return 0;
         }
+
         startGameScene();
         GameManager.Instance.readyPlayers = 0;
         opponentReady = false;
@@ -198,9 +199,9 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     public void startGameScene()
     {
-        if (GameManager.Instance.currentPlayersCount >= GameManager.Instance.requiredPlayers || GameManager.Instance.type == MyGameType.Private)
+        if (GameManager.Instance.currentPlayersCount >= GameManager.Instance.requiredPlayers ||
+            GameManager.Instance.type == MyGameType.Private)
         {
-
             LoadGameScene();
 
             if (GameManager.Instance.type == MyGameType.Private)
@@ -211,7 +212,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             {
                 PhotonNetwork.RaiseEvent((int)EnumPhoton.StartGame, null, true, null);
             }
-
         }
         else
         {
@@ -230,9 +230,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             SceneManager.LoadScene(GameManager.Instance.GameScene);
             GameManager.Instance.gameSceneStarted = true;
         }
-
     }
-
 
 
     public void WaitForNewPlayer()
@@ -253,7 +251,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             {
                 Debug.Log("Master Client");
                 // PhotonNetwork.RaiseEvent((int)EnumPhoton.StartWithBots, null, true, null);
-                LoadBots();
+                //LoadBots();
             }
         }
         else
@@ -276,7 +274,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         {
             AddBots();
         }
-
     }
 
     public void AddBots()
@@ -287,7 +284,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
         if (PhotonNetwork.room.PlayerCount < GameManager.Instance.requiredPlayers)
         {
-
             if (PhotonNetwork.isMasterClient)
             {
                 PhotonNetwork.RaiseEvent((int)EnumPhoton.StartWithBots, null, true, null);
@@ -297,7 +293,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             {
                 if (GameManager.Instance.opponentsIDs[i] == null)
                 {
-                    StartCoroutine(AddBot(i));
+                  //  StartCoroutine(AddBot(i));
                 }
             }
         }
@@ -329,8 +325,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         {
             resetPasswordInformationText.SetActive(true);
             resetPasswordInformationText.GetComponent<Text>().text = "Email sent to your address. Check your inbox";
-
-
         }, (error) =>
         {
             resetPasswordInformationText.SetActive(true);
@@ -345,8 +339,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     }
 
 
-
-
     public void updateBoughtChats(int index)
     {
         Dictionary<string, string> data = new Dictionary<string, string>();
@@ -354,8 +346,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
 
         GameManager.Instance.myPlayerData.UpdateUserData(data);
-
-
     }
 
     public void UpdateBoughtEmojis(int index)
@@ -386,7 +376,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
         PlayFabClientAPI.GetUserData(getdatarequest, (result) =>
         {
-
             Dictionary<string, UserDataRecord> data = result.Data;
 
             GameManager.Instance.myPlayerData = new MyPlayerData(data, true);
@@ -394,10 +383,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
             Debug.Log("Get player data request finish!!");
             StartCoroutine(loadSceneMenu());
-        }, (error) =>
-        {
-            Debug.Log("Data updated error " + error.ErrorMessage);
-        }, null);
+        }, (error) => { Debug.Log("Data updated error " + error.ErrorMessage); }, null);
     }
 
 
@@ -407,14 +393,13 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
         if (isInMaster && isInLobby)
         {
-          //  SceneManager.LoadScene("MenuScene");
-          //splashCanvas.SetActive(false);
+            //  SceneManager.LoadScene("MenuScene");
+            //splashCanvas.SetActive(false);
         }
         else
         {
             StartCoroutine(loadSceneMenu());
         }
-
     }
 
     public void RegisterNewAccountWithID()
@@ -425,12 +410,11 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
         registerInvalidInput.SetActive(false);
 
-        if (Regex.IsMatch(email, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$") && password.Length >= 6 && nickname.Length > 0)
+        if (Regex.IsMatch(email,
+                @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$") &&
+            password.Length >= 6 && nickname.Length > 0)
         {
-
-
-
             RegisterPlayFabUserRequest request = new RegisterPlayFabUserRequest()
             {
                 TitleId = PlayFabSettings.TitleId,
@@ -440,55 +424,54 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             };
 
             PlayFabClientAPI.RegisterPlayFabUser(request, (result) =>
-            {
+                {
+                    PlayFabId = result.PlayFabId;
+                    Debug.Log("Got PlayFabID: " + PlayFabId);
 
-                PlayFabId = result.PlayFabId;
-                Debug.Log("Got PlayFabID: " + PlayFabId);
-
-                registerCanvas.SetActive(false);
-                PlayerPrefs.SetString("email_account", email);
-                PlayerPrefs.SetString("password", password);
-                PlayerPrefs.SetString("LoggedType", "EmailAccount");
-                PlayerPrefs.Save();
-                GameManager.Instance.nameMy = nickname;
-
-
-                setInitNewAccountData(false);
+                    registerCanvas.SetActive(false);
+                    PlayerPrefs.SetString("email_account", email);
+                    PlayerPrefs.SetString("password", password);
+                    PlayerPrefs.SetString("LoggedType", "EmailAccount");
+                    PlayerPrefs.Save();
+                    GameManager.Instance.nameMy = nickname;
 
 
-                // UpdateUserTitleDisplayNameRequest displayNameRequest = new UpdateUserTitleDisplayNameRequest()
-                // {
-                //     DisplayName = GameManager.Instance.playfabManager.PlayFabId
-                // };
-
-                // PlayFabClientAPI.UpdateUserTitleDisplayName(displayNameRequest, (response) =>
-                // {
-                //     Debug.Log("Title Display name updated successfully " + response.DisplayName);
-
-                // }, (error) =>
-                // {
-                //     Debug.Log("Title Display name updated error: " + error.Error);
-
-                // }, null);
-                updateDisplayName();
+                    setInitNewAccountData(false);
 
 
-                Dictionary<string, string> data = new Dictionary<string, string>();
+                    // UpdateUserTitleDisplayNameRequest displayNameRequest = new UpdateUserTitleDisplayNameRequest()
+                    // {
+                    //     DisplayName = GameManager.Instance.playfabManager.PlayFabId
+                    // };
 
-                data.Add("LoggedType", "EmailAccount");
-                data.Add("PlayerName", GameManager.Instance.nameMy);
+                    // PlayFabClientAPI.UpdateUserTitleDisplayName(displayNameRequest, (response) =>
+                    // {
+                    //     Debug.Log("Title Display name updated successfully " + response.DisplayName);
 
-                GameManager.Instance.myPlayerData.UpdateUserData(data);
+                    // }, (error) =>
+                    // {
+                    //     Debug.Log("Title Display name updated error: " + error.Error);
 
-                fbManager.showLoadingCanvas();
-                GetPhotonToken();
+                    // }, null);
+                    updateDisplayName();
 
-            },
+
+                    Dictionary<string, string> data = new Dictionary<string, string>();
+
+                    data.Add("LoggedType", "EmailAccount");
+                    data.Add("PlayerName", GameManager.Instance.nameMy);
+
+                    GameManager.Instance.myPlayerData.UpdateUserData(data);
+
+                    fbManager.showLoadingCanvas();
+                    GetPhotonToken();
+                },
                 (error) =>
                 {
                     registerInvalidInput.SetActive(true);
                     registerInvalidInput.GetComponent<Text>().text = error.ErrorMessage;
-                    Debug.Log("Error registering new account with email: " + error.ErrorMessage + "\n" + error.ErrorDetails);
+                    Debug.Log("Error registering new account with email: " + error.ErrorMessage + "\n" +
+                              error.ErrorDetails);
                 });
         }
         else
@@ -496,8 +479,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             registerInvalidInput.SetActive(true);
             registerInvalidInput.GetComponent<Text>().text = "Invalid input specified";
         }
-
-
     }
 
     public void updateDisplayName()
@@ -507,15 +488,9 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             DisplayName = GameManager.Instance.playfabManager.PlayFabId
         };
 
-        PlayFabClientAPI.UpdateUserTitleDisplayName(displayNameRequest, (response) =>
-        {
-            Debug.Log("Title Display name updated successfully " + response.DisplayName);
-
-        }, (error) =>
-        {
-            updateDisplayName();
-
-        }, null);
+        PlayFabClientAPI.UpdateUserTitleDisplayName(displayNameRequest,
+            (response) => { Debug.Log("Title Display name updated successfully " + response.DisplayName); },
+            (error) => { updateDisplayName(); }, null);
     }
 
     public void LinkFacebookAccount()
@@ -527,30 +502,29 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         };
 
         PlayFabClientAPI.LinkFacebookAccount(request, (result) =>
-        {
-            Dictionary<string, string> data = new Dictionary<string, string>();
+            {
+                Dictionary<string, string> data = new Dictionary<string, string>();
 
-            data.Add("LoggedType", "Facebook");
-            //data.Add("FacebookID", Facebook.Unity.AccessToken.CurrentAccessToken.UserId);
-            data.Add("PlayerAvatarUrl", GameManager.Instance.avatarMyUrl);
-            data.Add(MyPlayerData.PlayerName, GameManager.Instance.nameMy);
-            data.Add(MyPlayerData.AvatarIndexKey, "fb");
-            data.Add(MyPlayerData.CoinsKey, (GameManager.Instance.myPlayerData.GetCoins() + StaticStrings.CoinsForLinkToFacebook).ToString());
-            GameManager.Instance.myAvatarGameObject.GetComponent<Image>().sprite = GameManager.Instance.facebookAvatar;
-            GameManager.Instance.myNameGameObject.GetComponent<Text>().text = GameManager.Instance.nameMy;
-            GameManager.Instance.myPlayerData.UpdateUserData(data);
+                data.Add("LoggedType", "Facebook");
+                //data.Add("FacebookID", Facebook.Unity.AccessToken.CurrentAccessToken.UserId);
+                data.Add("PlayerAvatarUrl", GameManager.Instance.avatarMyUrl);
+                data.Add(MyPlayerData.PlayerName, GameManager.Instance.nameMy);
+                data.Add(MyPlayerData.AvatarIndexKey, "fb");
+                data.Add(MyPlayerData.CoinsKey,
+                    (GameManager.Instance.myPlayerData.GetCoins() + StaticStrings.CoinsForLinkToFacebook).ToString());
+                GameManager.Instance.myAvatarGameObject.GetComponent<Image>().sprite =
+                    GameManager.Instance.facebookAvatar;
+                GameManager.Instance.myNameGameObject.GetComponent<Text>().text = GameManager.Instance.nameMy;
+                GameManager.Instance.myPlayerData.UpdateUserData(data);
 
-        //    GameManager.Instance.FacebookLinkButton.SetActive(false);
-            GameManager.Instance.FacebookInviteFriendsButton.SetActive(true);
-        },
-        (error) =>
-        {
-            Debug.Log("Error linking facebook account: " + error.ErrorMessage + "\n" + error.ErrorDetails);
-            GameManager.Instance.connectionLost.showDialog();
-        });
-
-
-
+                //    GameManager.Instance.FacebookLinkButton.SetActive(false);
+                GameManager.Instance.FacebookInviteFriendsButton.SetActive(true);
+            },
+            (error) =>
+            {
+                Debug.Log("Error linking facebook account: " + error.ErrorMessage + "\n" + error.ErrorDetails);
+                GameManager.Instance.connectionLost.showDialog();
+            });
     }
 
     public void LoginWithFacebook()
@@ -563,86 +537,80 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         };
 
         PlayFabClientAPI.LoginWithFacebook(request, (result) =>
-        {
-            PlayFabId = result.PlayFabId;
-            Debug.Log("Got PlayFabID: " + PlayFabId);
-
-
-
-            if (result.NewlyCreated)
             {
-                Debug.Log("(new account)");
-                setInitNewAccountData(true);
-                Dictionary<string, string> data1 = new Dictionary<string, string>();
-                data1.Add(MyPlayerData.AvatarIndexKey, "fb");
-                GameManager.Instance.myPlayerData.UpdateUserData(data1);
-            }
-            else
-            {
-                CheckIfFirstTitleLogin(PlayFabId, true);
-                Debug.Log("(existing account)");
-            }
+                PlayFabId = result.PlayFabId;
+                Debug.Log("Got PlayFabID: " + PlayFabId);
 
 
-            // UpdateUserTitleDisplayNameRequest displayNameRequest = new UpdateUserTitleDisplayNameRequest()
-            // {
-            //     DisplayName = GameManager.Instance.playfabManager.PlayFabId
-            // };
-
-            // PlayFabClientAPI.UpdateUserTitleDisplayName(displayNameRequest, (response) =>
-            // {
-            //     Debug.Log("Title Display name updated successfully " + response.DisplayName);
-            // }, (error) =>
-            // {
-            //     Debug.Log("Title Display name updated error: " + error.Error);
-
-            // }, null);
-
-            updateDisplayName();
-
-            Dictionary<string, string> data = new Dictionary<string, string>();
-
-            data.Add("LoggedType", "Facebook");
-            //data.Add("FacebookID", Facebook.Unity.AccessToken.CurrentAccessToken.UserId);
-            if (result.NewlyCreated)
-                data.Add("PlayerName", GameManager.Instance.nameMy);
-            else
-            {
-                GetUserDataRequest getdatarequest = new GetUserDataRequest()
+                if (result.NewlyCreated)
                 {
-                    PlayFabId = result.PlayFabId,
-
-                };
-
-                PlayFabClientAPI.GetUserData(getdatarequest, (result2) =>
+                    Debug.Log("(new account)");
+                    setInitNewAccountData(true);
+                    Dictionary<string, string> data1 = new Dictionary<string, string>();
+                    data1.Add(MyPlayerData.AvatarIndexKey, "fb");
+                    GameManager.Instance.myPlayerData.UpdateUserData(data1);
+                }
+                else
                 {
+                    CheckIfFirstTitleLogin(PlayFabId, true);
+                    Debug.Log("(existing account)");
+                }
 
-                    Dictionary<string, UserDataRecord> data2 = result2.Data;
 
-                    if (data2.ContainsKey("PlayerName"))
+                // UpdateUserTitleDisplayNameRequest displayNameRequest = new UpdateUserTitleDisplayNameRequest()
+                // {
+                //     DisplayName = GameManager.Instance.playfabManager.PlayFabId
+                // };
+
+                // PlayFabClientAPI.UpdateUserTitleDisplayName(displayNameRequest, (response) =>
+                // {
+                //     Debug.Log("Title Display name updated successfully " + response.DisplayName);
+                // }, (error) =>
+                // {
+                //     Debug.Log("Title Display name updated error: " + error.Error);
+
+                // }, null);
+
+                updateDisplayName();
+
+                Dictionary<string, string> data = new Dictionary<string, string>();
+
+                data.Add("LoggedType", "Facebook");
+                //data.Add("FacebookID", Facebook.Unity.AccessToken.CurrentAccessToken.UserId);
+                if (result.NewlyCreated)
+                    data.Add("PlayerName", GameManager.Instance.nameMy);
+                else
+                {
+                    GetUserDataRequest getdatarequest = new GetUserDataRequest()
                     {
-                        GameManager.Instance.nameMy = data2["PlayerName"].Value;
-                    }
-                    else
+                        PlayFabId = result.PlayFabId,
+                    };
+
+                    PlayFabClientAPI.GetUserData(getdatarequest, (result2) =>
                     {
-                        Dictionary<string, string> data5 = new Dictionary<string, string>();
-                        data5.Add("PlayerName", GameManager.Instance.nameMy);
-                        data5.Add(MyPlayerData.AvatarIndexKey, "fb");
-                        GameManager.Instance.myPlayerData.UpdateUserData(data5);
-                    }
-                }, (error) =>
-                {
-                    Debug.Log("Data updated error " + error.ErrorMessage);
-                }, null);
-            }
-            data.Add("PlayerAvatarUrl", GameManager.Instance.avatarMyUrl);
+                        Dictionary<string, UserDataRecord> data2 = result2.Data;
 
-            GameManager.Instance.myPlayerData.UpdateUserData(data);
+                        if (data2.ContainsKey("PlayerName"))
+                        {
+                            GameManager.Instance.nameMy = data2["PlayerName"].Value;
+                        }
+                        else
+                        {
+                            Dictionary<string, string> data5 = new Dictionary<string, string>();
+                            data5.Add("PlayerName", GameManager.Instance.nameMy);
+                            data5.Add(MyPlayerData.AvatarIndexKey, "fb");
+                            GameManager.Instance.myPlayerData.UpdateUserData(data5);
+                        }
+                    }, (error) => { Debug.Log("Data updated error " + error.ErrorMessage); }, null);
+                }
+
+                data.Add("PlayerAvatarUrl", GameManager.Instance.avatarMyUrl);
+
+                GameManager.Instance.myPlayerData.UpdateUserData(data);
 
 
-            GetPhotonToken();
-
-        },
+                GetPhotonToken();
+            },
             (error) =>
             {
                 Debug.Log("Error logging in player with custom ID: " + error.ErrorMessage + "\n" + error.ErrorDetails);
@@ -655,7 +623,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         GetUserDataRequest getdatarequest = new GetUserDataRequest()
         {
             PlayFabId = id,
-
         };
 
         PlayFabClientAPI.GetUserData(getdatarequest, (result) =>
@@ -667,11 +634,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
                 Debug.Log("First login for this title. Set initial data");
                 setInitNewAccountData(fb);
             }
-
-        }, (error) =>
-        {
-            Debug.Log("Data updated error " + error.ErrorMessage);
-        }, null);
+        }, (error) => { Debug.Log("Data updated error " + error.ErrorMessage); }, null);
     }
 
     private string androidUnique()
@@ -683,12 +646,10 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         return androidSettingsSecure.CallStatic<string>("getString", unityPlayerResolver, "android_id");
     }
 
+
     public void LoginWithEmailAccount()
     {
-
-
         loginInvalidEmailorPassword.SetActive(false);
-
 
 
         string email = "";
@@ -702,7 +663,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         {
             email = loginEmail.GetComponent<Text>().text;
             password = loginPassword.GetComponent<Text>().text;
-
         }
 
 
@@ -715,78 +675,69 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
 
         PlayFabClientAPI.LoginWithEmailAddress(request, (result) =>
-        {
-            PlayFabId = result.PlayFabId;
-            Debug.Log("Got PlayFabID: " + PlayFabId);
-
-            Dictionary<string, string> data = new Dictionary<string, string>();
-
-            loginCanvas.SetActive(false);
-            PlayerPrefs.SetString("email_account", email);
-            PlayerPrefs.SetString("password", password);
-            PlayerPrefs.SetString("LoggedType", "EmailAccount");
-            PlayerPrefs.Save();
-
-
-
-            if (result.NewlyCreated)
             {
-                Debug.Log("(new account)");
-                setInitNewAccountData(false);
-                //addCoinsRequest(StaticStrings.initCoinsCount);
-            }
-            else
-            {
-                CheckIfFirstTitleLogin(PlayFabId, false);
-                Debug.Log("(existing account)");
-            }
+                PlayFabId = result.PlayFabId;
+                Debug.Log("Got PlayFabID: " + PlayFabId);
+
+                Dictionary<string, string> data = new Dictionary<string, string>();
+
+                loginCanvas.SetActive(false);
+                PlayerPrefs.SetString("email_account", email);
+                PlayerPrefs.SetString("password", password);
+                PlayerPrefs.SetString("LoggedType", "EmailAccount");
+                PlayerPrefs.Save();
 
 
-            GetUserDataRequest getdatarequest = new GetUserDataRequest()
-            {
-                PlayFabId = result.PlayFabId,
-
-            };
-
-            PlayFabClientAPI.GetUserData(getdatarequest, (result2) =>
-            {
-
-                Dictionary<string, UserDataRecord> data2 = result2.Data;
-
-                if (data2.ContainsKey("PlayerName"))
+                if (result.NewlyCreated)
                 {
-                    GameManager.Instance.nameMy = data2["PlayerName"].Value;
+                    Debug.Log("(new account)");
+                    setInitNewAccountData(false);
+                    //addCoinsRequest(StaticStrings.initCoinsCount);
                 }
                 else
                 {
-                    Dictionary<string, string> data5 = new Dictionary<string, string>();
-                    data5.Add("PlayerName", GameManager.Instance.nameMy);
-                    GameManager.Instance.myPlayerData.UpdateUserData(data5);
+                    CheckIfFirstTitleLogin(PlayFabId, false);
+                    Debug.Log("(existing account)");
                 }
-                GameManager.Instance.nameMy = data2["PlayerName"].Value;
-            }, (error) =>
+
+
+                GetUserDataRequest getdatarequest = new GetUserDataRequest()
+                {
+                    PlayFabId = result.PlayFabId,
+                };
+
+                PlayFabClientAPI.GetUserData(getdatarequest, (result2) =>
+                {
+                    Dictionary<string, UserDataRecord> data2 = result2.Data;
+
+                    if (data2.ContainsKey("PlayerName"))
+                    {
+                        GameManager.Instance.nameMy = data2["PlayerName"].Value;
+                    }
+                    else
+                    {
+                        Dictionary<string, string> data5 = new Dictionary<string, string>();
+                        data5.Add("PlayerName", GameManager.Instance.nameMy);
+                        GameManager.Instance.myPlayerData.UpdateUserData(data5);
+                    }
+
+                    GameManager.Instance.nameMy = data2["PlayerName"].Value;
+                }, (error) => { Debug.Log("Data updated error " + error.ErrorMessage); }, null);
+
+
+                fbManager.showLoadingCanvas();
+
+
+                GetPhotonToken();
+            },
+            (error) =>
             {
-                Debug.Log("Data updated error " + error.ErrorMessage);
-            }, null);
+                loginInvalidEmailorPassword.SetActive(true);
+                Debug.Log("Error logging in player with custom ID: " + error.ErrorMessage);
+                //Debug.Log(error.ErrorMessage);
 
-
-
-
-
-            fbManager.showLoadingCanvas();
-
-
-            GetPhotonToken();
-
-        },
-             (error) =>
-             {
-                 loginInvalidEmailorPassword.SetActive(true);
-                 Debug.Log("Error logging in player with custom ID: " + error.ErrorMessage);
-                 //Debug.Log(error.ErrorMessage);
-
-                 //GameManager.Instance.connectionLost.showDialog();
-             });
+                //GameManager.Instance.connectionLost.showDialog();
+            });
     }
 
     public void Login()
@@ -803,8 +754,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         }
 
 
-
-
         Debug.Log("UNIQUE IDENTIFIER: " + customId);
 
         LoginWithCustomIDRequest request = new LoginWithCustomIDRequest()
@@ -815,95 +764,87 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         };
 
 
-
         PlayFabClientAPI.LoginWithCustomID(request, (result) =>
-        {
-            PlayFabId = result.PlayFabId;
-            Debug.Log("Got PlayFabID: " + PlayFabId);
-
-            Dictionary<string, string> data = new Dictionary<string, string>();
-
-            if (result.NewlyCreated)
             {
-                Debug.Log("(new account guest)");
+                PlayFabId = result.PlayFabId;
+                Debug.Log("Got PlayFabID: " + PlayFabId);
 
+                Dictionary<string, string> data = new Dictionary<string, string>();
 
-                string name = result.PlayFabId;
-                name = "Guest";
-                for (int i = 0; i < 6; i++)
+                if (result.NewlyCreated)
                 {
-                    name += UnityEngine.Random.Range(0, 9);
+                    Debug.Log("(new account guest)");
+
+
+                    string name = result.PlayFabId;
+                    name = "Guest";
+                    for (int i = 0; i < 6; i++)
+                    {
+                        name += UnityEngine.Random.Range(0, 9);
+                    }
+
+                    data.Add("PlayerName", name);
+
+                    setInitNewAccountData(false);
+
+
+                    //addCoinsRequest(StaticStrings.initCoinsCount);
+                }
+                else
+                {
+                    CheckIfFirstTitleLogin(PlayFabId, false);
+                    Debug.Log("(existing account)");
                 }
 
-                data.Add("PlayerName", name);
 
-                setInitNewAccountData(false);
-
-
-                //addCoinsRequest(StaticStrings.initCoinsCount);
-            }
-            else
-            {
-                CheckIfFirstTitleLogin(PlayFabId, false);
-                Debug.Log("(existing account)");
-            }
-
-
-
-            // string name = result.PlayFabId;
-            // if (PlayerPrefs.HasKey("GuestPlayerName"))
-            // {
-            //     //name = PlayerPrefs.GetString("GuestPlayerName");
-            // }
-            // else
-            // {
-            //     name = "Guest";
-            //     for (int i = 0; i < 6; i++)
-            //     {
-            //         name += UnityEngine.Random.Range(0, 9);
-            //     }
-            //     PlayerPrefs.SetString("GuestPlayerName", name);
-            //     PlayerPrefs.Save();
-            //     data.Add("PlayerName", name);
-            // }
+                // string name = result.PlayFabId;
+                // if (PlayerPrefs.HasKey("GuestPlayerName"))
+                // {
+                //     //name = PlayerPrefs.GetString("GuestPlayerName");
+                // }
+                // else
+                // {
+                //     name = "Guest";
+                //     for (int i = 0; i < 6; i++)
+                //     {
+                //         name += UnityEngine.Random.Range(0, 9);
+                //     }
+                //     PlayerPrefs.SetString("GuestPlayerName", name);
+                //     PlayerPrefs.Save();
+                //     data.Add("PlayerName", name);
+                // }
 
 
+                // UpdateUserTitleDisplayNameRequest displayNameRequest = new UpdateUserTitleDisplayNameRequest()
+                // {
+                //     //DisplayName = name,
+                //     DisplayName = GameManager.Instance.playfabManager.PlayFabId
+                // };
+
+                // PlayFabClientAPI.UpdateUserTitleDisplayName(displayNameRequest, (response) =>
+                // {
+                //     Debug.Log("Title Display name updated successfully " + response.DisplayName);
+                // }, (error) =>
+                // {
+                //     Debug.Log("Title Display name updated error: " + error.Error);
+
+                // }, null);
+                updateDisplayName();
+
+                data.Add("LoggedType", "Guest");
+                GameManager.Instance.myPlayerData.UpdateUserData(data);
 
 
+                GameManager.Instance.nameMy = name;
+
+                PlayerPrefs.SetString("LoggedType", "Guest");
+                PlayerPrefs.Save();
+
+                fbManager.showLoadingCanvas();
 
 
-            // UpdateUserTitleDisplayNameRequest displayNameRequest = new UpdateUserTitleDisplayNameRequest()
-            // {
-            //     //DisplayName = name,
-            //     DisplayName = GameManager.Instance.playfabManager.PlayFabId
-            // };
-
-            // PlayFabClientAPI.UpdateUserTitleDisplayName(displayNameRequest, (response) =>
-            // {
-            //     Debug.Log("Title Display name updated successfully " + response.DisplayName);
-            // }, (error) =>
-            // {
-            //     Debug.Log("Title Display name updated error: " + error.Error);
-
-            // }, null);
-            updateDisplayName();
-
-            data.Add("LoggedType", "Guest");
-            GameManager.Instance.myPlayerData.UpdateUserData(data);
-
-
-
-            GameManager.Instance.nameMy = name;
-
-            PlayerPrefs.SetString("LoggedType", "Guest");
-            PlayerPrefs.Save();
-
-            fbManager.showLoadingCanvas();
-
-
-            GetPhotonToken();
-
-        },
+                GetPhotonToken();
+            },
             (error) =>
             {
                 Debug.Log("Error logging in player with custom ID:");
@@ -934,7 +875,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             request.IncludeFacebookFriends = true;
             PlayFabClientAPI.GetFriendsList(request, (result) =>
             {
-
                 Debug.Log("Friends list Playfab: " + result.Friends.Count);
                 var friends = result.Friends;
 
@@ -951,7 +891,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
                 int index = 0;
                 foreach (var friend in friends)
                 {
-
                     playfabFriends.Add(friend.FriendPlayFabId);
 
                     Debug.Log("Title: " + friend.TitleDisplayName);
@@ -965,17 +904,12 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
                     PlayFabClientAPI.GetUserData(getdatarequest, (result2) =>
                     {
-
                         Dictionary<string, UserDataRecord> data2 = result2.Data;
                         playfabFriendsName[ind2] = data2["PlayerName"].Value;
                         Debug.Log("Added " + data2["PlayerName"].Value);
-                        GameManager.Instance.facebookFriendsMenu.updateName(ind2, data2["PlayerName"].Value, friend.TitleDisplayName);
-
-                    }, (error) =>
-                    {
-
-                        Debug.Log("Data updated error " + error.ErrorMessage);
-                    }, null);
+                        GameManager.Instance.facebookFriendsMenu.updateName(ind2, data2["PlayerName"].Value,
+                            friend.TitleDisplayName);
+                    }, (error) => { Debug.Log("Data updated error " + error.ErrorMessage); }, null);
 
                     playfabFriendsName.Add("");
 
@@ -988,7 +922,8 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
                 chatClient.AddFriends(friendsToStatus.ToArray());
 
-                GameManager.Instance.facebookFriendsMenu.addPlayFabFriends(playfabFriends, playfabFriendsName, playfabFriendsFacebookId);
+                GameManager.Instance.facebookFriendsMenu.addPlayFabFriends(playfabFriends, playfabFriendsName,
+                    playfabFriendsFacebookId);
 
                 // if (PlayerPrefs.GetString("LoggedType").Equals("Facebook"))
                 // {
@@ -1000,15 +935,11 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
                 // }
             }, OnPlayFabError);
         }
-
-
     }
-
 
 
     public void GetLeaderboards()
     {
-
         // Get My posisiotn in leaderboards
 
         GetLeaderboardAroundPlayerRequest request1 = new GetLeaderboardAroundPlayerRequest();
@@ -1022,8 +953,8 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             var leaderboard = result.Leaderboard;
 
             Debug.Log("MY: " + leaderboard[0].StatValue + " Pos: " + leaderboard[0].Position);
-            GameManager.Instance.facebookFriendsMenu.updateMyLeaderboardObject((leaderboard[0].Position + 1).ToString());
-
+            GameManager.Instance.facebookFriendsMenu.updateMyLeaderboardObject((leaderboard[0].Position + 1)
+                .ToString());
         }, OnPlayFabError);
 
         //
@@ -1044,7 +975,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             int index = 0;
             foreach (var friend in leaderboard)
             {
-
                 playfabFriends.Add(friend.PlayFabId);
 
                 Debug.Log("Title: " + friend.DisplayName);
@@ -1063,26 +993,21 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
                 PlayFabClientAPI.GetUserData(getdatarequest, (result2) =>
                 {
-
                     Dictionary<string, UserDataRecord> data2 = result2.Data;
                     playfabFriendsName[ind2] = data2["PlayerName"].Value;
                     Debug.Log("Added " + data2["PlayerName"].Value);
-                    GameManager.Instance.facebookFriendsMenu.updateNameLeaderboards(ind2, data2["PlayerName"].Value, friend.DisplayName, data2["Coins"].Value.ToString());
+                    GameManager.Instance.facebookFriendsMenu.updateNameLeaderboards(ind2, data2["PlayerName"].Value,
+                        friend.DisplayName, data2["Coins"].Value.ToString());
                     //GameManager.Instance.facebookFriendsMenu.updateCoinsLeaderboards(ind2, data2["Coins"].Value.ToString(), friend.DisplayName);
-
-
-                }, (error) =>
-                {
-
-                    Debug.Log("Data updated error " + error.ErrorMessage);
-                }, null);
+                }, (error) => { Debug.Log("Data updated error " + error.ErrorMessage); }, null);
 
                 playfabFriendsName.Add("");
 
                 index++;
             }
 
-            GameManager.Instance.facebookFriendsMenu.addLeaderboardsToMenu(playfabFriends, playfabFriendsName, playfabFriendsFacebookId, -1);
+            GameManager.Instance.facebookFriendsMenu.addLeaderboardsToMenu(playfabFriends, playfabFriendsName,
+                playfabFriendsFacebookId, -1);
 
             // if (PlayerPrefs.GetString("LoggedType").Equals("Facebook"))
             // {
@@ -1091,12 +1016,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             // else
             // {
             GameManager.Instance.facebookFriendsMenu.showLeaderboards(null, null, null);
-
         }, OnPlayFabError);
-
-
-
-
     }
 
 
@@ -1109,7 +1029,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     void GetPhotonToken()
     {
-
         StartCoroutine(checkIfCanGetPhotonToken());
 
         // GetPhotonAuthenticationTokenRequest request = new GetPhotonAuthenticationTokenRequest();
@@ -1120,9 +1039,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     IEnumerator checkIfCanGetPhotonToken()
     {
-
-
-
         yield return new WaitForSeconds(.1f);
 
         Debug.Log("Checking if can get photon token: " + GameManager.Instance.gameStartUserDataUpdateCounter);
@@ -1139,10 +1055,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         {
             StartCoroutine(checkIfCanGetPhotonToken());
         }
-
-
-
-
     }
 
     void OnPhotonAuthenticationSuccess(GetPhotonAuthenticationTokenResult result)
@@ -1159,7 +1071,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         authToken = result.PhotonCustomAuthenticationToken;
         getPlayerDataRequest();
         connectToChat();
-
     }
 
     public void connectToChat()
@@ -1177,7 +1088,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     public override void OnPhotonCustomRoomPropertiesChanged(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-
         Debug.Log("Custom properties changed: " + DateTime.Now.ToString());
     }
 
@@ -1236,13 +1146,15 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     {
         //if (GameManager.Instance.invitationID.Length == 0 || !GameManager.Instance.invitationID.Equals(id))
         //{
-        chatClient.SendPrivateMessage(id, "INVITE_TO_PLAY_PRIVATE;" + /*id + this.PlayFabId + ";" +*/ GameManager.Instance.nameMy + ";" + message);
+        chatClient.SendPrivateMessage(id,
+            "INVITE_TO_PLAY_PRIVATE;" + /*id + this.PlayFabId + ";" +*/ GameManager.Instance.nameMy + ";" + message);
         GameManager.Instance.invitationID = id;
         Debug.Log("Send invitation to: " + id);
         // }
     }
 
     string roomname;
+
     public void OnPrivateMessage(string sender, object message, string channelName)
     {
         if (!sender.Equals(this.PlayFabId))
@@ -1256,13 +1168,13 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
                 string payout = messageSplit[2];
                 string roomID = messageSplit[3];
                 GameManager.Instance.payoutCoins = int.Parse(payout);
-                GameManager.Instance.invitationDialog.GetComponent<PhotonChatListener>().showInvitationDialog(0, whoInvite, payout, roomID, 0);
+                GameManager.Instance.invitationDialog.GetComponent<PhotonChatListener>()
+                    .showInvitationDialog(0, whoInvite, payout, roomID, 0);
             }
         }
 
         if ((GameManager.Instance.invitationID.Length == 0 || !GameManager.Instance.invitationID.Equals(sender)))
         {
-
         }
         else
         {
@@ -1277,12 +1189,10 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     public void DebugReturn(DebugLevel level, string message)
     {
-
     }
 
     public void OnChatStateChange(ChatState state)
     {
-
     }
 
 
@@ -1316,15 +1226,12 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     }
 
 
-
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
-
     }
 
     public void OnUnsubscribed(string[] channels)
     {
-
     }
 
 
@@ -1360,7 +1267,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         Debug.Log("Connected to master");
 
         PhotonNetwork.JoinLobby();
-
     }
 
     public override void OnJoinedLobby()
@@ -1368,61 +1274,126 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         Debug.Log("Joined lobby");
         isInLobby = true;
     }
-
+    private Coroutine joinRoomCoroutine;
     public void JoinRoomAndStartGame()
     {
-        ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() {
-            {"m", GameManager.Instance.mode.ToString() +  GameManager.Instance.type.ToString() + GameManager.Instance.payoutCoins.ToString()}
-         };
+        ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
+        {
+            {
+                "m",
+                GameManager.Instance.mode.ToString() + GameManager.Instance.type.ToString() +
+                GameManager.Instance.payoutCoins.ToString()
+            }
+        };
 
         StartCoroutine(TryToJoinRandomRoom(expectedCustomRoomProperties));
-Debug.Log("trying to join in a random room");
+        Debug.Log("trying to join in a random room");
         //PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
     }
 
-    public IEnumerator TryToJoinRandomRoom(ExitGames.Client.Photon.Hashtable roomOptions)
+   
+    private IEnumerator TryToJoinRandomRoom(ExitGames.Client.Photon.Hashtable roomOptions)
     {
-       
-        while (true)
+        
+        int attempts = 0;
+        const int maxAttempts = 10;
+
+        while (attempts < maxAttempts)
         {
-            if (isInLobby)//(isInlobby && isInMaster)  these 2 are local variable in this script .when we try to join in the random lobby we will exit from lobby .so we  cant use hse 2 varibles;
+            
+            if (isInLobby) // Assuming this variable is correctly updated elsewhere
             {
-                PhotonNetwork.JoinRandomRoom(roomOptions, 0);
-             
-                break;
+                int roomCount = PhotonNetwork.GetRoomList().Length;
+                int playerCount = PhotonNetwork.playerList.Length;
+
+                Debug.Log("RoomLength: " + roomCount);
+                Debug.Log("Count of players: " + playerCount);
+
+                if (roomCount == 0 && playerCount <= 1)
+                {
+                    CreateRoom();
+                    yield break; // Exit the coroutine after creating a room
+                }
+                else if (roomCount > 0)
+                {
+                    PhotonNetwork.JoinRandomRoom(roomOptions, 0);
+                    yield break; // Exit the coroutine after trying to join a room
+                }
             }
             else
             {
-                yield return new WaitForSeconds(0.05f);
+                Debug.Log("Not in lobby, waiting to check again.");
             }
+
+            attempts++;
+            yield return new WaitForSeconds(1.0f); // Wait before the next attempt
+        }
+
+        Debug.Log("Max attempts reached. Could not join a room.");
+      //  CreateRoom();
+    }
+    public void StopJoiningRoom()
+    {
+       // if (joinRoomCoroutine != null)
+       // {
+            StopCoroutine(joinRoomCoroutine);
+            joinRoomCoroutine = null; // Reset the coroutine reference
+            Debug.Log("Stopped trying to join a room.");
+      //s  }
+
+        // Check if currently in a room, and if so, leave it
+        if (PhotonNetwork.inRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+        else
+        {
+            // If not in a room, just ensure we are in the lobby
+            PhotonNetwork.JoinLobby();
         }
     }
 
-   
+    public void cancelSerching() // This method should be called when the button is pressed
+    {
+        StopJoiningRoom();
+    }
+    public void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("InGame", 0);
+    }
+
     public void OnPhotonRandomJoinFailed()
+    {
+        CreateRoom();
+    }
+
+    public void CreateRoom()
     {
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.CustomRoomPropertiesForLobby = new String[] { "m", "v" };
 
 
-
-
         string BotMoves = generateBotMoves();
 
-        roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() {
-            { "m", GameManager.Instance.mode.ToString() +  GameManager.Instance.type.ToString() + GameManager.Instance.payoutCoins.ToString()},
-            {"bt", BotMoves},
-            {"fp", UnityEngine.Random.Range(0, GameManager.Instance.requiredPlayers)}
-         };
+        roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
+        {
+            {
+                "m",
+                GameManager.Instance.mode.ToString() + GameManager.Instance.type.ToString() +
+                GameManager.Instance.payoutCoins.ToString()
+            },
+            { "bt", BotMoves },
+            { "fp", UnityEngine.Random.Range(0, GameManager.Instance.requiredPlayers) }
+        };
 
-        Debug.Log("Create Room: " + GameManager.Instance.mode.ToString() + GameManager.Instance.type.ToString() + GameManager.Instance.payoutCoins.ToString());
+        Debug.Log("Create Room: " + GameManager.Instance.mode.ToString() + GameManager.Instance.type.ToString() +
+                  GameManager.Instance.payoutCoins.ToString());
         roomOptions.MaxPlayers = (byte)GameManager.Instance.requiredPlayers;
         //roomOptions.IsVisible = true;
 
         StartCoroutine(TryToCreateGameAfterFailedToJoinRandom(roomOptions));
-
     }
-    
+
 
     public string generateBotMoves()
     {
@@ -1452,6 +1423,7 @@ Debug.Log("trying to join in a random room");
                 BotMoves += ",";
             }
         }
+
         return BotMoves;
     }
 
@@ -1505,11 +1477,13 @@ Debug.Log("trying to join in a random room");
         PlayFabClientAPI.UpdatePlayerStatistics(
             new UpdatePlayerStatisticsRequest()
             {
-                Statistics = new List<StatisticUpdate>() {
-                new StatisticUpdate() {
-                    StatisticName = StaticStrings.leaderboardName,
-                    Value = GameManager.Instance.myPlayerData.GetCoins()
-                }
+                Statistics = new List<StatisticUpdate>()
+                {
+                    new StatisticUpdate()
+                    {
+                        StatisticName = StaticStrings.leaderboardName,
+                        Value = GameManager.Instance.myPlayerData.GetCoins()
+                    }
                 }
             },
             result => Debug.Log("Leaderboard update Complete"),
@@ -1520,7 +1494,6 @@ Debug.Log("trying to join in a random room");
 
     public override void OnJoinedRoom()
     {
-
         Debug.Log("OnJoinedRoom");
 
         if (PhotonNetwork.room.CustomProperties.ContainsKey("rt"))
@@ -1544,7 +1517,6 @@ Debug.Log("trying to join in a random room");
         }
 
 
-
         GameManager.Instance.avatarOpponent = null;
 
         Debug.Log("Players in room " + PhotonNetwork.room.PlayerCount);
@@ -1555,7 +1527,7 @@ Debug.Log("trying to join in a random room");
         if (PhotonNetwork.room.PlayerCount == 1)
         {
             GameManager.Instance.roomOwner = true;
-          //  WaitForNewPlayer();// calling bots to joinin room if in room there i only one player  from onjoinedRoom
+            //  WaitForNewPlayer();// calling bots to joinin room if in room there i only one player  from onjoinedRoom
         }
         else if (PhotonNetwork.room.PlayerCount >= GameManager.Instance.requiredPlayers)
         {
@@ -1569,7 +1541,6 @@ Debug.Log("trying to join in a random room");
 
             for (int i = 0; i < PhotonNetwork.otherPlayers.Length; i++)
             {
-
                 int ii = i;
                 int index = GetFirstFreeSlot();
                 GameManager.Instance.opponentsIDs[index] = PhotonNetwork.otherPlayers[ii].NickName;
@@ -1577,7 +1548,6 @@ Debug.Log("trying to join in a random room");
                 GetUserDataRequest getdatarequest = new GetUserDataRequest()
                 {
                     PlayFabId = PhotonNetwork.otherPlayers[ii].NickName,
-
                 };
 
                 string otherID = PhotonNetwork.otherPlayers[ii].NickName;
@@ -1598,6 +1568,7 @@ Debug.Log("trying to join in a random room");
                                 fbAvatar = false;
                                 avatarIndex = int.Parse(data[MyPlayerData.AvatarIndexKey].Value.ToString());
                             }
+
                             getOpponentData(data, index, fbAvatar, avatarIndex, otherID);
                         }
                         else
@@ -1613,6 +1584,7 @@ Debug.Log("trying to join in a random room");
                                     fbAvatar = false;
                                     avatarIndex = int.Parse(data[MyPlayerData.AvatarIndexKey].Value.ToString());
                                 }
+
                                 getOpponentData(data, index, fbAvatar, avatarIndex, otherID);
                             }
                             else
@@ -1625,16 +1597,10 @@ Debug.Log("trying to join in a random room");
                     {
                         Debug.Log("ERROR");
                     }
-
-                }, (error) =>
-                {
-                    Debug.Log("Get user data error: " + error.ErrorMessage);
-                }, null);
+                }, (error) => { Debug.Log("Get user data error: " + error.ErrorMessage); }, null);
             }
         }
     }
-
-
 
 
     public void CreatePrivateRoom()
@@ -1651,12 +1617,12 @@ Debug.Log("trying to join in a random room");
         }
 
 
-
         roomOptions.CustomRoomPropertiesForLobby = new String[] { "pc", "rt" };
-        roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() {
-            { "pc", GameManager.Instance.payoutCoins},
+        roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
+        {
+            { "pc", GameManager.Instance.payoutCoins },
             { "rt", GameManager.Instance.mode } // room type
-         };
+        };
         Debug.Log("Private room name: " + roomName);
         PhotonNetwork.CreateRoom(roomName, roomOptions, TypedLobby.Default);
     }
@@ -1689,6 +1655,7 @@ Debug.Log("trying to join in a random room");
                 break;
             }
         }
+
         return index;
     }
 
@@ -1717,7 +1684,6 @@ Debug.Log("trying to join in a random room");
 
     private void GetPlayerDataRequest(string playerID)
     {
-
     }
 
     public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
@@ -1726,7 +1692,6 @@ Debug.Log("trying to join in a random room");
 
         Debug.Log("New player joined " + newPlayer.NickName);
         Debug.Log("Players Count: " + GameManager.Instance.currentPlayersCount);
-
 
 
         if (PhotonNetwork.room.PlayerCount >= GameManager.Instance.requiredPlayers)
@@ -1767,6 +1732,7 @@ Debug.Log("trying to join in a random room");
                         fbAvatar = false;
                         avatarIndex = int.Parse(data[MyPlayerData.AvatarIndexKey].Value.ToString());
                     }
+
                     getOpponentData(data, index, fbAvatar, avatarIndex, newPlayer.NickName);
                 }
                 else
@@ -1782,6 +1748,7 @@ Debug.Log("trying to join in a random room");
                             fbAvatar = false;
                             avatarIndex = int.Parse(data[MyPlayerData.AvatarIndexKey].Value.ToString());
                         }
+
                         getOpponentData(data, index, fbAvatar, avatarIndex, newPlayer.NickName);
                     }
                     else
@@ -1794,18 +1761,11 @@ Debug.Log("trying to join in a random room");
             {
                 Debug.Log("ERROR");
             }
-
-        }, (error) =>
-        {
-            Debug.Log("Get user data error: " + error.ErrorMessage);
-        }, null);
-
-
-
-
+        }, (error) => { Debug.Log("Get user data error: " + error.ErrorMessage); }, null);
     }
 
-    private void getOpponentData(Dictionary<string, UserDataRecord> data, int index, bool fbAvatar, int avatarIndex, string id)
+    private void getOpponentData(Dictionary<string, UserDataRecord> data, int index, bool fbAvatar, int avatarIndex,
+        string id)
     {
         if (data.ContainsKey("PlayerName"))
         {
@@ -1823,20 +1783,21 @@ Debug.Log("trying to join in a random room");
         else
         {
             Debug.Log("GET OPPONENT DATA: " + avatarIndex);
-            GameManager.Instance.opponentsAvatars[index] = GameObject.Find("StaticGameVariablesContainer").GetComponent<StaticGameVariablesController>().avatars[avatarIndex];
+            GameManager.Instance.opponentsAvatars[index] = GameObject.Find("StaticGameVariablesContainer")
+                .GetComponent<StaticGameVariablesController>().avatars[avatarIndex];
             //GameManager.Instance.opponentsAvatars[index] = null;
             GameManager.Instance.controlAvatars.PlayerJoined(index, id);
         }
-
     }
- 
+
     public IEnumerator loadImageOpponent(string url, int index, string id)
     {
         WWW www = new WWW(url);
 
         yield return www;
 
-        GameManager.Instance.opponentsAvatars[index] = Sprite.Create(www.texture, new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0.5f, 0.5f), 32);
+        GameManager.Instance.opponentsAvatars[index] = Sprite.Create(www.texture,
+            new Rect(0, 0, www.texture.width, www.texture.height), new Vector2(0.5f, 0.5f), 32);
         GameManager.Instance.controlAvatars.PlayerJoined(index, id);
     }
 

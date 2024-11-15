@@ -62,8 +62,12 @@ public class EditUserProfile : MonoBehaviour
             form.AddField("gender", gender.GetFirstActiveToggle().name);
             if (!string.IsNullOrEmpty(_selectedImagePath))
             {
-                byte[] imageBytes = System.IO.File.ReadAllBytes(_selectedImagePath);
+                byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
                 form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+            }
+            else
+            {
+                form.AddBinaryData("profileImage", null, Path.GetFileName(_selectedImagePath), "image/png");
             }
             ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);

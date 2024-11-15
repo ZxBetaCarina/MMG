@@ -9,12 +9,14 @@ public class JoinGiveaway : MonoBehaviour
     [SerializeField] private Button join;
     [SerializeField] private TMP_Text quantity;
     [SerializeField] private int count = 0;
+    [SerializeField] private Button Back;
 
     private void OnEnable()
     {
         minus.onClick.AddListener(OnMinus);
         plus.onClick.AddListener(OnPlus);
         join.onClick.AddListener(OnJoin);
+        Back.onClick.AddListener(onback);
     }
 
     private void OnDisable()
@@ -22,6 +24,7 @@ public class JoinGiveaway : MonoBehaviour
         minus.onClick.RemoveListener(OnMinus);
         plus.onClick.RemoveListener(OnPlus);
         join.onClick.RemoveListener(OnJoin);
+        Back.onClick.RemoveListener(onback);
     }
 
     private void OnMinus()
@@ -47,8 +50,13 @@ public class JoinGiveaway : MonoBehaviour
         }
         else
         {
-            PopUpManager.ShowPopUpAction("Message", "Must enter a quantity", AfterOk);
+            PopUpManager.ShowPopUp("Message", "Must enter a quantity");
         }
+    }
+
+    private void onback()
+    {
+        UIManager.LoadScreenAnimated(UIScreen.Home);
     }
 
     private void AfterOk()

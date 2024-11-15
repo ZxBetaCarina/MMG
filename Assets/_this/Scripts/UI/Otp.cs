@@ -29,6 +29,8 @@ public class Otp : MonoBehaviour
         resend.onClick.RemoveListener(OnResend);
         verify.onClick.RemoveListener(OnVerify);
         otpField.onValueChanged.RemoveListener(ValueChangeCheck);
+
+        ResetAllFields();
     }
     
     private void ValueChangeCheck(string text)

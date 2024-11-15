@@ -161,7 +161,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772a2f03609cfff4b873921a05eaf9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderValue: 0
+  sliderValue: 1
   animationDuration: 0.1
   slideEase:
     serializedVersion: 2

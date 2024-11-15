@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GameConfigrationController : MonoBehaviour
 {
-
     public GameObject TitleText;
     public GameObject bidText;
     public GameObject MinusButton;
@@ -15,19 +14,18 @@ public class GameConfigrationController : MonoBehaviour
     private int currentBidIndex = 0;
 
     private MyGameMode[] modes = new MyGameMode[] { MyGameMode.Classic, MyGameMode.Quick, MyGameMode.Master };
+
     public GameObject privateRoomJoin;
+
     // Use this for initialization
     void Start()
     {
-
     }
-
 
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
 
@@ -36,10 +34,8 @@ public class GameConfigrationController : MonoBehaviour
         for (int i = 0; i < Toggles.Length; i++)
         {
             int index = i;
-            Toggles[i].GetComponent<Toggle>().onValueChanged.AddListener((value) =>
-                {
-                    ChangeGameMode(value, modes[index]);
-                }
+            Toggles[i].GetComponent<Toggle>().onValueChanged.AddListener(
+                (value) => { ChangeGameMode(value, modes[index]); }
             );
         }
 
@@ -62,7 +58,10 @@ public class GameConfigrationController : MonoBehaviour
                 privateRoomJoin.SetActive(true);
                 break;
         }
+    }
 
+    public void turnonButtons()
+    {
     }
 
     void OnDisable()
@@ -86,42 +85,72 @@ public class GameConfigrationController : MonoBehaviour
         GameManager.Instance.JoinedByID = false;
     }
 
+  //  public GameObject CantStartGamePopup;
+    public InitMenuScript _initMenuScript;
+    public GameObject cancelBtn;
+
+    public void PressedStartGame1v1()
+    {
+        if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+        {
+            _initMenuScript.ShowGameConfiguration(0);
+            setCreatedProvateRoom();
+            startGame();
+            cancelBtn.SetActive(true);
+        }
+        else
+        {
+            PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+        }
+    }
+
+    public void pressedstartGamePrivate()
+    {
+        if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+        {
+            _initMenuScript.ShowGameConfiguration(2);
+        }
+        else
+        {
+            PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+        }
+    }
+
     public void startGame()
     {
-       // if (GameManager.Instance.myPlayerData.GetCoins() >= GameManager.Instance.payoutCoins)
+        // if (GameManager.Instance.myPlayerData.GetCoins() >= GameManager.Instance.payoutCoins)
         //{
-            if (GameManager.Instance.type != MyGameType.Private)
+
+
+        if (GameManager.Instance.type != MyGameType.Private)
+        {
+            if (GameManager.Instance.type == MyGameType.TwoPlayer)
             {
-                
-                
-                if (GameManager.Instance.type == MyGameType.TwoPlayer)
-                {
-                    print("2 player calling ");
-                }
-                else if(GameManager.Instance.type == MyGameType.FourPlayer)
-                {
-                    print("4 player calling ");
-                }
-                
-                
-               GameManager.Instance.facebookManager.startRandomGame();
+                print("2 player calling ");
+            }
+            else if (GameManager.Instance.type == MyGameType.FourPlayer)
+            {
+                print("4 player calling ");
+            }
+
+
+            GameManager.Instance.facebookManager.startRandomGame();
+        }
+        else
+        {
+            if (GameManager.Instance.JoinedByID)
+            {
+                Debug.Log("Joined by id!");
+                GameManager.Instance.matchPlayerObject.GetComponent<SetMyData>().MatchPlayer();
             }
             else
             {
-                if (GameManager.Instance.JoinedByID)
-                {
-                    Debug.Log("Joined by id!");
-                    GameManager.Instance.matchPlayerObject.GetComponent<SetMyData>().MatchPlayer();
-                }
-                else
-                {
-                    Debug.Log("Joined and created");
-                    GameManager.Instance.playfabManager.CreatePrivateRoom();
-                    GameManager.Instance.matchPlayerObject.GetComponent<SetMyData>().MatchPlayer();
-                }
-
+                Debug.Log("Joined and created");
+                GameManager.Instance.playfabManager.CreatePrivateRoom();
+                GameManager.Instance.matchPlayerObject.GetComponent<SetMyData>().MatchPlayer();
             }
-       //    }
+        }
+        //    }
         /*else
         {
             GameManager.Instance.dialog.SetActive(true);
@@ -135,7 +164,6 @@ public class GameConfigrationController : MonoBehaviour
             GameManager.Instance.mode = mode;
         }
     }
-
 
 
     public void IncreaseBid()
@@ -166,7 +194,8 @@ public class GameConfigrationController : MonoBehaviour
         if (currentBidIndex == 0) MinusButton.GetComponent<Button>().interactable = false;
         else MinusButton.GetComponent<Button>().interactable = true;
 
-        if (currentBidIndex == StaticStrings.bidValues.Length - 1) PlusButton.GetComponent<Button>().interactable = false;
+        if (currentBidIndex == StaticStrings.bidValues.Length - 1)
+            PlusButton.GetComponent<Button>().interactable = false;
         else PlusButton.GetComponent<Button>().interactable = true;
     }
 
@@ -174,11 +203,12 @@ public class GameConfigrationController : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-public bool StayinLobby=false;
+
+    public bool StayinLobby = false;
+
     public void StopSerchingforRoom()
     {
         HideThisScreen();
-       FindObjectOfType<PlayFabManager>().cancelSerching();
-        
+        FindObjectOfType<PlayFabManager>().cancelSerching();
     }
 }

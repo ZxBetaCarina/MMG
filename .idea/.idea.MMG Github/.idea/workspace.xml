@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ConnectionLostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/ConnectionLostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameGUIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameGUIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabAddFriend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabAddFriend.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/InitMenuScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/InitMenuScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/PlayFabManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/StaticGameVariablesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/StaticGameVariablesController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +23,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b78209fd00d4f419f30dd210cbab239176600/78/7f085444/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b78209fd00d4f419f30dd210cbab239176600/c2/60f79589/Component.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b78209fd00d4f419f30dd210cbab239176600/cb/a8eae9a0/SendMessageOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49672e4ae726478890a05abfd8d26dd0cc00/ed/2bb96df4/BuildConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/58/cc9a9413/Void.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -109,6 +108,9 @@
       <workItem from="1731562395437" duration="1187000" />
       <workItem from="1731563747676" duration="16678000" />
       <workItem from="1731589726802" duration="1230000" />
+      <workItem from="1731591699386" duration="85000" />
+      <workItem from="1731591794765" duration="339000" />
+      <workItem from="1731641533008" duration="4532000" />
     </task>
     <servers />
   </component>

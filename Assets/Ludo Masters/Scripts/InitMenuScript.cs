@@ -135,7 +135,7 @@ public class InitMenuScript : MonoBehaviour
 
         if (PlayerPrefs.GetInt("GamesPlayed", 1) % 8 == 0 && PlayerPrefs.GetInt("GameRated", 0) == 0)
         {
-            rateWindow.SetActive(true);
+//            rateWindow.SetActive(true);
             PlayerPrefs.SetInt("GamesPlayed", PlayerPrefs.GetInt("GamesPlayed", 1) + 1);
         }
 
@@ -268,7 +268,7 @@ public class InitMenuScript : MonoBehaviour
         GameManager.Instance.resetAllData();
         // LocalNotification.ClearNotifications();
         //GameManager.Instance.myPlayerData.GetCoins() = 0;
-        SceneManager.LoadScene("LoginSplash");
+        SceneManager.LoadScene("Game");
     }
 
     public void showChangeDialog()

@@ -56,7 +56,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     public bool isInLobby = false;
     public bool isInMaster = false;
-    private static PlayFabManager _instance;
+    public static PlayFabManager _instance;
 
     void Awake()
     {
@@ -87,7 +87,6 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         {
             Destroy(gameObject);
         }
-       
     }
 
     void OnDestroy()
@@ -303,7 +302,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             {
                 if (GameManager.Instance.opponentsIDs[i] == null)
                 {
-                  //  StartCoroutine(AddBot(i));
+                    //  StartCoroutine(AddBot(i));
                 }
             }
         }
@@ -1098,7 +1097,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     public override void OnPhotonCustomRoomPropertiesChanged(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-            Debug.Log("Custom properties changed: " + DateTime.Now.ToString());
+        Debug.Log("Custom properties changed: " + DateTime.Now.ToString());
     }
 
 
@@ -1283,8 +1282,11 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     {
         Debug.Log("Joined lobby");
         isInLobby = true;
+        //FindObjectOfType<GameConfigrationController>().turnonButtons();
     }
+
     private Coroutine joinRoomCoroutine;
+
     public void JoinRoomAndStartGame()
     {
         ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
@@ -1296,21 +1298,19 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             }
         };
 
-        StartCoroutine(TryToJoinRandomRoom(expectedCustomRoomProperties));
+        joinRoomCoroutine = StartCoroutine(TryToJoinRandomRoom(expectedCustomRoomProperties));
         Debug.Log("trying to join in a random room");
         //PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
     }
 
-   
+
     private IEnumerator TryToJoinRandomRoom(ExitGames.Client.Photon.Hashtable roomOptions)
     {
-        
         int attempts = 0;
         const int maxAttempts = 10;
 
         while (attempts < maxAttempts)
         {
-            
             if (isInLobby) // Assuming this variable is correctly updated elsewhere
             {
                 int roomCount = PhotonNetwork.GetRoomList().Length;
@@ -1340,16 +1340,17 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         }
 
         Debug.Log("Max attempts reached. Could not join a room.");
-      //  CreateRoom();
+        //  CreateRoom();
     }
+
     public void StopJoiningRoom()
     {
-       // if (joinRoomCoroutine != null)
-       // {
+        if (joinRoomCoroutine != null)
+        {
             StopCoroutine(joinRoomCoroutine);
             joinRoomCoroutine = null; // Reset the coroutine reference
             Debug.Log("Stopped trying to join a room.");
-      //s  }
+        }
 
         // Check if currently in a room, and if so, leave it
         if (PhotonNetwork.inRoom)
@@ -1367,6 +1368,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     {
         StopJoiningRoom();
     }
+
     public void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("InGame", 0);

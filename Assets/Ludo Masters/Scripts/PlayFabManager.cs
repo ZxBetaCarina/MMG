@@ -260,7 +260,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             {
                 Debug.Log("Master Client");
                 // PhotonNetwork.RaiseEvent((int)EnumPhoton.StartWithBots, null, true, null);
-                //LoadBots();
+                LoadBots();
             }
         }
         else
@@ -277,7 +277,8 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
         if (PhotonNetwork.isMasterClient)
         {
-            Invoke("AddBots", 3.0f);
+           // Invoke("AddBots", 1.0f);
+           AddBots();
         }
         else
         {
@@ -302,7 +303,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             {
                 if (GameManager.Instance.opponentsIDs[i] == null)
                 {
-                    //  StartCoroutine(AddBot(i));
+                     StartCoroutine(AddBot(i));
                 }
             }
         }
@@ -1289,17 +1290,26 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     public void JoinRoomAndStartGame()
     {
-        ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
+        if (GameManager.Instance.type == MyGameType.TwoPlayer)
         {
-            {
-                "m",
-                GameManager.Instance.mode.ToString() + GameManager.Instance.type.ToString() +
-                GameManager.Instance.payoutCoins.ToString()
-            }
-        };
+            CreateRoom();
+        }
+        else
+        {
 
-        joinRoomCoroutine = StartCoroutine(TryToJoinRandomRoom(expectedCustomRoomProperties));
-        Debug.Log("trying to join in a random room");
+
+            ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable()
+            {
+                {
+                    "m",
+                    GameManager.Instance.mode.ToString() + GameManager.Instance.type.ToString() +
+                    GameManager.Instance.payoutCoins.ToString()
+                }
+            };
+
+            joinRoomCoroutine = StartCoroutine(TryToJoinRandomRoom(expectedCustomRoomProperties));
+            Debug.Log("trying to join in a random room");
+        }
         //PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
     }
 
@@ -1539,7 +1549,10 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         if (PhotonNetwork.room.PlayerCount == 1)
         {
             GameManager.Instance.roomOwner = true;
-            //  WaitForNewPlayer();// calling bots to joinin room if in room there i only one player  from onjoinedRoom
+            if(GameManager.Instance.type==MyGameType.TwoPlayer){
+                    print("2 player calling in bot"); 
+                WaitForNewPlayer();// calling bots to joinin room if in room there i only one player  from onjoinedRoom
+}
         }
         else if (PhotonNetwork.room.PlayerCount >= GameManager.Instance.requiredPlayers)
         {

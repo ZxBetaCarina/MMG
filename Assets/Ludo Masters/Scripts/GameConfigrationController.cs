@@ -88,7 +88,20 @@ public class GameConfigrationController : MonoBehaviour
   //  public GameObject CantStartGamePopup;
     public InitMenuScript _initMenuScript;
     public GameObject cancelBtn;
-
+public void PressedStartGame1v1WithBots()
+{
+    if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+    {
+        _initMenuScript.ShowGameConfiguration(0);
+        setCreatedProvateRoom();
+        startGame();
+       // cancelBtn.SetActive(true);
+    }
+    else
+    {
+        PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+    }
+}
     public void PressedStartGame1v1()
     {
         if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)

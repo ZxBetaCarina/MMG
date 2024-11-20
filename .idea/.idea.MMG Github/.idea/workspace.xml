@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/LudoPawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/LudoPawnController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/avatarBorderGame.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/GUI/avatarBorderGame.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceBackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/diceBackground.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/ludoboard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Sprites/Edit/Game/ludoboard.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-    </list>
+    <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +115,7 @@
       <workItem from="1732081408670" duration="2252000" />
       <workItem from="1732095307770" duration="160000" />
       <workItem from="1732095567771" duration="85000" />
-      <workItem from="1732095662771" duration="3250000" />
+      <workItem from="1732095662771" duration="3843000" />
     </task>
     <servers />
   </component>

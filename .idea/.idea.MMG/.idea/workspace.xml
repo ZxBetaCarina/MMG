@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="" />
+    <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Prefabs/MapPrefabs/Level.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Prefabs/MapPrefabs/Level.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_4.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Targets/TargetLevel1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Targets/TargetLevel1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Targets/TargetLevel2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Targets/TargetLevel2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/MapLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/MapLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/StaticMap/StaticMapPlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/StaticMap/StaticMapPlay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Items.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Items.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Level 1.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Level 1.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Map.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Map.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/MenuComplete.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/MenuComplete.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/MenuPlay.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/MenuPlay.spriteatlas" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

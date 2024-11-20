@@ -12,7 +12,7 @@ namespace SweetSugar.Scripts.MapScripts
         public float OverScale = 1.05f;
         public float ClickScale = 0.95f;
 
-        public int Number;
+        public int Number =2;
         public bool IsLocked;
         public Transform Lock;
         public Transform PathPivot;

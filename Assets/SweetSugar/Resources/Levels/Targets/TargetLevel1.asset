@@ -27,7 +27,7 @@ MonoBehaviour:
         - icon: {fileID: 21300000, guid: b7af2f2a1bfd34165a8bbc3151675e61, type: 3}
           uiSprite: 0
       CountDrawer:
-        count: 200
+        count: 50
       NotFinishUntilMoveOut: 0
       ShowTheScoreForStar:
         ShowTheScore: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
         - icon: {fileID: 21300000, guid: 25a7df250b1834167834d8eac6107271, type: 3}
           uiSprite: 0
       CountDrawer:
-        count: 200
+        count: 50
       NotFinishUntilMoveOut: 0
       ShowTheScoreForStar:
         ShowTheScore: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
         - icon: {fileID: 21300000, guid: 602077c9fcbeb4dbcb982cf680370405, type: 3}
           uiSprite: 0
       CountDrawer:
-        count: 200
+        count: 50
       NotFinishUntilMoveOut: 0
       ShowTheScoreForStar:
         ShowTheScore: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
         - icon: {fileID: 21300000, guid: cb205e42864ca4a7493eb517454f965f, type: 3}
           uiSprite: 0
       CountDrawer:
-        count: 200
+        count: 50
       NotFinishUntilMoveOut: 0
       ShowTheScoreForStar:
         ShowTheScore: 0
@@ -93,6 +93,23 @@ MonoBehaviour:
         - icon: {fileID: 21300000, guid: 785653637a49447bd92900c47e139a3c, type: 3}
           uiSprite: 0
         - icon: {fileID: 21300000, guid: e018d53dd700c47d1b4e5962299a2868, type: 3}
+          uiSprite: 0
+      CountDrawer:
+        count: 0
+      NotFinishUntilMoveOut: 0
+      ShowTheScoreForStar:
+        ShowTheScore: 0
+    - targetType:
+        type: 0
+      sprites:
+        array:
+        - icon: {fileID: 21300000, guid: 00609a7a5bb9f4a9b89633edcfd97d78, type: 3}
+          uiSprite: 0
+        - icon: {fileID: 21300000, guid: 8bff9453e483b4a6ea2bc4713ce58542, type: 3}
+          uiSprite: 0
+        - icon: {fileID: 21300000, guid: 007ac4fe437ad4ce2b163a6f1713b0b1, type: 3}
+          uiSprite: 0
+        - icon: {fileID: 21300000, guid: f57722712dea04612ad9fcfa3bb1f840, type: 3}
           uiSprite: 0
       CountDrawer:
         count: 0

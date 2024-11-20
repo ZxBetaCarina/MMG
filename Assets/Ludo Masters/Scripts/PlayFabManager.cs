@@ -248,7 +248,8 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         {
             Debug.Log("START INVOKE");
             CancelInvoke("StartGameWithBots");
-            Invoke("StartGameWithBots", StaticStrings.WaitTimeUntilStartWithBots);
+           // Invoke("StartGameWithBots", StaticStrings.WaitTimeUntilStartWithBots);
+           StartGameWithBots();
         }
     }
 
@@ -1292,6 +1293,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     {
         if (GameManager.Instance.type == MyGameType.TwoPlayer)
         {
+            
             CreateRoom();
         }
         else

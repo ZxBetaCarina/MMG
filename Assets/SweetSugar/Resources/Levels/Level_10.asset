@@ -2200,12 +2200,11 @@ MonoBehaviour:
               uiSprite: 0
       prefabs:
       - {fileID: 1258960060683140, guid: 48e79583038de4d07a085ff94b52d4d0, type: 3}
-      - {fileID: 1258960060683140, guid: 9d3445b7824334729ba4794139f94b7d, type: 3}
     targetIndex: 1
     limitType: 1
     ingrCountTarget: 0000000000000000
     limit: 180
-    colorLimit: 5
+    colorLimit: 4
     star1: 100
     star2: 500
     star3: 1000
@@ -2261,3 +2260,4 @@ MonoBehaviour:
           array: []
         prefabs: []
       collectingAction: 0
+    TargetCounters: []

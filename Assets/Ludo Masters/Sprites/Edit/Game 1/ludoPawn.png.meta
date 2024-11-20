@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 91d5456b95f244ae8bd7a4643d0c440d
+guid: 90f82d18c69e2c6409d195a351dd35a4
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: ludoPawn_0
+  - first:
+      213: 21300002
+    second: ludoPawn_1
+  - first:
+      213: 21300004
+    second: ludoPawn_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,29 +156,84 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline:
-    - - {x: 100, y: 75}
-      - {x: -64, y: 75}
-      - {x: -69, y: 71}
-      - {x: -88, y: 19}
-      - {x: -104, y: 4}
-      - {x: -104, y: -19}
-      - {x: -73, y: -75}
-      - {x: -70, y: -76}
-      - {x: 104, y: -76}
-      - {x: 104, y: 66}
-      - {x: 103, y: 66}
+    sprites:
+    - serializedVersion: 2
+      name: ludoPawn_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 80
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ludoPawn_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 80
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ludoPawn_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 80
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ludoPawn_0: 21300000
+      ludoPawn_1: 21300002
+      ludoPawn_2: 21300004
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

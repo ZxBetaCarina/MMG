@@ -8,8 +8,8 @@ public class LudoPawnController : MonoBehaviour
 {
     public AudioSource killedPawnSound;
     public AudioSource inHomeSound;
-    public GameObject pawnTop;
-    public GameObject pawnTopMultiple;
+  //  public GameObject pawnTop;
+   // public GameObject pawnTopMultiple;
 
     public GameObject dice;
     private GameDiceController diceController;
@@ -259,8 +259,8 @@ public class LudoPawnController : MonoBehaviour
         rect.SetAsLastSibling();
         isOnBoard = false;
         currentPosition = -1;
-        pawnTop.SetActive(true);
-        pawnTopMultiple.SetActive(false);
+        //pawnTop.SetActive(true);
+     //   pawnTopMultiple.SetActive(false);
         StartCoroutine(MoveDelayed(0, rect.anchoredPosition, initPosition, MoveToStartPositionSpeed, true, false));
         if (pawnInJoint != null)
         {
@@ -448,10 +448,10 @@ public class LudoPawnController : MonoBehaviour
                                     mainInJoint = true;
                                     pathController.pawns[i].GetComponent<LudoPawnController>().mainInJoint = false;
                                     pathController.pawns[i].GetComponent<LudoPawnController>().pawnInJoint = this.gameObject;
-                                    pawnTop.SetActive(false);
-                                    pawnTopMultiple.SetActive(true);
-                                    pathController.pawns[i].GetComponent<LudoPawnController>().pawnTop.SetActive(false);
-                                    pathController.pawns[i].GetComponent<LudoPawnController>().pawnTopMultiple.SetActive(true);
+                                    //pawnTop.SetActive(false);
+                                   // pawnTopMultiple.SetActive(true);
+                               //     pathController.pawns[i].GetComponent<LudoPawnController>().pawnTop.SetActive(false);
+                               //     pathController.pawns[i].GetComponent<LudoPawnController>().pawnTopMultiple.SetActive(true);
                                 }
                             }
                         }
@@ -463,10 +463,10 @@ public class LudoPawnController : MonoBehaviour
                     if (pawnInJoint != null)
                     {
                         canSendFinishTurn = false;
-                        pawnTop.SetActive(true);
-                        pawnTopMultiple.SetActive(false);
-                        pawnInJoint.GetComponent<LudoPawnController>().pawnTop.SetActive(true);
-                        pawnInJoint.GetComponent<LudoPawnController>().pawnTopMultiple.SetActive(false);
+                    //    pawnTop.SetActive(true);
+                      //  pawnTopMultiple.SetActive(false);
+                     //   pawnInJoint.GetComponent<LudoPawnController>().pawnTop.SetActive(true);
+                      //  pawnInJoint.GetComponent<LudoPawnController>().pawnTopMultiple.SetActive(false);
 
                         pawnInJoint.GetComponent<LudoPawnController>().pawnInJoint = null;
                         pawnInJoint = null;

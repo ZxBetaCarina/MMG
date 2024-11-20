@@ -89,12 +89,12 @@ public class EnterPrivateCodeDialogController : MonoBehaviour
                             Debug.Log("Jestem BRAK");
                         }
 
-                        if (GameManager.Instance.myPlayerData.GetCoins() >= GameManager.Instance.payoutCoins)
-                        {
+                       // if (GameManager.Instance.myPlayerData.GetCoins() >= GameManager.Instance.payoutCoins)
+                       // {
                             PhotonNetwork.JoinRoom(roomID);
 
 
-                        }
+                      //  }
                         GameConfiguration.GetComponent<GameConfigrationController>().startGame();
                     }
                     else

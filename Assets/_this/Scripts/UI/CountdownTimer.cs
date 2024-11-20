@@ -46,8 +46,8 @@ public class CountdownTimer : MonoBehaviour
         // Example of triggering an event when the countdown reaches zero
         if (remainingTime.TotalSeconds <= 0)
         {
-            countdownText.text = "Time's up!";  // Display a message when countdown finishes
-            Debug.Log("Countdown finished!");
+            //countdownText.text = "Time's up!";  // Display a message when countdown finishes
+            //Debug.Log("Countdown finished!");
         }
     }
 

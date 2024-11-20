@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     private void GetTarget()
     {
         targets = LevelManager.THIS.levelData.TargetCounters;
+        time = LevelManager.THIS.levelData.limit;
         StartTimer();
     }
 
@@ -47,7 +48,7 @@ public class GameController : MonoBehaviour
 
     private void StartTimer()
     {
-        time *= 60; // Convert minutes to seconds
+        //time *= 60; // Convert minutes to seconds
         StartCoroutine(CountdownTimer());
     }
 

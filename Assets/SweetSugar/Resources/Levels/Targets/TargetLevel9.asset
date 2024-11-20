@@ -27,7 +27,7 @@ MonoBehaviour:
         - icon: {fileID: 21300000, guid: b7af2f2a1bfd34165a8bbc3151675e61, type: 3}
           uiSprite: 0
       CountDrawer:
-        count: 90
+        count: 110
       NotFinishUntilMoveOut: 0
       ShowTheScoreForStar:
         ShowTheScore: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
         - icon: {fileID: 21300000, guid: 25a7df250b1834167834d8eac6107271, type: 3}
           uiSprite: 0
       CountDrawer:
-        count: 75
+        count: 85
       NotFinishUntilMoveOut: 0
       ShowTheScoreForStar:
         ShowTheScore: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
         - icon: {fileID: 21300000, guid: 602077c9fcbeb4dbcb982cf680370405, type: 3}
           uiSprite: 0
       CountDrawer:
-        count: 60
+        count: 90
       NotFinishUntilMoveOut: 0
       ShowTheScoreForStar:
         ShowTheScore: 0

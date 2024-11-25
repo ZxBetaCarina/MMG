@@ -6,6 +6,7 @@ using ZxLog;
 
 public class UserDetails : MonoBehaviour
 {
+    [SerializeField] private Image pic;
     [SerializeField] private TMP_InputField firstName;
     [SerializeField] private TMP_InputField lastName;
     [SerializeField] private TMP_InputField number;
@@ -15,12 +16,17 @@ public class UserDetails : MonoBehaviour
     [SerializeField] private ToggleGroup gender;
     [SerializeField] private Button continueButton;
     [SerializeField] private Button back;
+    [SerializeField] private Button editPic;
+    
+    private string _selectedImagePath;
 
     private void OnEnable()
     {
         continueButton.onClick.AddListener(OnContinue);
         back.onClick.AddListener(OnBack);
         dob.onValueChanged.AddListener(FormatDateInput);
+        editPic.onClick.AddListener(OnEditPic);
+        //pic.sprite = UserData.GetImage();
     }
 
     private void OnDisable()
@@ -28,6 +34,35 @@ public class UserDetails : MonoBehaviour
         continueButton.onClick.RemoveListener(OnContinue);
         back.onClick.RemoveListener(OnBack);
         dob.onValueChanged.RemoveListener(FormatDateInput);
+        editPic.onClick.RemoveListener(OnEditPic);
+    }
+    private void OnEditPic()
+    {
+        PickImage(5);
+    }
+
+    private void PickImage(int maxSize)
+    {
+        NativeGallery.Permission permission = NativeGallery.GetImageFromGallery((path) =>
+        {
+            Debug.Log("Image path: " + path);
+            if (path != null)
+            {
+                _selectedImagePath = path;
+                // Create Texture from selected image
+                Texture2D texture = NativeGallery.LoadImageAtPath(path, maxSize);
+                if (texture == null)
+                {
+                    Debug.LogError("Couldn't load texture from " + path);
+                    return;
+                }
+
+                pic.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+                    new Vector2(0.5f, 0.5f));
+            }
+        });
+
+        Debug.Log("Permission result: " + permission);
     }
     private void FormatDateInput(string input)
     {

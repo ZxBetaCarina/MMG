@@ -28,6 +28,7 @@ public class EditUserProfile : MonoBehaviour
         editPic.onClick.AddListener(OnEditPic);
         backBtt.onClick.AddListener(OnBack);
         email.text = UserData.GetData(UserDataSet.Email);
+        dob.onValueChanged.AddListener(FormatDateInput);
     }
 
     private void OnDisable()
@@ -35,6 +36,7 @@ public class EditUserProfile : MonoBehaviour
         done.onClick.RemoveListener(OnDone);
         editPic.onClick.RemoveListener(OnEditPic);
         backBtt.onClick.RemoveListener(OnBack);
+        dob.onValueChanged.RemoveListener(FormatDateInput);
     }
 
     private void OnBack()
@@ -69,6 +71,7 @@ public class EditUserProfile : MonoBehaviour
             {
                 form.AddBinaryData("profileImage", null, Path.GetFileName(_selectedImagePath), "image/png");
             }
+
             ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
@@ -118,5 +121,36 @@ public class EditUserProfile : MonoBehaviour
         });
 
         Debug.Log("Permission result: " + permission);
+    }
+
+    private void FormatDateInput(string input)
+    {
+        // Remove any non-numeric characters
+        string cleanedInput = System.Text.RegularExpressions.Regex.Replace(input, "[^0-9]", "");
+
+        // Limit the input to 8 digits
+        if (cleanedInput.Length > 8)
+        {
+            cleanedInput = cleanedInput.Substring(0, 8);
+        }
+
+        // Format the input with slashes
+        string formattedInput = "";
+        for (int i = 0; i < cleanedInput.Length; i++)
+        {
+            if (i == 2 || i == 4) // Add a slash after the 2nd and 4th digits
+            {
+                formattedInput += "/";
+            }
+
+            formattedInput += cleanedInput[i];
+        }
+
+        // Update the input field with the formatted input
+        dob.text = formattedInput;
+
+        // Set the caret position at the end of the input
+        dob.caretPosition = dob.text.Length;
+
     }
 }

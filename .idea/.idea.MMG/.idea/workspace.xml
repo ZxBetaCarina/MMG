@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/StartUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/StartUi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Art/UI/4_home_screen/3_my_account_screen/2_my_tickets_btn.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Art/UI/4_home_screen/3_my_account_screen/2_my_tickets_btn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

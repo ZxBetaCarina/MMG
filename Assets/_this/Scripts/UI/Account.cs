@@ -11,6 +11,7 @@ public class Account : MonoBehaviour
     [SerializeField] private Button rate;
     [SerializeField] private Button support;
     [SerializeField] private Button terms;
+    [SerializeField] private Button policy;
     [SerializeField] private Button settings;
     [SerializeField] private Button signOut;
     [SerializeField] private Button buyTicketBtt;
@@ -26,6 +27,7 @@ public class Account : MonoBehaviour
         rate.onClick.AddListener(OnRate);
         support.onClick.AddListener(OnSupport);
         terms.onClick.AddListener(OnTerms);
+        policy.onClick.AddListener(OnPolicy);
         settings.onClick.AddListener(OnSettings);
         signOut.onClick.AddListener(OnSignOut);
         buyTicketBtt.onClick.AddListener(OnBuyTicketBtt);
@@ -40,6 +42,7 @@ public class Account : MonoBehaviour
         rate.onClick.RemoveListener(OnRate);
         support.onClick.RemoveListener(OnSupport);
         terms.onClick.RemoveListener(OnTerms);
+        policy.onClick.RemoveListener(OnPolicy);
         settings.onClick.RemoveListener(OnSettings);
         signOut.onClick.RemoveListener(OnSignOut);
         buyTicketBtt.onClick.RemoveListener(OnBuyTicketBtt);
@@ -78,6 +81,10 @@ public class Account : MonoBehaviour
     private void OnTerms()
     {
         UIManager.LoadScreenAnimated(UIScreen.TermsAndConditions);
+    }
+    private void OnPolicy()
+    {
+        UIManager.LoadScreenAnimated(UIScreen.PrivacyPolicy);
     }
 
     private void OnSettings()

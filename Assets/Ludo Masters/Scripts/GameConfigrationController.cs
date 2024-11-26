@@ -13,6 +13,7 @@ public class GameConfigrationController : MonoBehaviour
     public GameObject[] Toggles;
     private int currentBidIndex = 0;
     private bool cancellationRequested = false;
+   // public GameObject Canclebutton2;
 
     private MyGameMode[] modes = new MyGameMode[] { MyGameMode.Classic, MyGameMode.Quick, MyGameMode.Master };
 
@@ -164,6 +165,9 @@ public class GameConfigrationController : MonoBehaviour
 
     public void pressedstartGamePrivate()
     {
+        
+       // Canclebutton2.gameObject.SetActive(false); 
+        
         if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
         {
             _initMenuScript.ShowGameConfiguration(2);

@@ -29,6 +29,11 @@ public class EditUserProfile : MonoBehaviour
         backBtt.onClick.AddListener(OnBack);
         email.text = UserData.GetData(UserDataSet.Email);
         dob.onValueChanged.AddListener(FormatDateInput);
+        
+        // Add listeners to validate input
+        firstName.onValueChanged.AddListener(ValidateNameInput);
+        lastName.onValueChanged.AddListener(ValidateLastNameInput);
+        location.onValueChanged.AddListener(ValidateLocationInput);
     }
 
     private void OnDisable()
@@ -37,6 +42,11 @@ public class EditUserProfile : MonoBehaviour
         editPic.onClick.RemoveListener(OnEditPic);
         backBtt.onClick.RemoveListener(OnBack);
         dob.onValueChanged.RemoveListener(FormatDateInput);
+        
+        // Remove listeners
+        firstName.onValueChanged.RemoveListener(ValidateNameInput);
+        lastName.onValueChanged.RemoveListener(ValidateLastNameInput);
+        location.onValueChanged.RemoveListener(ValidateLocationInput);
     }
 
     private void OnBack()
@@ -152,5 +162,42 @@ public class EditUserProfile : MonoBehaviour
         // Set the caret position at the end of the input
         dob.caretPosition = dob.text.Length;
 
+    }
+    private void ValidateNameInput(string input)
+    {
+        // Remove any numeric characters from the input field's text
+        string cleanInput = System.Text.RegularExpressions.Regex.Replace(input, "[^a-zA-Z]", "");
+        if (input != cleanInput)
+        {
+            // Set the cleaned input back to the field
+            firstName.text = cleanInput;
+            // You can also reset the caret position to the end of the text field
+            firstName.caretPosition = cleanInput.Length;
+        }
+    }
+    private void ValidateLastNameInput(string input)
+    {
+        // Remove any numeric characters from the input field's text
+        string cleanInput = System.Text.RegularExpressions.Regex.Replace(input, "[^a-zA-Z]", "");
+        if (input != cleanInput)
+        {
+            // Set the cleaned input back to the field
+            lastName.text = cleanInput;
+            // You can also reset the caret position to the end of the text field
+            lastName.caretPosition = cleanInput.Length;
+        }
+    }
+
+    private void ValidateLocationInput(string input)
+    {
+        // Remove any numeric characters from location input
+        string cleanInput = System.Text.RegularExpressions.Regex.Replace(input, "[^a-zA-Z\\s]", "");
+        if (input != cleanInput)
+        {
+            // Set the cleaned input back to the location field
+            location.text = cleanInput;
+            // Reset the caret position
+            location.caretPosition = cleanInput.Length;
+        }
     }
 }

@@ -7,14 +7,9 @@ using System.Collections.Generic;
 
 public class LocalNotification
 {
-   
-    
     ////OLD IOS NOTIFICATION CODE
     
-    
-    
-    
-/*#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
     private static string fullClassName = "net.agasper.unitynotification.UnityNotificationManager";
 #endif
 
@@ -125,5 +120,5 @@ public class LocalNotification
 #if UNITY_IOS && !UNITY_EDITOR
         UnityEngine.iOS.Notification.ClearLocalNotifications();
 #endif
-    }*/
+    }
 }

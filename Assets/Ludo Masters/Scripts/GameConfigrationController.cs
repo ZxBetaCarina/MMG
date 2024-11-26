@@ -12,14 +12,17 @@ public class GameConfigrationController : MonoBehaviour
     public GameObject PlusButton;
     public GameObject[] Toggles;
     private int currentBidIndex = 0;
+    private bool cancellationRequested = false;
 
     private MyGameMode[] modes = new MyGameMode[] { MyGameMode.Classic, MyGameMode.Quick, MyGameMode.Master };
 
     public GameObject privateRoomJoin;
+    private SetMyData smd; 
 
     // Use this for initialization
     void Start()
     {
+        smd = GetComponent<SetMyData>();
     }
 
 
@@ -88,20 +91,62 @@ public class GameConfigrationController : MonoBehaviour
   //  public GameObject CantStartGamePopup;
     public InitMenuScript _initMenuScript;
     public GameObject cancelBtn;
-public void PressedStartGame1v1WithBots()
-{
-    if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+
+    
+    public void PressedStartGame1v1WithBots()
     {
-        _initMenuScript.ShowGameConfiguration(0);
-        setCreatedProvateRoom();
-        startGame();
-       // cancelBtn.SetActive(true);
+        if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+        {
+            // Reset the cancellation flag at the start
+            cancellationRequested = false;
+
+            // Show the game configuration and set up the room
+            _initMenuScript.ShowGameConfiguration(0);
+
+            // Check if cancellation was requested before continuing with room creation
+            if (cancellationRequested)
+            {
+                print("Game start canceled before room creation.");
+                return; // Stop further execution
+            }
+
+            // Call to create the private room and check cancellation
+            Invoke("setCreatedProvateRoom",0f);
+
+            // Check if cancellation was requested before continuing to start the game
+            if (cancellationRequested)
+            {
+                print("Game start canceled before starting the game.");
+                return; // Stop further execution
+            }
+
+            // Call to start the game
+            Invoke("startGame",0f);
+
+            // Show loading scene and enable cancel button
+            //cancelBtn.SetActive(true); // Uncomment if you have a UI element to enable
+        }
+        else
+        {
+            PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+        }
     }
-    else
+
+// Cancel button press logic to set the flag
+    public void OnCancelButtonPressed()
     {
-        PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+        // Set the flag to true when cancel button is pressed
+        cancellationRequested = true;
+
+        // Optionally, hide or update the UI to reflect the cancellation
+        smd.hidePalyerMatch.gameObject.SetActive(false);
+        CancelInvoke("setCreatedProvateRoom");
+        CancelInvoke("StartGame");
+        
+
+        // Optionally, show a pop-up message for cancellation
+        PopUpManager.ShowPopUp("Cancelled", "Game Start has been cancelled.");
     }
-}
     public void PressedStartGame1v1()
     {
         if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
@@ -137,6 +182,7 @@ public void PressedStartGame1v1WithBots()
 
         if (GameManager.Instance.type != MyGameType.Private)
         {
+           
             if (GameManager.Instance.type == MyGameType.TwoPlayer)
             {
                 print("2 player calling ");

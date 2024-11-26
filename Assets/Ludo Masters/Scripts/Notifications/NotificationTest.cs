@@ -3,6 +3,7 @@ using System.Collections;
 
 public class NotificationTest : MonoBehaviour
 {
+    /*
     void Awake()
     {
         LocalNotification.ClearNotifications();
@@ -27,4 +28,5 @@ public class NotificationTest : MonoBehaviour
     {
         LocalNotification.CancelNotification(1);
     }
+    */
 }

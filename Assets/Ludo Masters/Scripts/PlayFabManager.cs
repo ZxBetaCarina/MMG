@@ -99,7 +99,23 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         if (this.gameObject != null)
             DestroyImmediate(this.gameObject);
     }
+    void OnEnable()
+    {
+        // Reconnect to Photon when the object is enabled
+        if (PhotonNetwork.connected)
+        {
+            PhotonNetwork.Reconnect();
+        }
+    }
 
+    void OnDisable()
+    {
+        // Optionally, you can disconnect from Photon when the object is disabled
+        if (PhotonNetwork.connected)
+        {
+            PhotonNetwork.Disconnect();
+        }
+    }
     // Use this for initialization
     void Start()
     {
@@ -1221,7 +1237,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     public void switchUser()
     {
         GameManager.Instance.playfabManager.destroy();
-        GameManager.Instance.facebookManager.destroy();
+       GameManager.Instance.facebookManager.destroy();
         GameManager.Instance.connectionLost.destroy();
         //GameManager.Instance.adsScript.destroy();
         GameManager.Instance.avatarMy = null;
@@ -1816,7 +1832,21 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             GameManager.Instance.controlAvatars.PlayerJoined(index, id);
         }
     }
-
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            // Pause the game
+            Time.timeScale = 0; // Pause the game
+            Debug.Log("Game Paused");
+        }
+        else
+        {
+            // Resume the game
+            Time.timeScale = 1; // Resume the game
+            Debug.Log("Game Resumed");
+        }
+    }
     public IEnumerator loadImageOpponent(string url, int index, string id)
     {
         WWW www = new WWW(url);

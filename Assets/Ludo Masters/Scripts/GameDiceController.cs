@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameDiceController : MonoBehaviour
 {
-
+    public int[] weights = new int[] { 20, 30, 20, 10, 10, 6 };
     public Sprite[] diceValueSprites;
     public GameObject arrowObject;
     public GameObject diceValueObject;
@@ -101,16 +101,14 @@ public class GameDiceController : MonoBehaviour
     {
         if (isMyDice)
         {
-
             controller.nextShotPossible = false;
             controller.gUIController.PauseTimers();
             button.interactable = false;
             Debug.Log("Roll Dice");
             arrowObject.SetActive(false);
-            // if (aa % 2 == 0) steps = 6;
-            // else steps = 2;
-            // aa++;
-            steps = Random.Range(1, 7);
+
+            // Custom weighted dice roll with specific probabilities
+            steps = GetWeightedDiceRoll();
 
             RollDiceStart(steps);
             string data = steps + ";" + controller.gUIController.GetCurrentPlayerIndex();
@@ -118,6 +116,33 @@ public class GameDiceController : MonoBehaviour
 
             Debug.Log("Value: " + steps);
         }
+    }
+
+// Custom method to generate weighted dice roll
+    private int GetWeightedDiceRoll()
+    {
+        // Calculate total weight
+        int totalWeight = 0;
+        foreach (var weight in weights)
+        {
+            totalWeight += weight;
+        }
+
+        // Get a random index based on the weights
+        int randomWeight = Random.Range(0, totalWeight);
+        int cumulativeWeight = 0;
+
+        // Determine the outcome based on the weighted random selection
+        for (int i = 0; i < weights.Length; i++)
+        {
+            cumulativeWeight += weights[i];
+            if (randomWeight < cumulativeWeight)
+            {
+                return i + 1;  // Return 1-6 based on the index (add 1 because array is 0-indexed)
+            }
+        }
+
+        return 1; // Default in case something goes wrong
     }
 
     public void RollDiceBot(int value)

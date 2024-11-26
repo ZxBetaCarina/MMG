@@ -39,6 +39,7 @@ public class Home : MonoBehaviour
 
     private void OnNotificationClick()
     {
+        UIManager.LoadScreenAnimated(UIScreen.Notifications);
     }
 
     private void OnWalletClick()

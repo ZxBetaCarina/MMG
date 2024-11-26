@@ -138,7 +138,10 @@ public enum UIScreen
     RatePopUp,
     InsufficientCoinsPopUp,
     Withdraw,
+    TermsAndConditions2,
+    PrivacyPolicy2,
     Deposit // add new screens according to needs
+    
 }
 
 [Serializable]

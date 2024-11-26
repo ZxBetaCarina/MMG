@@ -105,12 +105,12 @@ public class SignIn : MonoBehaviour
 
     private void OnTerms()
     {
-        UIManager.LoadScreenAnimated(UIScreen.TermsAndConditions);
+        UIManager.LoadScreenAnimated(UIScreen.TermsAndConditions2);
     }
 
     private void OnPolicy()
     {
-        UIManager.LoadScreenAnimated(UIScreen.PrivacyPolicy);
+        UIManager.LoadScreenAnimated(UIScreen.PrivacyPolicy2);
     }
 }
 

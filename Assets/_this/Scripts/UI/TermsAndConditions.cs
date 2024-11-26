@@ -19,4 +19,8 @@ public class TermsAndConditions : MonoBehaviour
     {
         UIManager.LoadScreenAnimated(UIScreen.Home);
     }
+    public void backtosignin()
+    {
+        UIManager.LoadScreenAnimated(UIScreen.SignIn);
+    }
 }

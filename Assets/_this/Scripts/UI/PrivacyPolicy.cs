@@ -19,6 +19,10 @@ public class PrivacyPolicy : MonoBehaviour
     {
         UIManager.LoadScreenAnimated(UIScreen.Home);
     }
+    public void Backtosignin()
+    {
+        UIManager.LoadScreenAnimated(UIScreen.SignIn);
+    }
 
     private void GetPrivacyPolicy()
     {

@@ -19,6 +19,12 @@ public class DockManager : MonoBehaviour
     private int _last_dock;
     private bool isAnimating; // Flag to prevent overlapping animations
 
+    private void Start()
+    {
+        // Disable the home button initially
+        home.interactable = false;
+        home.transform.GetChild(0).GetComponent<Image>().enabled = false; // Hide its associated image if needed
+    }
     private void OnEnable()
     {
         home.onClick.AddListener(() => AttemptActivateDockButtonAndScreen(0));
@@ -38,6 +44,14 @@ public class DockManager : MonoBehaviour
     private void AttemptActivateDockButtonAndScreen(int p_index)
     {
         if (isAnimating) return; // Prevent multiple calls if already animating
+    
+        // Enable the home button only if another button is activated
+        if (_last_dock == -1 && p_index != 0)
+        {
+            home.interactable = true;
+            home.transform.GetChild(0).GetComponent<Image>().enabled = true;
+        }
+
         StartCoroutine(ActivateDockButtonAndScreen(p_index));
     }
 

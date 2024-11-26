@@ -121,6 +121,7 @@ public enum UIScreen
     Otp,
     Home,
     Wallet,
+    Notifications,
     QrCode,
     MyTickets,
     Transaction,

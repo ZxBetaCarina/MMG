@@ -28,6 +28,12 @@ public class EditUserProfile : MonoBehaviour
         editPic.onClick.AddListener(OnEditPic);
         backBtt.onClick.AddListener(OnBack);
         email.text = UserData.GetData(UserDataSet.Email);
+        dob.onValueChanged.AddListener(FormatDateInput);
+        
+        // Add listeners to validate input
+        firstName.onValueChanged.AddListener(ValidateNameInput);
+        lastName.onValueChanged.AddListener(ValidateLastNameInput);
+        location.onValueChanged.AddListener(ValidateLocationInput);
     }
 
     private void OnDisable()
@@ -35,6 +41,12 @@ public class EditUserProfile : MonoBehaviour
         done.onClick.RemoveListener(OnDone);
         editPic.onClick.RemoveListener(OnEditPic);
         backBtt.onClick.RemoveListener(OnBack);
+        dob.onValueChanged.RemoveListener(FormatDateInput);
+        
+        // Remove listeners
+        firstName.onValueChanged.RemoveListener(ValidateNameInput);
+        lastName.onValueChanged.RemoveListener(ValidateLastNameInput);
+        location.onValueChanged.RemoveListener(ValidateLocationInput);
     }
 
     private void OnBack()
@@ -64,11 +76,12 @@ public class EditUserProfile : MonoBehaviour
             {
                 byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
                 form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
-            }
+            }/*
             else
             {
                 form.AddBinaryData("profileImage", null, Path.GetFileName(_selectedImagePath), "image/png");
-            }
+            }*/
+
             ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
@@ -118,5 +131,73 @@ public class EditUserProfile : MonoBehaviour
         });
 
         Debug.Log("Permission result: " + permission);
+    }
+
+    private void FormatDateInput(string input)
+    {
+        // Remove any non-numeric characters
+        string cleanedInput = System.Text.RegularExpressions.Regex.Replace(input, "[^0-9]", "");
+
+        // Limit the input to 8 digits
+        if (cleanedInput.Length > 8)
+        {
+            cleanedInput = cleanedInput.Substring(0, 8);
+        }
+
+        // Format the input with slashes
+        string formattedInput = "";
+        for (int i = 0; i < cleanedInput.Length; i++)
+        {
+            if (i == 2 || i == 4) // Add a slash after the 2nd and 4th digits
+            {
+                formattedInput += "/";
+            }
+
+            formattedInput += cleanedInput[i];
+        }
+
+        // Update the input field with the formatted input
+        dob.text = formattedInput;
+
+        // Set the caret position at the end of the input
+        dob.caretPosition = dob.text.Length;
+
+    }
+    private void ValidateNameInput(string input)
+    {
+        // Remove any numeric characters from the input field's text
+        string cleanInput = System.Text.RegularExpressions.Regex.Replace(input, "[^a-zA-Z]", "");
+        if (input != cleanInput)
+        {
+            // Set the cleaned input back to the field
+            firstName.text = cleanInput;
+            // You can also reset the caret position to the end of the text field
+            firstName.caretPosition = cleanInput.Length;
+        }
+    }
+    private void ValidateLastNameInput(string input)
+    {
+        // Remove any numeric characters from the input field's text
+        string cleanInput = System.Text.RegularExpressions.Regex.Replace(input, "[^a-zA-Z]", "");
+        if (input != cleanInput)
+        {
+            // Set the cleaned input back to the field
+            lastName.text = cleanInput;
+            // You can also reset the caret position to the end of the text field
+            lastName.caretPosition = cleanInput.Length;
+        }
+    }
+
+    private void ValidateLocationInput(string input)
+    {
+        // Remove any numeric characters from location input
+        string cleanInput = System.Text.RegularExpressions.Regex.Replace(input, "[^a-zA-Z\\s]", "");
+        if (input != cleanInput)
+        {
+            // Set the cleaned input back to the location field
+            location.text = cleanInput;
+            // Reset the caret position
+            location.caretPosition = cleanInput.Length;
+        }
     }
 }

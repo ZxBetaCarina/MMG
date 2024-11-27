@@ -97,7 +97,8 @@ public class GameConfigrationController : MonoBehaviour
     
     public void PressedStartGame1v1WithBots()
     {
-        if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+        //if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+        if(PhotonNetwork.insideLobby&& PhotonNetwork.connectedAndReady )
         {
             
             // Show the game configuration and set up the room
@@ -147,7 +148,8 @@ public class GameConfigrationController : MonoBehaviour
     // }
     public void PressedStartGame1v1()
     {
-        if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+       // if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+       if(PhotonNetwork.insideLobby&& PhotonNetwork.connectedAndReady )
         {
             _initMenuScript.ShowGameConfiguration(0);
             setCreatedProvateRoom();

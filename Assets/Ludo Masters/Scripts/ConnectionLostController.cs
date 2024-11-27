@@ -36,7 +36,7 @@ public class ConnectionLostController : MonoBehaviour {
     }
 
     public void showDialog() {
-        canvas.SetActive(true);
+       // canvas.SetActive(true);
     }
 
     public void closeApp() {

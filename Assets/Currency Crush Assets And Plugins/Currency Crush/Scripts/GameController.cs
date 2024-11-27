@@ -42,7 +42,8 @@ public class GameController : MonoBehaviour
     [Button]
     private void AfterTargetAchieved()
     {
-        PopUpManager.ShowPopUpAction("Message", "Yey You Did It", GetReward);
+        SceneManager.LoadScene(0);
+        PopUpManager.ShowPopUp("Message", "Yey You Did It");
     }
 
 
@@ -71,7 +72,8 @@ public class GameController : MonoBehaviour
     [Button]
     private void OnTimeExpired()
     {
-        PopUpManager.ShowPopUpAction("Message", "Time's Up Try Again Next Time", AfterTimeUp);
+        SceneManager.LoadScene(0);
+        PopUpManager.ShowPopUp("Message", "Time's Up Try Again Next Time");
     }
 
     private void AfterTimeUp()

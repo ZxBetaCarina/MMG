@@ -2030,9 +2030,9 @@ MonoBehaviour:
       prefabs:
       - {fileID: 1055345148094608, guid: 4ebed1d82b94548d0ab47103e3f205e5, type: 3}
     targetIndex: 2
-    limitType: 1
+    limitType: 0
     ingrCountTarget: 0000000000000000
-    limit: 120
+    limit: 1
     colorLimit: 4
     star1: 100
     star2: 300

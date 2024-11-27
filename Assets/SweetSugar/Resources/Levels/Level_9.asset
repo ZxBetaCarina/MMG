@@ -3704,7 +3704,7 @@ MonoBehaviour:
       prefabs:
       - {fileID: 1793582136509744, guid: 9dbfaa88340224d8eb06d56878decb22, type: 3}
     targetIndex: 4
-    limitType: 1
+    limitType: 0
     ingrCountTarget: 0000000000000000
     limit: 45
     colorLimit: 4

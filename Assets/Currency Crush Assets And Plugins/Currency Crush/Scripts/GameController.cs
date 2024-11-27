@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private TMP_Text timeText;
-    //[SerializeField] private float time;
+    [SerializeField] private float time;
     [SerializeField] private List<TargetCounter> targets;
 
     private void OnEnable()
@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     private void GetTarget()
     {
         targets = LevelManager.THIS.levelData.TargetCounters;
-        //time = LevelManager.THIS.levelData.limit;
+        time = LevelManager.THIS.levelData.limit;
         StartTimer();
     }
 
@@ -49,10 +49,10 @@ public class GameController : MonoBehaviour
 
     private void StartTimer()
     {
-        //time *= 60; // Convert minutes to seconds
-        //StartCoroutine(CountdownTimer());
+        time *= 60; // Convert minutes to seconds
+        StartCoroutine(CountdownTimer());
     }
-/*
+
     private IEnumerator CountdownTimer()
     {
         while (time > 0)
@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
         timeText.text = "00:00";
         OnTimeExpired();
     }
-*/
+
     [Button]
     private void OnTimeExpired()
     {

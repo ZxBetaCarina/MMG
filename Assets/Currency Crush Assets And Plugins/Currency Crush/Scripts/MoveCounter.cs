@@ -5,6 +5,7 @@ using SweetSugar.Scripts.Level;
 using SweetSugar.Scripts.TargetScripts.TargetSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace SweetSugar.Scripts.GUI
@@ -45,10 +46,8 @@ namespace SweetSugar.Scripts.GUI
 
         void OnEnable()
         {
-            lastTime = 0;
             UpdateText();
             alert = false; StartCoroutine(UpdateRare());
-            //if (name == "Limit") StartCoroutine(TimeTick());
         }
 
         // Update is called once per frame
@@ -65,24 +64,20 @@ namespace SweetSugar.Scripts.GUI
 
         private void UpdateText()
         {
-
-
-            if (name == "Score")
-            {
-                txt.text = "" + LevelManager.Score;
-            }
-
-            if (name == "BestScore")
-            {
-                txt.text = "Best score:" + PlayerPrefs.GetInt("Score" + PlayerPrefs.GetInt("OpenLevel"));
-            }
-
             if (name == "Limit" && ThisLevelData != null)
             {
                 if (ThisLevelData.limitType == LIMIT.MOVES)
                 {
                     txt.text = "" + Mathf.Clamp(ThisLevelData.limit, 0, ThisLevelData.limit);
                     txt.transform.localScale = Vector3.one;
+                    
+                    if (Mathf.Clamp(ThisLevelData.limit, 0, ThisLevelData.limit) == 0)
+                    {
+                        Debug.Log("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"); // Print "hi" to the console
+                        SceneManager.LoadScene(0);
+                        PopUpManager.ShowPopUp("Message", "Time's Up Try Again Next Time");
+                    }
+                    
                     if (ThisLevelData.limit <= 5)
                     {
                         txt.color = new Color(255f / 255f, 132f / 255, 222f / 255);
@@ -125,68 +120,7 @@ namespace SweetSugar.Scripts.GUI
                 }
             }
 
-            if (name == "Lifes")
-            {
-                txt.text = "" + InitScript.Instance?.GetLife();
-            }
-
-            if (name == "FailedCount")
-            {
-                if (ThisLevelData.limitType == LIMIT.MOVES)
-                    txt.text = "+" + LevelManager.THIS.ExtraFailedMoves;
-                else
-                    txt.text = "+" + LevelManager.THIS.ExtraFailedSecs;
-            }
-
-            if (name == "FailedPrice")
-            {
-                txt.text = "" + LevelManager.THIS.FailedCost;
-            }
-
-            if (name == "FailedDescription")
-            {
-                txt.text = "" + LevelData.THIS.GetTargetCounters().First(i => !i.IsTotalTargetReached()).targetLevel.GetFailedDescription();
-            }
-
-
-            if (name == "Gems")
-            {
-                txt.text = "" + InitScript.Gems;
-            }
-
-            if (name == "TargetScore")
-            {
-                txt.text = "" + ThisLevelData.star1;
-            }
-
-            if (name == "Level")
-            {
-                txt.text = "" + PlayerPrefs.GetInt("OpenLevel");
-            }
-
-            // if (name == "TargetDescription1")
-            // {
-            //     txt.text = "" + LevelData.THIS.GetTargetContainersForUI().First().targetLevel.GetDescription();
-            // }
+            
         }
-
-        /*IEnumerator TimeTick()
-        {
-            while (true)
-            {
-                if (LevelManager.THIS.gameStatus == GameState.Playing)
-                {
-                    if (_thisLevelData.limitType == LIMIT.TIME)
-                    {
-                        _thisLevelData.limit--;
-                        if (!LevelManager.THIS.DragBlocked)
-                            LevelManager.THIS.CheckWinLose();
-                    }
-                }
-                if (LevelManager.THIS.gameStatus == GameState.Map)
-                    yield break;
-                yield return new WaitForSeconds(1);
-            }
-        }*/
     }
 }

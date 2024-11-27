@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private TMP_Text timeText;
-    [SerializeField] private float time;
+    //[SerializeField] private float time;
     [SerializeField] private List<TargetCounter> targets;
 
     private void OnEnable()
@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     private void GetTarget()
     {
         targets = LevelManager.THIS.levelData.TargetCounters;
-        time = LevelManager.THIS.levelData.limit;
+        //time = LevelManager.THIS.levelData.limit;
         StartTimer();
     }
 
@@ -42,16 +42,17 @@ public class GameController : MonoBehaviour
     [Button]
     private void AfterTargetAchieved()
     {
-        PopUpManager.ShowPopUpAction("Message", "Yey You Did It", GetReward);
+        SceneManager.LoadScene(0);
+        PopUpManager.ShowPopUp("Message", "Yey You Did It");
     }
 
 
     private void StartTimer()
     {
         //time *= 60; // Convert minutes to seconds
-        StartCoroutine(CountdownTimer());
+        //StartCoroutine(CountdownTimer());
     }
-
+/*
     private IEnumerator CountdownTimer()
     {
         while (time > 0)
@@ -67,11 +68,12 @@ public class GameController : MonoBehaviour
         timeText.text = "00:00";
         OnTimeExpired();
     }
-
+*/
     [Button]
     private void OnTimeExpired()
     {
-        PopUpManager.ShowPopUpAction("Message", "Time's Up Try Again Next Time", AfterTimeUp);
+        SceneManager.LoadScene(0);
+        PopUpManager.ShowPopUp("Message", "Time's Up Try Again Next Time");
     }
 
     private void AfterTimeUp()

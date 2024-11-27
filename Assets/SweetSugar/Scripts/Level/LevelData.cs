@@ -31,7 +31,7 @@ using UnityEngine;
         public int targetIndex;
 
         // public static TargetContainer targetContainer;
-        /// moves or time
+        // moves or time
         public LIMIT limitType;
 
         public int[] ingrCountTarget = new int[2];

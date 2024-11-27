@@ -48,7 +48,7 @@ namespace SweetSugar.Scripts.GUI
             lastTime = 0;
             UpdateText();
             alert = false; StartCoroutine(UpdateRare());
-            if (name == "Limit") StartCoroutine(TimeTick());
+            //if (name == "Limit") StartCoroutine(TimeTick());
         }
 
         // Update is called once per frame
@@ -170,7 +170,7 @@ namespace SweetSugar.Scripts.GUI
             // }
         }
 
-        IEnumerator TimeTick()
+        /*IEnumerator TimeTick()
         {
             while (true)
             {
@@ -187,6 +187,6 @@ namespace SweetSugar.Scripts.GUI
                     yield break;
                 yield return new WaitForSeconds(1);
             }
-        }
+        }*/
     }
 }

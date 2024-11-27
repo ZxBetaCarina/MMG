@@ -6,6 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_5.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_8.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_8.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_04.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_05.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_05.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_06.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Items/item_mar_06.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

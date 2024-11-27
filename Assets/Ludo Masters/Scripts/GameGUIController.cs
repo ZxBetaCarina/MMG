@@ -17,8 +17,8 @@ public class GameGUIController : PunBehaviour
     public GameObject TIPObject;
     public GameObject firstPrizeObject;
     public GameObject SecondPrizeObject;
-    public GameObject firstPrizeText;
-    public GameObject secondPrizeText;
+   // public GameObject firstPrizeText;
+//    public GameObject secondPrizeText;
 
     public AudioSource WinSound;
     public AudioSource myTurnSource;
@@ -453,8 +453,8 @@ public class GameGUIController : PunBehaviour
             firstPlacePrize = GameManager.Instance.payoutCoins;
         }
 
-        firstPrizeText.GetComponent<Text>().text = firstPlacePrize + "";
-        secondPrizeText.GetComponent<Text>().text = secondPlacePrize + "";
+        //firstPrizeText.GetComponent<Text>().text = firstPlacePrize + "";
+      //  secondPrizeText.GetComponent<Text>().text = secondPlacePrize + "";
 
         if (secondPlacePrize == 0)
         {
@@ -521,45 +521,45 @@ public class GameGUIController : PunBehaviour
 
         StartCoroutine(waitForPlayersToStart());
     }
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-        {
-            // The application is paused (game goes to the background)
-            Debug.Log("Game paused");
-            PauseGame();
-            StopTimers();
-        }
-        else
-        {
-            // The application is resumed (game comes to the foreground)
-            Debug.Log("Game resumed");
-            ResumeGame();
-            RestartTimer();
-        }
-    }
+    // private void OnApplicationPause(bool pauseStatus)
+    // {
+    //     if (pauseStatus)
+    //     {
+    //         // The application is paused (game goes to the background)
+    //         Debug.Log("Game paused");
+    //         PauseGame();
+    //         StopTimers();
+    //     }
+    //     else
+    //     {
+    //         // The application is resumed (game comes to the foreground)
+    //         Debug.Log("Game resumed");
+    //         ResumeGame();
+    //         RestartTimer();
+    //     }
+    // }
 
     // Method to pause the game by stopping all gameplay-related updates
-    private void PauseGame()
-    {
-        if (!isGamePaused)
-        {
-            isGamePaused = true;
-            Time.timeScale = 0f;  // Pauses the game (stops physics, animations, etc.)
-            // Additional code for pausing (e.g., showing UI)
-        }
-    }
+    // private void PauseGame()
+    // {
+    //     if (!isGamePaused)
+    //     {
+    //         isGamePaused = true;
+    //         Time.timeScale = 0f;  // Pauses the game (stops physics, animations, etc.)
+    //         // Additional code for pausing (e.g., showing UI)
+    //     }
+    // }
 
     // Method to resume the game
-    private void ResumeGame()
-    {
-        if (isGamePaused)
-        {
-            isGamePaused = false;
-            Time.timeScale = 1f;  // Resumes the game (restores normal speed)
-            // Additional code for resuming (e.g., hiding pause UI)
-        }
-    }
+    // private void ResumeGame()
+    // {
+    //     if (isGamePaused)
+    //     {
+    //         isGamePaused = false;
+    //         Time.timeScale = 1f;  // Resumes the game (restores normal speed)
+    //         // Additional code for resuming (e.g., hiding pause UI)
+    //     }
+    // }
 
     // Stop timers when the game is paused
    

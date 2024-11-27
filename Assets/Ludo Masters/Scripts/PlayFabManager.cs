@@ -101,20 +101,21 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     }
     void OnEnable()
     {
-        // Reconnect to Photon when the object is enabled
-        if (PhotonNetwork.connected)
-        {
-            PhotonNetwork.Reconnect();
-        }
+        //Reconnect to Photon when the object is enabled
+        // if (PhotonNetwork.connected)
+        // {
+        //     PhotonNetwork.Reconnect();
+        // }
     }
 
     void OnDisable()
     {
         // Optionally, you can disconnect from Photon when the object is disabled
-        if (PhotonNetwork.connected)
-        {
-            PhotonNetwork.Disconnect();
-        }
+        // if (PhotonNetwork.connected)
+        // {
+        //  
+        //     PhotonNetwork.Disconnect();
+        // }
     }
     // Use this for initialization
     void Start()
@@ -188,6 +189,17 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         }
     }
 
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus)
+        {
+            PhotonNetwork.Reconnect();
+        }
+        else
+        {
+            PhotonNetwork.BackgroundTimeout = 300;
+        }
+    }
 
     public void StartGame()
     {
@@ -199,7 +211,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         PhotonNetwork.room.IsVisible = false;
 
         CancelInvoke("StartGameWithBots");
-        Invoke("startGameScene", 3.0f);
+        Invoke("startGameScene", 2.0f);
 
         //startGameScene();
     }
@@ -1229,10 +1241,10 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         switchUser();
     }
 
-    public void DisconnecteFromPhoton()
-    {
-        PhotonNetwork.Disconnect();
-    }
+    // public void DisconnecteFromPhoton()
+    // {
+    //     PhotonNetwork.Disconnect();
+    // }
 
     public void switchUser()
     {
@@ -1832,21 +1844,21 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             GameManager.Instance.controlAvatars.PlayerJoined(index, id);
         }
     }
-    void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-        {
-            // Pause the game
-            Time.timeScale = 0; // Pause the game
-            Debug.Log("Game Paused");
-        }
-        else
-        {
-            // Resume the game
-            Time.timeScale = 1; // Resume the game
-            Debug.Log("Game Resumed");
-        }
-    }
+    // void OnApplicationPause(bool pauseStatus)
+    // {
+    //     if (pauseStatus)
+    //     {
+    //         // Pause the game
+    //         Time.timeScale = 0; // Pause the game
+    //         Debug.Log("Game Paused");
+    //     }
+    //     else
+    //     {
+    //         // Resume the game
+    //         Time.timeScale = 1; // Resume the game
+    //         Debug.Log("Game Resumed");
+    //     }
+    // }
     public IEnumerator loadImageOpponent(string url, int index, string id)
     {
         WWW www = new WWW(url);

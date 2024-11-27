@@ -257,12 +257,13 @@ public class InitMenuScript : MonoBehaviour
 
     public void switchUser()
     {
+        Debug.Log("calling switch user method");
         GameManager.Instance.playfabManager.destroy();
         GameManager.Instance.facebookManager.destroy();
         GameManager.Instance.connectionLost.destroy();
 
         GameManager.Instance.avatarMy = null;
-        PhotonNetwork.Disconnect();
+       PhotonNetwork.Disconnect();
 
         PlayerPrefs.DeleteAll();
         GameManager.Instance.resetAllData();

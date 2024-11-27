@@ -60,6 +60,16 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     void Awake()
     {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+       
         //splashCanvas.SetActive(true);
         Debug.Log("Playfab awake");
         //PlayerPrefs.DeleteAll();
@@ -78,15 +88,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         PlayFabSettings.TitleId = StaticStrings.PlayFabTitleID;
 
         PhotonNetwork.OnEventCall += this.OnEvent;
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(transform.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+      
     }
 
     void OnDestroy()
@@ -102,10 +104,10 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
     void OnEnable()
     {
         //Reconnect to Photon when the object is enabled
-        // if (PhotonNetwork.connected)
-        // {
-        //     PhotonNetwork.Reconnect();
-        // }
+        if (PhotonNetwork.connected)
+        {
+            PhotonNetwork.Reconnect();
+        }
     }
 
     void OnDisable()

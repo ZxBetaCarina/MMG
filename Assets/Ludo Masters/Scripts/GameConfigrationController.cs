@@ -166,8 +166,8 @@ public class GameConfigrationController : MonoBehaviour
     {
         
        // Canclebutton2.gameObject.SetActive(false); 
-        
-        if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+       // if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+       if(PhotonNetwork.insideLobby&& PhotonNetwork.connectedAndReady )
         {
             _initMenuScript.ShowGameConfiguration(2);
         }

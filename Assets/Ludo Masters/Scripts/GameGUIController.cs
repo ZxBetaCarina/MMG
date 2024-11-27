@@ -454,7 +454,7 @@ public class GameGUIController : PunBehaviour
         }
 
         //firstPrizeText.GetComponent<Text>().text = firstPlacePrize + "";
-      //  secondPrizeText.GetComponent<Text>().text = secondPlacePrize + "";
+       // secondPrizeText.GetComponent<Text>().text = secondPlacePrize + "";
 
         if (secondPlacePrize == 0)
         {

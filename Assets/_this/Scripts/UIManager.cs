@@ -140,6 +140,7 @@ public enum UIScreen
     Withdraw,
     TermsAndConditions2,
     PrivacyPolicy2,
+    BuyTicket,
     Deposit // add new screens according to needs
     
 }

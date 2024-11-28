@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class JoinGiveaway : MonoBehaviour
+public class BuyTicket : MonoBehaviour
 {
     [SerializeField] private Button minus;
     [SerializeField] private Button plus;
-    [SerializeField] private Button join;
+    [SerializeField] private Button Buy;
     [SerializeField] private TMP_Text quantity;
     [SerializeField] private int count = 1;
     [SerializeField] private Button Back;
@@ -15,7 +15,7 @@ public class JoinGiveaway : MonoBehaviour
     {
         minus.onClick.AddListener(OnMinus);
         plus.onClick.AddListener(OnPlus);
-        join.onClick.AddListener(OnJoin);
+        Buy.onClick.AddListener(OnBuy);
         Back.onClick.AddListener(onback);
         UpdateQuantityText();
     }
@@ -24,7 +24,7 @@ public class JoinGiveaway : MonoBehaviour
     {
         minus.onClick.RemoveListener(OnMinus);
         plus.onClick.RemoveListener(OnPlus);
-        join.onClick.RemoveListener(OnJoin);
+        Buy.onClick.RemoveListener(OnBuy);
         Back.onClick.RemoveListener(onback);
     }
 
@@ -43,11 +43,11 @@ public class JoinGiveaway : MonoBehaviour
         UpdateQuantityText();
     }
 
-    private void OnJoin()
+    private void OnBuy()
     {
         if (count > 0)
         {
-            UIManager.LoadScreenAnimated(UIScreen.QrCode);
+            PopUpManager.ShowPopUp("Message", "Your purchase was successful");
         }
         else
         {

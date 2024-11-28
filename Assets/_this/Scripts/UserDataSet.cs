@@ -13,14 +13,15 @@ public class UserData : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            
         }
         else
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 
@@ -116,7 +117,7 @@ public class UserData : MonoBehaviour
         string email = UserData.GetData(UserDataSet.Email);
     
         // Log the email to the console for debugging
-        Debug.Log("User Email: " + email);
+        //Debug.Log("User Email: " + email);
     }
 
     public static void SetData(UserDataSet dataType, string value)

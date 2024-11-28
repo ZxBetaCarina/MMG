@@ -55,6 +55,7 @@ public class GameController : MonoBehaviour
 
     private IEnumerator CountdownTimer()
     {
+        yield return new WaitForSeconds(5f);
         while (time > 0)
         {
             time -= 1;

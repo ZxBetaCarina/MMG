@@ -404,8 +404,8 @@ public class FacebookManager : MonoBehaviour
 
 
     public void destroy()
-    {
-        if (this.gameObject != null)
+   {
+       if (this.gameObject != null)
             DestroyImmediate(this.gameObject);
     }
 

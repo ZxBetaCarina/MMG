@@ -12,6 +12,7 @@ public class ControlAvatars : MonoBehaviour
     public GameObject FailedToJoinRoomWindow;
     public GameObject FailedToJoinRoomText;
     public GameObject CancelButton;
+   // public GameObject CancelButton2;
     public GameObject startButtonPrivate;
     public GameObject RoomIDObject;
     public GameObject RoomIDText;
@@ -141,7 +142,7 @@ public class ControlAvatars : MonoBehaviour
             RoomIDObject.SetActive(false);
         }
 
-        CancelButton.SetActive(false);
+    //    CancelButton.SetActive(false);
 
         for (int i = 0; i < InviteToJoinButtons.Length; i++)
         {

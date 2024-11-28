@@ -60,6 +60,16 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
     void Awake()
     {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+       
         //splashCanvas.SetActive(true);
         Debug.Log("Playfab awake");
         //PlayerPrefs.DeleteAll();
@@ -78,15 +88,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         PlayFabSettings.TitleId = StaticStrings.PlayFabTitleID;
 
         PhotonNetwork.OnEventCall += this.OnEvent;
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(transform.gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+      
     }
 
     void OnDestroy()
@@ -99,7 +101,24 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         if (this.gameObject != null)
             DestroyImmediate(this.gameObject);
     }
+    void OnEnable()
+    {
+        //Reconnect to Photon when the object is enabled
+        if (PhotonNetwork.connected)
+        {
+            PhotonNetwork.Reconnect();
+        }
+    }
 
+    void OnDisable()
+    {
+        // Optionally, you can disconnect from Photon when the object is disabled
+        // if (PhotonNetwork.connected)
+        // {
+        //  
+        //     PhotonNetwork.Disconnect();
+        // }
+    }
     // Use this for initialization
     void Start()
     {
@@ -172,6 +191,17 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         }
     }
 
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus)
+        {
+            PhotonNetwork.Reconnect();
+        }
+        else
+        {
+            PhotonNetwork.BackgroundTimeout = 300;
+        }
+    }
 
     public void StartGame()
     {
@@ -183,7 +213,7 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         PhotonNetwork.room.IsVisible = false;
 
         CancelInvoke("StartGameWithBots");
-        Invoke("startGameScene", 3.0f);
+        Invoke("startGameScene", 2.0f);
 
         //startGameScene();
     }
@@ -1213,15 +1243,15 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         switchUser();
     }
 
-    public void DisconnecteFromPhoton()
-    {
-        PhotonNetwork.Disconnect();
-    }
+    // public void DisconnecteFromPhoton()
+    // {
+    //     PhotonNetwork.Disconnect();
+    // }
 
     public void switchUser()
     {
         GameManager.Instance.playfabManager.destroy();
-        GameManager.Instance.facebookManager.destroy();
+       GameManager.Instance.facebookManager.destroy();
         GameManager.Instance.connectionLost.destroy();
         //GameManager.Instance.adsScript.destroy();
         GameManager.Instance.avatarMy = null;
@@ -1545,9 +1575,9 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
         Debug.Log("Players in room " + PhotonNetwork.room.PlayerCount);
 
-        GameManager.Instance.currentPlayersCount = 1;
+       GameManager.Instance.currentPlayersCount = 1;//also check this Line
 
-        GameManager.Instance.controlAvatars.setCancelButton();
+     //   GameManager.Instance.controlAvatars.setCancelButton();
         if (PhotonNetwork.room.PlayerCount == 1)
         {
             GameManager.Instance.roomOwner = true;
@@ -1558,13 +1588,14 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         }
         else if (PhotonNetwork.room.PlayerCount >= GameManager.Instance.requiredPlayers)
         {
+          
             PhotonNetwork.room.IsOpen = false;
             PhotonNetwork.room.IsVisible = false;
         }
 
         if (!roomOwner)
         {
-            GameManager.Instance.backButtonMatchPlayers.SetActive(false);
+          //  GameManager.Instance.backButtonMatchPlayers.SetActive(false);
 
             for (int i = 0; i < PhotonNetwork.otherPlayers.Length; i++)
             {
@@ -1816,7 +1847,21 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
             GameManager.Instance.controlAvatars.PlayerJoined(index, id);
         }
     }
-
+    // void OnApplicationPause(bool pauseStatus)
+    // {
+    //     if (pauseStatus)
+    //     {
+    //         // Pause the game
+    //         Time.timeScale = 0; // Pause the game
+    //         Debug.Log("Game Paused");
+    //     }
+    //     else
+    //     {
+    //         // Resume the game
+    //         Time.timeScale = 1; // Resume the game
+    //         Debug.Log("Game Resumed");
+    //     }
+    // }
     public IEnumerator loadImageOpponent(string url, int index, string id)
     {
         WWW www = new WWW(url);

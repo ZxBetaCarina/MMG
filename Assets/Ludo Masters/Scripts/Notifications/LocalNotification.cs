@@ -7,6 +7,8 @@ using System.Collections.Generic;
 
 public class LocalNotification
 {
+    ////OLD IOS NOTIFICATION CODE
+    
 #if UNITY_ANDROID && !UNITY_EDITOR
     private static string fullClassName = "net.agasper.unitynotification.UnityNotificationManager";
 #endif
@@ -36,7 +38,7 @@ public class LocalNotification
         return id;
 #elif UNITY_IOS && !UNITY_EDITOR
         
-        UnityEngine.iOS.NotificationServices.RegisterForNotifications(UnityEngine.iOS.NotificationType.Alert | 
+        UnityEngine.iOS.Notification.RegisterForNotifications(UnityEngine.iOS.NotificationType.Alert | 
                             UnityEngine.iOS.NotificationType.Badge | UnityEngine.iOS.NotificationType.Sound);
 
         UnityEngine.iOS.LocalNotification notification = new UnityEngine.iOS.LocalNotification();
@@ -47,7 +49,7 @@ public class LocalNotification
         notification.alertAction = title;
         notification.hasAction = false;
 
-        UnityEngine.iOS.NotificationServices.ScheduleLocalNotification(notification);
+        UnityEngine.iOS.Notification.ScheduleLocalNotification(notification);
 
         return (int)fireDate.Ticks;
 #else
@@ -96,11 +98,11 @@ public class LocalNotification
 #endif
 
 #if UNITY_IOS && !UNITY_EDITOR
-        foreach (UnityEngine.iOS.LocalNotification notif in UnityEngine.iOS.NotificationServices.scheduledLocalNotifications) 
+        foreach (UnityEngine.iOS.LocalNotification notif in UnityEngine.iOS.Notification.scheduledLocalNotifications) 
         { 
             if ((int)notif.fireDate.Ticks == id)
             {
-                UnityEngine.iOS.NotificationServices.CancelLocalNotification(notif);
+                UnityEngine.iOS.Notification.CancelLocalNotification(notif);
             }
         }
 #endif
@@ -116,7 +118,7 @@ public class LocalNotification
 #endif
 
 #if UNITY_IOS && !UNITY_EDITOR
-        UnityEngine.iOS.NotificationServices.ClearLocalNotifications();
+        UnityEngine.iOS.Notification.ClearLocalNotifications();
 #endif
     }
 }

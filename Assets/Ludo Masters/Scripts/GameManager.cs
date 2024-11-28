@@ -54,7 +54,7 @@ public class GameManager
     public string faultMessage = "";
     public FacebookFriendsMenu facebookFriendsMenu;
     public GameObject matchPlayerObject;
-    public GameObject backButtonMatchPlayers;
+  //  public GameObject backButtonMatchPlayers;
     public GameObject MatchPlayersCanvas;
     public GameObject reconnectingWindow;
     public GameControllerScript gameControllerScript;

@@ -69,7 +69,7 @@ public class SettingsWindowController : MonoBehaviour
                     if (!value)
                     {
                         Debug.Log("Clear notifications!");
-                        LocalNotification.CancelNotification(1);
+                       // LocalNotification.CancelNotification(1);
                     }
                     else
                     {

@@ -94,7 +94,7 @@ public class InitMenuScript : MonoBehaviour
 //        GameManager.Instance.facebookFriendsMenu = fbFriendsMenu.GetComponent<FacebookFriendsMenu>(); ;
 
         GameManager.Instance.matchPlayerObject = matchPlayer;
-        GameManager.Instance.backButtonMatchPlayers = backButtonMatchPlayers;
+       // GameManager.Instance.backButtonMatchPlayers = backButtonMatchPlayers;
 //        playerName.GetComponent<Text>().text = GameManager.Instance.nameMy;
         GameManager.Instance.MatchPlayersCanvas = MatchPlayersCanvas;
 
@@ -257,12 +257,13 @@ public class InitMenuScript : MonoBehaviour
 
     public void switchUser()
     {
+        Debug.Log("calling switch user method");
         GameManager.Instance.playfabManager.destroy();
         GameManager.Instance.facebookManager.destroy();
         GameManager.Instance.connectionLost.destroy();
 
         GameManager.Instance.avatarMy = null;
-        PhotonNetwork.Disconnect();
+       PhotonNetwork.Disconnect();
 
         PlayerPrefs.DeleteAll();
         GameManager.Instance.resetAllData();

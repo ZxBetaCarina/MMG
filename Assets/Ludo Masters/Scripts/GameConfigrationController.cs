@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AssemblyCSharp;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameConfigrationController : MonoBehaviour
 {
@@ -12,14 +13,18 @@ public class GameConfigrationController : MonoBehaviour
     public GameObject PlusButton;
     public GameObject[] Toggles;
     private int currentBidIndex = 0;
+    
+   // public GameObject Canclebutton2;
 
     private MyGameMode[] modes = new MyGameMode[] { MyGameMode.Classic, MyGameMode.Quick, MyGameMode.Master };
 
     public GameObject privateRoomJoin;
+    private SetMyData smd; 
 
     // Use this for initialization
     void Start()
     {
+        smd = GetComponent<SetMyData>();
     }
 
 
@@ -88,23 +93,63 @@ public class GameConfigrationController : MonoBehaviour
   //  public GameObject CantStartGamePopup;
     public InitMenuScript _initMenuScript;
     public GameObject cancelBtn;
-public void PressedStartGame1v1WithBots()
-{
-    if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+
+    
+    public void PressedStartGame1v1WithBots()
     {
-        _initMenuScript.ShowGameConfiguration(0);
-        setCreatedProvateRoom();
-        startGame();
-       // cancelBtn.SetActive(true);
+        //if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+        if(PhotonNetwork.insideLobby&& PhotonNetwork.connectedAndReady )
+        {
+            
+            // Show the game configuration and set up the room
+            _initMenuScript.ShowGameConfiguration(0);
+            // Call to create the private room and check cancellation
+            Invoke("setCreatedProvateRoom",0f);
+            // Call to start the game
+            Invoke("startGame",0f);
+        }
+        else
+        {
+            PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+        }
     }
-    else
+    public void CancelCreatedGame()
     {
-        PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+        // if (StaticStrings.showAdWhenLeaveGame)
+        //     AdsManager.Instance.adsScript.ShowAd();
+        PlayerPrefs.SetInt("InGame", 1);
+        PhotonNetwork.BackgroundTimeout = StaticStrings.photonDisconnectTimeoutLong; ;
+        Debug.Log("Timeout 3");
+        //GameManager.Instance.cueController.removeOnEventCall();
+        PhotonNetwork.LeaveRoom();
+
+        GameManager.Instance.playfabManager.roomOwner = false;
+        GameManager.Instance.roomOwner = false;
+        GameManager.Instance.resetAllData();
+        SceneManager.LoadScene("Game");
+        //   GameManager.Instance.playfabManager.splashCanvas.SetActive(false);
+       
+
     }
-}
+// Cancel button press logic to set the flag
+    // public void OnCancelButtonPressed()
+    // {
+    //     // Set the flag to true when cancel button is pressed
+    //     cancellationRequested = true;
+    //
+    //     // Optionally, hide or update the UI to reflect the cancellation
+    //     smd.hidePalyerMatch.gameObject.SetActive(false);
+    //     CancelInvoke("setCreatedProvateRoom");
+    //     CancelInvoke("StartGame");
+    //     
+    //
+    //     // Optionally, show a pop-up message for cancellation
+    //     PopUpManager.ShowPopUp("Cancelled", "Game Start has been cancelled.");
+    // }
     public void PressedStartGame1v1()
     {
-        if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+       // if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+       if(PhotonNetwork.insideLobby&& PhotonNetwork.connectedAndReady )
         {
             _initMenuScript.ShowGameConfiguration(0);
             setCreatedProvateRoom();
@@ -119,8 +164,12 @@ public void PressedStartGame1v1WithBots()
 
     public void pressedstartGamePrivate()
     {
-        if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
-        {
+        
+       // Canclebutton2.gameObject.SetActive(false); 
+       // if (PlayFabManager._instance.isInLobby && PlayFabManager._instance.isInMaster)
+       if(PhotonNetwork.insideLobby&& PhotonNetwork.connectedAndReady )
+       {
+          // GameManager.Instance.requiredPlayers = 4;
             _initMenuScript.ShowGameConfiguration(2);
         }
         else
@@ -137,6 +186,7 @@ public void PressedStartGame1v1WithBots()
 
         if (GameManager.Instance.type != MyGameType.Private)
         {
+           
             if (GameManager.Instance.type == MyGameType.TwoPlayer)
             {
                 print("2 player calling ");

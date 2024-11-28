@@ -16,6 +16,7 @@ public class UserData : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -108,6 +109,14 @@ public class UserData : MonoBehaviour
                 Print.CustomLog("Invalid data type in GetData", LogColor.Red);
                 return null;
         }
+    }
+
+    private void Update()
+    {
+        string email = UserData.GetData(UserDataSet.Email);
+    
+        // Log the email to the console for debugging
+        Debug.Log("User Email: " + email);
     }
 
     public static void SetData(UserDataSet dataType, string value)

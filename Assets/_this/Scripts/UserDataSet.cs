@@ -36,15 +36,19 @@ public class UserData : MonoBehaviour
     private void OnEnable()
     {
         UserDetails.OnDetailsSubmit += () => SetLogIn(true);
+        Otp.OnOtpVerified += () => SetLogIn(true);
         Account.OnSignOutAction += () => SetLogIn(false);
         UserDetails.OnDetailsSubmit += SaveDataOnSystem;
+        Otp.OnOtpVerified += SaveDataOnSystem;
     }
 
     private void OnDisable()
     {
         UserDetails.OnDetailsSubmit -= () => SetLogIn(true);
+        Otp.OnOtpVerified -= () => SetLogIn(true);
         Account.OnSignOutAction -= () => SetLogIn(false);
         UserDetails.OnDetailsSubmit -= SaveDataOnSystem;
+        Otp.OnOtpVerified -= SaveDataOnSystem;
     }
     private void SaveDataOnSystem()
     {

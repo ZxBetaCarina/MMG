@@ -13,7 +13,7 @@ public class Otp : MonoBehaviour
     [SerializeField] private Button resend;
     [SerializeField] private Button back;
 
-    //public static event Action OnOtpVerified;
+    public static event Action OnOtpVerified;
 
     private void OnEnable()
     {
@@ -120,6 +120,8 @@ public class Otp : MonoBehaviour
     {
         if (UserData.GetTotalData().isProfileComplete)
         {
+            
+            OnOtpVerified?.Invoke();
             UIManager.LoadScreenAnimated(UIScreen.Home);
         }
         else

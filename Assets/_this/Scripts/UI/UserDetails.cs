@@ -19,6 +19,8 @@ public class UserDetails : MonoBehaviour
     [SerializeField] private Button editPic;
 
     private string _selectedImagePath;
+    
+    public static event Action OnDetailsSubmit;
 
     private void OnEnable()
     {
@@ -96,6 +98,7 @@ public class UserDetails : MonoBehaviour
         }
         else
         {
+            OnDetailsSubmit?.Invoke();
             
             
             var form = new WWWForm();

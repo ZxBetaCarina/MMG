@@ -9,7 +9,24 @@
       <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/MoveCounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/MoveCounter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_10.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_10.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_4.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_5.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_6.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_7.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_8.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_8.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_9.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_9.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/GUI/Counter_.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/GUI/Counter_.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/Level/LevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/Level/LevelData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/StaticMap/StaticMapPlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/StaticMap/StaticMapPlay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Otp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Otp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/RateUs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/RateUs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UserDataSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UserDataSet.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +118,7 @@
       <workItem from="1731481879754" duration="1047000" />
       <workItem from="1731556453701" duration="2470000" />
       <workItem from="1732267712479" duration="2019000" />
+      <workItem from="1732767307432" duration="8572000" />
     </task>
     <servers />
   </component>

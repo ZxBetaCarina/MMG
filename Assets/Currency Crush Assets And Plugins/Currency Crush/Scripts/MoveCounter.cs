@@ -42,6 +42,7 @@ namespace SweetSugar.Scripts.GUI
         private void Start()
         {
             //ThisLevelData = LevelManager.THIS.levelData;
+
         }
 
         void OnEnable()
@@ -73,9 +74,8 @@ namespace SweetSugar.Scripts.GUI
                     
                     if (Mathf.Clamp(ThisLevelData.limit, 0, ThisLevelData.limit) == 0)
                     {
-                        Debug.Log("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"); // Print "hi" to the console
-                        SceneManager.LoadScene(0);
-                        PopUpManager.ShowPopUp("Message", "Time's Up Try Again Next Time");
+                        //SceneManager.LoadScene(0);
+                        //PopUpManager.ShowPopUp("Message", "No Moves Left Try Again Next Time");
                     }
                     
                     if (ThisLevelData.limit <= 5)

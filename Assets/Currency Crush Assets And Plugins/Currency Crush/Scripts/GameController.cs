@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     private void GetTarget()
     {
         targets = LevelManager.THIS.levelData.TargetCounters;
-        time = LevelManager.THIS.levelData.limit;
+        //time = LevelManager.THIS.levelData.limit;
         StartTimer();
     }
 

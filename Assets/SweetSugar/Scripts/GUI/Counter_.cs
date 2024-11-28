@@ -40,7 +40,7 @@ namespace SweetSugar.Scripts.GUI
 
         private void Start()
         {
-            ThisLevelData = LevelManager.THIS.levelData;
+            //ThisLevelData = LevelManager.THIS.levelData;
         }
 
         void OnEnable()

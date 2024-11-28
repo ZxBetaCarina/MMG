@@ -45,6 +45,8 @@ public class RateUs : MonoBehaviour
     private void OnSubmit()
     {
         // Play Store or App Store in-app rate API
+        
+        PopUpManager.ShowPopUp("Message", "Your rating and review have been submitted successfully.");
     }
 
     private void OnStarClick(int index)

@@ -13,7 +13,7 @@ public class Otp : MonoBehaviour
     [SerializeField] private Button resend;
     [SerializeField] private Button back;
 
-    public static event Action OnOtpVerified;
+    //public static event Action OnOtpVerified;
 
     private void OnEnable()
     {
@@ -91,7 +91,7 @@ public class Otp : MonoBehaviour
         if (obj.status)
         {
             UserData.SetTotalData(obj.data);
-            OnOtpVerified?.Invoke();
+            //OnOtpVerified?.Invoke();
             if (UserData.GetData(UserDataSet.Token) != String.Empty)
             {
                 ApiManager.SetAuthToken(UserData.GetData(UserDataSet.Token));

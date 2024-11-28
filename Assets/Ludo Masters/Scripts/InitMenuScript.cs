@@ -94,7 +94,7 @@ public class InitMenuScript : MonoBehaviour
 //        GameManager.Instance.facebookFriendsMenu = fbFriendsMenu.GetComponent<FacebookFriendsMenu>(); ;
 
         GameManager.Instance.matchPlayerObject = matchPlayer;
-        GameManager.Instance.backButtonMatchPlayers = backButtonMatchPlayers;
+       // GameManager.Instance.backButtonMatchPlayers = backButtonMatchPlayers;
 //        playerName.GetComponent<Text>().text = GameManager.Instance.nameMy;
         GameManager.Instance.MatchPlayersCanvas = MatchPlayersCanvas;
 

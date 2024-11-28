@@ -1575,9 +1575,9 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
 
         Debug.Log("Players in room " + PhotonNetwork.room.PlayerCount);
 
-        GameManager.Instance.currentPlayersCount = 1;
+       GameManager.Instance.currentPlayersCount = 1;//also check this Line
 
-        GameManager.Instance.controlAvatars.setCancelButton();
+     //   GameManager.Instance.controlAvatars.setCancelButton();
         if (PhotonNetwork.room.PlayerCount == 1)
         {
             GameManager.Instance.roomOwner = true;
@@ -1588,13 +1588,14 @@ public class PlayFabManager : Photon.PunBehaviour, IChatClientListener
         }
         else if (PhotonNetwork.room.PlayerCount >= GameManager.Instance.requiredPlayers)
         {
+          
             PhotonNetwork.room.IsOpen = false;
             PhotonNetwork.room.IsVisible = false;
         }
 
         if (!roomOwner)
         {
-            GameManager.Instance.backButtonMatchPlayers.SetActive(false);
+          //  GameManager.Instance.backButtonMatchPlayers.SetActive(false);
 
             for (int i = 0; i < PhotonNetwork.otherPlayers.Length; i++)
             {

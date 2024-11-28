@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Art/Ticket Box BG.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Art/Ticket Box BG.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Prefabs/UI/Ticket.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Prefabs/UI/Ticket.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Prefabs/UI/Ticket.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Prefabs/UI/Ticket.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/JoinGiveaway.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/JoinGiveaway.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Wallet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Wallet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Support.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Support.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

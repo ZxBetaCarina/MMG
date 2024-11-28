@@ -33,6 +33,8 @@ public class Support : MonoBehaviour
         {
             ApiManager.Post<SupportRequest, SupportResponseData>(ServiceURLs.Support, new SupportRequest(message
                 .text), OnSuccess, OnError);
+            
+            PopUpManager.ShowPopUp("Message", "Your concern has been registered. Our customer support team will contact you shortly");
         }
     }
 

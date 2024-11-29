@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
         if (targets.Count <= 0) return;
         if (targets[0].count == 0 && targets[1].count == 0 && targets[2].count == 0 && targets[3].count == 0)
         {
-            //AfterTargetAchieved();
+            AfterTargetAchieved();
         }
     }
 
@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
 
         time = 0;
         timeText.text = "00:00";
-        //OnTimeExpired();
+        OnTimeExpired();
     }
 
     [Button]

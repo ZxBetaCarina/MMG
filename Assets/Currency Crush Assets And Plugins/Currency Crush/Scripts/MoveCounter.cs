@@ -21,6 +21,8 @@ namespace SweetSugar.Scripts.GUI
 
         private LevelData _thisLevelData;
 
+        private int initialvalue;
+
         public LevelData ThisLevelData
         {
             get
@@ -72,9 +74,8 @@ namespace SweetSugar.Scripts.GUI
                     txt.text = "" + Mathf.Clamp(ThisLevelData.limit, 0, ThisLevelData.limit);
                     txt.transform.localScale = Vector3.one;
                     
-                    if (Mathf.Clamp(ThisLevelData.limit, 0, ThisLevelData.limit) == 0)
+                    if (ThisLevelData.limit <= 0)
                     {
-                        ThisLevelData.limit = null;
                         SceneManager.LoadScene(0);
                         PopUpManager.ShowPopUp("Message", "No Moves Left Try Again Next Time");
                     }

@@ -77,10 +77,10 @@ namespace SweetSugar.Scripts.GUI
                     
                     if (ThisLevelData.limit <= 0 &&! LevelManager.THIS.DragBlocked)
                     {
-                        LevelManager.THIS.DragBlocked = true;
-                        ThisLevelData.limit = initialvalue;
-                        SceneManager.LoadScene(0);
-                        PopUpManager.ShowPopUp("Message", "No Moves Left Try Again Next Time");
+                        //LevelManager.THIS.DragBlocked = true;
+                        //ThisLevelData.limit = initialvalue;
+                        //SceneManager.LoadScene(0);
+                        //PopUpManager.ShowPopUp("Message", "No Moves Left Try Again Next Time");
                     }
                     
                     if (ThisLevelData.limit <= 5)

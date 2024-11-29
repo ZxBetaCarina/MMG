@@ -21,6 +21,8 @@ namespace SweetSugar.Scripts.GUI
 
         private LevelData _thisLevelData;
 
+        private int initialvalue;
+
         public LevelData ThisLevelData
         {
             get
@@ -41,7 +43,8 @@ namespace SweetSugar.Scripts.GUI
 
         private void Start()
         {
-            //ThisLevelData = LevelManager.THIS.levelData;
+            ThisLevelData = LevelManager.THIS.levelData;
+            initialvalue = ThisLevelData.limit;
 
         }
 
@@ -59,7 +62,7 @@ namespace SweetSugar.Scripts.GUI
                 if (txt == null) continue;
 
                 UpdateText();
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.05f);
             }
         }
 
@@ -72,10 +75,12 @@ namespace SweetSugar.Scripts.GUI
                     txt.text = "" + Mathf.Clamp(ThisLevelData.limit, 0, ThisLevelData.limit);
                     txt.transform.localScale = Vector3.one;
                     
-                    if (Mathf.Clamp(ThisLevelData.limit, 0, ThisLevelData.limit) == 0)
+                    if (ThisLevelData.limit <= 0 &&! LevelManager.THIS.DragBlocked)
                     {
-                        //SceneManager.LoadScene(0);
-                        //PopUpManager.ShowPopUp("Message", "No Moves Left Try Again Next Time");
+                        LevelManager.THIS.DragBlocked = true;
+                        ThisLevelData.limit = initialvalue;
+                        SceneManager.LoadScene(0);
+                        PopUpManager.ShowPopUp("Message", "No Moves Left Try Again Next Time");
                     }
                     
                     if (ThisLevelData.limit <= 5)

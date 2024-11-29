@@ -17,7 +17,7 @@ namespace SweetSugar.Scripts.MapScripts
             //print(level);
             
             
-            int randomLevel = Random.Range(1, 11);
+            int randomLevel = Random.Range(10, 20);
             level = randomLevel;
             text.text = LocalizationManager.GetText(89, "Level") + " " + level;
             print(level);

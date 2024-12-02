@@ -1,6 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+
 
 public class Withdraw : MonoBehaviour
 {
@@ -44,6 +46,16 @@ public class Withdraw : MonoBehaviour
 
     private void OnSubmit()
     {
-        
+        if (getCoins.text != String.Empty)
+        {
+           
+                PopUpManager.ShowPopUp("Message", "you cant withdraw at the moment");
+          //  }
+
+        }
+        else
+        {
+            PopUpManager.ShowPopUp("Message", "Please Enter Amount to withdraw");
+        }
     }
 }

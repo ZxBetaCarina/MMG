@@ -13,15 +13,15 @@ public class UserData : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+      
         if (_instance == null)
         {
             _instance = this;
-            
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 

@@ -24,7 +24,7 @@ public class StartScriptController : MonoBehaviour
         //fbLoginCoinText.GetComponent<Text>().text = StaticStrings.initCoinsCountFacebook.ToString();
         //guestLoginCoinText.GetComponent<Text>().text = StaticStrings.initCoinsCountGuest.ToString();
 
-        Debug.Log("START SCRIPT");
+    //        Debug.Log("START SCRIPT");
         // if (PlayerPrefs.HasKey("LoggedType"))
         // {
         //     splashCanvas.SetActive(true);

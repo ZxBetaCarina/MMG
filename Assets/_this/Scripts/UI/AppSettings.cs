@@ -15,8 +15,7 @@ public class AppSettings : MonoBehaviour
     private bool defaultSfx = true;
     private bool defaultVibration = true;
 
-    private void Start()
-
+  
     private void ToggleThing(ToggleSwitch type, bool value)
     {
         if (value)

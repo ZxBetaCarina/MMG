@@ -6,62 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/AddFriendAnimation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/AddFriendAnimation.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/AnimateGameTitleMenu.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/AnimateGameTitleMenu.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Arrow.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Arrow.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/DailyRewardButton.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/DailyRewardButton.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/DailyRewardButton.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/DailyRewardButton.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Dialog.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Dialog.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Dice.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Dice.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/GameTitle.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/GameTitle.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Hide.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Hide.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/HideScreen.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/HideScreen.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Highlight.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Highlight.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Image.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Image.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/InvitationDialog.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/InvitationDialog.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/InvitationDialog.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/InvitationDialog.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/LudoPawnIndicator.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/LudoPawnIndicator.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Menu_Effect.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Menu_Effect.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Menu_Effect.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/Menu_Effect.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/MessageBubble.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/MessageBubble.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/MessageBubbleAnimation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/MessageBubbleAnimation.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/MessageBubbleMenu.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/MessageBubbleMenu.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/RollDiceAnimation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/RollDiceAnimation.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/ShowBubbleMenu.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/ShowBubbleMenu.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/ShowScreen.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/ShowScreen.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/YourTurnArrowAnimation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/YourTurnArrowAnimation.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/progressCircle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Animations/progressCircle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Animations/ButtonAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Animations/ButtonAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Animations/CoinsDeltaAnimation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Animations/CoinsDeltaAnimation.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Animations/CoinsDeltaAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Animations/CoinsDeltaAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Animations/JellyButtonAnimation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Animations/JellyButtonAnimation.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Prefabs/FortuneWheel Window.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/FortuneWheel/Prefabs/FortuneWheel Window.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/ChatShopListObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/ChatShopListObject.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/EmojiPrefabStore.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/EmojiPrefabStore.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/EmojiShopListObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/EmojiShopListObject.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Game/UIInvitation.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Game/UIInvitation.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/LudoPrefabs/Dice.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/LudoPrefabs/Dice.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/LudoPrefabs/LudoPawn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/LudoPrefabs/LudoPawn.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/LudoPrefabs/PathObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/LudoPrefabs/PathObject.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/FriendGUIObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/FriendGUIObject.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/FriendGUIPlayed.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/FriendGUIPlayed.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/LeaderboardsObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/LeaderboardsObject.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/PlayersMatchAvatarPlayfab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/PlayersMatchAvatarPlayfab.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/ProgressBar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/Menu/ProgressBar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/MenuEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/MenuEffect.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/MessageBubble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/MessageBubble.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/PlayerInfo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/PlayerInfo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/SelectProfilePictureButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/SelectProfilePictureButton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/SendChatMessageButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/SendChatMessageButton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/SendEmojiMessageButton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/SendEmojiMessageButton.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/SettingsWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Prefabs/SettingsWindow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scenes/MenuScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scenes/MenuScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scenes/MenuSceneSettings.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scenes/MenuSceneSettings.lighting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/FacebookManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/StartScriptController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/StartScriptController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/GUI.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/GUI.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/AppSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/AppSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Otp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Otp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,10 +32,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b78209fd00d4f419f30dd210cbab239176600/78/7f085444/Resources.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b78209fd00d4f419f30dd210cbab239176600/c2/60f79589/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b78209fd00d4f419f30dd210cbab239176600/cb/a8eae9a0/SendMessageOptions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0b78209fd00d4f419f30dd210cbab239176600/f7/ec2ecc43/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/11e9abbca912444aa80ed58a280369fc31200/d6/ce8cd991/PhotonPeer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/11e9abbca912444aa80ed58a280369fc31200/e0/5b156158/EnetPeer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49672e4ae726478890a05abfd8d26dd0cc00/ed/2bb96df4/BuildConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/58/cc9a9413/Void.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/96/81cf94ec/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" root0="FORCE_HIGHLIGHTING" />
@@ -197,7 +151,7 @@
       <workItem from="1732680670822" duration="23002000" />
       <workItem from="1732711512048" duration="2000" />
       <workItem from="1732764759866" duration="4412000" />
-      <workItem from="1733110634710" duration="1647000" />
+      <workItem from="1733110634710" duration="7454000" />
     </task>
     <servers />
   </component>

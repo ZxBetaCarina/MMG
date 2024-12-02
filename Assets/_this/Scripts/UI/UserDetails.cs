@@ -136,6 +136,7 @@ public class UserDetails : MonoBehaviour
 
     private void OnBack()
     {
+      
         UIManager.LoadScreenAnimated(UIScreen.SignIn);
     }
 }

@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/BuyTicket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/BuyTicket.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Otp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Otp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Withdraw.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Withdraw.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +113,7 @@
       <workItem from="1732767307432" duration="8572000" />
       <workItem from="1733113572309" duration="6420000" />
       <workItem from="1733203423092" duration="4965000" />
-      <workItem from="1733217167295" duration="11703000" />
+      <workItem from="1733217167295" duration="12126000" />
     </task>
     <servers />
   </component>

@@ -6,11 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/Android/NGCallbackHelper.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/Android/NGCallbackHelper.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/Android/NGMediaReceiveCallbackAndroid.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/Android/NGMediaReceiveCallbackAndroid.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/Android/NGPermissionCallbackAndroid.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/Android/NGPermissionCallbackAndroid.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/Editor/NGPostProcessBuild.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/Editor/NGPostProcessBuild.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/iOS/NGMediaReceiveCallbackiOS.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/iOS/NGMediaReceiveCallbackiOS.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/iOS/NGMediaSaveCallbackiOS.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/iOS/NGMediaSaveCallbackiOS.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/iOS/NGPermissionCallbackiOS.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/NativeGallery/iOS/NGPermissionCallbackiOS.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/EditUserProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/EditUserProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +162,7 @@
       <workItem from="1733204359167" duration="2167000" />
       <workItem from="1733206761259" duration="6000" />
       <workItem from="1733207053037" duration="336000" />
-      <workItem from="1733207409630" duration="652000" />
+      <workItem from="1733207409630" duration="3337000" />
     </task>
     <servers />
   </component>

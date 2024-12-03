@@ -94,14 +94,14 @@ public class EditUserProfile : MonoBehaviour
         {
             PopUpManager.ShowPopUp("Message", "Profile Data Changed Successfully");
             UIManager.LoadScreenAnimated(UIScreen.UserProfile);
-            CustomLog.SuccessLog(obj.message);
+           Debug.Log(obj.message);
             Profile.GetProfile();
         }
     }
 
     private void OnErrorUpdateUserData(string obj)
     {
-        CustomLog.ErrorLog(obj);
+       Debug.Log(obj);
     }
 
     private void OnEditPic()

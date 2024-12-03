@@ -111,9 +111,11 @@ public class EditUserProfile : MonoBehaviour
 
     private void PickImage(int maxSize)
     {
+        Debug.Log("Picking image...");
         NativeGallery.Permission permission = NativeGallery.GetImageFromGallery((path) =>
         {
             Debug.Log("Image path: " + path);
+     
             if (path != null)
             {
                 _selectedImagePath = path;

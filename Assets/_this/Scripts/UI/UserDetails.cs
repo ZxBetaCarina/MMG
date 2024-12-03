@@ -49,6 +49,7 @@ public class UserDetails : MonoBehaviour
         {
             if (path != null)
             {
+                Debug.Log("Image path: " + path);
                 _selectedImagePath = path;
 
                 // Create Texture from selected image
@@ -114,61 +115,21 @@ public class UserDetails : MonoBehaviour
             form.AddField("location", location.text);
             form.AddField("gender", gender.GetFirstActiveToggle().name);
 
-         if (!string.IsNullOrEmpty(_selectedImagePath))
-        {
-            // Load the image from the path
-            Texture2D texture = NativeGallery.LoadImageAtPath(_selectedImagePath, 1024); // Adjust the max size as needed
-            if (texture != null)
+            if (!string.IsNullOrEmpty(_selectedImagePath))
             {
-                // Resize and compress the image
-                texture = ResizeTexture(texture, 800); // Resize to a max dimension of 800px (adjust as needed)
-                byte[] imageBytes = texture.EncodeToJPG(75); // Compress the image (75% quality for JPG)
-
-                // Check if the file size is acceptable (1MB in this case)
-                if (imageBytes.Length > 1024 * 1024)
-                {
-                    PopUpManager.ShowPopUp("Message", "The image is too large, please choose a smaller one.");
-                    return;
-                }
-
-                // Add the image to the form as binary data
-                form.AddBinaryData("profileImage", imageBytes, "profileImage.jpg", "image/jpeg");
+                byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+                form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
             }
             else
             {
-                PopUpManager.ShowPopUp("Message", "Could not load the image.");
-                return;
+                form.AddBinaryData("profileImage", null, Path.GetFileName(_selectedImagePath), "image/png");
             }
+
+            ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
+                OnErrorUpdateUserData);
         }
-
-        // Send the form to the server
-        ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData, OnErrorUpdateUserData);
-    }
-}
-
-private Texture2D ResizeTexture(Texture2D original, int maxDimension)
-{
-    // Maintain the aspect ratio while resizing
-    float aspectRatio = (float)original.width / original.height;
-    int newWidth = original.width;
-    int newHeight = original.height;
-
-    if (original.width > original.height)
-    {
-        newWidth = maxDimension;
-        newHeight = Mathf.RoundToInt(newWidth / aspectRatio);
-    }
-    else
-    {
-        newHeight = maxDimension;
-        newWidth = Mathf.RoundToInt(newHeight * aspectRatio);
     }
 
-    // Create a new texture with the resized dimensions
-    Texture2D resizedTexture = new Texture2D(newWidth, newHeight);
-    Graphics.ConvertTexture(original, resizedTexture); // Copy the pixels
-    return resizedTexture;
-}
     private void OnSuccessUpdateUserData(UserDataResponse obj)
     {
         if (obj.status)

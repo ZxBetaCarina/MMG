@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,11 @@ public class Wallet : MonoBehaviour
         deposit.onClick.RemoveListener(OnDeposit);
         withdraw.onClick.RemoveListener(OnWithdraw);
         buyTicket.onClick.RemoveListener(OnBuyTicket);
+    }
+
+    private void Update()
+    {
+        gamingPoints.text = TotalPoints.Instance.totalPoints.ToString();
     }
 
     private void OnGetPoints()

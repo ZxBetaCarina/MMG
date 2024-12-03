@@ -33,7 +33,19 @@ public class BetScreen : MonoBehaviour
     }
     private void OnPlusClick()
     {
-        _count += +_countmultiplyer;
+        // Get the totalPoints from the TotalPoints singleton
+        float totalPoints = TotalPoints.Instance.totalPoints;
+
+        // Increase _count, but ensure it doesn't exceed totalPoints
+        if (_count + _countmultiplyer <= totalPoints)
+        {
+            _count += _countmultiplyer;
+        }
+        else
+        {
+            _count = (int)totalPoints; // Set _count to the totalPoints if adding would exceed it
+        }
+
         UpdateTextField();
     }
     private void OnMinusClick()
@@ -46,10 +58,38 @@ public class BetScreen : MonoBehaviour
     }
     private void OnPlayClick()
     {
-        if (_count > 0)
+        float totalPoints = TotalPoints.Instance.totalPoints;
+
+        // Check if _count is greater than 0 and less than or equal to totalPoints
+        if (_count > 0 && _count <= totalPoints)
         {
+            // If the condition is met, subtract _count from totalPoints
+            TotalPoints.Instance.SetTotalPoints(totalPoints - _count);
+
+            // Play the game
             staticMapPlay.Play();
             mainCanvas.SetActive(false);
+        }
+        else
+        {
+            // Check if both _count and totalPoints are 0
+            if (_count == 0 && totalPoints == 0)
+            {
+                PopUpManager.ShowPopUp("Message", "Insufficient points!");
+                Debug.Log("Insufficient points!");
+            }
+            // Check if _count is greater than 0 but more than totalPoints
+            else if (_count > 0)
+            {
+                PopUpManager.ShowPopUp("Message", "Insufficient points!");
+                Debug.Log("Insufficient points!");
+            }
+            // Check if _count is 0 or less
+            else if (_count <= 0)
+            {
+                PopUpManager.ShowPopUp("Message", "Must enter a quantity");
+                Debug.Log("Must enter a quantity");
+            }
         }
     }
 }

@@ -122,6 +122,7 @@ public class Otp : MonoBehaviour
         {
             
             OnOtpVerified?.Invoke();
+            Profile.GetProfile();
             UIManager.LoadScreenAnimated(UIScreen.Home);
         }
         else

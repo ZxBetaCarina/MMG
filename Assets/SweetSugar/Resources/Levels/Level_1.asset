@@ -337,9 +337,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 3
+          anotherSquare: 0
+          originalPos: {x: 2, y: 1}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 3
         obstacleLayer: 1
         position: {x: 2, y: 1}
         direction: {x: 0, y: -1}
@@ -368,9 +373,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 3
+          anotherSquare: 0
+          originalPos: {x: 3, y: 1}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 3
         obstacleLayer: 1
         position: {x: 3, y: 1}
         direction: {x: 0, y: -1}
@@ -399,9 +409,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 3
+          anotherSquare: 0
+          originalPos: {x: 4, y: 1}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 3
         obstacleLayer: 1
         position: {x: 4, y: 1}
         direction: {x: 0, y: -1}
@@ -430,9 +445,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 3
+          anotherSquare: 0
+          originalPos: {x: 5, y: 1}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 3
         obstacleLayer: 1
         position: {x: 5, y: 1}
         direction: {x: 0, y: -1}
@@ -585,9 +605,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 8
+          anotherSquare: 0
+          originalPos: {x: 2, y: 2}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 8
         obstacleLayer: 1
         position: {x: 2, y: 2}
         direction: {x: 0, y: -1}
@@ -616,7 +641,12 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
-        block: 1
+        - squareType: 2
+          anotherSquare: 0
+          originalPos: {x: 3, y: 2}
+          rotate: 0
+          size: {x: 1, y: 1}
+        block: 2
         blockLayer: 1
         obstacle: 0
         obstacleLayer: 1
@@ -647,7 +677,12 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
-        block: 1
+        - squareType: 2
+          anotherSquare: 0
+          originalPos: {x: 4, y: 2}
+          rotate: 0
+          size: {x: 1, y: 1}
+        block: 2
         blockLayer: 1
         obstacle: 0
         obstacleLayer: 1
@@ -678,9 +713,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 3
+          anotherSquare: 0
+          originalPos: {x: 5, y: 2}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 3
         obstacleLayer: 1
         position: {x: 5, y: 2}
         direction: {x: 0, y: -1}
@@ -833,9 +873,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 8
+          anotherSquare: 0
+          originalPos: {x: 2, y: 3}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 8
         obstacleLayer: 1
         position: {x: 2, y: 3}
         direction: {x: 0, y: -1}
@@ -864,7 +909,12 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
-        block: 1
+        - squareType: 2
+          anotherSquare: 0
+          originalPos: {x: 3, y: 3}
+          rotate: 0
+          size: {x: 1, y: 1}
+        block: 2
         blockLayer: 1
         obstacle: 0
         obstacleLayer: 1
@@ -895,7 +945,12 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
-        block: 1
+        - squareType: 2
+          anotherSquare: 0
+          originalPos: {x: 4, y: 3}
+          rotate: 0
+          size: {x: 1, y: 1}
+        block: 2
         blockLayer: 1
         obstacle: 0
         obstacleLayer: 1
@@ -926,9 +981,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 3
+          anotherSquare: 0
+          originalPos: {x: 5, y: 3}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 3
         obstacleLayer: 1
         position: {x: 5, y: 3}
         direction: {x: 0, y: -1}
@@ -1081,9 +1141,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 8
+          anotherSquare: 0
+          originalPos: {x: 2, y: 4}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 8
         obstacleLayer: 1
         position: {x: 2, y: 4}
         direction: {x: 0, y: -1}
@@ -1112,7 +1177,12 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
-        block: 1
+        - squareType: 2
+          anotherSquare: 0
+          originalPos: {x: 3, y: 4}
+          rotate: 0
+          size: {x: 1, y: 1}
+        block: 2
         blockLayer: 1
         obstacle: 0
         obstacleLayer: 1
@@ -1143,7 +1213,12 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
-        block: 1
+        - squareType: 2
+          anotherSquare: 0
+          originalPos: {x: 4, y: 4}
+          rotate: 0
+          size: {x: 1, y: 1}
+        block: 2
         blockLayer: 1
         obstacle: 0
         obstacleLayer: 1
@@ -1174,9 +1249,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 3
+          anotherSquare: 0
+          originalPos: {x: 5, y: 4}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 3
         obstacleLayer: 1
         position: {x: 5, y: 4}
         direction: {x: 0, y: -1}
@@ -1329,9 +1409,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 8
+          anotherSquare: 0
+          originalPos: {x: 2, y: 5}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 8
         obstacleLayer: 1
         position: {x: 2, y: 5}
         direction: {x: 0, y: -1}
@@ -1360,7 +1445,12 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
-        block: 1
+        - squareType: 2
+          anotherSquare: 0
+          originalPos: {x: 3, y: 5}
+          rotate: 0
+          size: {x: 1, y: 1}
+        block: 2
         blockLayer: 1
         obstacle: 0
         obstacleLayer: 1
@@ -1391,7 +1481,12 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
-        block: 1
+        - squareType: 2
+          anotherSquare: 0
+          originalPos: {x: 4, y: 5}
+          rotate: 0
+          size: {x: 1, y: 1}
+        block: 2
         blockLayer: 1
         obstacle: 0
         obstacleLayer: 1
@@ -1422,9 +1517,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 3
+          anotherSquare: 0
+          originalPos: {x: 5, y: 5}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 3
         obstacleLayer: 1
         position: {x: 5, y: 5}
         direction: {x: 0, y: -1}
@@ -1577,9 +1677,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 8
+          anotherSquare: 0
+          originalPos: {x: 2, y: 6}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 8
         obstacleLayer: 1
         position: {x: 2, y: 6}
         direction: {x: 0, y: -1}
@@ -1608,9 +1713,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 8
+          anotherSquare: 0
+          originalPos: {x: 3, y: 6}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 8
         obstacleLayer: 1
         position: {x: 3, y: 6}
         direction: {x: 0, y: -1}
@@ -1639,9 +1749,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 8
+          anotherSquare: 0
+          originalPos: {x: 4, y: 6}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 8
         obstacleLayer: 1
         position: {x: 4, y: 6}
         direction: {x: 0, y: -1}
@@ -1670,9 +1785,14 @@ MonoBehaviour:
           originalPos: {x: 0, y: 0}
           rotate: 0
           size: {x: 0, y: 0}
+        - squareType: 3
+          anotherSquare: 0
+          originalPos: {x: 5, y: 6}
+          rotate: 0
+          size: {x: 1, y: 1}
         block: 1
         blockLayer: 1
-        obstacle: 0
+        obstacle: 3
         obstacleLayer: 1
         position: {x: 5, y: 6}
         direction: {x: 0, y: -1}
@@ -2006,7 +2126,7 @@ MonoBehaviour:
           TargetMarmaladePositions: []
           order: 0
       bombTimer: 1
-      layers: 1
+      layers: 2
     target:
       name: SugarSquare
       localization:
@@ -2032,7 +2152,7 @@ MonoBehaviour:
     targetIndex: 2
     limitType: 0
     ingrCountTarget: 0000000000000000
-    limit: 2
+    limit: 100
     colorLimit: 4
     star1: 100
     star2: 300
@@ -2043,8 +2163,8 @@ MonoBehaviour:
     subTargetsContainers:
     - targetPrefab: {fileID: 1533976084100574, guid: 4ebed1d82b94548d0ab47103e3f205e5,
         type: 3}
-      count: 0
-      preCount: 0
+      count: 8
+      preCount: 8
       extraObject: {fileID: 0}
       extraObjects: []
       color: 0

@@ -18,7 +18,7 @@ public class Profile
             var token = UserData.GetData(UserDataSet.Token);
             UserData.SetTotalData(obj.data);
             UserData.SetData(UserDataSet.Token, token);
-            CustomLog.SuccessLog("UserData Updated");
+            Debug.Log("UserData Updated");
             GetSetPic();
             GetQrCode();
         }

@@ -18,7 +18,7 @@ public class UserDetails : MonoBehaviour
     [SerializeField] private Button back;
     [SerializeField] private Button editPic;
 
-    private string _selectedImagePath;
+    private string _selectedImagePath=null;
     
     public static event Action OnDetailsSubmit;
 
@@ -49,6 +49,7 @@ public class UserDetails : MonoBehaviour
         {
             if (path != null)
             {
+                Debug.Log("Image path: " + path);
                 _selectedImagePath = path;
 
                 // Create Texture from selected image
@@ -95,6 +96,10 @@ public class UserDetails : MonoBehaviour
             dob.text == String.Empty || location.text == String.Empty || !gender.AnyTogglesOn())
         {
             PopUpManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
+        }else if (_selectedImagePath == null)
+        {
+            PopUpManager.ShowPopUp("Message", "Please select a profile picture");
+            
         }
         else
         {
@@ -110,32 +115,50 @@ public class UserDetails : MonoBehaviour
             form.AddField("location", location.text);
             form.AddField("gender", gender.GetFirstActiveToggle().name);
 
-            if (!string.IsNullOrEmpty(_selectedImagePath))
+           
+            if (string.IsNullOrEmpty(_selectedImagePath))
             {
-                byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
-                form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+                _selectedImagePath= GetDefaltImagePath();
             }
-
-            ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData, OnErrorUpdateUserData);
+            byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+            form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+            
+            ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
+                OnErrorUpdateUserData);
         }
     }
-
+    string GetDefaltImagePath()
+    {
+        string path = Path.Combine(Application.streamingAssetsPath, "Sprites/Person Image_1.png");
+        if (File.Exists(path))
+        {
+            Debug.Log("Sprite path: " + path);
+        }
+        else
+        {
+            Debug.Log("Sprite not found at path: " + path);
+        }
+        return path;
+    }
     private void OnSuccessUpdateUserData(UserDataResponse obj)
     {
         if (obj.status)
         {
             PopUpManager.ShowPopUp("Message", "Welcome To Millionaire Mind Games");
             UIManager.LoadScreenAnimated(UIScreen.Home);
+            CustomLog.SuccessLog(obj.message);
+            Profile.GetProfile();
         }
     }
 
     private void OnErrorUpdateUserData(string obj)
     {
-        Debug.LogError("Error updating profile: " + obj);
+        Debug.Log("Error updating profile: " + obj);
     }
 
     private void OnBack()
     {
+      
         UIManager.LoadScreenAnimated(UIScreen.SignIn);
     }
 }

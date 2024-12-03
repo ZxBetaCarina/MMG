@@ -15,6 +15,7 @@ public class AppSettings : MonoBehaviour
     private bool defaultSfx = true;
     private bool defaultVibration = true;
 
+  
     private void ToggleThing(ToggleSwitch type, bool value)
     {
         if (value)
@@ -36,7 +37,7 @@ public class AppSettings : MonoBehaviour
     [Button]
     private void TestToggleOn()
     {
-        MusicToggle(true);
+        MusicToggle(true);// THIS ONE SHOULD BE ALLED ASLO IN GameStarting
     }
     
     [Button]
@@ -62,7 +63,7 @@ public class AppSettings : MonoBehaviour
     private void OnEnable()
     {
         back.onClick.AddListener(OnBack);
-        //GetSettingsData();
+       // GetSettingsData();
 
     }
     public void GetSettingsFromUserData()

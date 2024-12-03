@@ -45,7 +45,7 @@ public class FacebookManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("FBManager start");
+            Debug.Log("FBManager start");
         GameManager.Instance.facebookManager = this;
 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;

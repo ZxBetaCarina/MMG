@@ -18,7 +18,7 @@ public class UserDetails : MonoBehaviour
     [SerializeField] private Button back;
     [SerializeField] private Button editPic;
 
-    private string _selectedImagePath;
+    private string _selectedImagePath=null;
     
     public static event Action OnDetailsSubmit;
 
@@ -95,6 +95,10 @@ public class UserDetails : MonoBehaviour
             dob.text == String.Empty || location.text == String.Empty || !gender.AnyTogglesOn())
         {
             PopUpManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
+        }else if (_selectedImagePath == null)
+        {
+            PopUpManager.ShowPopUp("Message", "Please select a profile picture");
+         
         }
         else
         {
@@ -171,6 +175,8 @@ private Texture2D ResizeTexture(Texture2D original, int maxDimension)
         {
             PopUpManager.ShowPopUp("Message", "Welcome To Millionaire Mind Games");
             UIManager.LoadScreenAnimated(UIScreen.Home);
+            CustomLog.SuccessLog(obj.message);
+            Profile.GetProfile();
         }
     }
 

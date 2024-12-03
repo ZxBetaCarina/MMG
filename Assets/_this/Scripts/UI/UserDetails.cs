@@ -99,7 +99,7 @@ public class UserDetails : MonoBehaviour
         }else if (_selectedImagePath == null)
         {
             PopUpManager.ShowPopUp("Message", "Please select a profile picture");
-         
+            
         }
         else
         {
@@ -115,21 +115,31 @@ public class UserDetails : MonoBehaviour
             form.AddField("location", location.text);
             form.AddField("gender", gender.GetFirstActiveToggle().name);
 
-            if (!string.IsNullOrEmpty(_selectedImagePath))
+           
+            if (string.IsNullOrEmpty(_selectedImagePath))
             {
-                byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
-                form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+                _selectedImagePath= GetDefaltImagePath();
             }
-            else
-            {
-                form.AddBinaryData("profileImage", null, Path.GetFileName(_selectedImagePath), "image/png");
-            }
-
+            byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+            form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+            
             ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
     }
-
+    string GetDefaltImagePath()
+    {
+        string path = Path.Combine(Application.streamingAssetsPath, "Sprites/Person Image_1.png");
+        if (File.Exists(path))
+        {
+            Debug.Log("Sprite path: " + path);
+        }
+        else
+        {
+            Debug.Log("Sprite not found at path: " + path);
+        }
+        return path;
+    }
     private void OnSuccessUpdateUserData(UserDataResponse obj)
     {
         if (obj.status)

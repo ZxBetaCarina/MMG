@@ -61,6 +61,10 @@ public class EditUserProfile : MonoBehaviour
             !gender.AnyTogglesOn())
         {
             PopUpManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
+        }else if (_selectedImagePath == null)
+        {
+            PopUpManager.ShowPopUp("Message", "Please select a profile picture");
+            
         }
         else
         {
@@ -72,21 +76,32 @@ public class EditUserProfile : MonoBehaviour
             form.AddField("referNumber", "5");
             form.AddField("location", location.text);
             form.AddField("gender", gender.GetFirstActiveToggle().name);
-            if (!string.IsNullOrEmpty(_selectedImagePath))
+            
+            if (string.IsNullOrEmpty(_selectedImagePath))
             {
-                byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
-                form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+                _selectedImagePath= GetDefaltImagePath();
             }
-            else
-            {
-                form.AddBinaryData("profileImage", null, Path.GetFileName(_selectedImagePath), "image/png");
-            }
+            byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+            form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
 
             ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
     }
 
+    string GetDefaltImagePath()
+    {
+        string path = Path.Combine(Application.streamingAssetsPath, "Sprites/Person Image_1.png");
+        if (File.Exists(path))
+        {
+            Debug.Log("Sprite path: " + path);
+        }
+        else
+        {
+            Debug.Log("Sprite not found at path: " + path);
+        }
+        return path;
+    }
 
     private void OnSuccessUpdateUserData(UserDataResponse obj)
     {
@@ -106,10 +121,9 @@ public class EditUserProfile : MonoBehaviour
 
     private void OnEditPic()
     {
-        PickImage(5);
+        PickImage(512,1);
     }
-
-    private void PickImage(int maxSize)
+    private void PickImage(int maxSize, int size)
     {
         Debug.Log("Picking image...");
         NativeGallery.Permission permission = NativeGallery.GetImageFromGallery((path) =>
@@ -118,6 +132,16 @@ public class EditUserProfile : MonoBehaviour
      
             if (path != null)
             {
+                // Get the file size of the selected image
+                long fileSize = new System.IO.FileInfo(path).Length;
+
+                // Check if the image is larger than 2 MB (2 * 1024 * 1024 bytes)
+                if (fileSize > size * maxSize * maxSize)
+                {
+                    PopUpManager.ShowPopUp("Message", "image size should be less then 2 MB");
+                    return;
+                }
+
                 _selectedImagePath = path;
                 // Create Texture from selected image
                 Texture2D texture = NativeGallery.LoadImageAtPath(path, maxSize);
@@ -134,6 +158,32 @@ public class EditUserProfile : MonoBehaviour
 
         Debug.Log("Permission result: " + permission);
     }
+   
+    // private void PickImage(int maxSize,int size)
+    // {
+    //     Debug.Log("Picking image...");
+    //     NativeGallery.Permission permission = NativeGallery.GetImageFromGallery((path) =>
+    //     {
+    //         Debug.Log("Image path: " + path);
+    //  
+    //         if (path != null)
+    //         {
+    //             _selectedImagePath = path;
+    //             // Create Texture from selected image
+    //             Texture2D texture = NativeGallery.LoadImageAtPath(path, maxSize);
+    //             if (texture == null)
+    //             {
+    //                 Debug.LogError("Couldn't load texture from " + path);
+    //                 return;
+    //             }
+    //
+    //             pic.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+    //                 new Vector2(0.5f, 0.5f));
+    //         }
+    //     });
+    //
+    //     Debug.Log("Permission result: " + permission);
+    // }
 
     private void FormatDateInput(string input)
     {

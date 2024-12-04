@@ -34,7 +34,7 @@ public class BetScreen : MonoBehaviour
     private void OnPlusClick()
     {
         // Get the totalPoints from the TotalPoints singleton
-        float totalPoints = TotalPoints.Instance.totalPoints;
+        float totalPoints = TotalPoints.Instance.gamePoints;
 
         // Increase _count, but ensure it doesn't exceed totalPoints
         if (_count + _countmultiplyer <= totalPoints)
@@ -58,7 +58,7 @@ public class BetScreen : MonoBehaviour
     }
     private void OnPlayClick()
     {
-        float totalPoints = TotalPoints.Instance.totalPoints;
+        float totalPoints = TotalPoints.Instance.gamePoints;
 
         // Check if _count is greater than 0 and less than or equal to totalPoints
         if (_count > 0 && _count <= totalPoints)

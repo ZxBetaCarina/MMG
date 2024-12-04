@@ -1,12 +1,17 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TotalPoints : MonoBehaviour
 {
     public static TotalPoints Instance { get; private set; }  // Singleton instance
-    public float totalPoints = 500; // Default value
+    
+    public float gamePoints = 500; // Default value
+    public TextMeshProUGUI gamePointsText;
+    
+    public float earnedPoints = 300; // Default value
+    public TextMeshProUGUI earnedPointsText;
 
-    public TextMeshProUGUI pointsText;
 
     private void Awake()
     {
@@ -36,13 +41,14 @@ public class TotalPoints : MonoBehaviour
     // Method to update points display
     void UpdatePointsDisplay()
     {
-        pointsText.text = totalPoints.ToString();
+        gamePointsText.text = gamePoints.ToString();
+        earnedPointsText.text = earnedPoints.ToString();
     }
 
     // Method to set the totalPoints and save it
     public void SetTotalPoints(float points)
     {
-        totalPoints = points;
+        gamePoints = points;
         UpdatePointsDisplay();
         SaveTotalPoints();
     }
@@ -50,28 +56,39 @@ public class TotalPoints : MonoBehaviour
     // Method to save totalPoints to PlayerPrefs
     private void SaveTotalPoints()
     {
-        PlayerPrefs.SetFloat("TotalPoints", totalPoints);
+        PlayerPrefs.SetFloat("GamePoints", gamePoints);
+        PlayerPrefs.SetFloat("EarnedPoints", earnedPoints);
         PlayerPrefs.Save();  // Save the data to disk
     }
 
     // Method to load totalPoints from PlayerPrefs
     private void LoadTotalPoints()
     {
-        if (PlayerPrefs.HasKey("TotalPoints"))
+        if (PlayerPrefs.HasKey("GamePoints"))
         {
-            totalPoints = PlayerPrefs.GetFloat("TotalPoints");
+            gamePoints = PlayerPrefs.GetFloat("GamePoints");
         }
         else
         {
-            totalPoints = 500; // Default value if no data is found
+            gamePoints = 500; // Default value if no data is found
+        }
+        if (PlayerPrefs.HasKey("EarnedPoints"))
+        {
+            earnedPoints = PlayerPrefs.GetFloat("EarnedPoints");
+        }
+        else
+        {
+            earnedPoints = 500; // Default value if no data is found
         }
     }
 
     // Optionally, clear the PlayerPrefs (e.g., when starting a new game)
     public void ClearTotalPoints()
     {
-        PlayerPrefs.DeleteKey("TotalPoints");
-        totalPoints = 500; // Reset to default
+        PlayerPrefs.DeleteKey("GamePoints");
+        gamePoints = 500; // Reset to default
+        PlayerPrefs.DeleteKey("EarnedPoints");
+        earnedPoints = 500; // Reset to default
         UpdatePointsDisplay();
     }
 }

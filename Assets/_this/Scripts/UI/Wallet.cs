@@ -31,7 +31,7 @@ public class Wallet : MonoBehaviour
 
     private void Update()
     {
-        gamingPoints.text = TotalPoints.Instance.totalPoints.ToString();
+        gamingPoints.text = TotalPoints.Instance.gamePoints.ToString();
     }
 
     private void OnGetPoints()

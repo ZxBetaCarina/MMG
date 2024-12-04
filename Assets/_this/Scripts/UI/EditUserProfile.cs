@@ -18,7 +18,6 @@ public class EditUserProfile : MonoBehaviour
     [SerializeField] private Button backBtt;
     [SerializeField] private Button editPic;
     [SerializeField] private Button done;
-
     private string _selectedImagePath;
 
     private void OnEnable()
@@ -44,16 +43,18 @@ public class EditUserProfile : MonoBehaviour
         number.text = UserData.GetData(UserDataSet.Number);
         dob.text = UserData.GetData(UserDataSet.Dob);
         location.text = UserData.GetData(UserDataSet.Location);
+        
       //  gender.text = UserData.GetData(UserDataSet.Gender);
+      
         string genderData=UserData.GetData(UserDataSet.Gender);
-        Debug.Log("Gender data: " + genderData);
+     
         Toggle[] toggles=gender.GetComponentsInChildren<Toggle>();
         
         foreach (Toggle toggle in toggles)
       {
         
           toggle.isOn = toggle.name == genderData;
-          Debug.Log("toggle is on: " + toggle.isOn);
+        
       }
         SetPic();
     }

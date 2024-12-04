@@ -85,6 +85,7 @@ public class SignIn : MonoBehaviour
     private void OnErrorSignIn(string obj)
     {
         CustomLog.ErrorLog(obj);
+        PopUpManager.ShowPopUp("Message", "Please Enter A Valid Email Id");
     }
 
 

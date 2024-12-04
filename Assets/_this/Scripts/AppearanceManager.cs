@@ -107,7 +107,7 @@ public class AppearanceManager : MonoBehaviour
     void Set_alpha(GameObject p_object, float p_target_alpha)
     {
         if (p_object.TryGetComponent(out Renderer t_renderer))
-        {
+        { 
             t_renderer.material.color = new Color(t_renderer.material.color.r, t_renderer.material.color.g, t_renderer.material.color.b, p_target_alpha);
         }
 

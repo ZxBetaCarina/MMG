@@ -1,94 +1,111 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class TotalPoints : MonoBehaviour
 {
-    public static TotalPoints Instance { get; private set; }  // Singleton instance
+    public static TotalPoints instance;
     
-    public float gamePoints = 500; // Default value
-    public TextMeshProUGUI gamePointsText;
-    
-    public float earnedPoints = 300; // Default value
-    public TextMeshProUGUI earnedPointsText;
+    [Header("Points Data")]
+    public float gamePoints = 500; // Default points value
+    public float earnedPoints = 300; // Default earned points
 
+    [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI gamePointsText;
+    [SerializeField] private TextMeshProUGUI earnedPointsText;
+
+    private const string GamePointsKey = "GamePoints"; // Key for PlayerPrefs
+    private const string EarnedPointsKey = "EarnedPoints"; // Key for PlayerPrefs
 
     private void Awake()
     {
-        // Ensure only one instance of TotalPoints exists
-        if (Instance != null && Instance != this)
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
         {
             Destroy(gameObject);
         }
-        else
+
+        // Load saved points when the scene starts
+        LoadPoints();
+    }
+
+    private void Start()
+    {
+        // Initial update for UI
+        UpdatePointsDisplay();
+    }
+
+    /// <summary>
+    /// Updates the points displayed in the UI.
+    /// </summary>
+    private void UpdatePointsDisplay()
+    {
+        if (gamePointsText != null)
         {
-            Instance = this;
-            // Load totalPoints from PlayerPrefs when the scene starts
-            LoadTotalPoints();
+            gamePointsText.text = gamePoints.ToString();
+        }
+
+        if (earnedPointsText != null)
+        {
+            earnedPointsText.text = earnedPoints.ToString();
         }
     }
 
-    void Start()
-    {
-        UpdatePointsDisplay();
-    }
-
-    void Update()
-    {
-        UpdatePointsDisplay();
-    }
-
-    // Method to update points display
-    void UpdatePointsDisplay()
-    {
-        gamePointsText.text = gamePoints.ToString();
-        earnedPointsText.text = earnedPoints.ToString();
-    }
-
-    // Method to set the totalPoints and save it
-    public void SetTotalPoints(float points)
+    /// <summary>
+    /// Sets the total points and saves the data.
+    /// </summary>
+    /// <param name="points">New total points value.</param>
+    public void SetGamePoints(float points)
     {
         gamePoints = points;
+        SavePoints();
         UpdatePointsDisplay();
-        SaveTotalPoints();
     }
 
-    // Method to save totalPoints to PlayerPrefs
-    private void SaveTotalPoints()
+    /// <summary>
+    /// Sets the earned points and saves the data.
+    /// </summary>
+    /// <param name="points">New earned points value.</param>
+    public void SetEarnedPoints(float points)
     {
-        PlayerPrefs.SetFloat("GamePoints", gamePoints);
-        PlayerPrefs.SetFloat("EarnedPoints", earnedPoints);
-        PlayerPrefs.Save();  // Save the data to disk
+        earnedPoints = points;
+        SavePoints();
+        UpdatePointsDisplay();
     }
 
-    // Method to load totalPoints from PlayerPrefs
-    private void LoadTotalPoints()
+    /// <summary>
+    /// Saves the points to PlayerPrefs.
+    /// </summary>
+    private void SavePoints()
     {
-        if (PlayerPrefs.HasKey("GamePoints"))
-        {
-            gamePoints = PlayerPrefs.GetFloat("GamePoints");
-        }
-        else
-        {
-            gamePoints = 500; // Default value if no data is found
-        }
-        if (PlayerPrefs.HasKey("EarnedPoints"))
-        {
-            earnedPoints = PlayerPrefs.GetFloat("EarnedPoints");
-        }
-        else
-        {
-            earnedPoints = 500; // Default value if no data is found
-        }
+        PlayerPrefs.SetFloat(GamePointsKey, gamePoints);
+        PlayerPrefs.SetFloat(EarnedPointsKey, earnedPoints);
+        PlayerPrefs.Save();
     }
 
-    // Optionally, clear the PlayerPrefs (e.g., when starting a new game)
-    public void ClearTotalPoints()
+    /// <summary>
+    /// Loads the points from PlayerPrefs.
+    /// </summary>
+    private void LoadPoints()
     {
-        PlayerPrefs.DeleteKey("GamePoints");
+        gamePoints = PlayerPrefs.GetFloat(GamePointsKey, 500); // Default to 500 if no data exists
+        earnedPoints = PlayerPrefs.GetFloat(EarnedPointsKey, 300); // Default to 300 if no data exists
+    }
+
+    /// <summary>
+    /// Clears the points data in PlayerPrefs and resets to defaults.
+    /// </summary>
+    public void ClearPoints()
+    {
+        PlayerPrefs.DeleteKey(GamePointsKey);
+        PlayerPrefs.DeleteKey(EarnedPointsKey);
+
         gamePoints = 500; // Reset to default
-        PlayerPrefs.DeleteKey("EarnedPoints");
-        earnedPoints = 500; // Reset to default
+        earnedPoints = 300; // Reset to default
+        
         UpdatePointsDisplay();
     }
 }

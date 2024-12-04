@@ -42,6 +42,14 @@ public class GameController : MonoBehaviour
     [Button]
     private void AfterTargetAchieved()
     {
+        if (BetScreen.instance != null)
+        {
+            int count = BetScreen.instance._count;
+            TotalPoints.instance.SetGamePoints(TotalPoints.instance.gamePoints + count);
+
+            Debug.Log($"Target achieved! Added {count} points. New total: {TotalPoints.instance.gamePoints}");
+        }
+
         SceneManager.LoadScene(0);
         PopUpManager.ShowPopUp("Message", "Yey You Did It");
     }

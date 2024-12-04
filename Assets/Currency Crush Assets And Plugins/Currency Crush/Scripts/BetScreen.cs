@@ -4,15 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BetScreen : MonoBehaviour
 {
+    public static BetScreen instance;
+    
     [SerializeField] private Button plus;
     [SerializeField] private Button minus;
     [SerializeField] private TMP_Text text;
     [SerializeField] private Button play;
     [SerializeField] private StaticMapPlay staticMapPlay;
     [SerializeField] private GameObject mainCanvas;
-    [SerializeField] private int _count = 0;
+    [SerializeField] public int _count = 0;
     [SerializeField] private int _countmultiplyer = 10;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnEnable()
     {
         plus.onClick.AddListener(OnPlusClick);
@@ -34,7 +48,7 @@ public class BetScreen : MonoBehaviour
     private void OnPlusClick()
     {
         // Get the totalPoints from the TotalPoints singleton
-        float totalPoints = TotalPoints.Instance.gamePoints;
+        float totalPoints = TotalPoints.instance.gamePoints;
 
         // Increase _count, but ensure it doesn't exceed totalPoints
         if (_count + _countmultiplyer <= totalPoints)
@@ -58,13 +72,13 @@ public class BetScreen : MonoBehaviour
     }
     private void OnPlayClick()
     {
-        float totalPoints = TotalPoints.Instance.gamePoints;
+        float totalPoints = TotalPoints.instance.gamePoints;
 
         // Check if _count is greater than 0 and less than or equal to totalPoints
         if (_count > 0 && _count <= totalPoints)
         {
             // If the condition is met, subtract _count from totalPoints
-            TotalPoints.Instance.SetTotalPoints(totalPoints - _count);
+            TotalPoints.instance.SetGamePoints(totalPoints - _count);
 
             // Play the game
             staticMapPlay.Play();

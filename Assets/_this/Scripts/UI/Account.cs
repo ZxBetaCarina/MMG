@@ -96,6 +96,7 @@ public class Account : MonoBehaviour
     {
         OnSignOutAction?.Invoke();
         UIManager.LoadScreenAnimated(UIScreen.SignIn);
+        TotalPoints.instance.ClearPoints();
     }
 
     private void OnBuyTicketBtt()

@@ -31,6 +31,7 @@ public class TotalPoints : MonoBehaviour
         // Load saved points when the scene starts
         LoadPoints();
     }
+    
 
     private void Start()
     {

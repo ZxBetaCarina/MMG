@@ -23,7 +23,7 @@ public class EditUserProfile : MonoBehaviour
 
     private void OnEnable()
     {
-        pic.sprite = UserData.GetImage();
+        GetAllUserData();
         done.onClick.AddListener(OnDone);
         editPic.onClick.AddListener(OnEditPic);
         backBtt.onClick.AddListener(OnBack);
@@ -36,6 +36,32 @@ public class EditUserProfile : MonoBehaviour
         location.onValueChanged.AddListener(ValidateLocationInput);
     }
 
+    private void GetAllUserData()
+    {
+        email.text = UserData.GetData(UserDataSet.Email);
+        firstName.text = UserData.GetData(UserDataSet.FirstName);
+        lastName.text = UserData.GetData(UserDataSet.LastName);
+        number.text = UserData.GetData(UserDataSet.Number);
+        dob.text = UserData.GetData(UserDataSet.Dob);
+        location.text = UserData.GetData(UserDataSet.Location);
+      //  gender.text = UserData.GetData(UserDataSet.Gender);
+        string genderData=UserData.GetData(UserDataSet.Gender);
+        Debug.Log("Gender data: " + genderData);
+        Toggle[] toggles=gender.GetComponentsInChildren<Toggle>();
+        
+        foreach (Toggle toggle in toggles)
+      {
+        
+          toggle.isOn = toggle.name == genderData;
+          Debug.Log("toggle is on: " + toggle.isOn);
+      }
+        SetPic();
+    }
+
+    private void SetPic()
+    {
+        pic.sprite = UserData.GetImage();
+    }
     private void OnDisable()
     {
         done.onClick.RemoveListener(OnDone);
@@ -61,11 +87,12 @@ public class EditUserProfile : MonoBehaviour
             !gender.AnyTogglesOn())
         {
             PopUpManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
-        }else if (_selectedImagePath == null)
-        {
-            PopUpManager.ShowPopUp("Message", "Please select a profile picture");
-            
         }
+        // }else if (_selectedImagePath == null)
+        // {
+        //     PopUpManager.ShowPopUp("Message", "Please select a profile picture");
+        //     
+        // }
         else
         {
             var form = new WWWForm();
@@ -77,13 +104,21 @@ public class EditUserProfile : MonoBehaviour
             form.AddField("location", location.text);
             form.AddField("gender", gender.GetFirstActiveToggle().name);
             
-            if (string.IsNullOrEmpty(_selectedImagePath))
+            if(!string.IsNullOrEmpty(_selectedImagePath))
             {
-                _selectedImagePath= GetDefaltImagePath();
+                byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+                 form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png"); 
             }
-            byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
-            form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
-
+            else
+            {
+                Debug.Log("calling in here");
+                Texture2D  selectedTexture = pic.sprite.texture;
+                byte[] imageBytes = selectedTexture.EncodeToPNG(); // or EncodeToJPG() if you prefer JPG format
+                form.AddBinaryData("profileImage", imageBytes, "profileImage.png", "image/png");
+            }
+            // byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+            // form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+        
             ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
@@ -121,7 +156,7 @@ public class EditUserProfile : MonoBehaviour
 
     private void OnEditPic()
     {
-        PickImage(512,1);
+        PickImage(512,2);
     }
     private void PickImage(int maxSize, int size)
     {

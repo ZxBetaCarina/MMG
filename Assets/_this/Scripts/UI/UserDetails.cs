@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UserDetails : MonoBehaviour
 {
     [SerializeField] private Image pic;
+    [SerializeField]private Sprite defaultPic;
     [SerializeField] private TMP_InputField firstName;
     [SerializeField] private TMP_InputField lastName;
     [SerializeField] private TMP_InputField number;
@@ -17,7 +18,7 @@ public class UserDetails : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private Button back;
     [SerializeField] private Button editPic;
-
+    [SerializeField] private Sprite Profilesprite;
     private string _selectedImagePath=null;
     
     public static event Action OnDetailsSubmit;
@@ -40,18 +41,29 @@ public class UserDetails : MonoBehaviour
 
     private void OnEditPic()
     {
-        PickImage(1024); // Max image size (adjust as needed)
+        PickImage(512,2); // Max image size (adjust as needed)
     }
 
-    private void PickImage(int maxSize)
+    private void PickImage(int maxSize, int size)
     {
+        Debug.Log("Picking image...");
         NativeGallery.Permission permission = NativeGallery.GetImageFromGallery((path) =>
         {
+            Debug.Log("Image path: " + path);
+     
             if (path != null)
             {
-                Debug.Log("Image path: " + path);
-                _selectedImagePath = path;
+                // Get the file size of the selected image
+                long fileSize = new System.IO.FileInfo(path).Length;
 
+                // Check if the image is larger than 2 MB (2 * 1024 * 1024 bytes)
+                if (fileSize > size * maxSize * maxSize)
+                {
+                    PopUpManager.ShowPopUp("Message", "image size should be less then 2 MB");
+                    return;
+                }
+
+                _selectedImagePath = path;
                 // Create Texture from selected image
                 Texture2D texture = NativeGallery.LoadImageAtPath(path, maxSize);
                 if (texture == null)
@@ -60,14 +72,13 @@ public class UserDetails : MonoBehaviour
                     return;
                 }
 
-                pic.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), 
+                pic.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
                     new Vector2(0.5f, 0.5f));
             }
         });
 
         Debug.Log("Permission result: " + permission);
     }
-
     private void FormatDateInput(string input)
     {
         string cleanedInput = System.Text.RegularExpressions.Regex.Replace(input, "[^0-9]", "");
@@ -96,7 +107,8 @@ public class UserDetails : MonoBehaviour
             dob.text == String.Empty || location.text == String.Empty || !gender.AnyTogglesOn())
         {
             PopUpManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
-        }else if (_selectedImagePath == null)
+        }
+        else if (_selectedImagePath == null)
         {
             PopUpManager.ShowPopUp("Message", "Please select a profile picture");
             
@@ -116,30 +128,43 @@ public class UserDetails : MonoBehaviour
             form.AddField("gender", gender.GetFirstActiveToggle().name);
 
            
-            if (string.IsNullOrEmpty(_selectedImagePath))
-            {
-                _selectedImagePath= GetDefaltImagePath();
-            }
-            byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
-            form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
-            
+           
+             // byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+             // form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+             if(!string.IsNullOrEmpty(_selectedImagePath))
+             {
+                 byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+                 form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png"); 
+             }
+             
+             // else
+             // {
+             //     Debug.Log("calling in here");
+             //     Texture2D  selectedTexture =Profilesprite.texture;
+             //     byte[] imageBytes = selectedTexture.EncodeToPNG(); // or EncodeToJPG() if you prefer JPG format
+             //     form.AddBinaryData("profileImage", imageBytes, "profileImage.png", "image/png");
+             // }
+           //  Texture2D  selectedTexture = pic.sprite.texture;
+           // byte[] imageBytes = selectedTexture.EncodeToPNG(); // or EncodeToJPG() if you prefer JPG format
+           //  form.AddBinaryData("profileImage", imageBytes, "profileImage.png", "image/png");
             ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
     }
-    string GetDefaltImagePath()
-    {
-        string path = Path.Combine(Application.streamingAssetsPath, "Sprites/Person Image_1.png");
-        if (File.Exists(path))
-        {
-            Debug.Log("Sprite path: " + path);
-        }
-        else
-        {
-            Debug.Log("Sprite not found at path: " + path);
-        }
-        return path;
-    }
+    
+    // string GetDefaltImagePath()
+    // {
+    //     string path = Path.Combine(Application.streamingAssetsPath, "Sprites/Person Image_1.png");
+    //     if (File.Exists(path))
+    //     {
+    //         Debug.Log("Sprite path: " + path);
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("Sprite not found at path: " + path);
+    //     }
+    //     return path;
+    // }
     private void OnSuccessUpdateUserData(UserDataResponse obj)
     {
         if (obj.status)
@@ -148,9 +173,10 @@ public class UserDetails : MonoBehaviour
             UIManager.LoadScreenAnimated(UIScreen.Home);
             CustomLog.SuccessLog(obj.message);
             Profile.GetProfile();
+            
         }
     }
-
+    
     private void OnErrorUpdateUserData(string obj)
     {
         Debug.Log("Error updating profile: " + obj);

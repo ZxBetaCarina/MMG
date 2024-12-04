@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ZxLog;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -106,7 +107,16 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
+    // public static void ClearInputFields()
+    // {
+    //     foreach (var uiElement in _uiElementsStatic)
+    //     {
+    //         foreach (TMP_InputField field in uiElement.UserdataInputFields)
+    //         {
+    //             field.text = ""; // Clear the text of each input field
+    //         }
+    //     }
+    // }
     public static void Button_Activate_Dock_Button_And_Screen(int p_index)
     {
         _dock.ActivateDockButtonAndScreen(p_index);
@@ -150,4 +160,5 @@ public struct UIElement
 {
     public UIScreen screenType;
     public GameObject screenObject;
+  
 }

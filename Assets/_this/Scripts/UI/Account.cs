@@ -15,7 +15,7 @@ public class Account : MonoBehaviour
     [SerializeField] private Button settings;
     [SerializeField] private Button signOut;
     [SerializeField] private Button buyTicketBtt;
-    
+    [SerializeField] private ClearData _clearData;
     public static event Action OnSignOutAction;
 
     private void OnEnable()
@@ -95,6 +95,9 @@ public class Account : MonoBehaviour
     private void OnSignOut()
     {
         OnSignOutAction?.Invoke();
+        //ClearData.Clear();
+       // ClearData.instance.Clear();
+       _clearData.Clear();
         UIManager.LoadScreenAnimated(UIScreen.SignIn);
     }
 

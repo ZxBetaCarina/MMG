@@ -141,6 +141,7 @@ public enum UIScreen
     TermsAndConditions2,
     PrivacyPolicy2,
     BuyTicket,
+    LudoBetUI,
     Deposit // add new screens according to needs
     
 }

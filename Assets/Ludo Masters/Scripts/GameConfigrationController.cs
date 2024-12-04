@@ -21,6 +21,19 @@ public class GameConfigrationController : MonoBehaviour
     public GameObject privateRoomJoin;
     private SetMyData smd; 
 
+    public static GameConfigrationController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
     // Use this for initialization
     void Start()
     {

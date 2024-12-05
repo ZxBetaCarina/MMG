@@ -9,6 +9,7 @@ public class Profile
     public static void GetProfile()
     {
         ApiManager.Get<ProfileResponseData>(ServiceURLs.GetProfile, OnSuccessGetProfile, OnErrorGetProfile);
+        
     }
 
     private static void OnSuccessGetProfile(ProfileResponseData obj)

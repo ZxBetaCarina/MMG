@@ -9,16 +9,14 @@ public class TotalPoints : MonoBehaviour
     public static TotalPoints instance;
     
     [Header("Points Data")]
-    public int gamePoints = 500; // Default points value
-    public int earnedPoints = 300; // Default earned points
-    private bool isCredit=true;
+    public int gamePoints; // Default points value
+    public int earnedPoints; // Default earned points
+    private bool isCredit = true;
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI gamePointsText;
     [SerializeField] private TextMeshProUGUI earnedPointsText;
-
-    private const string GamePointsKey = "GamePoints"; // Key for PlayerPrefs
-    private const string EarnedPointsKey = "EarnedPoints"; // Key for PlayerPrefs
+    [SerializeField] private TextMeshProUGUI MainUIPointsTxt;
 
     private void Awake()
     {
@@ -31,43 +29,31 @@ public class TotalPoints : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        // Load saved points when the scene starts
-        LoadPoints();
     }
-    
-
-    private void Start()
+    private void OnEnable()
     {
-        // Initial update for UI
-        UpdatePointsDisplay();
+        
+        
+    }
+    private void Update()
+    {
+        MainUIPointsTxt.text = gamePoints.ToString();
+        gamePointsText.text = gamePoints.ToString();
+        earnedPointsText.text = earnedPoints.ToString();
+        
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+           // UpdateWalletPoints();
+        }
     }
 
     /// <summary>
     /// Updates the points displayed in the UI.
     /// </summary>
-    private void UpdatePointsDisplay()
-    {
-        if (gamePointsText != null)
-        {
-            gamePointsText.text = gamePoints.ToString();
-        }
-
-        if (earnedPointsText != null)
-        {
-            earnedPointsText.text = earnedPoints.ToString();
-        }
-    }
-
-    /// <summary>
-    /// Sets the total points and saves the data.
-    /// </summary>
-    /// <param name="points">New total points value.</param>
     public void SetGamePoints(int points)
     {
         gamePoints = points;
-        SavePoints();
-        UpdatePointsDisplay();
+        
     }
 
     /// <summary>
@@ -77,56 +63,44 @@ public class TotalPoints : MonoBehaviour
     public void SetEarnedPoints(int points)
     {
         earnedPoints = points;
-        SavePoints();
-        UpdatePointsDisplay();
     }
 
     /// <summary>
     /// Saves the points to PlayerPrefs.
     /// </summary>
-    private void SavePoints()
-    {
-        PlayerPrefs.SetInt(GamePointsKey, gamePoints);
-        PlayerPrefs.SetInt(EarnedPointsKey, earnedPoints);
-        PlayerPrefs.Save();
-    }
 
     /// <summary>
     /// Loads the points from PlayerPrefs.
     /// </summary>
-    private void LoadPoints()
-    {
-        gamePoints = PlayerPrefs.GetInt(GamePointsKey, 500); // Default to 500 if no data exists
-        earnedPoints = PlayerPrefs.GetInt(EarnedPointsKey, 300); // Default to 300 if no data exists
-    }
 
     /// <summary>
     /// Clears the points data in PlayerPrefs and resets to defaults.
     /// </summary>
-    public void ClearPoints()
+    public void GetWallet()
     {
-        PlayerPrefs.DeleteKey(GamePointsKey);
-        PlayerPrefs.DeleteKey(EarnedPointsKey);
-
-        gamePoints = 500; // Reset to default
-        earnedPoints = 300; // Reset to default
-        
-        UpdatePointsDisplay();
+        ApiManager.Get<GetWalletResponseData>(ServiceURLs.GetWallet, OnSuccessGetWallet, OnErrorGetWallet);
     }
 
-    private void Update()
+    private void OnSuccessGetWallet(GetWalletResponseData obj)
     {
-        Debug.Log(" credit value" + isCredit);
-        if (Input.GetKeyDown(KeyCode.T))
+        if (obj.status)
         {
-            // Call UpdateWalletPoints method
-            UpdateWalletPoints();
+            CustomLog.SuccessLog(obj.status + obj.message);
+            gamePoints = obj.data.gamingPoints;
+            earnedPoints = obj.data.earnedPoints;
         }
     }
 
+    private void OnErrorGetWallet(string obj)
+    {
+        CustomLog.ErrorLog(obj);
+    }
+/// <summary>
+/// ///////////////////////////////////
+/// </summary>
     private void UpdateWalletPoints()
     {
-        var data = new UpdateWalletRequest(isCredit, gamePoints, earnedPoints);
+        var data = new UpdateWalletRequest(gamePoints, earnedPoints);
         ApiManager.Post<UpdateWalletRequest, UpdateWalletResponse>(ServiceURLs.UpdateWallet, data, OnSuccesUpdate, OnErrorUpdate);
     }
 
@@ -144,14 +118,15 @@ public class TotalPoints : MonoBehaviour
     }
     
 }
+/// <summary>
+/// ///////////////////////
+/// </summary>
 public class UpdateWalletRequest
 {
-    public bool isCredit;
     public int gamingPoints;
     public int earnedPoints;
-    public UpdateWalletRequest(bool isCredit,int gamingPoints,int earnedPoints)
+    public UpdateWalletRequest(int gamingPoints,int earnedPoints)
     {
-        this.isCredit = isCredit;
         this.gamingPoints = gamingPoints;
         this.earnedPoints = earnedPoints;
     }

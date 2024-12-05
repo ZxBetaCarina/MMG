@@ -10,12 +10,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource sfx;
     [SerializeField] private bool vibration;
     private static AudioManager _instance;
-
+    public AppSettings _AppSettings;
     private void Awake()
     {
         if (_instance == null)
         {
             _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -42,6 +43,7 @@ public class AudioManager : MonoBehaviour
     private void OnEnable()
     {
         SetupButtonListeners(true);
+        _AppSettings.GetSettingsData();
     }
     private void OnDisable()
     {

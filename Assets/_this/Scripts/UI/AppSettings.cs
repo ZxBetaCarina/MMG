@@ -63,7 +63,7 @@ public class AppSettings : MonoBehaviour
     private void OnEnable()
     {
         back.onClick.AddListener(OnBack);
-       // GetSettingsData();
+      ///  GetSettingsData();
 
     }
     public void GetSettingsFromUserData()
@@ -89,7 +89,7 @@ public class AppSettings : MonoBehaviour
         UIManager.LoadScreenAnimated(UIScreen.Home);
     }
 
-    private void GetSettingsData()
+    public void GetSettingsData()
     {
         Settings data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (UserData.GetSettings() != data)
@@ -102,6 +102,9 @@ public class AppSettings : MonoBehaviour
     {
         if (obj.status)
         {
+            Debug.Log("music: " + obj.data.music);
+            Debug.Log("sfx: " + obj.data.soundEffect);
+            Debug.Log("vibration: " + obj.data.vibration);
             MusicToggle(obj.data.music);
             SfxToggle(obj.data.soundEffect);
             VibrationToggle(obj.data.vibration);
@@ -118,6 +121,7 @@ public class AppSettings : MonoBehaviour
 
     private void SaveSettings()
     {
+        Debug.Log("callinf save settings");
         var data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (UserData.GetSettings() != data)
         {

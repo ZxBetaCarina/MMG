@@ -12,7 +12,8 @@ namespace Christina.UI
         [Header("Slider setup")] 
         [SerializeField, Range(0, 1f)]
         protected float sliderValue;
-        public bool CurrentValue { get; private set; }
+
+        public bool CurrentValue;
         
         private bool _previousValue;
         private Slider _slider;

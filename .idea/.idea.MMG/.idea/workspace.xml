@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_22.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_22.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/API/ServiceURLs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/API/ServiceURLs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +33,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/StaticMap/StaticMapPlay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SweetSugar/Scripts/System/ScriptableLevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_this/Scripts/API/Profile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_this/Scripts/API/UpdateWalletApi.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_this/Scripts/UI/BuyTicket.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_this/Scripts/UI/JoinGiveaway.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_this/Scripts/UI/Notifications.cs" root0="FORCE_HIGHLIGHTING" />
@@ -122,6 +127,7 @@
       <workItem from="1733203423092" duration="4965000" />
       <workItem from="1733217167295" duration="12726000" />
       <workItem from="1733286394615" duration="16326000" />
+      <workItem from="1733372526220" duration="7901000" />
     </task>
     <servers />
   </component>

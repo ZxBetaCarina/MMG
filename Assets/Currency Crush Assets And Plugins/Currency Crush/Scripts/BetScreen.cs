@@ -72,7 +72,7 @@ public class BetScreen : MonoBehaviour
     }
     private void OnPlayClick()
     {
-        float totalPoints = TotalPoints.instance.gamePoints;
+        int totalPoints = TotalPoints.instance.gamePoints;
 
         // Check if _count is greater than 0 and less than or equal to totalPoints
         if (_count > 0 && _count <= totalPoints)

@@ -23,14 +23,14 @@ public class AppSettings : MonoBehaviour
             if (!type.CurrentValue)
             {
                 type.Toggle();
-            }
+          }
         }
         else
         {
-            if (type.CurrentValue)
-            {
+          //  if (type.CurrentValue)
+          // {
                 type.Toggle();
-            }
+           // }
         }
     }
 
@@ -72,6 +72,7 @@ public class AppSettings : MonoBehaviour
         var data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (data != settingsUser)
         {
+          
             MusicToggle(settingsUser.music);
             SfxToggle(settingsUser.soundEffect);
             VibrationToggle(settingsUser.vibration);
@@ -91,6 +92,7 @@ public class AppSettings : MonoBehaviour
 
     public void GetSettingsData()
     {
+        
         Settings data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (UserData.GetSettings() != data)
         {
@@ -107,7 +109,7 @@ public class AppSettings : MonoBehaviour
             Debug.Log("vibration: " + obj.data.vibration);
             MusicToggle(obj.data.music);
             SfxToggle(obj.data.soundEffect);
-            VibrationToggle(obj.data.vibration);
+            VibrationToggle(obj.data.vibration);        
         }
         else
         {

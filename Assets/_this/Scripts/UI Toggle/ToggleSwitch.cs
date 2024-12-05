@@ -91,6 +91,7 @@ namespace Christina.UI
         
         public void Toggle()
         {
+           
             if (_toggleSwitchGroupManager != null)
                 _toggleSwitchGroupManager.ToggleGroup(this);
             else

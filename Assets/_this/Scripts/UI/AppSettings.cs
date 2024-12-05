@@ -20,31 +20,31 @@ public class AppSettings : MonoBehaviour
     {
         if (value)
         {
-            if (!music.CurrentValue)
+            if (!type.CurrentValue)
             {
                 type.Toggle();
             }
         }
         else
         {
-            if (music.CurrentValue)
+            if (type.CurrentValue)
             {
                 type.Toggle();
             }
         }
     }
 
-    [Button]
-    private void TestToggleOn()
-    {
-        MusicToggle(true);// THIS ONE SHOULD BE ALLED ASLO IN GameStarting
-    }
-    
-    [Button]
-    private void TestToggleOff()
-    {
-        MusicToggle(false);
-    }
+    // [Button]
+    // private void TestToggleOn()
+    // {
+    //     MusicToggle(true);// THIS ONE SHOULD BE ALLED ASLO IN GameStarting
+    // }
+    //
+    // [Button]
+    // private void TestToggleOff()
+    // {
+    //     MusicToggle(false);
+    // }
     private void MusicToggle(bool value)
     {
         ToggleThing(music, value);
@@ -121,7 +121,7 @@ public class AppSettings : MonoBehaviour
 
     private void SaveSettings()
     {
-        Debug.Log("callinf save settings");
+        Debug.Log("calling save settings");
         var data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (UserData.GetSettings() != data)
         {

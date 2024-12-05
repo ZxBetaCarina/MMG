@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI Toggle/ToggleSwitch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI Toggle/ToggleSwitch.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/AppSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/AppSettings.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +160,7 @@
       <workItem from="1733207409630" duration="15693000" />
       <workItem from="1733288793851" duration="10163000" />
       <workItem from="1733310168719" duration="2541000" />
-      <workItem from="1733375769851" duration="2652000" />
+      <workItem from="1733375769851" duration="4230000" />
     </task>
     <servers />
   </component>

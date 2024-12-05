@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
     private void OnEnable()
     {
         SetupButtonListeners(true);
-        _AppSettings.GetSettingsData();
+       // _AppSettings.GetSettingsData();
     }
     private void OnDisable()
     {

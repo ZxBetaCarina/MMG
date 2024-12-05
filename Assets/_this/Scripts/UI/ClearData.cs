@@ -11,7 +11,7 @@ public class ClearData : MonoBehaviour
     public TMP_InputField[] inputFields;
 //    public TMP_Text [] textFields;
     public Toggle[] toggles; // Make this static
-
+    [SerializeField] private RectTransform _rectTransform;
     private void OnValidate()
     {
         // Clear previous references
@@ -41,6 +41,9 @@ public class ClearData : MonoBehaviour
             inputField.text = "";
         }
 
+        _rectTransform.localPosition = new Vector3(0, 0, 0);
+     //   _rectTransform.anchorMin =
+      //  _rectTransform.anchorMax = new Vector2(_rectTransform.anchor
         // Clear text fields
         // foreach (TMP_Text textField in textFields)
         // {

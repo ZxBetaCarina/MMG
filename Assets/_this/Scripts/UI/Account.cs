@@ -16,6 +16,7 @@ public class Account : MonoBehaviour
     [SerializeField] private Button signOut;
     [SerializeField] private Button buyTicketBtt;
     [SerializeField] private ClearData _clearData;
+   
     public static event Action OnSignOutAction;
 
     private void OnEnable()

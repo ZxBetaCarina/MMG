@@ -13,10 +13,11 @@ public class SignIn : MonoBehaviour
     [SerializeField] private Button policy;
     [SerializeField] private Toggle tncToggle;
     [SerializeField] private VerticalLayoutGroup layoutGroup;
-
+ 
     private void Start()
     {
         AutoLogin();
+    
     }
 
     private void OnEnable()
@@ -41,8 +42,12 @@ public class SignIn : MonoBehaviour
             ApiManager.SetAuthToken(PlayerPrefs.GetString(UserData.GetKey()));
             Profile.GetProfile();
             UIManager.LoadScreenAnimated(UIScreen.Home);
+            
+
         }
     }
+   
+ 
 
     private void OnAccept()
     {

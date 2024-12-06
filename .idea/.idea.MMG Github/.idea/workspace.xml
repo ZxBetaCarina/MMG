@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Font/Montserrat/static/Montserrat-Medium SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Font/Montserrat/static/Montserrat-Medium SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/PopUpManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/PopUpManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/QrCode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/QrCode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/RatePopUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/RatePopUp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/RateUs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/RateUs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Support.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Support.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UIManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,32 +44,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor &amp; Play.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.504717&quot;,
-    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;do_not_show_Android_plugin_suggestion&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;latest3&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor & Play.executor": "Debug",
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.504717",
+    "com.codeium.enabled": "true",
+    "do_not_show_Android_plugin_suggestion": "true",
+    "git-widget-placeholder": "latest-9",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Mohit\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Mohit\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Mohit\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Mohit\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Mohit\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Mohit\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="F:\Unity Editors\2022.3.46f1\Editor\Unity.exe" />
@@ -212,7 +201,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs</url>
-          <line>176</line>
+          <line>189</line>
           <properties documentPath="D:\Shubhanshu\github\MMG Github\Assets\Ludo Masters\Scripts\GameConfigrationController.cs" containingFunctionPresentation="Method 'startGame'" />
           <option name="timeStamp" value="9" />
         </line-breakpoint>

@@ -30,7 +30,7 @@ public class JoinGiveaway : MonoBehaviour
 
     private void OnMinus()
     {
-        if (count > 0)
+        if (count > 1)
         {
             count--;
             UpdateQuantityText();

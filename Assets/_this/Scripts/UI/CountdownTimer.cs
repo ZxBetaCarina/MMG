@@ -4,29 +4,27 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
-    private int year = 2025;
-    private int month = 1;
-    private int day = 1;
-    private int hour = 0;
-    private int minute = 0;
-    private int second = 0;
+    public int year;
+    public int month;
+    public int day ;
+    public int hour;
+    public int minute;
+    public int second;
 
     private DateTime targetTime;
     private TimeSpan remainingTime;
     public TextMeshProUGUI countdownText;
 
+    private void OnEnable()
+    {
+        GetTargetTime();
+    }
+
     void Start()
     {
         
-        try
-        {
-            targetTime = new DateTime(year, month, day, hour, minute, second, DateTimeKind.Utc);
-            UpdateRemainingTime();
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError("Error setting target time: " + ex.Message);
-        }
+        
+        
     }
 
     void Update()
@@ -35,6 +33,11 @@ public class CountdownTimer : MonoBehaviour
         countdownText.text = remainingTime.ToString(@"dd\:hh\:mm\:ss");
         if (remainingTime.TotalSeconds <= 0)
         {
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+          
+         
         }
     }
 
@@ -47,7 +50,7 @@ public class CountdownTimer : MonoBehaviour
             remainingTime = TimeSpan.Zero;
         }
     }
-    public void GetTargetTime()
+    private void GetTargetTime()
     {
         ApiManager.Get<GiveawayTimerResponse>(ServiceURLs.GetGiveawayTimer, OnSuccessGetTime, OnErrorGetWalletGetTime);
     }
@@ -70,7 +73,15 @@ public class CountdownTimer : MonoBehaviour
             hour = 0;
             minute = 0;
             second = 0;
-
+            try
+            {
+                targetTime = new DateTime(year, month, day, hour, minute, second, DateTimeKind.Utc);
+                UpdateRemainingTime();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error setting target time: " + ex.Message);
+            }
         }
     }
 

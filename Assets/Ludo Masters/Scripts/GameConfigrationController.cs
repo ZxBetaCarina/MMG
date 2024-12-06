@@ -123,7 +123,7 @@ public class GameConfigrationController : MonoBehaviour
         }
         else
         {
-            PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+            PopUpManager.ShowPopUp("Message", "Plese wait for some time and try again");
         }
     }
     public void CancelCreatedGame()
@@ -171,7 +171,7 @@ public class GameConfigrationController : MonoBehaviour
         }
         else
         {
-            PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+            PopUpManager.ShowPopUp("Message", "Plese wait for some time and try again");
         }
     }
 
@@ -187,7 +187,7 @@ public class GameConfigrationController : MonoBehaviour
         }
         else
         {
-            PopUpManager.ShowPopUp("Message", "Waiting For Server Connection, Please Wait");
+            PopUpManager.ShowPopUp("Message", "Plese wait for some time and try again");
         }
     }
 

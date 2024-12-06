@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Font/Montserrat-VariableFont_wght SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Font/Montserrat-VariableFont_wght SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Font/Montserrat/static/Montserrat-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Font/Montserrat/static/Montserrat-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Font/Montserrat/static/Montserrat-Italic SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Font/Montserrat/static/Montserrat-Italic SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +165,7 @@
       <workItem from="1733459886543" duration="69000" />
       <workItem from="1733459965565" duration="1981000" />
       <workItem from="1733466836260" duration="1289000" />
-      <workItem from="1733477006287" duration="1304000" />
+      <workItem from="1733477006287" duration="1981000" />
     </task>
     <servers />
   </component>

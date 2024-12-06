@@ -48,13 +48,13 @@ public class TotalPoints : MonoBehaviour
     public void SetGamePoints(int points)
     {
         gamePoints = points;
-        //UpdateWalletPoints();
+        UpdateWalletPoints();
     }
 
     public void SetEarnedPoints(int points)
     {
         earnedPoints = points;
-        //UpdateWalletPoints();
+        UpdateWalletPoints();
     }
     public void GetWallet()
     {

@@ -4,14 +4,12 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
-    private int year;
-    private int month;
-    private int day;
-    private int hour;
-    private int minute;
-    private int second;
-
-    private bool gottime = false;
+    private int year = 2025;
+    private int month = 1;
+    private int day = 1;
+    private int hour = 0;
+    private int minute = 0;
+    private int second = 0;
 
     private DateTime targetTime;
     private TimeSpan remainingTime;
@@ -20,36 +18,24 @@ public class CountdownTimer : MonoBehaviour
     void Start()
     {
         
-        if (gottime == true)
+        try
         {
-            try
-            {
-                targetTime = new DateTime(year, month, day, hour, minute, second, DateTimeKind.Utc);
-                UpdateRemainingTime();
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError("Error setting target time: " + ex.Message);
-            }
+            targetTime = new DateTime(year, month, day, hour, minute, second, DateTimeKind.Utc);
+            UpdateRemainingTime();
         }
-        
+        catch (Exception ex)
+        {
+            Debug.LogError("Error setting target time: " + ex.Message);
+        }
     }
 
     void Update()
     {
-        if (gottime == true)
+        UpdateRemainingTime();
+        countdownText.text = remainingTime.ToString(@"dd\:hh\:mm\:ss");
+        if (remainingTime.TotalSeconds <= 0)
         {
-            UpdateRemainingTime();
-            countdownText.text = remainingTime.ToString(@"dd\:hh\:mm\:ss");
-            if (remainingTime.TotalSeconds <= 0)
-            {
-            }
         }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            GetTargetTime();
-        }
-        
     }
 
     void UpdateRemainingTime()
@@ -84,7 +70,6 @@ public class CountdownTimer : MonoBehaviour
             hour = 0;
             minute = 0;
             second = 0;
-            gottime = true;
 
         }
     }

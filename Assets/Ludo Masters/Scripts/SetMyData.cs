@@ -25,7 +25,7 @@ public class SetMyData : MonoBehaviour
 
         //name.GetComponent<Text>().text = GameManager.Instance.nameMy;
         if (GameManager.Instance.avatarMy != null)
-            avatar.GetComponent<Image>().sprite = GameManager.Instance.avatarMy;
+            avatar.GetComponent<Image>().sprite = UserData.GetImage();
 
 
         controlAvatars.GetComponent<ControlAvatars>().reset();

@@ -11,7 +11,6 @@ public class TotalPoints : MonoBehaviour
     [Header("Points Data")]
     public int gamePoints; // Default points value
     public int earnedPoints; // Default earned points
-    private bool isCredit = true;
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI gamePointsText;
@@ -49,13 +48,13 @@ public class TotalPoints : MonoBehaviour
     public void SetGamePoints(int points)
     {
         gamePoints = points;
-        UpdateWalletPoints();
+        //UpdateWalletPoints();
     }
 
     public void SetEarnedPoints(int points)
     {
         earnedPoints = points;
-        UpdateWalletPoints();
+        //UpdateWalletPoints();
     }
     public void GetWallet()
     {

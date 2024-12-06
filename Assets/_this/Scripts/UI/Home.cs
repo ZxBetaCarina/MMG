@@ -23,6 +23,7 @@ public class Home : MonoBehaviour
         chess.onClick.AddListener(OnChessClick);
         joinBtt.onClick.AddListener(OnJoinBttClick);
         timerBtn.onClick.AddListener(OnJoinBttClick);
+        TotalPoints.instance.GetWallet();
     }
 
     private void OnDisable()

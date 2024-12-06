@@ -30,6 +30,7 @@ namespace SweetSugar.Scripts.System
 
         private void Start()
         {
+            ApiManager.Initialize(this);
             ShowDailyReward();
         }
 

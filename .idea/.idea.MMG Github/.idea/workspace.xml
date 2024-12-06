@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/BuyTicket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/BuyTicket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +171,8 @@
       <workItem from="1733484793527" duration="7000" />
       <workItem from="1733488239703" duration="367000" />
       <workItem from="1733492294206" duration="5000" />
-      <workItem from="1733492308646" duration="400000" />
+      <workItem from="1733492308646" duration="940000" />
+      <workItem from="1733493279723" duration="635000" />
     </task>
     <servers />
   </component>

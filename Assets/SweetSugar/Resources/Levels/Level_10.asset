@@ -1538,7 +1538,7 @@ MonoBehaviour:
     targetIndex: 1
     limitType: 0
     ingrCountTarget: 0000000000000000
-    limit: 16
+    limit: 17
     colorLimit: 4
     star1: 100
     star2: 500

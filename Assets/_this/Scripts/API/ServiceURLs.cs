@@ -6,6 +6,7 @@
     public static readonly string UpdateProfile = BaseUrl + "/gameUser/auth/updateProfile";
     public static readonly string GetProfile = BaseUrl + "/gameUser/auth/getProfile";
     public static readonly string GetWallet = BaseUrl + "/gameUser/wallet/getWallet";
+    public static readonly string UpdateWallet = BaseUrl + "/gameUser/wallet/updateWallet";
     public static readonly string GetTransaction = BaseUrl + "/gameUser/wallet/getTransactions?transactionType=credit&pointType=gaming";
     public static readonly string GetWithdrawalRequest = BaseUrl + "/gameUser/wallet/gameWithdrawalReq";
     public static readonly string GetMyTickets = BaseUrl + "/gameUser/getMyTickets";

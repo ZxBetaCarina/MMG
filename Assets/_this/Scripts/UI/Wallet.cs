@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,8 @@ public class Wallet : MonoBehaviour
     [SerializeField] private Button deposit;
     [SerializeField] private Button withdraw;
     [SerializeField] private Button buyTicket;
-    [SerializeField] private TMP_Text gamingPoints;
-    [SerializeField] private TMP_Text earnedPoints;
+    //[SerializeField] private TMP_Text gamingPoints;
+    //[SerializeField] private TMP_Text earnedPoints;
 
     private void OnEnable()
     {
@@ -28,6 +29,12 @@ public class Wallet : MonoBehaviour
         buyTicket.onClick.RemoveListener(OnBuyTicket);
     }
 
+    private void Update()
+    {
+        //gamingPoints.text = TotalPoints.instance.gamePoints.ToString();
+        //gamingPoints.text = TotalPoints.instance.gamePoints.ToString();
+    }
+
     private void OnGetPoints()
     {
         GetWalletApi.GetWalletAmount(OnSuccess,OnError);
@@ -35,8 +42,8 @@ public class Wallet : MonoBehaviour
 
     private void OnSuccess((string, string) obj)
     {
-        earnedPoints.text = obj.Item1;
-        gamingPoints.text = obj.Item2;
+        //earnedPoints.text = obj.Item1;
+        //gamingPoints.text = obj.Item2;
     }
 
     private void OnError(string obj)

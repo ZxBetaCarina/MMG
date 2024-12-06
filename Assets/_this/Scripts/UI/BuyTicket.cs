@@ -47,12 +47,25 @@ public class BuyTicket : MonoBehaviour
     {
         if (count > 0)
         {
-            PopUpManager.ShowPopUp("Message", "Your purchase was successful");
+            ApiManager.Post<SendResponseData>(ServiceURLs.SendRequest, OnSuccess, OnError);
         }
         else
         {
             PopUpManager.ShowPopUp("Message", "Must enter a quantity");
         }
+    }
+
+    private void OnSuccess(SendResponseData obj)
+    {
+        if (obj.status)
+        {
+            PopUpManager.ShowPopUp("Request sent successfully",
+                " Thank you for requesting a treasure ticket. Our sales executive will contact you shortly. \n\n Thanks for your cooperation.");
+        }
+    }
+    private void OnError(string obj)
+    {
+        CustomLog.ErrorLog(obj);
     }
 
     private void onback()

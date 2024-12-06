@@ -31,10 +31,16 @@ public class UserProfile : MonoBehaviour
         number.text = UserData.GetData(UserDataSet.Number);
         dob.text = UserData.GetData(UserDataSet.Dob);
         location.text = UserData.GetData(UserDataSet.Location);
-        gender.text = UserData.GetData(UserDataSet.Gender);
+        gender.text =ToFirstLetterUpperCase( UserData.GetData(UserDataSet.Gender));
         SetPic();
     }
+    string ToFirstLetterUpperCase(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+            return string.Empty;
 
+        return char.ToUpper(input[0]) + input.Substring(1).ToLower();
+    }
     private void SetPic()
     {
         pic.sprite = UserData.GetImage();

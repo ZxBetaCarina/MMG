@@ -11,6 +11,7 @@ public class RatePopUp : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         back.onClick.AddListener(OnBack);
         submit.onClick.AddListener(OnSubmit);
 
@@ -24,6 +25,7 @@ public class RatePopUp : MonoBehaviour
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         back.onClick.RemoveListener(OnBack);
         submit.onClick.RemoveListener(OnSubmit);
 
@@ -42,8 +44,9 @@ public class RatePopUp : MonoBehaviour
     private void OnSubmit()
     {
         // Play Store or App Store in-app rate API
+        PopUpManager.ShowPopUpAction("Message", "Thanks for your great feedback!Your rating and review have been submitted successfully.", OnBack);
     }
-
+    
     private void OnStarClick(int index)
     {
         // Highlight stars up to the clicked button

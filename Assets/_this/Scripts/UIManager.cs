@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     private static float fadeDuration = 0.1f;
     private static DockManager _dock;
     private static UIManager _instance;
-
+    public static Action _onbackbuttonpressed;
     private void Awake()
     {
         _uiElementsStatic = uiElements;
@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
         // Check if the back button is pressed
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
+            _onbackbuttonpressed?.Invoke();
         }
     }
     private void Start()

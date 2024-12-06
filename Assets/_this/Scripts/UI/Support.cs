@@ -11,12 +11,14 @@ public class Support : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         back.onClick.AddListener(OnBack);
         submit.onClick.AddListener(OnSubmit);
     }
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         back.onClick.RemoveListener(OnBack);
         submit.onClick.RemoveListener(OnSubmit);
     }
@@ -34,7 +36,7 @@ public class Support : MonoBehaviour
             ApiManager.Post<SupportRequest, SupportResponseData>(ServiceURLs.Support, new SupportRequest(message
                 .text), OnSuccess, OnError);
             
-            PopUpManager.ShowPopUp("Message", "Your concern has been registered. Our customer support team will contact you shortly");
+            PopUpManager.ShowPopUpAction("Message", "Your concern has been registered. Our customer support team will contact you shortly",OnBack);
         }
     }
 

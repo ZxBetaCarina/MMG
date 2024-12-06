@@ -9,6 +9,7 @@ public class PopUpManager : MonoBehaviour
     private static PopUp _popUp;
     private static PopUpManager _instance;
 
+ 
     private void Awake()
     {
         if (_instance == null)

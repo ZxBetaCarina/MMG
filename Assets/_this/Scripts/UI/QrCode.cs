@@ -10,6 +10,7 @@ public class QrCode : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         back.onClick.AddListener(OnBack);
         sendReq.onClick.AddListener(OnSendReq);
         qrCode.sprite = UserData.GetQrCode();
@@ -17,6 +18,7 @@ public class QrCode : MonoBehaviour
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         back.onClick.RemoveListener(OnBack);
         sendReq.onClick.RemoveListener(OnSendReq);
     }
@@ -35,11 +37,10 @@ public class QrCode : MonoBehaviour
     {
         if (obj.status)
         {
-            PopUpManager.ShowPopUp("Request sent successfully",
-                " Thank you for requesting a treasure ticket. Our sales executive will contact you shortly. \n\n Thanks for your cooperation.");
+            PopUpManager.ShowPopUpAction("Request sent successfully",
+                " Thank you for requesting a treasure ticket. Our sales executive will contact you shortly. \n\n Thanks for your cooperation.",OnBack);
         }
-    }
-
+    } 
     private void OnError(string obj)
     {
         CustomLog.ErrorLog(obj);

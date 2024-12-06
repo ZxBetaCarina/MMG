@@ -17,6 +17,7 @@ public class UserProfile : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         GetAllUserData();
         back.onClick.AddListener(OnBack);
         edit.onClick.AddListener(OnEdit);
@@ -48,6 +49,7 @@ public class UserProfile : MonoBehaviour
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         back.onClick.RemoveListener(OnBack);
         edit.onClick.RemoveListener(OnEdit);
         Profile.OnProfileLoaded -= GetAllUserData;

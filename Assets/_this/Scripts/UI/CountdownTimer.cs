@@ -1,69 +1,122 @@
 using UnityEngine;
 using System;
 using TMPro;
-using System.Collections.Generic;
 
 public class CountdownTimer : MonoBehaviour
 {
-    // Store the date components in a list
-    [Header("year, month, day, hour, minute, second")]
-    public List<int> endDate = new List<int> { 2024, 12, 31, 0, 0, 0 };  // {year, month, day, hour, minute, second}
+    private int year;
+    private int month;
+    private int day;
+    private int hour;
+    private int minute;
+    private int second;
 
-    // Store the target UTC DateTime
     private DateTime targetTime;
-
-    // To display the remaining time in a readable format
     private TimeSpan remainingTime;
 
-    // Reference to the TextMeshProUGUI UI element for countdown display
-    public TextMeshProUGUI countdownText;
+    // Separate TextMeshProUGUI components for each part of the countdown
+    public TextMeshProUGUI daysText;
+    public TextMeshProUGUI hoursText;
+    public TextMeshProUGUI minutesText;
+    public TextMeshProUGUI secondsText;
 
-    // Start is called before the first frame update
+    private void OnEnable()
+    {
+        GetTargetTime();
+    }
+
     void Start()
     {
-        // Ensure that the list has exactly 6 items (year, month, day, hour, minute, second)
-        if (endDate.Count == 6)
-        {
-            // Construct the DateTime object using the values from the list
-            targetTime = new DateTime(endDate[0], endDate[1], endDate[2], endDate[3], endDate[4], endDate[5], DateTimeKind.Utc);
-            UpdateRemainingTime();
-        }
-        else
-        {
-            Debug.LogError("End Date list must contain exactly 6 items (year, month, day, hour, minute, second).");
-        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Update remaining time every frame
         UpdateRemainingTime();
 
-        // Display the countdown in the TextMeshPro UI element
-        countdownText.text = remainingTime.ToString(@"dd\:hh\:mm\:ss");
+        // Update each TextMeshProUGUI component with the respective time value
+        daysText.text = remainingTime.Days.ToString("D2"); // Two digits for consistency
+        hoursText.text = remainingTime.Hours.ToString("D2");
+        minutesText.text = remainingTime.Minutes.ToString("D2");
+        secondsText.text = remainingTime.Seconds.ToString("D2");
 
-        // Example of triggering an event when the countdown reaches zero
         if (remainingTime.TotalSeconds <= 0)
         {
-            //countdownText.text = "Time's up!";  // Display a message when countdown finishes
-            //Debug.Log("Countdown finished!");
+            // Logic when countdown reaches zero
         }
     }
 
-    // Method to calculate the remaining time
     void UpdateRemainingTime()
     {
-        // Get the current UTC time
         DateTime currentUtcTime = DateTime.UtcNow;
-
-        // Calculate the remaining time
         remainingTime = targetTime - currentUtcTime;
-
-        // Ensure the remaining time doesn't go negative (in case we went past the target)
         if (remainingTime.TotalSeconds < 0)
         {
             remainingTime = TimeSpan.Zero;
         }
     }
+
+    private void GetTargetTime()
+    {
+        ApiManager.Get<GiveawayTimerResponse>(ServiceURLs.GetGiveawayTimer, OnSuccessGetTime, OnErrorGetWalletGetTime);
+    }
+
+    private void OnSuccessGetTime(GiveawayTimerResponse obj)
+    {
+        if (obj.status)
+        {
+            CustomLog.SuccessLog(obj.status + obj.message);
+            Debug.Log(obj.data.giveawayDate.year);
+            Debug.Log(obj.data.giveawayDate.month);
+            Debug.Log(obj.data.giveawayDate.day);
+
+            // Assign year, month, day from the API response
+            year = obj.data.giveawayDate.year;
+            month = obj.data.giveawayDate.month;
+            day = obj.data.giveawayDate.day;
+
+            // Set hour, minute, and second to 0
+            hour = 0;
+            minute = 0;
+            second = 0;
+            try
+            {
+                targetTime = new DateTime(year, month, day, hour, minute, second, DateTimeKind.Utc);
+                UpdateRemainingTime();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error setting target time: " + ex.Message);
+            }
+        }
+    }
+
+    private void OnErrorGetWalletGetTime(string obj)
+    {
+        CustomLog.ErrorLog(obj);
+    }
+}
+
+public class GiveawayTimerResponse
+{
+    public bool status;
+    public string message;
+    public GiveawayTimerData data;
+}
+
+public class GiveawayTimerData
+{
+    public string _id { get; set; }
+    public string title { get; set; }
+    public GiveawayDate giveawayDate { get; set; }
+    public bool isActive { get; set; }
+    public DateTime createdAt { get; set; }
+    public DateTime updatedAt { get; set; }
+    public int __v { get; set; }
+}
+
+public class GiveawayDate
+{
+    public int year { get; set; }
+    public int month { get; set; }
+    public int day { get; set; }
 }

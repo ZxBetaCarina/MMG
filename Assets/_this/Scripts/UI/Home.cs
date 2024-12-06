@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,6 +14,8 @@ public class Home : MonoBehaviour
     [SerializeField] private Button chess;
     [SerializeField] private Button joinBtt;
     [SerializeField] private Button timerBtn;
+    
+    [SerializeField] private TMP_Text PointsUI;
 
     private void OnEnable()
     {
@@ -23,6 +27,7 @@ public class Home : MonoBehaviour
         chess.onClick.AddListener(OnChessClick);
         joinBtt.onClick.AddListener(OnJoinBttClick);
         timerBtn.onClick.AddListener(OnJoinBttClick);
+        TotalPoints.instance.GetWallet();
     }
 
     private void OnDisable()
@@ -35,6 +40,11 @@ public class Home : MonoBehaviour
         chess.onClick.RemoveListener(OnChessClick);
         joinBtt.onClick.RemoveListener(OnJoinBttClick);
         timerBtn.onClick.RemoveListener(OnJoinBttClick);
+    }
+
+    private void Update()
+    {
+        PointsUI.text = TotalPoints.instance.gamePoints.ToString();
     }
 
     private void OnNotificationClick()

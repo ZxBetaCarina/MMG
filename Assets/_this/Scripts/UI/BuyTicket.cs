@@ -61,8 +61,8 @@ public class BuyTicket : MonoBehaviour
     {
         if (obj.status)
         {
-            PopUpManager.ShowPopUp("Request sent successfully",
-                " Thank you for requesting a treasure ticket. Our sales executive will contact you shortly. \n\n Thanks for your cooperation.");
+            PopUpManager.ShowPopUpAction("Request sent successfully",
+                " Thank you for requesting a treasure ticket. Our sales executive will contact you shortly. \n\n Thanks for your cooperation.",OnBack);
         }
     }
     private void OnError(string obj)

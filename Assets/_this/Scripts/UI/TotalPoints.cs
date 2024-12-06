@@ -31,7 +31,7 @@ public class TotalPoints : MonoBehaviour
     }
     private void OnEnable()
     {
-        GetWallet();
+        //
 
     }
     private void Update()

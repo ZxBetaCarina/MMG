@@ -25,6 +25,7 @@ public class Transaction : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         earnedPoint.onClick.AddListener(OnEarnedPoint);
         gamePoint.onClick.AddListener(OnGamePoint);
         back.onClick.AddListener(OnBack);
@@ -34,6 +35,7 @@ public class Transaction : MonoBehaviour
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         earnedPoint.onClick.RemoveListener(OnEarnedPoint);
         gamePoint.onClick.RemoveListener(OnGamePoint);
         back.onClick.RemoveListener(OnBack);

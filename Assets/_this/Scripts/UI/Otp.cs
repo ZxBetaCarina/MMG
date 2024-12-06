@@ -17,6 +17,7 @@ public class Otp : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         back.onClick.AddListener(OnBack);
         resend.onClick.AddListener(OnResend);
         verify.onClick.AddListener(OnVerify);
@@ -25,6 +26,7 @@ public class Otp : MonoBehaviour
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         back.onClick.RemoveListener(OnBack);
         resend.onClick.RemoveListener(OnResend);
         verify.onClick.RemoveListener(OnVerify);

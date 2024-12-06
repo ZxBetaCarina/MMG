@@ -13,19 +13,21 @@ public class BuyTicket : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         minus.onClick.AddListener(OnMinus);
         plus.onClick.AddListener(OnPlus);
         Buy.onClick.AddListener(OnBuy);
-        Back.onClick.AddListener(onback);
+        Back.onClick.AddListener(OnBack);
         UpdateQuantityText();
     }
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         minus.onClick.RemoveListener(OnMinus);
         plus.onClick.RemoveListener(OnPlus);
         Buy.onClick.RemoveListener(OnBuy);
-        Back.onClick.RemoveListener(onback);
+        Back.onClick.RemoveListener(OnBack);
     }
 
     private void OnMinus()
@@ -68,7 +70,7 @@ public class BuyTicket : MonoBehaviour
         CustomLog.ErrorLog(obj);
     }
 
-    private void onback()
+    private void OnBack()
     {
         UIManager.LoadScreenAnimated(UIScreen.Home);
     }

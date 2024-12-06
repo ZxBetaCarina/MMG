@@ -11,6 +11,7 @@ public class ExchangeCoins : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         back.onClick.AddListener(OnBack);
         submit.onClick.AddListener(OnSubmit);
         OnGetPoints();
@@ -18,6 +19,7 @@ public class ExchangeCoins : MonoBehaviour
     
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         back.onClick.RemoveListener(OnBack);
         submit.onClick.RemoveListener(OnSubmit);
     }

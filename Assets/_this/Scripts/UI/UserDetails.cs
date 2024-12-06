@@ -25,6 +25,7 @@ public class UserDetails : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         continueButton.onClick.AddListener(OnContinue);
         back.onClick.AddListener(OnBack);
         dob.onValueChanged.AddListener(FormatDateInput);
@@ -33,6 +34,7 @@ public class UserDetails : MonoBehaviour
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed = OnBack;
         continueButton.onClick.RemoveListener(OnContinue);
         back.onClick.RemoveListener(OnBack);
         dob.onValueChanged.RemoveListener(FormatDateInput);

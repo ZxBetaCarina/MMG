@@ -14,6 +14,7 @@ public class Wallet : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         back.onClick.AddListener(OnBack);
         deposit.onClick.AddListener(OnDeposit);
         withdraw.onClick.AddListener(OnWithdraw);
@@ -23,6 +24,7 @@ public class Wallet : MonoBehaviour
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         back.onClick.RemoveListener(OnBack);
         deposit.onClick.RemoveListener(OnDeposit);
         withdraw.onClick.RemoveListener(OnWithdraw);

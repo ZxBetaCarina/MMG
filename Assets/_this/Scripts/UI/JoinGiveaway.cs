@@ -13,19 +13,21 @@ public class JoinGiveaway : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         minus.onClick.AddListener(OnMinus);
         plus.onClick.AddListener(OnPlus);
         join.onClick.AddListener(OnJoin);
-        Back.onClick.AddListener(onback);
+        Back.onClick.AddListener(OnBack);
         UpdateQuantityText();
     }
 
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         minus.onClick.RemoveListener(OnMinus);
         plus.onClick.RemoveListener(OnPlus);
         join.onClick.RemoveListener(OnJoin);
-        Back.onClick.RemoveListener(onback);
+        Back.onClick.RemoveListener(OnBack);
     }
 
     private void OnMinus()
@@ -55,7 +57,7 @@ public class JoinGiveaway : MonoBehaviour
         }
     }
 
-    private void onback()
+    private void OnBack()
     {
         UIManager.LoadScreenAnimated(UIScreen.Home);
     }

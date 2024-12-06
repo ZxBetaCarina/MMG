@@ -22,6 +22,7 @@ public class EditUserProfile : MonoBehaviour
 
     private void OnEnable()
     {
+        UIManager._onbackbuttonpressed += OnBack;
         GetAllUserData();
         done.onClick.AddListener(OnDone);
         editPic.onClick.AddListener(OnEditPic);
@@ -65,6 +66,7 @@ public class EditUserProfile : MonoBehaviour
     }
     private void OnDisable()
     {
+        UIManager._onbackbuttonpressed -= OnBack;
         done.onClick.RemoveListener(OnDone);
         editPic.onClick.RemoveListener(OnEditPic);
         backBtt.onClick.RemoveListener(OnBack);

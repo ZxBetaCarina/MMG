@@ -4,16 +4,21 @@ using TMPro;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public int year;
-    public int month;
-    public int day ;
-    public int hour;
-    public int minute;
-    public int second;
+    private int year;
+    private int month;
+    private int day;
+    private int hour;
+    private int minute;
+    private int second;
 
     private DateTime targetTime;
     private TimeSpan remainingTime;
-    public TextMeshProUGUI countdownText;
+
+    // Separate TextMeshProUGUI components for each part of the countdown
+    public TextMeshProUGUI daysText;
+    public TextMeshProUGUI hoursText;
+    public TextMeshProUGUI minutesText;
+    public TextMeshProUGUI secondsText;
 
     private void OnEnable()
     {
@@ -22,22 +27,21 @@ public class CountdownTimer : MonoBehaviour
 
     void Start()
     {
-        
-        
-        
     }
 
     void Update()
     {
         UpdateRemainingTime();
-        countdownText.text = remainingTime.ToString(@"dd\:hh\:mm\:ss");
+
+        // Update each TextMeshProUGUI component with the respective time value
+        daysText.text = remainingTime.Days.ToString("D2"); // Two digits for consistency
+        hoursText.text = remainingTime.Hours.ToString("D2");
+        minutesText.text = remainingTime.Minutes.ToString("D2");
+        secondsText.text = remainingTime.Seconds.ToString("D2");
+
         if (remainingTime.TotalSeconds <= 0)
         {
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-          
-         
+            // Logic when countdown reaches zero
         }
     }
 
@@ -50,6 +54,7 @@ public class CountdownTimer : MonoBehaviour
             remainingTime = TimeSpan.Zero;
         }
     }
+
     private void GetTargetTime()
     {
         ApiManager.Get<GiveawayTimerResponse>(ServiceURLs.GetGiveawayTimer, OnSuccessGetTime, OnErrorGetWalletGetTime);
@@ -90,6 +95,7 @@ public class CountdownTimer : MonoBehaviour
         CustomLog.ErrorLog(obj);
     }
 }
+
 public class GiveawayTimerResponse
 {
     public bool status;

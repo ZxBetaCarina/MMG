@@ -32,8 +32,8 @@ public class TotalPoints : MonoBehaviour
     }
     private void OnEnable()
     {
-        
-        
+        GetWallet();
+
     }
     private void Update()
     {
@@ -43,39 +43,20 @@ public class TotalPoints : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.T))
         {
-           // UpdateWalletPoints();
+            UpdateWalletPoints();
         }
     }
-
-    /// <summary>
-    /// Updates the points displayed in the UI.
-    /// </summary>
     public void SetGamePoints(int points)
     {
         gamePoints = points;
-        
+        UpdateWalletPoints();
     }
 
-    /// <summary>
-    /// Sets the earned points and saves the data.
-    /// </summary>
-    /// <param name="points">New earned points value.</param>
     public void SetEarnedPoints(int points)
     {
         earnedPoints = points;
+        UpdateWalletPoints();
     }
-
-    /// <summary>
-    /// Saves the points to PlayerPrefs.
-    /// </summary>
-
-    /// <summary>
-    /// Loads the points from PlayerPrefs.
-    /// </summary>
-
-    /// <summary>
-    /// Clears the points data in PlayerPrefs and resets to defaults.
-    /// </summary>
     public void GetWallet()
     {
         ApiManager.Get<GetWalletResponseData>(ServiceURLs.GetWallet, OnSuccessGetWallet, OnErrorGetWallet);

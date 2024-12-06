@@ -24,7 +24,7 @@ public class UserData : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    
     public static bool IsUserLoggedIn { get; private set; }
 
     private void OnValidate()

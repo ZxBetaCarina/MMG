@@ -33,7 +33,14 @@ public class UIManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    void Update()
+    {
+        // Check if the back button is pressed
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+        }
+    }
     private void Start()
     {
         if (PlayerPrefs.GetInt("InGame") == 1)

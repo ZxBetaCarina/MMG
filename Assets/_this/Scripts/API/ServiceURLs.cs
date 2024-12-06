@@ -17,4 +17,5 @@
     public static readonly string UpdateSettings = BaseUrl + "/gameUser/updateSettings";
     public static readonly string SendRequest = BaseUrl + "/gameUser/sendRequest";
     public static readonly string Image = "https://admin.aimaxonmarketing.com/api/Uploads/";
+    public static readonly string GetGiveawayTimer = BaseUrl + "/gameUser/getGiveawayTimer";
 }

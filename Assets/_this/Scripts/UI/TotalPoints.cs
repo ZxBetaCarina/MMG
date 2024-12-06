@@ -12,10 +12,10 @@ public class TotalPoints : MonoBehaviour
     public int gamePoints; // Default points value
     public int earnedPoints; // Default earned points
 
-    [Header("UI References")]
-    [SerializeField] private TextMeshProUGUI gamePointsText;
-    [SerializeField] private TextMeshProUGUI earnedPointsText;
-    [SerializeField] private TextMeshProUGUI MainUIPointsTxt;
+    //[Header("UI References")]
+    //[SerializeField] private TextMeshProUGUI gamePointsText;
+    //[SerializeField] private TextMeshProUGUI earnedPointsText;
+    //[SerializeField] private TextMeshProUGUI MainUIPointsTxt;
 
     private void Awake()
     {
@@ -36,9 +36,9 @@ public class TotalPoints : MonoBehaviour
     }
     private void Update()
     {
-        MainUIPointsTxt.text = gamePoints.ToString();
-        gamePointsText.text = gamePoints.ToString();
-        earnedPointsText.text = earnedPoints.ToString();
+        //MainUIPointsTxt.text = gamePoints.ToString();
+        //gamePointsText.text = gamePoints.ToString();
+        //earnedPointsText.text = earnedPoints.ToString();
         
         if (Input.GetKeyDown(KeyCode.T))
         {

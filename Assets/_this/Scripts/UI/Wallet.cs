@@ -9,8 +9,8 @@ public class Wallet : MonoBehaviour
     [SerializeField] private Button deposit;
     [SerializeField] private Button withdraw;
     [SerializeField] private Button buyTicket;
-    //[SerializeField] private TMP_Text gamingPoints;
-    //[SerializeField] private TMP_Text earnedPoints;
+    [SerializeField] private TMP_Text gamingPoints;
+    [SerializeField] private TMP_Text earnedPoints;
 
     private void OnEnable()
     {
@@ -31,8 +31,9 @@ public class Wallet : MonoBehaviour
 
     private void Update()
     {
-        //gamingPoints.text = TotalPoints.instance.gamePoints.ToString();
-        //gamingPoints.text = TotalPoints.instance.gamePoints.ToString();
+        gamingPoints.text = TotalPoints.instance.gamePoints.ToString();
+        earnedPoints.text = TotalPoints.instance.earnedPoints.ToString();
+        
     }
 
     private void OnGetPoints()

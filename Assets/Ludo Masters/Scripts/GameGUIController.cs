@@ -109,6 +109,7 @@ public class GameGUIController : PunBehaviour
         }
 
         PhotonNetwork.RaiseEvent((int)EnumPhoton.ReadyToPlay, 0, true, null);
+        GameManager.Instance.avatarMy=UserData.GetImage();
 
         // LUDO
         // Rotate board and set colors

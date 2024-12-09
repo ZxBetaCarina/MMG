@@ -175,7 +175,6 @@ public class UserDetails : MonoBehaviour
             UIManager.LoadScreenAnimated(UIScreen.Home);
             CustomLog.SuccessLog(obj.message);
             Profile.GetProfile();
-            TrailPeriod.instance.Settrailperiod();
         }
     }
     

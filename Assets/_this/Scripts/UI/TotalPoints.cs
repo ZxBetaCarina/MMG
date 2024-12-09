@@ -11,7 +11,8 @@ public class TotalPoints : MonoBehaviour
     [Header("Points Data")]
     public int gamePoints; // Default points value
     public int earnedPoints; // Default earned points
-public int bonuspoint;
+    public int BonusPoints; // Default earned points
+
     //[Header("UI References")]
     //[SerializeField] private TextMeshProUGUI gamePointsText;
     //[SerializeField] private TextMeshProUGUI earnedPointsText;
@@ -29,32 +30,8 @@ public int bonuspoint;
             Destroy(gameObject);
         }
     }
-    private void OnEnable()
-    {
-        //
-
-    }
-    private void Update()
-    {
-        //MainUIPointsTxt.text = gamePoints.ToString();
-        //gamePointsText.text = gamePoints.ToString();
-        //earnedPointsText.text = earnedPoints.ToString();
-        
-        // if (Input.GetKeyDown(KeyCode.T))
-        // {
-        //     UpdateWalletPoints();
-        // }
-    }
-
-    public void setbonusPoints(int point)
-    {
-        bonuspoint = point;
-        SetGamePoints(bonuspoint);
-        UpdateWalletPoints();
-    }
     public void SetGamePoints(int points)
     {
-       
         gamePoints = points;
         UpdateWalletPoints();
     }
@@ -63,31 +40,6 @@ public int bonuspoint;
     {
         earnedPoints = points;
         UpdateWalletPoints();
-    }
-
-    public void DecreasePoints(int points)
-    {
-        if (TrailPeriod.instance.isTrailPeriod)
-        {
-            if (bonuspoint >= points)
-            {
-                bonuspoint -= points;
-                gamePoints -= bonuspoint;
-                UpdateWalletPoints();
-
-            }
-            else
-            {
-                points -= bonuspoint;
-                gamePoints-= points;
-                UpdateWalletPoints();
-            }
-        }else
-        {
-            gamePoints -= points;
-            UpdateWalletPoints();
-        }
-        
     }
     
     public void GetWallet()
@@ -114,7 +66,6 @@ public int bonuspoint;
 /// </summary>
     private void UpdateWalletPoints()
     {
-        PlayerPrefs.SetInt("BonusPoints", bonuspoint);
         var data = new UpdateWalletRequest(gamePoints, earnedPoints);
         ApiManager.Post<UpdateWalletRequest, UpdateWalletResponse>(ServiceURLs.UpdateWallet, data, OnSuccesUpdate, OnErrorUpdate);
     }
@@ -123,7 +74,6 @@ public int bonuspoint;
     {
         if (obj.status)
         {
-        bonuspoint=PlayerPrefs.GetInt("BonusPoints");
             CustomLog.SuccessLog(obj.status + obj.message);
         }
     }

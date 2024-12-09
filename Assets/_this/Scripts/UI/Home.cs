@@ -44,7 +44,7 @@ public class Home : MonoBehaviour
 
     private void Update()
     {
-        PointsUI.text = TotalPoints.instance.gamePoints.ToString();
+        PointsUI.text = (TotalPoints.instance.gamePoints + TotalPoints.instance.BonusPoints).ToString();
     }
 
     private void OnNotificationClick()

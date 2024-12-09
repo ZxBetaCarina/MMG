@@ -49,9 +49,10 @@ public class BetScreen : MonoBehaviour
     {
         // Get the totalPoints from the TotalPoints singleton
         float totalPoints = TotalPoints.instance.gamePoints;
+        int bonusPoints = TotalPoints.instance.BonusPoints;
 
         // Increase _count, but ensure it doesn't exceed totalPoints
-        if (_count + _countmultiplyer <= totalPoints)
+        if (_count + _countmultiplyer <= totalPoints + bonusPoints)
         {
             _count += _countmultiplyer;
         }
@@ -73,13 +74,23 @@ public class BetScreen : MonoBehaviour
     private void OnPlayClick()
     {
         int totalPoints = TotalPoints.instance.gamePoints;
+        int bonusPoints = TotalPoints.instance.BonusPoints;
 
-        // Check if _count is greater than 0 and less than or equal to totalPoints
-        if (_count > 0 && _count <= totalPoints)
+        // Check if _count is greater than 0 and less than or equal to total points (bonus + game points)
+        if (_count > 0 && _count <= totalPoints + bonusPoints)
         {
-            // If the condition is met, subtract _count from totalPoints
-          //  TotalPoints.instance.SetGamePoints(totalPoints - _count);
-            TotalPoints.instance.DecreasePoints( _count);
+            // Deduct points first from BonusPoints
+            if (_count <= bonusPoints)
+            {
+                TotalPoints.instance.BonusPoints -= _count;
+            }
+            else
+            {
+                int remainingPointsToDeduct = _count - bonusPoints;
+                TotalPoints.instance.BonusPoints = 0; // Set BonusPoints to 0 after full deduction
+                TotalPoints.instance.SetGamePoints(totalPoints - remainingPointsToDeduct);
+            }
+
             // Play the game
             staticMapPlay.Play();
             mainCanvas.SetActive(false);

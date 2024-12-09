@@ -13,11 +13,6 @@ public class TotalPoints : MonoBehaviour
     public int earnedPoints; // Default earned points
     public int BonusPoints; // Default earned points
 
-    //[Header("UI References")]
-    //[SerializeField] private TextMeshProUGUI gamePointsText;
-    //[SerializeField] private TextMeshProUGUI earnedPointsText;
-    //[SerializeField] private TextMeshProUGUI MainUIPointsTxt;
-
     private void Awake()
     {
         if (instance == null)
@@ -29,6 +24,8 @@ public class TotalPoints : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
     public void SetGamePoints(int points)
     {

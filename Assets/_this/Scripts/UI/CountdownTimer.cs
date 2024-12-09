@@ -25,10 +25,6 @@ public class CountdownTimer : MonoBehaviour
         GetTargetTime();
     }
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         UpdateRemainingTime();
@@ -47,8 +43,12 @@ public class CountdownTimer : MonoBehaviour
 
     void UpdateRemainingTime()
     {
+        // Get the current UTC time
         DateTime currentUtcTime = DateTime.UtcNow;
-        remainingTime = targetTime - currentUtcTime;
+
+        // Calculate remaining time in IST (targetTime is already in IST)
+        remainingTime = targetTime - currentUtcTime.AddHours(5).AddMinutes(30);
+
         if (remainingTime.TotalSeconds < 0)
         {
             remainingTime = TimeSpan.Zero;
@@ -78,10 +78,12 @@ public class CountdownTimer : MonoBehaviour
             hour = 0;
             minute = 0;
             second = 0;
+
             try
             {
-                targetTime = new DateTime(year, month, day, hour, minute, second, DateTimeKind.Utc);
-                UpdateRemainingTime();
+                // Create target time in UTC and convert to IST
+                DateTime targetUtcTime = new DateTime(year, month, day, hour, minute, second, DateTimeKind.Utc);
+                targetTime = targetUtcTime.AddHours(5).AddMinutes(30); // Convert to IST
             }
             catch (Exception ex)
             {

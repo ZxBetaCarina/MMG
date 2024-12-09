@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UniversalCanvas : MonoBehaviour
@@ -15,5 +16,10 @@ public class UniversalCanvas : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        ApiManager.Initialize(this);
     }
 }

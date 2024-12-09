@@ -2,6 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Transaction : MonoBehaviour
 {
@@ -18,9 +19,11 @@ public class Transaction : MonoBehaviour
     [SerializeField] private GameObject parent1;
     [SerializeField] private GameObject parent2;
 
+    private Button currentlySelectedButton;
+
     private void Start()
     {
-        earnedPoint.Select();
+        SelectButton(earnedPoint);
     }
 
     private void OnEnable()
@@ -29,9 +32,13 @@ public class Transaction : MonoBehaviour
         earnedPoint.onClick.AddListener(OnEarnedPoint);
         gamePoint.onClick.AddListener(OnGamePoint);
         back.onClick.AddListener(OnBack);
-        ShowSelectedBtt();
-    }
 
+        // Explicitly select earnedPoint at the start
+        SelectButton(earnedPoint);
+
+        // Adjust slider position to reflect earnedPoint's selection
+        slider.transform.localPosition = new Vector3(positions.x, -206.1927f);
+    }
 
     private void OnDisable()
     {
@@ -45,11 +52,11 @@ public class Transaction : MonoBehaviour
     {
         if (slider.GetComponent<RectTransform>().position.x <= positions.x)
         {
-            gamePoint.Select();
+            SelectButton(gamePoint);
         }
         else
         {
-            earnedPoint.Select();
+            SelectButton(earnedPoint);
         }
     }
 
@@ -61,16 +68,33 @@ public class Transaction : MonoBehaviour
     private void OnEarnedPoint()
     {
         Slide(positions.x);
+        SelectButton(earnedPoint);
     }
 
     private void OnGamePoint()
     {
         Slide(positions.y);
+        SelectButton(gamePoint);
     }
 
     private void Slide(float pos)
     {
         slider.transform.DOLocalMove(new Vector3(pos, -206.1927f), 0.3f)
             .SetEase(Ease.OutExpo);
+    }
+
+    private void SelectButton(Button button)
+    {
+        currentlySelectedButton = button;
+        EventSystem.current.SetSelectedGameObject(button.gameObject);
+    }
+
+    private void Update()
+    {
+        // If no button is selected, reselect the currently selected button
+        if (EventSystem.current.currentSelectedGameObject == null && currentlySelectedButton != null)
+        {
+            EventSystem.current.SetSelectedGameObject(currentlySelectedButton.gameObject);
+        }
     }
 }

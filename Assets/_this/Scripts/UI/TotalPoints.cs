@@ -11,7 +11,7 @@ public class TotalPoints : MonoBehaviour
     [Header("Points Data")]
     public int gamePoints; // Default points value
     public int earnedPoints; // Default earned points
-
+public int bonuspoint;
     //[Header("UI References")]
     //[SerializeField] private TextMeshProUGUI gamePointsText;
     //[SerializeField] private TextMeshProUGUI earnedPointsText;
@@ -45,8 +45,16 @@ public class TotalPoints : MonoBehaviour
         //     UpdateWalletPoints();
         // }
     }
+
+    public void setbonusPoints(int point)
+    {
+        bonuspoint = point;
+        SetGamePoints(bonuspoint);
+        UpdateWalletPoints();
+    }
     public void SetGamePoints(int points)
     {
+       
         gamePoints = points;
         UpdateWalletPoints();
     }
@@ -56,6 +64,32 @@ public class TotalPoints : MonoBehaviour
         earnedPoints = points;
         UpdateWalletPoints();
     }
+
+    public void DecreasePoints(int points)
+    {
+        if (TrailPeriod.instance.isTrailPeriod)
+        {
+            if (bonuspoint >= points)
+            {
+                bonuspoint -= points;
+                gamePoints -= bonuspoint;
+                UpdateWalletPoints();
+
+            }
+            else
+            {
+                points -= bonuspoint;
+                gamePoints-= points;
+                UpdateWalletPoints();
+            }
+        }else
+        {
+            gamePoints -= points;
+            UpdateWalletPoints();
+        }
+        
+    }
+    
     public void GetWallet()
     {
         ApiManager.Get<GetWalletResponseData>(ServiceURLs.GetWallet, OnSuccessGetWallet, OnErrorGetWallet);
@@ -80,6 +114,7 @@ public class TotalPoints : MonoBehaviour
 /// </summary>
     private void UpdateWalletPoints()
     {
+        PlayerPrefs.SetInt("BonusPoints", bonuspoint);
         var data = new UpdateWalletRequest(gamePoints, earnedPoints);
         ApiManager.Post<UpdateWalletRequest, UpdateWalletResponse>(ServiceURLs.UpdateWallet, data, OnSuccesUpdate, OnErrorUpdate);
     }
@@ -88,6 +123,7 @@ public class TotalPoints : MonoBehaviour
     {
         if (obj.status)
         {
+        bonuspoint=PlayerPrefs.GetInt("BonusPoints");
             CustomLog.SuccessLog(obj.status + obj.message);
         }
     }

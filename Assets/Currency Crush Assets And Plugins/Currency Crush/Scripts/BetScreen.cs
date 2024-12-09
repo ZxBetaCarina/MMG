@@ -78,8 +78,8 @@ public class BetScreen : MonoBehaviour
         if (_count > 0 && _count <= totalPoints)
         {
             // If the condition is met, subtract _count from totalPoints
-            TotalPoints.instance.SetGamePoints(totalPoints - _count);
-
+          //  TotalPoints.instance.SetGamePoints(totalPoints - _count);
+            TotalPoints.instance.DecreasePoints( _count);
             // Play the game
             staticMapPlay.Play();
             mainCanvas.SetActive(false);

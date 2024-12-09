@@ -43,6 +43,11 @@ public class DockManager : MonoBehaviour
 
     private void AttemptActivateDockButtonAndScreen(int p_index)
     {
+        if (TrailPeriod.instance.isTrailPeriod && (p_index == 1 || p_index == 2))
+        {
+            PopUpManager.ShowPopUp("Message", " This section is locked For you.for unlocking all features please buy 1 Ticket.");
+            return ;
+        }
         if (isAnimating) return; // Prevent multiple calls if already animating
     
         // Enable the home button only if another button is activated

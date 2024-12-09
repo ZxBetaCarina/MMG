@@ -40,10 +40,10 @@ public class TotalPoints : MonoBehaviour
         //gamePointsText.text = gamePoints.ToString();
         //earnedPointsText.text = earnedPoints.ToString();
         
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            UpdateWalletPoints();
-        }
+        // if (Input.GetKeyDown(KeyCode.T))
+        // {
+        //     UpdateWalletPoints();
+        // }
     }
     public void SetGamePoints(int points)
     {

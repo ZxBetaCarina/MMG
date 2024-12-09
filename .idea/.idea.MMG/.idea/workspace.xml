@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ludo Masters/Scripts/GameConfigrationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/API/Initialize_API.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/API/Initialize_API.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Transaction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Transaction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UniversalCanvas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UniversalCanvas.cs" afterDir="false" />
-    </list>
+    <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +126,7 @@
       <workItem from="1733465690735" duration="420000" />
       <workItem from="1733468809758" duration="13640000" />
       <workItem from="1733720225711" duration="3888000" />
-      <workItem from="1733724603478" duration="3693000" />
+      <workItem from="1733724603478" duration="4440000" />
     </task>
     <servers />
   </component>

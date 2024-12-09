@@ -104,6 +104,6 @@ public class Account : MonoBehaviour
 
     private void OnBuyTicketBtt()
     {
-        UIManager.LoadScreenAnimated(UIScreen.BuyTicket);
+        UIManager.LoadScreenAnimated(UIScreen.JoinGiveaway);
     }
 }

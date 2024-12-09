@@ -77,7 +77,7 @@ public class Home : MonoBehaviour
 
     private void OnJoinBttClick()
     {
-        UIManager.LoadScreenAnimated(UIScreen.JoinGiveaway);
+        UIManager.LoadScreenAnimated(UIScreen.MyTickets);
     }
     
 }

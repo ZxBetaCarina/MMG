@@ -117,8 +117,6 @@ public class UserDetails : MonoBehaviour
         }
         else
         {
-            OnDetailsSubmit?.Invoke();
-            
             
             var form = new WWWForm();
             form.AddField("firstName", firstName.text);
@@ -129,48 +127,20 @@ public class UserDetails : MonoBehaviour
             form.AddField("location", location.text);
             form.AddField("gender", gender.GetFirstActiveToggle().name);
 
-           
-           
-             // byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
-             // form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
              if(!string.IsNullOrEmpty(_selectedImagePath))
              {
                  byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
                  form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png"); 
              }
-             
-             // else
-             // {
-             //     Debug.Log("calling in here");
-             //     Texture2D  selectedTexture =Profilesprite.texture;
-             //     byte[] imageBytes = selectedTexture.EncodeToPNG(); // or EncodeToJPG() if you prefer JPG format
-             //     form.AddBinaryData("profileImage", imageBytes, "profileImage.png", "image/png");
-             // }
-           //  Texture2D  selectedTexture = pic.sprite.texture;
-           // byte[] imageBytes = selectedTexture.EncodeToPNG(); // or EncodeToJPG() if you prefer JPG format
-           //  form.AddBinaryData("profileImage", imageBytes, "profileImage.png", "image/png");
             ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
     }
-    
-    // string GetDefaltImagePath()
-    // {
-    //     string path = Path.Combine(Application.streamingAssetsPath, "Sprites/Person Image_1.png");
-    //     if (File.Exists(path))
-    //     {
-    //         Debug.Log("Sprite path: " + path);
-    //     }
-    //     else
-    //     {
-    //         Debug.Log("Sprite not found at path: " + path);
-    //     }
-    //     return path;
-    // }
     private void OnSuccessUpdateUserData(UserDataResponse obj)
     {
         if (obj.status)
         {
+            OnDetailsSubmit?.Invoke();
             PopUpManager.ShowPopUp("Message", "Welcome To Millionaire Mind Games");
             UIManager.LoadScreenAnimated(UIScreen.Home);
             CustomLog.SuccessLog(obj.message);
@@ -181,6 +151,7 @@ public class UserDetails : MonoBehaviour
     private void OnErrorUpdateUserData(string obj)
     {
         Debug.Log("Error updating profile: " + obj);
+        
     }
 
     private void OnBack()
@@ -194,7 +165,11 @@ public class UserDataResponse
 {
     public bool status { get; set; }
     public string message { get; set; }
-    public Data data { get; set; }
+    public ResponseData data { get; set; }
+}
+public class ResponseData
+{
+    public bool whatsAppExists { get; set; }
 }
 
 public class UserDataRequest

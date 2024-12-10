@@ -15,7 +15,7 @@ public class AppSettings : MonoBehaviour
     private bool defaultSfx = true;
     private bool defaultVibration = true;
 
-  
+    public Apllicationadudio Apllicationadudio;
     private void ToggleThing(ToggleSwitch type, bool value)
     {
         if (value)
@@ -45,6 +45,12 @@ public class AppSettings : MonoBehaviour
     // {
     //     MusicToggle(false);
     // }
+    private void Start()
+    {
+        AudioManager._instance.GetMusicAudioSource().clip = Apllicationadudio.musicclip;
+        AudioManager._instance.GetsfxAudioSource().clip = Apllicationadudio.soundeffectsclip;
+    }
+
     private void MusicToggle(bool value)
     {
         ToggleThing(music, value);
@@ -155,4 +161,10 @@ public class SettingResponseData
     public bool status;
     public string message;
     public Settings data;
+}
+[System.Serializable]
+public class Apllicationadudio
+{
+    public AudioClip musicclip;
+    public AudioClip soundeffectsclip;
 }

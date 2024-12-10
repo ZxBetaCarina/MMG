@@ -22,7 +22,7 @@ public class GetWalletApi
     {
         if (obj.status)
         {
-            CustomLog.SuccessLog(obj.message);
+            Debug.Log(obj.message);
             _earnedPoints = obj.data.earnedPoints;
             _gamingPoints = obj.data.gamingPoints;
         }

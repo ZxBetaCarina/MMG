@@ -48,7 +48,7 @@ public class TotalPoints : MonoBehaviour
     {
         if (obj.status)
         {
-            CustomLog.SuccessLog(obj.status + obj.message);
+            Debug.Log(obj.status + obj.message);
             gamePoints = obj.data.gamingPoints;
             earnedPoints = obj.data.earnedPoints;
         }

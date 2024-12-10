@@ -38,11 +38,11 @@ public class SignIn : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(UserData.GetKey()))
         {
+         
             UserData.SetData(UserDataSet.Token, PlayerPrefs.GetString(UserData.GetKey()));
             ApiManager.SetAuthToken(PlayerPrefs.GetString(UserData.GetKey()));
-            Profile.GetProfile();
             UIManager.LoadScreenAnimated(UIScreen.Home);
-            
+          //  Profile.GetProfile();
 
         }
     }
@@ -89,7 +89,7 @@ public class SignIn : MonoBehaviour
 
     private void OnErrorSignIn(string obj)
     {
-        CustomLog.ErrorLog(obj);
+       Debug.Log(obj);
         PopUpManager.ShowPopUp("Message", "Please Enter A Valid Email Id");
     }
 

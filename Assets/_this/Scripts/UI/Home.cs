@@ -28,6 +28,7 @@ public class Home : MonoBehaviour
         joinBtt.onClick.AddListener(OnJoinBttClick);
         timerBtn.onClick.AddListener(OnJoinBttClick);
         TotalPoints.instance.GetWallet();
+        Profile.GetProfile();
     }
 
     private void OnDisable()

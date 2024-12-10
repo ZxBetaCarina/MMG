@@ -32,6 +32,13 @@ public class TotalPoints : MonoBehaviour
         {
             UpdateWalletPoints();
         }
+
+        if (BonusPoints != 0 && BonusPointsTimer._instance.IsTimeExpired() == false)
+        {
+            BonusPoints = 0;
+            UpdateWalletPoints();
+            Debug.Log("Bonus points reset to 0 because the timer expired.");
+        }
     }
 
     public void SetGamePoints(int points)

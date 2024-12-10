@@ -9,7 +9,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource music;
     [SerializeField] private AudioSource sfx;
     [SerializeField] private bool vibration;
-    private static AudioManager _instance;
+    public static AudioManager _instance;
+   
     public AppSettings _AppSettings;
     private void Awake()
     {
@@ -68,6 +69,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+   public AudioSource GetMusicAudioSource()
+   {
+       return music;
+   }
+   public AudioSource GetsfxAudioSource()
+   {
+       return sfx;
+   }
     private void PlaySfx()
     {
         sfx.Play();
@@ -109,4 +118,6 @@ public class AudioManager : MonoBehaviour
         if (!_instance.vibration) return;
         Handheld.Vibrate();
     }
+
+   
 }

@@ -25,13 +25,13 @@ public class Profile
         }
         else
         {
-            CustomLog.ErrorLog(obj.message);
+            Debug.Log(obj.message);
         }
     }
 
     private static void OnErrorGetProfile(string obj)
     {
-        CustomLog.ErrorLog(obj);
+        Debug.Log(obj);
     }
 
     private static void GetSetPic()

@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Audio/AudioMixer.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Audio/AudioMixer.mixer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MusicBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MusicBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/SoundBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/SoundBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/API/GetWalletApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/API/GetWalletApi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/API/Profile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/API/Profile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Home.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/Home.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/SignIn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/SignIn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +176,7 @@
       <workItem from="1733732427346" duration="2377000" />
       <workItem from="1733734982345" duration="1759000" />
       <workItem from="1733800615366" duration="3365000" />
+      <workItem from="1733825064273" duration="12000" />
     </task>
     <servers />
   </component>

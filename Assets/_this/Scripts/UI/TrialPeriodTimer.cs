@@ -58,7 +58,7 @@ public class BonusPointsTimer : MonoBehaviour
     {
         if (totalPoints != null)
         {
-            totalPoints.BonusPoints = 0;
+            //totalPoints.BonusPoints = 0;
             totalPoints.UpdateWalletPoints();
             Debug.Log("Bonus points have been reset to 0.");
         }

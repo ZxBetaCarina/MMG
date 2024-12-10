@@ -25,8 +25,8 @@ namespace SweetSugar.Scripts
         void Awake()
         {
      
-        //    audioSource = GetComponent<AudioSource>();
-           audioSource=AudioManager._instance.GetMusicAudioSource();
+           audioSource = GetComponent<AudioSource>();
+         //  audioSource=AudioManager._instance.GetMusicAudioSource();
             audioMixer = audioSource.outputAudioMixerGroup.audioMixer;
             audioSource.loop = true;
             if (Instance == null)
@@ -39,14 +39,14 @@ namespace SweetSugar.Scripts
         private void Start()
         {
             audioMixer.SetFloat("MusicVolume", PlayerPrefs.GetInt("Music"));
-            if (GetSettingsFromUserData().music)
-            {
-                audioSource.mute = false;
-            }
-            else
-            {
-                audioSource.mute = true;
-            }
+            // if (GetSettingsFromUserData().music)
+            // {
+            //     audioSource.mute = false;
+            // }
+            // else
+            // {
+            //     audioSource.mute = true;
+            // }
           
             
         }

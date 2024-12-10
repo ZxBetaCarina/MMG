@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 
 public class ApiManager : MonoBehaviour
 {
+    private static ApiManager _instance;
+    
     private static MonoBehaviour _coroutineRunner;
     private static string _authToken;
 
@@ -24,6 +26,18 @@ public class ApiManager : MonoBehaviour
     {
         public string key; // Data key (parameter name)
         public string value; // Data value (parameter value)
+    }
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     [Button]

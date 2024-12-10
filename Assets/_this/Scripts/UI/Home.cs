@@ -26,7 +26,7 @@ public class Home : MonoBehaviour
         currency.onClick.AddListener(OnCurrencyClick);
         chess.onClick.AddListener(OnChessClick);
         joinBtt.onClick.AddListener(OnJoinBttClick);
-        timerBtn.onClick.AddListener(OnJoinBttClick);
+        timerBtn.onClick.AddListener(OntimerBttClick);
         TotalPoints.instance.GetWallet();
         Profile.GetProfile();
     }
@@ -40,7 +40,7 @@ public class Home : MonoBehaviour
         currency.onClick.RemoveListener(OnCurrencyClick);
         chess.onClick.RemoveListener(OnChessClick);
         joinBtt.onClick.RemoveListener(OnJoinBttClick);
-        timerBtn.onClick.RemoveListener(OnJoinBttClick);
+        timerBtn.onClick.RemoveListener(OntimerBttClick);
     }
 
     private void Update()
@@ -77,6 +77,10 @@ public class Home : MonoBehaviour
     }
 
     private void OnJoinBttClick()
+    {
+        UIManager.LoadScreenAnimated(UIScreen.JoinGiveaway);
+    }
+    private void OntimerBttClick()
     {
         UIManager.LoadScreenAnimated(UIScreen.MyTickets);
     }

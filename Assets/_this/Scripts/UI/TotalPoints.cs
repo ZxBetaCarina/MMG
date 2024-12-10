@@ -24,19 +24,24 @@ public class TotalPoints : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            UpdateWalletPoints();
+        }
+    }
+
     public void SetGamePoints(int points)
     {
         gamePoints = points;
-        UpdateWalletPoints();
     }
 
     public void SetEarnedPoints(int points)
     {
         earnedPoints = points;
-        UpdateWalletPoints();
     }
     
     public void GetWallet()
@@ -62,7 +67,7 @@ public class TotalPoints : MonoBehaviour
 /// <summary>
 /// ///////////////////////////////////
 /// </summary>
-    private void UpdateWalletPoints()
+    public void UpdateWalletPoints()
     {
         var data = new UpdateWalletRequest(gamePoints, earnedPoints, BonusPoints);
         ApiManager.Post<UpdateWalletRequest, UpdateWalletResponse>(ServiceURLs.UpdateWallet, data, OnSuccesUpdate, OnErrorUpdate);

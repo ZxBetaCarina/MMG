@@ -58,4 +58,5 @@ public class WalletData
     public string _id;
     public int gamingPoints;
     public int earnedPoints;
+    public int bonusPoints;
 }

@@ -51,6 +51,7 @@ public class TotalPoints : MonoBehaviour
             Debug.Log(obj.status + obj.message);
             gamePoints = obj.data.gamingPoints;
             earnedPoints = obj.data.earnedPoints;
+            BonusPoints = obj.data.bonusPoints;
         }
     }
 
@@ -63,7 +64,7 @@ public class TotalPoints : MonoBehaviour
 /// </summary>
     private void UpdateWalletPoints()
     {
-        var data = new UpdateWalletRequest(gamePoints, earnedPoints);
+        var data = new UpdateWalletRequest(gamePoints, earnedPoints, BonusPoints);
         ApiManager.Post<UpdateWalletRequest, UpdateWalletResponse>(ServiceURLs.UpdateWallet, data, OnSuccesUpdate, OnErrorUpdate);
     }
 
@@ -88,10 +89,12 @@ public class UpdateWalletRequest
 {
     public int gamingPoints;
     public int earnedPoints;
-    public UpdateWalletRequest(int gamingPoints,int earnedPoints)
+    public int bonusPoints;
+    public UpdateWalletRequest(int gamingPoints,int earnedPoints,int bonusPoints)
     {
         this.gamingPoints = gamingPoints;
         this.earnedPoints = earnedPoints;
+        this.bonusPoints = bonusPoints;
     }
 }
 public class UpdateWalletResponse
@@ -107,6 +110,7 @@ public class UpdateWalletData
     public string gameUserId { get; set; }
     public int gamingPoints { get; set; }
     public int earnedPoints { get; set; }
+    public int bonusPoints { get; set; }
     public List<TransactionHistory> transactionHistory { get; set; }
     public DateTime createdAt { get; set; }
     public DateTime updatedAt { get; set; }

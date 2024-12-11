@@ -123,7 +123,7 @@ public class GameConfigrationController : MonoBehaviour
         }
         else
         {
-            PopUpManager.ShowPopUp("Message", "please wait for some time and try again");
+            PopUpManager.ShowPopUp("Message", "Please wait for some time and try again");
         }
     }
     public void CancelCreatedGame()

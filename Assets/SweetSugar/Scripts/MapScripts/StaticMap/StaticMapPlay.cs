@@ -8,7 +8,7 @@ namespace SweetSugar.Scripts.MapScripts
     public class StaticMapPlay : MonoBehaviour
     {
         public TextMeshProUGUI text;
-        private int level;
+        private int level = 21;
 
         private void OnEnable()
         {
@@ -16,10 +16,10 @@ namespace SweetSugar.Scripts.MapScripts
             int randomLevel;
             do
             {
-                randomLevel = Random.Range(10, 23); // Upper bound is exclusive
+                randomLevel = Random.Range(21, 26); // Upper bound is exclusive
             } while (randomLevel == 20);
 
-            level = randomLevel;
+            //level = randomLevel;
             text.text = LocalizationManager.GetText(89, "Level") + " " + level;
             Debug.Log(level); // Use Debug.Log for consistency in Unity
         }

@@ -2715,3 +2715,4 @@ MonoBehaviour:
           array: []
         prefabs: []
       collectingAction: 0
+    TargetCounters: []

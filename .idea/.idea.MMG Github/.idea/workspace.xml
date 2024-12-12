@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_21.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_21.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Targets/TargetLevel21.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Targets/TargetLevel21.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +182,7 @@
       <workItem from="1733800615366" duration="3365000" />
       <workItem from="1733825064273" duration="12000" />
       <workItem from="1733825120320" duration="36000" />
+      <workItem from="1734003508307" duration="595000" />
     </task>
     <servers />
   </component>

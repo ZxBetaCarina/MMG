@@ -6,15 +6,15 @@ using TMPro;
 public class BonusPointsTimer : MonoBehaviour
 {
     public static BonusPointsTimer _instance;
-    public TotalPoints totalPoints; // Reference to the TotalPoints script
+    
     public TMP_Text countdownText; // Reference to a TextMeshPro text object for countdown display
 
     private DateTime startDate; // The starting date of the timer
     private DateTime targetDate; // The target date (7 days after startDate)
 
-    public int startYear = 2024; // Example year
-    public int startMonth = 11; // Example month
-    public int startDay = 8; // Example day
+    public int startYear; // Example year
+    public int startMonth; // Example month
+    public int startDay; // Example day
 
     private void Awake()
     {
@@ -34,15 +34,6 @@ public class BonusPointsTimer : MonoBehaviour
         startDate = new DateTime(startYear, startMonth, startDay);
         targetDate = startDate.AddDays(7);
 
-        // Check if the current time is past the target date
-        if (IsTimeExpired())
-        {
-            ResetBonusPoints();
-        }
-        else
-        {
-            //StartCoroutine(TimerCoroutine());
-        }
     }
 
     private void Update()
@@ -50,41 +41,11 @@ public class BonusPointsTimer : MonoBehaviour
         print(IsTimeExpired());
     }
 
-    private IEnumerator TimerCoroutine()
-    {
-        while (true)
-        {
-            TimeSpan remainingTime = targetDate - DateTime.UtcNow;
-
-            if (remainingTime.TotalSeconds > 0)
-            {
-                DisplayCountdown(remainingTime);
-            }
-            else
-            {
-                ResetBonusPoints();
-                yield break; // Exit the coroutine once the timer ends
-            }
-
-            yield return new WaitForSeconds(1); // Update every second
-        }
-    }
-
     public bool IsTimeExpired()
     {
         // Check if the current UTC time is past the target date
         return DateTime.UtcNow > targetDate;
         
-    }
-
-    private void ResetBonusPoints()
-    {
-        if (totalPoints != null)
-        {
-            totalPoints.BonusPoints = 0;
-            totalPoints.UpdateWalletPoints();
-            Debug.Log("Bonus points have been reset to 0.");
-        }
     }
 
     private void DisplayCountdown(TimeSpan remainingTime)

@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/BetScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/BetScreen.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Level_6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Targets/TargetLevel6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Resources/Levels/Targets/TargetLevel6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/StaticMap/StaticMapPlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/StaticMap/StaticMapPlay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Font/Montserrat/static/Montserrat-Medium SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Font/Montserrat/static/Montserrat-Medium SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/SignIn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/SignIn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/BonusPointsTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/BonusPointsTimer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +182,7 @@
       <workItem from="1733825064273" duration="12000" />
       <workItem from="1733825120320" duration="36000" />
       <workItem from="1734003508307" duration="595000" />
-      <workItem from="1734068488329" duration="11125000" />
+      <workItem from="1734068488329" duration="15369000" />
     </task>
     <servers />
   </component>

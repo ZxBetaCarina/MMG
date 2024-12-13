@@ -33,7 +33,7 @@ public class TotalPoints : MonoBehaviour
             UpdateWalletPoints();
         }
 
-        if (BonusPoints != 0 && BonusPointsTimer._instance.IsTimeExpired() == false)
+        if (BonusPoints != 0 && BonusPointsTimer._instance.IsTimeExpired() == true)
         {
             BonusPoints = 0;
             UpdateWalletPoints();

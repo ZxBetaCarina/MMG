@@ -1,4 +1,5 @@
-﻿using SweetSugar.Scripts.MapScripts;
+﻿using System;
+using SweetSugar.Scripts.MapScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -71,6 +72,16 @@ public class BetScreen : MonoBehaviour
         }
         UpdateTextField();
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.P))
+        {
+            staticMapPlay.Play();
+            mainCanvas.SetActive(false);
+        }
+    }
+
     private void OnPlayClick()
     {
         int totalPoints = TotalPoints.instance.gamePoints;

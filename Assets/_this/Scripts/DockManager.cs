@@ -25,6 +25,7 @@ public class DockManager : MonoBehaviour
         home.interactable = false;
         home.transform.GetChild(0).GetComponent<Image>().enabled = false; // Hide its associated image if needed
     }
+
     private void OnEnable()
     {
         home.onClick.AddListener(() => AttemptActivateDockButtonAndScreen(0));
@@ -44,7 +45,15 @@ public class DockManager : MonoBehaviour
     private void AttemptActivateDockButtonAndScreen(int p_index)
     {
         if (isAnimating) return; // Prevent multiple calls if already animating
-    
+
+        // Check if the trial period is over and if the button is "refer" or "game"
+        if (BonusPointsTimer._instance.IsTimeExpired() && (p_index == 1 || p_index == 2))
+        {
+            // Show popup if time expired and the button is "refer" or "game"
+            PopUpManager.ShowPopUp("Message", "This feature is locked until trial period ends");
+            return;
+        }
+
         // Enable the home button only if another button is activated
         if (_last_dock == -1 && p_index != 0)
         {

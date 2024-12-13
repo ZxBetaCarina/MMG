@@ -45,6 +45,10 @@ public class TotalPoints : MonoBehaviour
     {
         gamePoints = points;
     }
+    public void SetBonusPoints(int points)
+    {
+        BonusPoints = points;
+    }
 
     public void SetEarnedPoints(int points)
     {

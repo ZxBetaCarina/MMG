@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using ZxLog;
+using System.Text.RegularExpressions;
 
 public class SignIn : MonoBehaviour
 {
@@ -56,7 +57,11 @@ public class SignIn : MonoBehaviour
             //UIManager.LoadScreenAnimated(UIScreen.Otp);
             if (email.text == String.Empty)
             {
-                //popup
+                PopUpManager.ShowPopUp("Message", "Please Enter Your Email Id");
+            }
+            else if (!IsValidEmail(email.text))
+            {
+                PopUpManager.ShowPopUp("Message", "Please Enter a Valid Email Id");
             }
             else
             {
@@ -67,6 +72,12 @@ public class SignIn : MonoBehaviour
         {
             ShakeBox();
         }
+    }
+    private bool IsValidEmail(string email)
+    {
+        string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+        Regex regex = new Regex(emailPattern);
+        return regex.IsMatch(email);
     }
 
     private void SignInUser()
@@ -90,7 +101,7 @@ public class SignIn : MonoBehaviour
     private void OnErrorSignIn(string obj)
     {
        Debug.Log(obj);
-        PopUpManager.ShowPopUp("Message", "Please Enter A Valid Email Id");
+        PopUpManager.ShowPopUp("Error", "Something went wrong, please try again.");
     }
 
 

@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour
         int earnedPoints = Mathf.FloorToInt(count * 0.8f);
         TotalPoints.instance.SetGamePoints(TotalPoints.instance.gamePoints + count);
         TotalPoints.instance.SetEarnedPoints(TotalPoints.instance.earnedPoints + earnedPoints);
+        TotalPoints.instance.UpdateWalletPoints();
 
         PopUpManager.ShowPopUp("Target achieved!", $"{earnedPoints} points Added. \ntotal Earned Points: {TotalPoints.instance.earnedPoints}");
         SceneManager.LoadScene(0);

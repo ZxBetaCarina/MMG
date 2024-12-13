@@ -93,13 +93,13 @@ public class BetScreen : MonoBehaviour
             // Deduct points first from BonusPoints
             if (_count <= bonusPoints)
             {
-                TotalPoints.instance.BonusPoints -= _count;
+                TotalPoints.instance.SetBonusPoints(bonusPoints - _count);
                 TotalPoints.instance.UpdateWalletPoints();
             }
             else
             {
                 int remainingPointsToDeduct = _count - bonusPoints;
-                TotalPoints.instance.BonusPoints = 0; // Set BonusPoints to 0 after full deduction
+                TotalPoints.instance.SetBonusPoints(0);
                 TotalPoints.instance.SetGamePoints(totalPoints - remainingPointsToDeduct);
                 TotalPoints.instance.UpdateWalletPoints();
             }

@@ -132,7 +132,7 @@ public class UserDetails : MonoBehaviour
                  byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
                  form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png"); 
              }
-            ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
+            ApiManager.PostForm2<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
                 OnErrorUpdateUserData);
         }
     }
@@ -148,9 +148,17 @@ public class UserDetails : MonoBehaviour
         }
     }
     
-    private void OnErrorUpdateUserData(string obj)
+    private void OnErrorUpdateUserData(UserDataResponse obj)
     {
-        Debug.Log("Error updating profile: " + obj);
+        
+        if (obj.data.whatsAppExists == true)
+        {
+            PopUpManager.ShowPopUp("Message", "Whatsapp Number Already Exists");
+        }
+        else
+        {
+            Debug.Log("Error updating profile: " + obj);
+        }
         
     }
 

@@ -118,6 +118,10 @@ public class ApiManager : MonoBehaviour
     {
         _coroutineRunner.StartCoroutine(PostFormRequest(url, form, onSuccess, onError));
     }
+    public static void PostForm2<T>(string url, WWWForm form, Action<T> onSuccess, Action<T> onError)
+    {
+        _coroutineRunner.StartCoroutine(PostFormRequest2(url, form, onSuccess, onError));
+    }
 
     public static void GetImage(string url, Action<Texture2D> onSuccess, Action<string> onError)
     {
@@ -246,6 +250,47 @@ public class ApiManager : MonoBehaviour
         else
         {
             onError?.Invoke(request.error);
+            PopUpManager.ShowLoading(false);
+        }
+    }
+    private static IEnumerator PostFormRequest2<T>(string url, WWWForm form, Action<T> onSuccess, Action<T> onError)
+    {
+        PopUpManager.ShowLoading(true);
+        using UnityWebRequest request = UnityWebRequest.Post(url, form);
+        AuthSetter(request);
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
+        {
+            try
+            {
+                // Deserialize the response to the expected type
+                T result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
+                onSuccess?.Invoke(result);
+                PopUpManager.ShowLoading(false);
+            }
+            catch (Exception e)
+            {
+                // Handle JSON parsing error for response
+                Debug.LogError($"Error deserializing response: {e.Message}");
+                onError?.Invoke(default(T)); // You can pass default(T) if you expect a specific error response type
+                PopUpManager.ShowLoading(false);
+            }
+        }
+        else
+        {
+            try
+            {
+                // Try to deserialize the error response if it's in JSON format
+                T errorResponse = JsonConvert.DeserializeObject<T>(request.downloadHandler.text);
+                onError?.Invoke(errorResponse);
+            }
+            catch (Exception e)
+            {
+                // If the error is not in JSON format, print the raw error message
+                Debug.LogError($"Request failed: {request.error}, Error Details: {e.Message}");
+                onError?.Invoke(default(T)); // You can pass default(T) here as well
+            }
             PopUpManager.ShowLoading(false);
         }
     }

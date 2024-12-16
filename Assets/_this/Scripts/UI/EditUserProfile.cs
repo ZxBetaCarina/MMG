@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -86,46 +87,94 @@ public class EditUserProfile : MonoBehaviour
 
     private void OnDone()
     {
-        if (firstName.text == String.Empty || lastName.text == String.Empty || number.text == String.Empty ||
-            dob.text == String.Empty || location.text == String.Empty ||
-            !gender.AnyTogglesOn())
+    // Create a list to store the names of empty fields
+    List<string> emptyFields = new List<string>();
+
+    // Check each field for emptiness and add to the emptyFields list
+    if (string.IsNullOrEmpty(firstName.text))
+        emptyFields.Add("First Name");
+
+    if (string.IsNullOrEmpty(lastName.text))
+        emptyFields.Add("Last Name");
+
+    if (string.IsNullOrEmpty(number.text))
+        emptyFields.Add("WhatsApp Number");
+
+    if (string.IsNullOrEmpty(dob.text))
+        emptyFields.Add("Date of Birth");
+
+    if (string.IsNullOrEmpty(location.text))
+        emptyFields.Add("Location");
+
+    if (!gender.AnyTogglesOn())
+        emptyFields.Add("Gender");
+
+    // Check if any field is empty
+    if (emptyFields.Count > 0)
+    {
+        // If all fields are empty, show a generic message
+        if (emptyFields.Count == 6)
         {
             PopUpManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
         }
-        // }else if (_selectedImagePath == null)
-        // {
-        //     PopUpManager.ShowPopUp("Message", "Please select a profile picture");
-        //     
-        // }
         else
         {
-            var form = new WWWForm();
-            form.AddField("firstName", firstName.text);
-            form.AddField("lastName", lastName.text);
-            form.AddField("whatsappNumber", number.text);
-            form.AddField("dob", dob.text);
-            form.AddField("referNumber", "5");
-            form.AddField("location", location.text);
-            form.AddField("gender", gender.GetFirstActiveToggle().name);
-            
-            if(!string.IsNullOrEmpty(_selectedImagePath))
+            // Otherwise, show a message with the specific empty fields
+            string fieldsList = string.Join(", ", emptyFields);
+            PopUpManager.ShowPopUp("Message", "Please fill the following fields: " + fieldsList);
+        }
+    }
+    else if (!string.IsNullOrEmpty(dob.text) && dob.text.Length < 10)
+    {
+        PopUpManager.ShowPopUp("Message", "Please enter a valid Date of Birth in format of (dd/mm/yyyy)");
+        return; // Exit the method if the validation fails
+    }
+    else if (!string.IsNullOrEmpty(number.text) && number.text.Length != 10)
+    {
+        PopUpManager.ShowPopUp("Message", "Please enter a valid 10-digit WhatsApp number");
+        return; // Exit the method if the validation fails
+    }
+    else
+    {
+        // Proceed with form submission if everything is filled
+        var form = new WWWForm();
+        form.AddField("firstName", firstName.text);
+        form.AddField("lastName", lastName.text);
+        form.AddField("whatsappNumber", number.text);
+        form.AddField("dob", dob.text);
+        form.AddField("location", location.text);
+        form.AddField("gender", gender.GetFirstActiveToggle().name);
+
+        // If no image is selected, use the image from the pic Image component
+        if (string.IsNullOrEmpty(_selectedImagePath))
+        {
+            // Get the sprite from the pic and convert it to a byte array
+            if (pic.sprite != null)
             {
-                byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
-                 form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png"); 
+                byte[] imageBytes = GetImageBytesFromSprite(pic.sprite);
+                form.AddBinaryData("profileImage", imageBytes, "profileImage.png", "image/png");
             }
             else
             {
-                Debug.Log("calling in here");
-                Texture2D  selectedTexture = pic.sprite.texture;
-                byte[] imageBytes = selectedTexture.EncodeToPNG(); // or EncodeToJPG() if you prefer JPG format
-                form.AddBinaryData("profileImage", imageBytes, "profileImage.png", "image/png");
+                PopUpManager.ShowPopUp("Message", "Please select a profile picture");
+                return;
             }
-            // byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
-            // form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
-        
-            ApiManager.PostForm<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
-                OnErrorUpdateUserData);
         }
+        else
+        {
+            // If an image is selected, send the image from the gallery
+            byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+            form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+        }
+
+        ApiManager.PostForm2<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData, OnErrorUpdateUserData);
+    }
+}
+    private byte[] GetImageBytesFromSprite(Sprite sprite)
+    {
+        Texture2D texture = sprite.texture;
+        byte[] imageBytes = texture.EncodeToPNG();
+        return imageBytes;
     }
 
     string GetDefaltImagePath()
@@ -150,12 +199,20 @@ public class EditUserProfile : MonoBehaviour
             UIManager.LoadScreenAnimated(UIScreen.UserProfile);
            Debug.Log(obj.message);
             Profile.GetProfile();
+            
         }
     }
 
-    private void OnErrorUpdateUserData(string obj)
+    private void OnErrorUpdateUserData(UserDataResponse obj)
     {
-       Debug.Log(obj);
+       if (obj.data.whatsAppExists == true)
+       {
+           PopUpManager.ShowPopUp("Message", "Whatsapp Number Already Exists Please select another Whatsapp Number");
+       }
+       else
+       {
+           Debug.Log("Error updating profile: " + obj);
+       }
     }
 
     private void OnEditPic()

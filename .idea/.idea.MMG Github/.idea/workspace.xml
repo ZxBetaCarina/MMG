@@ -8,8 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG Github/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/EditUserProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/EditUserProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserDetails.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/UserProfile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +185,7 @@
       <workItem from="1733825120320" duration="36000" />
       <workItem from="1734003508307" duration="595000" />
       <workItem from="1734068488329" duration="15369000" />
-      <workItem from="1734322649129" duration="1307000" />
+      <workItem from="1734322649129" duration="11832000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -90,38 +91,79 @@ public class UserDetails : MonoBehaviour
     
 
     private void OnContinue()
+{
+    // Create a list to store the names of empty fields
+    List<string> emptyFields = new List<string>();
+
+    // Check each field for emptiness and add to the emptyFields list
+    if (string.IsNullOrEmpty(firstName.text))
+        emptyFields.Add("First Name");
+
+    if (string.IsNullOrEmpty(lastName.text))
+        emptyFields.Add("Last Name");
+
+    if (string.IsNullOrEmpty(number.text))
+        emptyFields.Add("WhatsApp Number");
+
+    if (string.IsNullOrEmpty(dob.text))
+        emptyFields.Add("Date of Birth");
+
+    if (string.IsNullOrEmpty(location.text))
+        emptyFields.Add("Location");
+
+    if (!gender.AnyTogglesOn())
+        emptyFields.Add("Gender");
+
+    // Check if any field is empty
+    if (emptyFields.Count > 0)
     {
-        if (firstName.text == String.Empty || lastName.text == String.Empty || number.text == String.Empty ||
-            dob.text == String.Empty || location.text == String.Empty || !gender.AnyTogglesOn())
+        // If all fields are empty, show a generic message
+        if (emptyFields.Count == 6)
         {
             PopUpManager.ShowPopUp("Message", "Please fill all the fields and select Gender");
         }
-        else if (_selectedImagePath == null)
-        {
-            PopUpManager.ShowPopUp("Message", "Please select a profile picture");
-            
-        }
         else
         {
-            
-            var form = new WWWForm();
-            form.AddField("firstName", firstName.text);
-            form.AddField("lastName", lastName.text);
-            form.AddField("whatsappNumber", number.text);
-            form.AddField("dob", dob.text);
-            form.AddField("referNumber", refer.text);
-            form.AddField("location", location.text);
-            form.AddField("gender", gender.GetFirstActiveToggle().name);
-
-             if(!string.IsNullOrEmpty(_selectedImagePath))
-             {
-                 byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
-                 form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png"); 
-             }
-            ApiManager.PostForm2<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData,
-                OnErrorUpdateUserData);
+            // Otherwise, show a message with the specific empty fields
+            string fieldsList = string.Join(", ", emptyFields);
+            PopUpManager.ShowPopUp("Message", "Please fill the following fields: " + fieldsList);
         }
     }
+    else if (!string.IsNullOrEmpty(dob.text) && dob.text.Length < 10)
+    {
+        PopUpManager.ShowPopUp("Message", "Please enter a valid Date of Birth in format of (dd/mm/yyyy)");
+        return; // Exit the method if the validation fails
+    }
+    else if (!string.IsNullOrEmpty(number.text) && number.text.Length != 10)
+    {
+        PopUpManager.ShowPopUp("Message", "Please enter a valid 10-digit WhatsApp number");
+        return; // Exit the method if the validation fails
+    }
+    else if (_selectedImagePath == null)
+    {
+        PopUpManager.ShowPopUp("Message", "Please select a profile picture");
+    }
+    else
+    {
+        // Proceed with form submission if everything is filled
+        var form = new WWWForm();
+        form.AddField("firstName", firstName.text);
+        form.AddField("lastName", lastName.text);
+        form.AddField("whatsappNumber", number.text);
+        form.AddField("dob", dob.text);
+        form.AddField("referNumber", refer.text);
+        form.AddField("location", location.text);
+        form.AddField("gender", gender.GetFirstActiveToggle().name);
+
+        if (!string.IsNullOrEmpty(_selectedImagePath))
+        {
+            byte[] imageBytes = File.ReadAllBytes(_selectedImagePath);
+            form.AddBinaryData("profileImage", imageBytes, Path.GetFileName(_selectedImagePath), "image/png");
+        }
+
+        ApiManager.PostForm2<UserDataResponse>(ServiceURLs.UpdateProfile, form, OnSuccessUpdateUserData, OnErrorUpdateUserData);
+    }
+}
     private void OnSuccessUpdateUserData(UserDataResponse obj)
     {
         if (obj.status)
@@ -131,6 +173,7 @@ public class UserDetails : MonoBehaviour
             UIManager.LoadScreenAnimated(UIScreen.Home);
             CustomLog.SuccessLog(obj.message);
             Profile.GetProfile();
+            
         }
     }
     
@@ -139,7 +182,7 @@ public class UserDetails : MonoBehaviour
         
         if (obj.data.whatsAppExists == true)
         {
-            PopUpManager.ShowPopUp("Message", "Whatsapp Number Already Exists");
+            PopUpManager.ShowPopUp("Message", "Whatsapp Number Already Exists Please select another Whatsapp Number");
         }
         else
         {

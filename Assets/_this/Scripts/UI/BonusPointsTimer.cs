@@ -43,6 +43,10 @@ public class BonusPointsTimer : MonoBehaviour
 
     public bool IsTimeExpired()
     {
+        // if (myTicketsScript != null && myTicketsScript.GetTicketCount() > 0)
+        // {
+        //     return true;  // expire if there are tickets
+        // }
         // Check if the current UTC time is past the target date
         return DateTime.UtcNow > targetDate;
         

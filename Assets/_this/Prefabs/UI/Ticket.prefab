@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6094887912633411578}
   - component: {fileID: 3381129137569453819}
   - component: {fileID: 2288974119765449760}
+  - component: {fileID: 4149365714204689455}
   m_Layer: 5
   m_Name: Ticket
   m_TagString: Untagged
@@ -76,6 +77,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4149365714204689455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965250923682409069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fba226c92ff8f4bb3750bd388016b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ticketNumberText: {fileID: 3921508058053885775}
 --- !u!1 &6049878955920999248
 GameObject:
   m_ObjectHideFlags: 0

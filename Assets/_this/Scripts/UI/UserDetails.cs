@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UserDetails : MonoBehaviour
 {
     [SerializeField] private Image pic;
-    [SerializeField]private Sprite defaultPic;
+    [SerializeField] private Sprite defaultPic;
     [SerializeField] private TMP_InputField firstName;
     [SerializeField] private TMP_InputField lastName;
     [SerializeField] private TMP_InputField number;
@@ -29,6 +29,9 @@ public class UserDetails : MonoBehaviour
         continueButton.onClick.AddListener(OnContinue);
         back.onClick.AddListener(OnBack);
         dob.onValueChanged.AddListener(FormatDateInput);
+        firstName.onValueChanged.AddListener(ValidateNameInput);
+        lastName.onValueChanged.AddListener(ValidateLastNameInput);
+        location.onValueChanged.AddListener(ValidateLocationInput);
         editPic.onClick.AddListener(OnEditPic);
     }
 
@@ -38,6 +41,9 @@ public class UserDetails : MonoBehaviour
         continueButton.onClick.RemoveListener(OnContinue);
         back.onClick.RemoveListener(OnBack);
         dob.onValueChanged.RemoveListener(FormatDateInput);
+        firstName.onValueChanged.RemoveListener(ValidateNameInput);
+        lastName.onValueChanged.RemoveListener(ValidateLastNameInput);
+        location.onValueChanged.RemoveListener(ValidateLocationInput);
         editPic.onClick.RemoveListener(OnEditPic);
     }
 
@@ -81,27 +87,7 @@ public class UserDetails : MonoBehaviour
 
         Debug.Log("Permission result: " + permission);
     }
-    private void FormatDateInput(string input)
-    {
-        string cleanedInput = System.Text.RegularExpressions.Regex.Replace(input, "[^0-9]", "");
-        if (cleanedInput.Length > 8)
-        {
-            cleanedInput = cleanedInput.Substring(0, 8);
-        }
-
-        string formattedInput = "";
-        for (int i = 0; i < cleanedInput.Length; i++)
-        {
-            if (i == 2 || i == 4)
-            {
-                formattedInput += "/";
-            }
-            formattedInput += cleanedInput[i];
-        }
-
-        dob.text = formattedInput;
-        dob.caretPosition = dob.text.Length;
-    }
+    
 
     private void OnContinue()
     {
@@ -166,6 +152,63 @@ public class UserDetails : MonoBehaviour
     {
       
         UIManager.LoadScreenAnimated(UIScreen.SignIn);
+    }
+    private void FormatDateInput(string input)
+    {
+        string cleanedInput = System.Text.RegularExpressions.Regex.Replace(input, "[^0-9]", "");
+        if (cleanedInput.Length > 8)
+        {
+            cleanedInput = cleanedInput.Substring(0, 8);
+        }
+
+        string formattedInput = "";
+        for (int i = 0; i < cleanedInput.Length; i++)
+        {
+            if (i == 2 || i == 4)
+            {
+                formattedInput += "/";
+            }
+            formattedInput += cleanedInput[i];
+        }
+
+        dob.text = formattedInput;
+        dob.caretPosition = dob.text.Length;
+    }
+    private void ValidateNameInput(string input)
+    {
+        // Remove any numeric characters from the input field's text
+        string cleanInput = System.Text.RegularExpressions.Regex.Replace(input, "[^a-zA-Z]", "");
+        if (input != cleanInput)
+        {
+            // Set the cleaned input back to the field
+            firstName.text = cleanInput;
+            // You can also reset the caret position to the end of the text field
+            firstName.caretPosition = cleanInput.Length;
+        }
+    }
+    private void ValidateLastNameInput(string input)
+    {
+        // Remove any numeric characters from the input field's text
+        string cleanInput = System.Text.RegularExpressions.Regex.Replace(input, "[^a-zA-Z]", "");
+        if (input != cleanInput)
+        {
+            // Set the cleaned input back to the field
+            lastName.text = cleanInput;
+            // You can also reset the caret position to the end of the text field
+            lastName.caretPosition = cleanInput.Length;
+        }
+    }
+    private void ValidateLocationInput(string input)
+    {
+        // Remove any numeric characters from location input
+        string cleanInput = System.Text.RegularExpressions.Regex.Replace(input, "[^a-zA-Z\\s]", "");
+        if (input != cleanInput)
+        {
+            // Set the cleaned input back to the location field
+            location.text = cleanInput;
+            // Reset the caret position
+            location.caretPosition = cleanInput.Length;
+        }
     }
 }
 

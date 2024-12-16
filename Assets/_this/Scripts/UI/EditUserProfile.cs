@@ -35,6 +35,19 @@ public class EditUserProfile : MonoBehaviour
         lastName.onValueChanged.AddListener(ValidateLastNameInput);
         location.onValueChanged.AddListener(ValidateLocationInput);
     }
+    private void OnDisable()
+    {
+        UIManager._onbackbuttonpressed -= OnBack;
+        done.onClick.RemoveListener(OnDone);
+        editPic.onClick.RemoveListener(OnEditPic);
+        backBtt.onClick.RemoveListener(OnBack);
+        dob.onValueChanged.RemoveListener(FormatDateInput);
+        
+        // Remove listeners
+        firstName.onValueChanged.RemoveListener(ValidateNameInput);
+        lastName.onValueChanged.RemoveListener(ValidateLastNameInput);
+        location.onValueChanged.RemoveListener(ValidateLocationInput);
+    }
 
     private void GetAllUserData()
     {
@@ -64,19 +77,7 @@ public class EditUserProfile : MonoBehaviour
     {
         pic.sprite = UserData.GetImage();
     }
-    private void OnDisable()
-    {
-        UIManager._onbackbuttonpressed -= OnBack;
-        done.onClick.RemoveListener(OnDone);
-        editPic.onClick.RemoveListener(OnEditPic);
-        backBtt.onClick.RemoveListener(OnBack);
-        dob.onValueChanged.RemoveListener(FormatDateInput);
-        
-        // Remove listeners
-        firstName.onValueChanged.RemoveListener(ValidateNameInput);
-        lastName.onValueChanged.RemoveListener(ValidateLastNameInput);
-        location.onValueChanged.RemoveListener(ValidateLocationInput);
-    }
+    
 
     private void OnBack()
     {

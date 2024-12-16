@@ -30,7 +30,7 @@ public class TotalPoints : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            UpdateWalletPoints();
+            //UpdateWalletPoints();
         }
 
         if (BonusPoints != 0 && BonusPointsTimer._instance.IsTimeExpired() == true)

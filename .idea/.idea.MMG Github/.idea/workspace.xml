@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/StaticMap/StaticMapPlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/MapScripts/StaticMap/StaticMapPlay.cs" afterDir="false" />
-    </list>
+    <list default="true" id="03f779d0-360f-4399-a6fa-8a99346c08d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

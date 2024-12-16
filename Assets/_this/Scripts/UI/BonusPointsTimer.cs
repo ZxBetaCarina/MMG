@@ -57,4 +57,32 @@ public class BonusPointsTimer : MonoBehaviour
             countdownText.text = $"{remainingTime.Days:D2}d {remainingTime.Hours:D2}h {remainingTime.Minutes:D2}m {remainingTime.Seconds:D2}s";
         }
     }
+    private void OnCheckTrialTime()
+    {
+        ApiManager.Post<TrialTimeResponseData>(ServiceURLs.CheckTrialPeriod, OnSuccess, OnError);
+    }
+
+    // On API call success, populate ticketNumbers and create tickets
+    private void OnSuccess(TrialTimeResponseData response)
+    {
+        targetDate = response.data.dateRedeemed;
+    }
+
+    // On API call error
+    private void OnError(string errorMessage)
+    {
+        CustomLog.ErrorLog(errorMessage);
+    }
+}
+public class TrialTimeResponseData
+{
+    public bool status { get; set; }
+    public string message { get; set; }
+    public TrialTimeData data { get; set; }  // Change 'TicketData' to 'data'
+}
+
+public class TrialTimeData
+{
+    public bool isRedeemed { get; set; }
+    public DateTime dateRedeemed { get; set; }
 }

@@ -108,7 +108,7 @@ public class MyTickets : MonoBehaviour
     // On API call error
     private void OnError(string errorMessage)
     {
-        print("Error fetching ticket data: " + errorMessage);
+        CustomLog.ErrorLog(errorMessage);
     }
 
     // Function to clear tickets and cleanup

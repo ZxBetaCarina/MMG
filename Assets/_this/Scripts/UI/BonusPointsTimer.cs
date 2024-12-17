@@ -38,7 +38,7 @@ public class BonusPointsTimer : MonoBehaviour
 
     private void Update()
     {
-        print(IsTimeExpired());
+//        print(IsTimeExpired());
     }
 
     public bool IsTimeExpired()

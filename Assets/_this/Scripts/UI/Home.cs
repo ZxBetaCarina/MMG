@@ -60,6 +60,7 @@ public class Home : MonoBehaviour
 
     private void OnLudoClick()
     {
+        UIManager.LoadScreenAnimated(UIScreen.LudoBetUI);
     }
 
     private void OnTeenPattiClick()

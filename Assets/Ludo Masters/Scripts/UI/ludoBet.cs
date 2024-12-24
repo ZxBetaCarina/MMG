@@ -49,15 +49,16 @@ public class ludoBet : MonoBehaviour
     {
         // Get the totalPoints from the TotalPoints singleton
         float totalPoints = TotalPoints.instance.gamePoints;
+        int bonusPoints = TotalPoints.instance.BonusPoints;
 
         // Increase _count, but ensure it doesn't exceed totalPoints
-        if (_count + _countmultiplyer <= totalPoints)
+        if (_count + _countmultiplyer <= totalPoints + bonusPoints)
         {
             _count += _countmultiplyer;
         }
         else
         {
-            _count = (int)totalPoints; // Set _count to the totalPoints if adding would exceed it
+            _count = (int)(totalPoints + bonusPoints); // Set _count to the totalPoints if adding would exceed it
         }
 
         UpdateTextField();
@@ -75,12 +76,24 @@ public class ludoBet : MonoBehaviour
     private void OnPlayClick()
     {
         int totalPoints = TotalPoints.instance.gamePoints;
+        int bonusPoints = TotalPoints.instance.BonusPoints;
 
         // Check if _count is greater than 0 and less than or equal to totalPoints
-        if (_count > 0 && _count <= totalPoints)
+        if (_count > 0 && _count <= totalPoints + bonusPoints)
         {
-            // If the condition is met, subtract _count from totalPoints
-            TotalPoints.instance.SetGamePoints(totalPoints - _count);
+            // Deduct points first from BonusPoints
+            if (_count <= bonusPoints)
+            {
+                TotalPoints.instance.SetBonusPoints(bonusPoints - _count);
+                TotalPoints.instance.UpdateWalletPoints();
+            }
+            else
+            {
+                int remainingPointsToDeduct = _count - bonusPoints;
+                TotalPoints.instance.SetBonusPoints(0);
+                TotalPoints.instance.SetGamePoints(totalPoints - remainingPointsToDeduct);
+                TotalPoints.instance.UpdateWalletPoints();
+            }
             
             // function to turn on ludo game
             controller.PressedStartGame1v1WithBots();
@@ -107,5 +120,6 @@ public class ludoBet : MonoBehaviour
                 Debug.Log("Must enter a quantity");
             }
         }
+        
     }
 }

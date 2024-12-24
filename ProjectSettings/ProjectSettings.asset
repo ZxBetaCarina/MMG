@@ -162,7 +162,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.TechyMauGames.MMG
-    Standalone: unity.DefaultCompany.JellyGarden
+    Standalone: com.Techy-Mau-Games.MMG
     Tizen: com.best2dgamesstudio.jellygarden
     iPhone: com.Techy-Mau-Games.MMG
     tvOS: com.best2dgamesstudio.jellygarden

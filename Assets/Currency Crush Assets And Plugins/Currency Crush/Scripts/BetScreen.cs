@@ -59,7 +59,7 @@ public class BetScreen : MonoBehaviour
         }
         else
         {
-            _count = (int)totalPoints; // Set _count to the totalPoints if adding would exceed it
+            _count = (int)(totalPoints + bonusPoints); // Set _count to the totalPoints if adding would exceed it
         }
 
         UpdateTextField();

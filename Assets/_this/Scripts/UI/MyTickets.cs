@@ -87,7 +87,7 @@ public class MyTickets : MonoBehaviour
         // Check if the response contains valid data
         if (response != null && response.data != null)
         {
-            print("Number of tickets: " + response.data.Count);
+//            print("Number of tickets: " + response.data.Count);
 
             // Populate ticketNumbers with the ticketIds from the response
             ticketNumbers.Clear();  // Clear any previous data in the list

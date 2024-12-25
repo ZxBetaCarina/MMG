@@ -47,8 +47,8 @@ public class GameController : MonoBehaviour
         TotalPoints.instance.SetGamePoints(TotalPoints.instance.gamePoints + count);
         TotalPoints.instance.SetEarnedPoints(TotalPoints.instance.earnedPoints + earnedPoints);
         UpdateTransactions.Instance.UpdateGameTransactions("Win on Currency Crush", +count);
-        UpdateTransactions.Instance.UpdateEarnedTransactions("Win on Currency Crush", +count);
         TotalPoints.instance.UpdateWalletPoints();
+        UpdateTransactions.Instance.UpdateEarnedTransactions("Win on Currency Crush", +count);
 
         PopUpManager.ShowPopUp("Target achieved!", $"{earnedPoints} points Added. \ntotal Earned Points: {TotalPoints.instance.earnedPoints}");
         SceneManager.LoadScene(0);

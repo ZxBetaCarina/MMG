@@ -81,6 +81,7 @@ public class ludoBet : MonoBehaviour
         // Check if _count is greater than 0 and less than or equal to totalPoints
         if (_count > 0 && _count <= totalPoints + bonusPoints)
         {
+            UpdateTransactions.Instance.UpdateGameTransactions("Bet on Ludo", -_count);
             // Deduct points first from BonusPoints
             if (_count <= bonusPoints)
             {

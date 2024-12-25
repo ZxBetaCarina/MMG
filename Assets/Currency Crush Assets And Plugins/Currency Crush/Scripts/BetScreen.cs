@@ -90,6 +90,8 @@ public class BetScreen : MonoBehaviour
         // Check if _count is greater than 0 and less than or equal to total points (bonus + game points)
         if (_count > 0 && _count <= totalPoints + bonusPoints)
         {
+            UpdateTransactions.Instance.UpdateGameTransactions("Bet on Ludo", -_count);
+            
             // Deduct points first from BonusPoints
             if (_count <= bonusPoints)
             {

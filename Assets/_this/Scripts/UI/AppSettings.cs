@@ -15,42 +15,36 @@ public class AppSettings : MonoBehaviour
     private bool defaultSfx = true;
     private bool defaultVibration = true;
 
-    public Apllicationadudio Apllicationadudio;
+  
     private void ToggleThing(ToggleSwitch type, bool value)
     {
         if (value)
         {
-            if (!type.CurrentValue)
+            if (!music.CurrentValue)
             {
                 type.Toggle();
-          }
+            }
         }
         else
         {
-          //  if (type.CurrentValue)
-          // {
+            if (music.CurrentValue)
+            {
                 type.Toggle();
-           // }
+            }
         }
     }
 
-    // [Button]
-    // private void TestToggleOn()
-    // {
-    //     MusicToggle(true);// THIS ONE SHOULD BE ALLED ASLO IN GameStarting
-    // }
-    //
-    // [Button]
-    // private void TestToggleOff()
-    // {
-    //     MusicToggle(false);
-    // }
-    private void Start()
+    [Button]
+    private void TestToggleOn()
     {
-        AudioManager._instance.GetMusicAudioSource().clip = Apllicationadudio.musicclip;
-        AudioManager._instance.GetsfxAudioSource().clip = Apllicationadudio.soundeffectsclip;
+        MusicToggle(true);// THIS ONE SHOULD BE ALLED ASLO IN GameStarting
     }
-
+    
+    [Button]
+    private void TestToggleOff()
+    {
+        MusicToggle(false);
+    }
     private void MusicToggle(bool value)
     {
         ToggleThing(music, value);
@@ -68,9 +62,8 @@ public class AppSettings : MonoBehaviour
 
     private void OnEnable()
     {
-        UIManager._onbackbuttonpressed += OnBack;
         back.onClick.AddListener(OnBack);
-      ///  GetSettingsData();
+        GetSettingsData();
 
     }
     public void GetSettingsFromUserData()
@@ -79,7 +72,6 @@ public class AppSettings : MonoBehaviour
         var data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (data != settingsUser)
         {
-          
             MusicToggle(settingsUser.music);
             SfxToggle(settingsUser.soundEffect);
             VibrationToggle(settingsUser.vibration);
@@ -88,7 +80,6 @@ public class AppSettings : MonoBehaviour
 
     private void OnDisable()
     {
-        UIManager._onbackbuttonpressed -= OnBack;
         back.onClick.RemoveListener(OnBack);
         SaveSettings();
     }
@@ -98,9 +89,8 @@ public class AppSettings : MonoBehaviour
         UIManager.LoadScreenAnimated(UIScreen.Home);
     }
 
-    public void GetSettingsData()
+    private void GetSettingsData()
     {
-        
         Settings data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (UserData.GetSettings() != data)
         {
@@ -112,12 +102,9 @@ public class AppSettings : MonoBehaviour
     {
         if (obj.status)
         {
-            Debug.Log("music: " + obj.data.music);
-            Debug.Log("sfx: " + obj.data.soundEffect);
-            Debug.Log("vibration: " + obj.data.vibration);
             MusicToggle(obj.data.music);
             SfxToggle(obj.data.soundEffect);
-            VibrationToggle(obj.data.vibration);        
+            VibrationToggle(obj.data.vibration);
         }
         else
         {
@@ -131,7 +118,6 @@ public class AppSettings : MonoBehaviour
 
     private void SaveSettings()
     {
-        Debug.Log("calling save settings");
         var data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (UserData.GetSettings() != data)
         {
@@ -161,10 +147,4 @@ public class SettingResponseData
     public bool status;
     public string message;
     public Settings data;
-}
-[System.Serializable]
-public class Apllicationadudio
-{
-    public AudioClip musicclip;
-    public AudioClip soundeffectsclip;
 }

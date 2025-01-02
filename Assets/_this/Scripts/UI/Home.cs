@@ -12,6 +12,7 @@ public class Home : MonoBehaviour
     [SerializeField] private Button teenPatti;
     [SerializeField] private Button currency;
     [SerializeField] private Button chess;
+    [SerializeField] private Button BasketBall;
     [SerializeField] private Button joinBtt;
     [SerializeField] private Button timerBtn;
     
@@ -25,6 +26,7 @@ public class Home : MonoBehaviour
         teenPatti.onClick.AddListener(OnTeenPattiClick);
         currency.onClick.AddListener(OnCurrencyClick);
         chess.onClick.AddListener(OnChessClick);
+        BasketBall.onClick.AddListener(OnBasketBallClick);
         joinBtt.onClick.AddListener(OnJoinBttClick);
         timerBtn.onClick.AddListener(OntimerBttClick);
         TotalPoints.instance.GetWallet();
@@ -39,6 +41,7 @@ public class Home : MonoBehaviour
         teenPatti.onClick.RemoveListener(OnTeenPattiClick);
         currency.onClick.RemoveListener(OnCurrencyClick);
         chess.onClick.RemoveListener(OnChessClick);
+        BasketBall.onClick.RemoveListener(OnBasketBallClick);
         joinBtt.onClick.RemoveListener(OnJoinBttClick);
         timerBtn.onClick.RemoveListener(OntimerBttClick);
     }
@@ -75,6 +78,10 @@ public class Home : MonoBehaviour
 
     private void OnChessClick()
     {
+    }
+    private void OnBasketBallClick()
+    {
+        SceneManager.LoadScene(3);
     }
 
     private void OnJoinBttClick()

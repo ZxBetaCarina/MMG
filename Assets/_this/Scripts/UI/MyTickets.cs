@@ -17,7 +17,7 @@ public class MyTickets : MonoBehaviour
 
     private void Start()
     {
-        throw new NotImplementedException();
+        
     }
 
     private void OnEnable()

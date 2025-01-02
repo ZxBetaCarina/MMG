@@ -176,7 +176,7 @@ public class UserData : MonoBehaviour
                 Print.CustomLog("Invalid data type in SetData", LogColor.Red);
                 break;
         }
-        _instance.appSettings.GetSettingsFromUserData();
+        //_instance.appSettings.GetSettingsFromUserData();
     }
 
     public static void SetTotalData(Data data)

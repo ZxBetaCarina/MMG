@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Basketball : MonoBehaviour
 {
@@ -60,16 +61,20 @@ public class Basketball : MonoBehaviour
         {
             basketball.transform.Rotate(Vector3.right * 0.5f);
         }
-    }
-
-    private void OnMouseDown()
-    {
-        // If the ball isn't already in motion and the game isn't over, shoot
-        if (!isShooting && !isGameOver)
+        if (Input.GetMouseButtonDown(0) && !isShooting && !isGameOver)
         {
             ShootBall();
         }
     }
+
+    // private void OnMouseDown()
+    // {
+    //     // If the ball isn't already in motion and the game isn't over, shoot
+    //     if (!isShooting && !isGameOver)
+    //     {
+    //         ShootBall();
+    //     }
+    // }
 
     private void ShootBall()
     {
@@ -189,5 +194,7 @@ public class Basketball : MonoBehaviour
             counter.score = 0;
             counter.UpdateScoreText();
         }
+        
+        SceneManager.LoadScene(0);
     }
 }

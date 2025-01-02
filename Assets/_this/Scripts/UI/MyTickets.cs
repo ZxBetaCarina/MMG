@@ -17,7 +17,6 @@ public class MyTickets : MonoBehaviour
 
     private void Start()
     {
-        
     }
 
     private void OnEnable()

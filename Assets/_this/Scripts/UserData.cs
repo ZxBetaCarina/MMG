@@ -106,6 +106,8 @@ public class UserData : MonoBehaviour
                 return UserData._instance.data.sellerId;
             case UserDataSet.Token:
                 return UserData._instance.data.token;
+            case UserDataSet.CreatedAt:
+                return UserData._instance.data.createdAt.ToString("o");
             default:
                 Print.CustomLog("Invalid data type in GetData", LogColor.Red);
                 return null;
@@ -171,6 +173,9 @@ public class UserData : MonoBehaviour
                 break;
             case UserDataSet.Token:
                 UserData._instance.data.token = value;
+                break;
+            case UserDataSet.CreatedAt:
+                UserData._instance.data.createdAt = DateTime.Parse(value); // Parse the string to DateTime
                 break;
             default:
                 Print.CustomLog("Invalid data type in SetData", LogColor.Red);
@@ -260,4 +265,5 @@ public enum UserDataSet
     DeviceId,
     SellerId,
     Token,
+    CreatedAt,
 }

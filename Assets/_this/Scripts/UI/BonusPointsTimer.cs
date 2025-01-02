@@ -15,6 +15,8 @@ public class BonusPointsTimer : MonoBehaviour
     public int startYear; // Example year
     public int startMonth; // Example month
     public int startDay; // Example day
+    
+    public bool isTicketPurchased = false;
 
     private void Awake()
     {
@@ -30,15 +32,29 @@ public class BonusPointsTimer : MonoBehaviour
     }
     private void OnEnable()
     {
-        // Initialize the start and target dates
-        startDate = new DateTime(startYear, startMonth, startDay);
+        // Subscribe to the OnProfileLoaded event to ensure we get the profile data before using it
+        Profile.OnProfileLoaded += OnProfileLoaded;
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe when this object is disabled to avoid memory leaks
+        Profile.OnProfileLoaded -= OnProfileLoaded;
+    }
+
+    // This method is called when the profile is fully loaded
+    private void OnProfileLoaded()
+    {
+        string createdAtString = UserData.GetData(UserDataSet.CreatedAt);
+        startDate = DateTime.Parse(createdAtString); // Parse the string back to DateTime
         targetDate = startDate.AddDays(7);
 
+        
     }
 
     private void Update()
     {
-//        print(IsTimeExpired());
+        Debug.Log($"Start Date: {isTicketPurchased}, Target Date: {targetDate}");
     }
 
     public bool IsTimeExpired()

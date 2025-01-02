@@ -19,9 +19,14 @@ public class Profile
             var token = UserData.GetData(UserDataSet.Token);
             UserData.SetTotalData(obj.data);
             UserData.SetData(UserDataSet.Token, token);
+            
+            UserData.SetData(UserDataSet.CreatedAt, obj.data.createdAt.ToString("o")); // Save as ISO 8601 string
+            
             Debug.Log("UserData Updated");
             GetSetPic();
             GetQrCode();
+            
+            OnProfileLoaded?.Invoke();
         }
         else
         {
@@ -53,7 +58,6 @@ public class Profile
         {
             var image = Sprite.Create(obj, new Rect(0, 0, obj.width, obj.height), new Vector2(0.5f, 0.5f));
             UserData.SetImage(image);
-            OnProfileLoaded?.Invoke();
         }
         else
         {

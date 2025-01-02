@@ -3,15 +3,14 @@ using SweetSugar.Scripts.MapScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class BetScreen : MonoBehaviour
+public class BB_BetScreen : MonoBehaviour
 {
-    public static BetScreen instance;
+    public static BB_BetScreen instance;
     
     [SerializeField] private Button plus;
     [SerializeField] private Button minus;
     [SerializeField] private TMP_Text text;
     [SerializeField] private Button play;
-    [SerializeField] private StaticMapPlay staticMapPlay;
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] public int _count = 0;
     [SerializeField] private int _countmultiplyer = 10;
@@ -81,7 +80,7 @@ public class BetScreen : MonoBehaviour
         // Check if _count is greater than 0 and less than or equal to total points (bonus + game points)
         if (_count > 0 && _count <= totalPoints + bonusPoints)
         {
-            UpdateTransactions.Instance.UpdateGameTransactions("Bet on Ludo", -_count);
+            UpdateTransactions.Instance.UpdateGameTransactions("Bet on BasketBall", -_count);
             
             // Deduct points first from BonusPoints
             if (_count <= bonusPoints)
@@ -98,7 +97,7 @@ public class BetScreen : MonoBehaviour
             }
 
             // Play the game
-            staticMapPlay.Play();
+            Basketball.instance.isGameOver = false;
             mainCanvas.SetActive(false);
         }
         else

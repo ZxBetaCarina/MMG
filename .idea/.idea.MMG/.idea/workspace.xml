@@ -8,8 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/BasketBall Game/Scenes/Basketball.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BasketBall Game/Scenes/Basketball.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/BasketBall Game/scripts/Basketball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/BasketBall Game/scripts/Basketball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/BetScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/BetScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scenes/gameStatic.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/System/MenuReference.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Scripts/System/MenuReference.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +24,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/BasketBall Game/scripts/BB_BetScreen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/GameController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/Currency Crush/Scripts/MoveCounter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Ludo Masters/Scripts/UI/LudoMainUI.cs" root0="FORCE_HIGHLIGHTING" />

@@ -35,7 +35,7 @@ public class Basketball : MonoBehaviour
     private bool isShooting = false;
     private Vector3 initialBasketballPosition; // Store initial position of the ball
     private Rigidbody rbBasketball;
-    private bool isGameOver = false;
+    public bool isGameOver = true;
 
     private void Start()
     {
@@ -165,7 +165,18 @@ public class Basketball : MonoBehaviour
     {
         isGameOver = true;
         arrowAnimation.gameObject.SetActive(false);
-        WinCanvas.SetActive(true);
+        //WinCanvas.SetActive(true);
+        
+        int count = BB_BetScreen.instance._count;
+        int earnedPoints = Mathf.FloorToInt(count * 9f);
+        TotalPoints.instance.SetGamePoints(TotalPoints.instance.gamePoints + count);
+        TotalPoints.instance.SetEarnedPoints(TotalPoints.instance.earnedPoints + earnedPoints);
+        UpdateTransactions.Instance.UpdateGameTransactions("Win on Currency Crush", +count);
+        TotalPoints.instance.UpdateWalletPoints();
+        UpdateTransactions.Instance.UpdateEarnedTransactions("Win on Currency Crush", +earnedPoints);
+
+        PopUpManager.ShowPopUp("Target achieved!", $"{earnedPoints} points Added. \ntotal Earned Points: {TotalPoints.instance.earnedPoints}");
+        SceneManager.LoadScene(0);
     }
 
     public void OnGameLost()

@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
             Print.Separator(LogColor.Red);
             LoadScreen(startScreen);
         }
-        ApiManager.Initialize(this);
+        //ApiManager.Initialize(this);
         ToggleSwitch.InitializeToggle(this);
     }
 

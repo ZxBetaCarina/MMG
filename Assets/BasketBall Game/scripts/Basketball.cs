@@ -65,6 +65,15 @@ public class Basketball : MonoBehaviour
         {
             ShootBall();
         }
+        
+        print(arrowAnimation.speed);
+        
+        if (Input.GetKey(KeyCode.P))
+        {
+            isGameOver = false;
+            
+        }
+        
     }
 
     // private void OnMouseDown()
@@ -121,10 +130,10 @@ public class Basketball : MonoBehaviour
     public void IncreaseDifficulty()
     {
         // Increase arrow animation speed to make aiming trickier
-        if (arrowAnimation.speed < 1.2f)
+        if (arrowAnimation.speed < 1f)
             arrowAnimation.speed += moveSpeed;
         else
-            arrowAnimation.speed += (moveSpeed * 2);
+            arrowAnimation.speed += (moveSpeed);
     }
 
     IEnumerator ResetBallAnimation()

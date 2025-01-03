@@ -48,7 +48,6 @@ public class BonusPointsTimer : MonoBehaviour
         string createdAtString = UserData.GetData(UserDataSet.CreatedAt);
         startDate = DateTime.Parse(createdAtString); // Parse the string back to DateTime
         targetDate = startDate.AddDays(7);
-
         
     }
 

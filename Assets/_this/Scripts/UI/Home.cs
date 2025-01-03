@@ -31,6 +31,7 @@ public class Home : MonoBehaviour
         timerBtn.onClick.AddListener(OntimerBttClick);
         TotalPoints.instance.GetWallet();
         Profile.GetProfile();
+        
     }
 
     private void OnDisable()

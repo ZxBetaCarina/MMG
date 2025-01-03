@@ -33,12 +33,12 @@ public class TotalPoints : MonoBehaviour
             UpdateWalletPoints();
         }
 
-        if (BonusPoints != 0 && BonusPointsTimer._instance.IsTimeExpired() == true)
-        {
-            BonusPoints = 0;
-            UpdateWalletPoints();
-            Debug.Log("Bonus points reset to 0 because the timer expired.");
-        }
+        // if (BonusPoints != 0 && BonusPointsTimer._instance.IsBonusTimeExpired() == true)
+        // {
+        //     BonusPoints = 0;
+        //     UpdateWalletPoints();
+        //     Debug.Log("Bonus points reset to 0 because the timer expired.");
+        // }
     }
 
     public void SetGamePoints(int points)

@@ -16,7 +16,7 @@ public class BonusPointsTimer : MonoBehaviour
     public int startMonth; // Example month
     public int startDay; // Example day
     
-    public bool isTicketPurchased = false;
+    public bool hasPurchasedTickets = false;
 
     private void Awake()
     {
@@ -45,7 +45,7 @@ public class BonusPointsTimer : MonoBehaviour
     // This method is called when the profile is fully loaded
     private void OnProfileLoaded()
     {
-        bool hasPurchasedTickets = bool.Parse(UserData.GetData(UserDataSet.HasPurchasedTickets));
+        hasPurchasedTickets = bool.Parse(UserData.GetData(UserDataSet.HasPurchasedTickets));
         
         string createdAtString = UserData.GetData(UserDataSet.CreatedAt);
         startDate = DateTime.Parse(createdAtString); // Parse the string back to DateTime
@@ -55,14 +55,25 @@ public class BonusPointsTimer : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"Start Date: {isTicketPurchased}, Target Date: {targetDate}");
+        Debug.Log($"Start Date: {hasPurchasedTickets}, Target Date: {targetDate}");
     }
 
-    public bool IsTimeExpired()
+    public bool IsBonusTimeExpired()
     {
-        
         // Check if the current UTC time is past the target date
         return DateTime.UtcNow > targetDate;
+    }
+    public bool IsTrialPeriodExpired()
+    {
+        
+        if (hasPurchasedTickets || DateTime.UtcNow > targetDate)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
         
     }
 

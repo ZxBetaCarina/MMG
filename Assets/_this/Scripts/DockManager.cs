@@ -46,10 +46,10 @@ public class DockManager : MonoBehaviour
     {
         if (isAnimating) return; // Prevent multiple calls if already animating
 
-        // Check if the trial period is over and if the button is "refer" or "game"
-        if (!BonusPointsTimer._instance.IsTimeExpired() && (p_index == 1 || p_index == 2))
+        // Check if the trial period is not over and if the button is "refer" or "game"
+        if (!BonusPointsTimer._instance.IsTrialPeriodExpired() && (p_index == 1 || p_index == 2))
         {
-            // Show popup if time expired and the button is "refer" or "game"
+            // Show popup if time is not expired and the button is "refer" or "game"
             PopUpManager.ShowPopUp("Message", "This feature is locked until trial period ends");
             return;
         }

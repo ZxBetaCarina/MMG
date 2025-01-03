@@ -6,9 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Currency Crush Assets And Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/AppSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/AppSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Items.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Items.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Level 1.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Level 1.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Map.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/Map.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/MenuComplete.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/MenuComplete.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/MenuPlay.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/SweetSugar/Textures_png/Atlases/MenuPlay.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

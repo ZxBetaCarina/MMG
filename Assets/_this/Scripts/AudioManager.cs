@@ -1,5 +1,5 @@
-﻿using HandyButtons;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using HandyButtons;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +11,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private bool vibration;
     public static AudioManager _instance;
    
-    public AppSettings _AppSettings;
+    public AppSettings _AppSettings; // Assuming you are injecting or accessing AppSettings
+
     private void Awake()
     {
         if (_instance == null)
@@ -44,11 +45,37 @@ public class AudioManager : MonoBehaviour
     private void OnEnable()
     {
         SetupButtonListeners(true);
-       // _AppSettings.GetSettingsData();
+        Profile.OnProfileLoaded += OnProfileLoaded;  // Subscribe to the profile loaded event
     }
+
     private void OnDisable()
     {
         SetupButtonListeners(false);
+        Profile.OnProfileLoaded -= OnProfileLoaded;  // Unsubscribe to avoid memory leaks
+    }
+
+    private void OnProfileLoaded()
+    {
+        // Fetch settings from user data and apply them
+        var settingsUser = UserData.GetSettings();  // Assuming UserData.GetSettings() gives the settings
+
+        if (settingsUser != null)
+        {
+            // Apply the settings to the audio
+            ApplyAudioSettings(settingsUser);
+        }
+    }
+
+    private void ApplyAudioSettings(Settings settings)
+    {
+        // Apply Music setting
+        PlayMusic(settings.music);
+
+        // Apply SFX setting
+        MuteSfx(!settings.soundEffect);  // If soundEffect is true, mute will be false and vice versa
+
+        // Apply Vibration setting
+        ToggleVibration(settings.vibration);
     }
 
     private void SetupButtonListeners(bool value)
@@ -69,14 +96,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-   public AudioSource GetMusicAudioSource()
-   {
-       return music;
-   }
-   public AudioSource GetsfxAudioSource()
-   {
-       return sfx;
-   }
+    public AudioSource GetMusicAudioSource()
+    {
+        return music;
+    }
+
+    public AudioSource GetsfxAudioSource()
+    {
+        return sfx;
+    }
+
     private void PlaySfx()
     {
         sfx.Play();
@@ -101,7 +130,7 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-    
+
     public static void MuteSfx(bool value)
     {
         _instance.sfx.mute = value;
@@ -112,12 +141,10 @@ public class AudioManager : MonoBehaviour
         _instance.vibration = value;
     }
 
-    //call this method for vibration
+    // Call this method for vibration
     public static void Vibrate()
     {
         if (!_instance.vibration) return;
         Handheld.Vibrate();
     }
-
-   
 }

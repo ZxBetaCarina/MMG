@@ -131,7 +131,7 @@ public class AppSettings : MonoBehaviour
     }
 
     // Fetch the settings from the API if the stored settings differ
-    private void GetSettingsData()
+    public void GetSettingsData()
     {
         Settings data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
         if (UserData.GetSettings() != data)

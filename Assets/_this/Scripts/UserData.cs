@@ -108,6 +108,8 @@ public class UserData : MonoBehaviour
                 return UserData._instance.data.token;
             case UserDataSet.CreatedAt:
                 return UserData._instance.data.createdAt.ToString("o");
+            case UserDataSet.HasPurchasedTickets:
+                return UserData._instance.data.hasPurchasedTickets.ToString();
             default:
                 Print.CustomLog("Invalid data type in GetData", LogColor.Red);
                 return null;
@@ -176,6 +178,9 @@ public class UserData : MonoBehaviour
                 break;
             case UserDataSet.CreatedAt:
                 UserData._instance.data.createdAt = DateTime.Parse(value); // Parse the string to DateTime
+                break;
+            case UserDataSet.HasPurchasedTickets:
+                UserData._instance.data.hasPurchasedTickets = bool.Parse(value);
                 break;
             default:
                 Print.CustomLog("Invalid data type in SetData", LogColor.Red);
@@ -266,4 +271,5 @@ public enum UserDataSet
     SellerId,
     Token,
     CreatedAt,
+    HasPurchasedTickets,
 }

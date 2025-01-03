@@ -45,6 +45,8 @@ public class BonusPointsTimer : MonoBehaviour
     // This method is called when the profile is fully loaded
     private void OnProfileLoaded()
     {
+        bool hasPurchasedTickets = bool.Parse(UserData.GetData(UserDataSet.HasPurchasedTickets));
+        
         string createdAtString = UserData.GetData(UserDataSet.CreatedAt);
         startDate = DateTime.Parse(createdAtString); // Parse the string back to DateTime
         targetDate = startDate.AddDays(7);

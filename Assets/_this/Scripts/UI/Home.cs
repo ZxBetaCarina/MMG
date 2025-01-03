@@ -18,6 +18,12 @@ public class Home : MonoBehaviour
     
     [SerializeField] private TMP_Text PointsUI;
 
+    private bool hasPurchasedTickets = false;
+    
+    [SerializeField] private Image joinBttImage; // Reference to the button's Image component
+    [SerializeField] private Sprite GiveAway; // Sprite when the user has purchased tickets
+    [SerializeField] private Sprite BuyTicket;
+
     private void OnEnable()
     {
         notification.onClick.AddListener(OnNotificationClick);
@@ -31,7 +37,7 @@ public class Home : MonoBehaviour
         timerBtn.onClick.AddListener(OntimerBttClick);
         TotalPoints.instance.GetWallet();
         Profile.GetProfile();
-        
+        Profile.OnProfileLoaded += OnProfileLoaded;
     }
 
     private void OnDisable()
@@ -45,11 +51,26 @@ public class Home : MonoBehaviour
         BasketBall.onClick.RemoveListener(OnBasketBallClick);
         joinBtt.onClick.RemoveListener(OnJoinBttClick);
         timerBtn.onClick.RemoveListener(OntimerBttClick);
+        Profile.OnProfileLoaded -= OnProfileLoaded;
     }
 
     private void Update()
     {
         PointsUI.text = (TotalPoints.instance.gamePoints + TotalPoints.instance.BonusPoints).ToString();
+    }
+    private void OnProfileLoaded()
+    {
+        // After profile is loaded, get the value of HasPurchasedTickets
+        hasPurchasedTickets = bool.Parse(UserData.GetData(UserDataSet.HasPurchasedTickets));
+        if (!hasPurchasedTickets) // Only proceed if HasPurchasedTickets is true
+        {
+            joinBttImage.sprite = GiveAway;
+        }
+        else
+        {
+            joinBttImage.sprite = BuyTicket;
+        }
+        
     }
 
     private void OnNotificationClick()
@@ -87,7 +108,16 @@ public class Home : MonoBehaviour
 
     private void OnJoinBttClick()
     {
-        UIManager.LoadScreenAnimated(UIScreen.JoinGiveaway);
+        if (!hasPurchasedTickets) // Only proceed if HasPurchasedTickets is true
+        {
+            UIManager.LoadScreenAnimated(UIScreen.JoinGiveaway);
+            joinBttImage.sprite = GiveAway;
+        }
+        else
+        {
+            UIManager.LoadScreenAnimated(UIScreen.BuyTicket);
+            joinBttImage.sprite = BuyTicket;
+        }
     }
     private void OntimerBttClick()
     {

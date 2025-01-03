@@ -21,6 +21,9 @@ public class Profile
             UserData.SetData(UserDataSet.Token, token);
             
             UserData.SetData(UserDataSet.CreatedAt, obj.data.createdAt.ToString("o")); // Save as ISO 8601 string
+            UserData.SetSettings(obj.data.settings);
+            UserData.SetData(UserDataSet.HasPurchasedTickets, obj.data.hasPurchasedTickets.ToString());
+
             
             Debug.Log("UserData Updated");
             GetSetPic();

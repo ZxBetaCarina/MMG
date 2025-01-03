@@ -203,6 +203,7 @@ public class Data
     public DateTime updatedAt;
     public int __v;
     public string token;
+    public bool hasPurchasedTickets;
 }
 
 [Serializable]

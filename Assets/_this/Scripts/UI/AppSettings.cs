@@ -3,6 +3,7 @@ using HandyButtons;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using ZxLog;
 
 public class AppSettings : MonoBehaviour
 {
@@ -11,33 +12,28 @@ public class AppSettings : MonoBehaviour
     [SerializeField] private ToggleSwitch vibration;
     [SerializeField] private Button back;
 
-    private bool defaultMusic = true;
-    private bool defaultSfx = true;
-    private bool defaultVibration = true;
-
-  
+    [SerializeField] private bool bool1 = true; // Corresponds to music toggle
+    [SerializeField] private bool bool2 = true; // Corresponds to sfx toggle
+    [SerializeField] private bool bool3 = true;
     private void ToggleThing(ToggleSwitch type, bool value)
     {
-        if (value)
+        type.ToggleByGroupManager(value);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.W))
         {
-            if (!music.CurrentValue)
-            {
-                type.Toggle();
-            }
-        }
-        else
-        {
-            if (music.CurrentValue)
-            {
-                type.Toggle();
-            }
+            Debug.Log(music.CurrentValue);
+            Debug.Log(sfx.CurrentValue);
+            Debug.Log(vibration.CurrentValue);
         }
     }
 
     [Button]
     private void TestToggleOn()
     {
-        MusicToggle(true);// THIS ONE SHOULD BE ALLED ASLO IN GameStarting
+        MusicToggle(true);
     }
     
     [Button]
@@ -45,6 +41,7 @@ public class AppSettings : MonoBehaviour
     {
         MusicToggle(false);
     }
+
     private void MusicToggle(bool value)
     {
         ToggleThing(music, value);
@@ -62,24 +59,24 @@ public class AppSettings : MonoBehaviour
 
     private void OnEnable()
     {
-        back.onClick.AddListener(OnBack);
-        GetSettingsData();
+        // Set initial toggle states from user data
+        GetSettingsFromUserData();
+        //SetInitialToggleStates();
+        //GetSettingsData();
 
+        // Add listener for the back button
+        back.onClick.AddListener(OnBack);
     }
-    public void GetSettingsFromUserData()
+    private void SetInitialToggleStates()
     {
-        var settingsUser = UserData.GetSettings(); 
-        var data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
-        if (data != settingsUser)
-        {
-            MusicToggle(settingsUser.music);
-            SfxToggle(settingsUser.soundEffect);
-            VibrationToggle(settingsUser.vibration);
-        }
+        MusicToggle(bool1);  // Set music toggle based on bool1
+        SfxToggle(bool2);    // Set sfx toggle based on bool2
+        VibrationToggle(bool3); // Set vibration toggle based on bool3
     }
 
     private void OnDisable()
     {
+        // Save updated settings on disable
         back.onClick.RemoveListener(OnBack);
         SaveSettings();
     }
@@ -89,6 +86,51 @@ public class AppSettings : MonoBehaviour
         UIManager.LoadScreenAnimated(UIScreen.Home);
     }
 
+    // Fetch user settings data and apply it to the toggles
+    public void GetSettingsFromUserData()
+    {
+        var settingsUser = UserData.GetSettings(); 
+        if (settingsUser != null)
+        {
+            MusicToggle(settingsUser.music);
+            SfxToggle(settingsUser.soundEffect);
+            VibrationToggle(settingsUser.vibration);
+        }
+    }
+
+    // Save settings to UserData and post to the API
+    private void SaveSettings()
+    {
+        var data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
+        
+        // If the current settings are different from the stored ones, save and post them
+        if (UserData.GetSettings() != data)
+        {
+            UserData.SetSettings(data);
+            ApiManager.Post<Settings, SettingResponseData>(ServiceURLs.UpdateSettings, data, OnSuccessSaveSettings, OnErrorSaveSettings);
+        }
+    }
+
+    // Handle API success for settings update
+    private void OnSuccessSaveSettings(SettingResponseData obj)
+    {
+        if (obj.status)
+        {
+            CustomLog.SuccessLog(obj.message);
+        }
+        else
+        {
+            CustomLog.ErrorLog(obj.message);
+        }
+    }
+
+    // Handle API error for settings update
+    private void OnErrorSaveSettings(string obj)
+    {
+        CustomLog.ErrorLog(obj);
+    }
+
+    // Fetch the settings from the API if the stored settings differ
     private void GetSettingsData()
     {
         Settings data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
@@ -98,6 +140,7 @@ public class AppSettings : MonoBehaviour
             ApiManager.Get<SettingResponseData>(ServiceURLs.GetSettings, OnSuccess, OnError);
         }
     }
+
     private void OnSuccess(SettingResponseData obj)
     {
         if (obj.status)
@@ -111,37 +154,12 @@ public class AppSettings : MonoBehaviour
             CustomLog.ErrorLog(obj.message);
         }
     }
+
     private void OnError(string obj)
     {
         CustomLog.ErrorLog(obj);
     }
-
-    private void SaveSettings()
-    {
-        var data = new Settings(music.CurrentValue, sfx.CurrentValue, vibration.CurrentValue);
-        if (UserData.GetSettings() != data)
-        {
-            UserData.SetSettings(data);
-            ApiManager.Post<Settings, SettingResponseData>(ServiceURLs.UpdateSettings, data, OnSuccessSaveSettings, OnErrorSaveSettings);
-        }
-    }
-    private void OnSuccessSaveSettings(SettingResponseData obj)
-    {
-        if (obj.status)
-        {
-            CustomLog.SuccessLog(obj.message);
-        }
-        else
-        {
-            CustomLog.ErrorLog(obj.message);
-        }
-    }
-    private void OnErrorSaveSettings(string obj)
-    {
-        CustomLog.ErrorLog(obj);
-    }
 }
-
 public class SettingResponseData
 {
     public bool status;

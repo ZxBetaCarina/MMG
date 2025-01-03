@@ -9,7 +9,7 @@ public class BonusPointsTimer : MonoBehaviour
     
     public TMP_Text countdownText; // Reference to a TextMeshPro text object for countdown display
 
-    private DateTime startDate; // The starting date of the timer
+    private DateTime startDate = DateTime.UtcNow; // The starting date of the timer
     private DateTime targetDate; // The target date (7 days after startDate)
 
     public int startYear; // Example year

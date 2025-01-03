@@ -7,7 +7,7 @@
     <list default="true" id="f185ab49-86f8-4e59-927d-99c1e84a7366" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MMG/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/DockManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/DockManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/BonusPointsTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/BonusPointsTimer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_this/Scripts/UI/TotalPoints.cs" afterDir="false" />
     </list>
@@ -143,7 +143,7 @@
       <workItem from="1735188401013" duration="1982000" />
       <workItem from="1735197960893" duration="857000" />
       <workItem from="1735217062191" duration="3001000" />
-      <workItem from="1735878657688" duration="15921000" />
+      <workItem from="1735878657688" duration="19897000" />
     </task>
     <servers />
   </component>
